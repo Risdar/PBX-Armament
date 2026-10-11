@@ -5,13 +5,13 @@ extend class PBX_ProSurvPSG
 	static const StateLabel blockedLaserStates[] = {
 		"Reload", "ShellChecker", "ChamberInsertShell", "ReloadFinished", "ReloadFromADS",
 		"Unload", "RemoveBullets", "FinishUnload", "SelectAnimation", "WeaponInspect",
-		"Pump", "PumpBegin", "PumpEnd", "WeaponRespect", "Deselect",
+		"Pump", "PumpBegin", "PumpEnd", "WeaponRespect", "Deselect", "SwitchAnimation",
 		"FlashPunching", "FlashKicking", "FlashAirKicking", "FlashSlideKicking", "FlashSlideKickingStop"
 	};
 
 	override void PBX_DoEffectWeaponReady()
     {
-		PBX_SpawnLaserSight(PBX_LaserSightProjectile.GREEN_DOT);
+		PBX_SpawnLaserSight(GREEN_DOT);
     }
 
 	action void cleanmodetokens()
@@ -51,26 +51,20 @@ extend class PBX_ProSurvPSG
 		{
 			case CLOSE_WHEEL:
 				cleanmodetokens();
-				if(PB_GetZoom())
-					return resolvestate("ready2");
-				return resolvestate("ready3");
+				return PBX_ReturnReady();
 				break;
 
 			case TOGGLE_LASER:
 				cleanmodetokens();
 				PBX_ToggleLaserSight();
-				if(PB_GetZoom())
-					return resolvestate("ready2");
-				return resolvestate("ready3");
+				return PBX_ReturnReady(normal:"SwitchAnimation");
 				break;
 
 			case TRY_TRIPMINE:
 				cleanmodetokens();
 				if(!hasEnoughRockets(tokens))
 				{
-					if(PB_GetZoom())
-						return resolvestate("ready2");
-					return resolvestate("ready3");
+					return PBX_ReturnReady();
 				}
 				PB_SetZoom(false);
 				A_ZoomFactor(1.0);
@@ -82,9 +76,7 @@ extend class PBX_ProSurvPSG
 				if(!hasEnoughRockets(tokens))
 				{
 					cleanmodetokens();
-					if(PB_GetZoom())
-						return resolvestate("ready2");
-					return resolvestate("ready3");
+					return PBX_ReturnReady();
 				}
 				PB_SetZoom(false);
 				A_ZoomFactor(1.0);

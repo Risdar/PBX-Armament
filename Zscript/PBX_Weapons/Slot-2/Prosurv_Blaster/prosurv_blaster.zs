@@ -55,7 +55,8 @@ class PBX_ProsurvBlaster : PBX_WeaponBase
 
     static const StateLabel blockedLaserStates[] = {
         "Reload", "Recharge","WeaponRespect", "Deselect", "SelectAnimation", "ReloadFromADS", "WeaponInspect",
-        "FlashPunching", "FlashKicking", "FlashAirKicking", "FlashSlideKicking", "FlashSlideKickingStop"
+        "FlashPunching", "FlashKicking", "FlashAirKicking", "FlashSlideKicking", "FlashSlideKickingStop",
+        "SwitchAnimation"
     };
 
     override void DoEffect() 
@@ -72,7 +73,7 @@ class PBX_ProsurvBlaster : PBX_WeaponBase
 
     override void PBX_DoEffectWeaponReady()
     {
-		PBX_SpawnLaserSight(PBX_LaserSightProjectile.BLUE_DOT);
+		PBX_SpawnLaserSight(BLUE_DOT);
     }
 
     void giveBlasterCharge()
@@ -359,6 +360,7 @@ class PBX_ProsurvBlaster : PBX_WeaponBase
 			}
             TNT1 A 0 PBX_ToggleLaserSight();
             TNT1 A 0 A_JumpIf(PB_GetZoom(),"Ready2");
+        SwitchAnimation:
             BRGY ABCDEFGFEDCBA 1;
 			Goto Ready3;
 

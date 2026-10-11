@@ -168,11 +168,8 @@ class PBX_ProSurvPSG : PBX_WeaponBase
 
         Deselect:
 			TNT1 A 0 {
-				A_WeaponOffset(0,32);
-				PB_SetRoll(0);
-				PB_HandleCrosshair(46);
-                A_ZoomFactor(1.0);
-                PB_SetZoom(false);
+                A_SetCrosshair(-1);
+				PBX_WeaponLower();
 			}
 			XG10 FEDCBA 1;
 			TNT1 A 0 A_Lower();
@@ -227,6 +224,9 @@ class PBX_ProSurvPSG : PBX_WeaponBase
 				PB_HandleCrosshair(46);
 			}
 			TNT1 A 0 handleSpecial();
+		SwitchAnimation:
+			XG51 ABCDEFG 1;
+			XG51 GFEDCBA 1;
 			Goto Ready3;
 
 		DetonatorOverlay:

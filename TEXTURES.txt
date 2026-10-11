@@ -41,3 +41,12 @@ Sprite "XPCKA0", 372, 371
 }
 
 // End of texture definitions
+
+// Laser Sight
+sprite WDO1A0, 32, 32
+{
+  Sprite WDOTA0, 0, 0
+  Offset 16, 16
+  XScale 2
+  YScale 2.4
+}

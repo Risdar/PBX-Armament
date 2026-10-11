@@ -6,6 +6,7 @@ server bool PBXWeapons_enablesecretweapon = true;
 server bool PBXWeapons_cssghooklockswitch = true;
 server bool PBXWeapons_keepweapons = false;
 server bool PBXWeapons_secretweapon_bfgspawn = false;
+server bool PBXWeapons_LaserShowBeam = true;
 server int PBXWeapons_secretweapon_spawnchance = 5;
 
 // Tip Flags

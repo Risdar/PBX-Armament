@@ -8,4 +8,4 @@ the PB2022 version is the base for the PBX version
 
 some sounds are from Half-Life 2
 
-reworked spas 12 uses edited sprites by Edewaa for his brutal doom addon
+reworked spas 12 uses edited sprites by Edewaa from his brutal doom addon

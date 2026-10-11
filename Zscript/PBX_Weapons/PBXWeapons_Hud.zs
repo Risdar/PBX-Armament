@@ -107,7 +107,7 @@ class PBXWeapons_HUDHandler : EventHandler
     ui void PBXWeapons_DrawScope()
     {
         let weap = PBX_WeaponBase(pbWeap);
-        if(!weap || !weap.mScopedWeapon || !mo || !mo.FindInventory("Zoomed")) return;
+        if(!weap || !weap.IsScopedWeapon() || !mo || !mo.FindInventory("Zoomed")) return;
 
         int hudX = 150;
         phud.PBHud_DrawString(phud.mDefaultFont,"Zoom In:",(hudX, -100), BaseStatusBar.DI_SCREEN_LEFT_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT, Font.CR_WHITE);
@@ -306,7 +306,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let lar = PBX_Prosurv_LeverAction(weapon); if (!lar) return null;
 
             return MakeLaserData(
-                laserOn: lar.mLaserSightActivated,
+                laserOn: lar.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."LeverAction/LaserOn.png",
                 offImage: IMAGE_DIRECTORY.."LeverAction/LaserOff.png",
                 onOffset: (0, 18), 
@@ -338,7 +338,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let psg = PBX_ProSurvPSG(weapon); if (!psg) return null;
 
             return MakeLaserData(
-                laserOn: psg.mLaserSightActivated,
+                laserOn: psg.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOn.png",
                 offImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOff.png",
                 onOffset: (13, -9), 
@@ -372,7 +372,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let br = PBX_BDPBattleRifle(weapon); if (!br) return null;
 
             return MakeLaserData(
-                laserOn: br.mLaserSightActivated,
+                laserOn: br.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."BattleRifle/LaserOn.png",
                 offImage: IMAGE_DIRECTORY.."BattleRifle/LaserOff.png",
                 onOffset: (0, 12), 
@@ -385,10 +385,10 @@ class PBXHUDService_PBX_AllWeapons : service
         {
             let sniper = PBX_MetalSniper(weapon); if (!sniper) return null;
 
-            Vector2 imgOffset1 = sniper.mLaserSightActivated ? (0, 10) : (0, 14);
+            Vector2 imgOffset1 = sniper.GetLaserActive() ? (0, 10) : (0, 14);
             if (sniper.AltMode) imgOffset1.y -= 19;
 
-            string img1 = sniper.mLaserSightActivated ? IMAGE_DIRECTORY.."MetalSniper/LaserOn.png" : IMAGE_DIRECTORY.."MetalSniper/LaserOff.png";
+            string img1 = sniper.GetLaserActive() ? IMAGE_DIRECTORY.."MetalSniper/LaserOn.png" : IMAGE_DIRECTORY.."MetalSniper/LaserOff.png";
             string img2 = sniper.resonanceAmmoLoaded ? IMAGE_DIRECTORY.."metalsniper/ResonanceAlt.png" : IMAGE_DIRECTORY.."metalsniper/StandardAlt.png";
 
             return MakeData(
@@ -410,7 +410,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let nr = PBX_NormalRifle(weapon); if (!nr) return null;
 
             return MakeLaserData(
-                laserOn: nr.mLaserSightActivated,
+                laserOn: nr.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."NormalRifle/laseron.png",
                 offImage: IMAGE_DIRECTORY.."NormalRifle/laseroff.png",
                 onOffset: (0, 8), 
@@ -425,7 +425,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let snp = PBX_XM21(weapon); if (!snp) return null;
 
             return MakeLaserData(
-                laserOn: snp.mLaserSightActivated,
+                laserOn: snp.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."XM21/LaserOn.png",
                 offImage: IMAGE_DIRECTORY.."XM21/LaserOff.png",
                 onOffset: (0,-12), 
@@ -477,7 +477,7 @@ class PBXHUDService_PBX_AllWeapons : service
             let railgun = PBX_BDPRailgun(weapon); if (!railgun) return null;
             
             return MakeLaserData(
-                laserOn: railgun.mLaserSightActivated,
+                laserOn: railgun.GetLaserActive(),
                 onImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOn.png",
                 offImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOff.png",
                 onOffset: (0, 12), 

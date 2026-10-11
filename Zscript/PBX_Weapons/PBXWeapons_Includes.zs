@@ -1,12 +1,12 @@
 // General
-#include "./PBXWeapons_BaseWeapon.zs"
+#include "./BaseWeapon/PBX_BaseWeapon.zs"
 #include "./PBXWeapons_Upgrades.zs"
 #include "./PBXWeapons_Hud.zs"
 #include "./PBXWeapons_Ammo.zs"
 #include "./PBXWeapons_Tips.zs"
 
 // Projectiles
-#include "./Projectiles/PBXWeapons_Projectiles.zs"
+#include "./Projectiles/PBX_Projectiles.zs"
 
 // Some weapon has their own includes (basically helper files), you cen see these in each weapon files
 // Slot 1

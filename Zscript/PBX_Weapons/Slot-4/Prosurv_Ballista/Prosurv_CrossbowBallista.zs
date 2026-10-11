@@ -96,10 +96,8 @@ class PBX_Prosurv_Ballista : PBX_WeaponBase
 
         Deselect:
             TNT1 A 0 {
-                A_WeaponOffset(0,32);
-                PB_SetRoll(0);
                 A_SetCrosshair(-1);
-                PB_SetZoom(false);
+                PBX_WeaponLower();
             }
         ActualDeselect:
 		    CB_A EDCBA 1 setCrossbowSprite("CB0S","CB1S","CB2S","CB3S","CB4S");

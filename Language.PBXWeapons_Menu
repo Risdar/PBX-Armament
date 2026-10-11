@@ -5,6 +5,7 @@ PBXWEAPONS_MENU_ENABLE_KEEPWEAPONS = "Keep Unupgraded Weapons";
 PBXWEAPONS_MENU_RESET_SPAWNERS = "Reset PBX Weapons Spawners";
 PBXWEAPONS_MENU_RESET_PBTOOLTIPS = "Reset PB Tool Tips";
 PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS = "Reset PBX Weapons Tool Tips";
+PBXWEAPONS_LASER_SHOW_BEAM = "Laser Sights Show Beam";
 
 PBXWEAPONS_START_WITH_BDP_RIFLE = "Start with the BDP Rifle";
 PBXWEAPONS_START_WITH_PISTOL_BLASTER = "Start with the Pistol Blaster";
@@ -14,7 +15,7 @@ PBXWEAPONS_MENU_SECRETWEAPON_BFGSPAWN = "Secret Weapons spawns in BFG spawners";
 PBXWEAPONS_MENU_ENABLE_WEAPON_EDITS = "Enable Weapon Edits";
 
 TIP_pbxweapons_secretweapon_bfgspawn = "Secret weapons will also spawn in BFG spawners. Disabling the secret spawns will not affect this.";
-
+TIP_PBXWeapons_LaserShowBeam = "Draw the Beam for Laser Sights, may impact performace";
 
 //////////////////////////// WEAPONS MENU ///////////////////////////////////////////////////////////////////////////////
 PBXWEAPONS_SECRETWEAPONS_SPAWNCHANCE = "Secret weapon spawn chance";
@@ -86,6 +87,7 @@ PBXWEAPONS_LMG_EDIT         = "Enable LMG Upgrade";
 PBXWEAPONS_CHAINSAW_EDIT    = "Enable Chainsaw Edit";
 
 //////////////////////////// KEYS MENU ///////////////////////////////////////////////////////////////////////////////
-PBXWEAPONS_WHEELZOOM     = "Scroll Wheel Zoom";
+PBXWEAPONS_KEYMENU       = "PBX Keys Menu";
 PBXWEAPONS_WHEELZOOM_IN  = "Manual Zoom In Key";
 PBXWEAPONS_WHEELZOOM_OUT = "Manual Zoom Out Key";
+PBXWEAPONS_PREV_WEAPON   = "Previous Weapon Key";

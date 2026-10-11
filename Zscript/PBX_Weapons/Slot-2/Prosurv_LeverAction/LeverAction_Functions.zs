@@ -17,7 +17,7 @@ extend class PBX_Prosurv_LeverAction
 
 	override void PBX_DoEffectWeaponReady()
     {
-		PBX_SpawnLaserSight(PBX_LaserSightProjectile.RED_DOT);
+		PBX_SpawnLaserSight(RED_DOT);
     }
 
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////

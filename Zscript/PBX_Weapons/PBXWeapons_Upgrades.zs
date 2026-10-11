@@ -9,6 +9,63 @@ enum PBXWeapons_eUpgradeTipFlags
     PBX_TIP_DISABLE_UPGRADE     = 1 << 31
 }
 
+class PBX_UpgradeBase : PB_UpgradeItem abstract
+{
+    name upgradetoken, upgradetype, s;
+    property UpgradeToken : upgradetoken;
+	property Sprite : upgradetype;
+
+	Default
+	{
+        PBX_UpgradeBase.upgradetoken '';
+        PBX_UpgradeBase.Sprite '';
+		+inventory.alwayspickup;
+	}
+
+	override void PlayPickupSound(actor toucher)
+	{
+		let hnd  = PB_EventHandler(EventHandler.Find("PB_EventHandler"));
+		if(hnd)
+		{
+			if(hnd.pickuptic[toucher.PlayerNumber()]==gametic) return;
+			hnd.pickuptic[toucher.PlayerNumber()] = gametic;
+		}
+		double atten;
+		int flags = CHANF_OVERLAP|CHANF_MAYBE_LOCAL;
+		if(bNoAttenPickupSound) atten = ATTN_NONE;
+		else atten = ATTN_NORM;
+		if(toucher && toucher.CheckLocalView()) flags |= CHANF_NOPAUSE;
+		toucher.A_StartSound(PickupSound,1002,flags,1.0,atten);
+	}
+
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		PBX_SetUpgradeSprite();
+	}
+
+	virtual void PBX_SetUpgradeSprite()
+	{
+		switch(upgradetype)
+		{
+            default: s = "TNT1"; break;
+		}
+
+        if(upgradetype != "TNT1")
+		    sprite = GetSpriteIndex(s);
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A -1 bright light("WeaponUpgradeSpawner");
+			stop;
+
+		LoadSprites:
+			TNT1 A 0;
+	}
+}
+
 //////////////////////////// SLOT 2 ////////////////////////////////////////////////////////////////////////////////////
 // Lever Action
 class LeverAction_Upgrade : PB_UpgradeItem

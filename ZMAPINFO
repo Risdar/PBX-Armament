@@ -6,7 +6,10 @@ Gameinfo
 	addeventhandlers = "PBXWeapons_CheatsHandler"
 	addeventhandlers = "PBXWeapons_SecretWeaponHandler"
 	addeventhandlers = "PBXWeapons_WeaponEditHandler"
-	addeventhandlers = "PBXWeapons_ScopeHandler"
+	addeventhandlers = "PBX_SmartScopeHandler"
+	addeventhandlers = "PBX_ScrollZoomHandler"
 	addeventhandlers = "PBXWeapons_Handler"
 	addeventhandlers = "ExterminatorHandler"
+	addeventhandlers = "PBX_PreviousWeaponHandler"
+	
 }

@@ -22,7 +22,7 @@ extend class PBX_MetalSniper
     bool mShouldResetVariables;
     override void PBX_DoEffectWeaponReady()
 	{
-        PBX_SpawnLaserSight(PBX_LaserSightProjectile.GREEN_DOT);
+        PBX_SpawnLaserSight(GREEN_DOT);
 
         if(!owner.FindInventory("Zoomed") && mShouldResetVariables)
         {

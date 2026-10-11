@@ -123,7 +123,7 @@ class PBX_XM21 : PBX_WeaponBase
 	};
 	override void PBX_DoEffectWeaponReady()
 	{
-		PBX_SpawnLaserSight(PBX_LaserSightProjectile.GREEN_DOT);
+		PBX_SpawnLaserSight(GREEN_DOT);
 	}
 
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
@@ -631,6 +631,7 @@ class PBX_SniperTarget : PBX_Hologram
         +FRIENDLY
         BloodType '';
         Species 'Marines';
+        Health 1000;
     }
 
     override void PostBeginPlay()

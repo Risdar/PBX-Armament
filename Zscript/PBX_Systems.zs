@@ -1,5 +1,75 @@
-// Handles giving the player ammo (and other things) on map start
-// This is so the player will always have full ammo when picking up a new weapon
+/* Copyright Alexander 'm8f' Kromm (mmaulwurff@gmail.com) 2019
+ *
+ * This file is a part of m_gizmos.
+ *
+ * m_gizmos is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * m_gizmos is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * m_gizmos.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+// Modified Previous Weapon Handler from m_gizmos
+
+class PBX_PreviousWeaponHandler : EventHandler
+{
+// public: // EventHandler /////////////////////////////////////////////////////
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		PlayerInfo player = players[e.player];
+		if (e.name ~== "PBX_Prev_Weapon") 
+		{
+			selectPreviousWeapon(player); 
+		}
+	}
+
+	override void WorldTick()
+	{
+		PlayerInfo player = players[consolePlayer];
+		updatePreviousWeapon(player);
+	}
+
+// private: ////////////////////////////////////////////////////////////////////
+	private
+	void updatePreviousWeapon(PlayerInfo player)
+	{
+		let ready = player.ReadyWeapon;
+
+		if (!ready)
+		{
+			return;
+		}
+
+		if (currentWeapon != ready)
+		{
+			previousWeapon = currentWeapon;
+		}
+
+		currentWeapon = ready;
+	}
+
+	private
+	void selectPreviousWeapon(PlayerInfo player)
+	{
+		if (previousWeapon != NULL && player.ReadyWeapon != previousWeapon)
+		{
+			player.PendingWeapon = previousWeapon;
+		}
+	}
+
+// private: ////////////////////////////////////////////////////////////////////
+
+	private Weapon currentWeapon;
+	private Weapon previousWeapon;
+
+} // class mg_PreivousWeaponEventHandler
+
 class PBXWeapons_Handler : EventHandler
 {
     Override void PlayerEntered(PlayerEvent e)
@@ -25,141 +95,6 @@ class PBXWeapons_Handler : EventHandler
     }
 }
 
-// This is modified from Doom Deluxe, all credits goes to Dox778 and the Doom Deluxe team
-// This handles the target analysis system and scroll zoom inputs
-class PBXWeapons_ScopeHandler : EventHandler
-{
-	// Smart Scope System
-	ui bool 	mCanDraw;
-	ui int 		mMaxHealth, mCurrentHealth, mZoomScale, mPainChance;
-	ui string 	mActorName;
-	ui double 	mDistance;
-	ui bool 	mUseBlueFont;
-    
-    override void InterfaceProcess(ConsoleEvent e)
-    {
-		bool blue = e.name.IndexOf("PrintScopeData_Blue:") >= 0;
-    	bool green = e.name.IndexOf("PrintScopeData_Green:") >= 0;
-    	bool noHit = e.name.IndexOf("NoHitSmartScope") >= 0;
-
-		if(e.IsManual || noHit)
-		{
-			mCanDraw = false;
-			return;
-		}
-
-		if((blue || green))
-        {
-			mUseBlueFont 	= blue;
-            mCurrentHealth  = e.args[0];
-			mMaxHealth 		= e.args[1];
-			double painC 	= e.args[2];
-			mPainChance 	= painC / 256 * 100;
-			Array<string> command;
-			e.Name.Split (command, ":");
-			
-			if(command.Size() == 2)
-				mActorName = command[1];
-				
-			mCanDraw = true;
-        }
-
-		if(e.name.IndexOf("PrintScopeData2:") >= 0)
-        {
-            double ok = e.args[0];
-			mDistance = ok / 32; //32 units should rougly be a meter i hope
-			mZoomScale = e.args[1];
-        }
-    }
-
-	override void UITick()
-	{
-        let plr = players[consoleplayer].mo;
-		if(!plr || !plr.FindInventory("Zoomed"))
-		{
-			mCanDraw = false;
-		}
-	}
-
-	override void RenderUnderlay(RenderEvent e)
-	{	
-		let phud = PB_Hud_ZS(StatusBar);
-        if (!phud || !mCanDraw) return;
-
-		vector2 hud_origin;
-		vector2 hud_size;
-		[hud_origin.x, hud_origin.y, hud_size.x, hud_size.y] = Screen.GetViewWindow();
-
-		int color = mUseBlueFont ? Font.CR_CYAN : Font.CR_GREEN;
-		int flags = BaseStatusBar.DI_SCREEN_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT;
-
-		int hudX = 15;
-		int hudY = 30;
-		int steps = 15;
-
-		phud.PBHud_DrawString(phud.mBoldFont, mActorName, (hudX, 10), flags, color, scale: (1.3, 1.3));
-
-		Array<string> lines;
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_MaxHP"), mMaxHealth));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_CurrHP"), mCurrentHealth));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_PainChance"), mPainChance));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_Distance"), mDistance));
-
-		for (int i = 0; i < lines.Size(); i++)
-		{
-			phud.PBHud_DrawString(phud.mDefaultFont, lines[i], (hudX, hudY + i * steps), flags, color);
-		}
-
-		// Old version
-		// Screen.DrawText(BigFont, color, 190, 86, mActorName, DTA_Clean, true);
-		// Screen.DrawText(SmallFont, color, 190, 104, mPainChance, DTA_Clean, true);
-		// Screen.DrawText(SmallFont, color, 190, 74, mDistance, DTA_Clean, true);
-	}
-	
-	// Scroll Zoom Input
-	override bool InputProcess(InputEvent e)
-    {
-        if (e.Type == InputEvent.Type_None)
-            return false;
-
-        let plr = players[consoleplayer].mo;
-        if (!plr || !(plr.player.ReadyWeapon is "PBX_WeaponBase") || !plr.FindInventory("Zoomed"))
-            return false;
-
-		let weap = PBX_WeaponBase(plr.player.ReadyWeapon);
-		if(!weap || !weap.mScopedWeapon) 
-			return false;
-
-        if (e.KeyScan == InputEvent.Key_MWheelUp)
-        {
-        	PBXCore_Debug.Print("Wheel Up");
-            SendNetworkEvent("PBXWeapons_ZoomIn");
-            return true;
-        }
-
-        if (e.KeyScan == InputEvent.Key_MWheelDown)
-        {
-        	PBXCore_Debug.Print("Wheel Down");
-            SendNetworkEvent("PBXWeapons_ZoomOut");
-            return true;
-        }
-
-        return false;
-    }
-
-    override void NetworkProcess(ConsoleEvent e)
-    {
-        PlayerInfo player = players[e.Player];
-        let wpn = PBX_WeaponBase(player.ReadyWeapon);
-        if (!wpn || !wpn.mScopedWeapon || !player.mo || !player.mo.FindInventory("Zoomed")) return;
-
-        if (e.Name == "PBXWeapons_ZoomIn")
-            wpn.PBX_AdjustZoom(1);
-        else if (e.Name == "PBXWeapons_ZoomOut")
-            wpn.PBX_AdjustZoom(-1);
-    }
-}
-
 // For easier testing, though you can also disable the upgrades in the backpack spawners
 // and it will bypass the upgrade requirements
 // to use these cheats just type "netevent <insert cheat name here>" in the console
@@ -181,6 +116,7 @@ Class PBXWeapons_CheatsHandler : Eventhandler
 			pm.giveinventory("SubZeroUpgrade",1);
 			console.printf("[PBX] Gave all CSSG shells");
 		}
+
 		if (e.Name ~== "PBX_AllUpgrades")
 		{
 			// Lever Action
@@ -220,60 +156,5 @@ Class PBXWeapons_CheatsHandler : Eventhandler
 	}
 }
 
-class PBX_UpgradeBase : PB_UpgradeItem abstract
-{
-    name upgradetoken, upgradetype, s;
-    property UpgradeToken : upgradetoken;
-	property Sprite : upgradetype;
 
-	Default
-	{
-        PBX_UpgradeBase.upgradetoken '';
-        PBX_UpgradeBase.Sprite '';
-		+inventory.alwayspickup;
-	}
-
-	override void PlayPickupSound(actor toucher)
-	{
-		let hnd  = PB_EventHandler(EventHandler.Find("PB_EventHandler"));
-		if(hnd)
-		{
-			if(hnd.pickuptic[toucher.PlayerNumber()]==gametic) return;
-			hnd.pickuptic[toucher.PlayerNumber()] = gametic;
-		}
-		double atten;
-		int flags = CHANF_OVERLAP|CHANF_MAYBE_LOCAL;
-		if(bNoAttenPickupSound) atten = ATTN_NONE;
-		else atten = ATTN_NORM;
-		if(toucher && toucher.CheckLocalView()) flags |= CHANF_NOPAUSE;
-		toucher.A_StartSound(PickupSound,1002,flags,1.0,atten);
-	}
-
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		PBX_SetUpgradeSprite();
-	}
-
-	virtual void PBX_SetUpgradeSprite()
-	{
-		switch(upgradetype)
-		{
-            default: s = "TNT1"; break;
-		}
-
-        if(upgradetype != "TNT1")
-		    sprite = GetSpriteIndex(s);
-	}
-
-	States
-	{
-		Spawn:
-			TNT1 A -1 bright light("WeaponUpgradeSpawner");
-			stop;
-
-		LoadSprites:
-			TNT1 A 0;
-	}
-}
 

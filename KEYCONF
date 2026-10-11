@@ -1,5 +1,12 @@
-addkeysection "$PBXWEAPONS_WHEELZOOM" PBX_KEY
+addkeysection "$PBXWEAPONS_KEYMENU" PBX_KEY
 Alias          pbx_zoomin	                    "netevent PBXWeapons_ZoomIn"
-Alias          pbx_zoomout	                    "netevent PBXWeapons_ZoomOut"
 AddMenuKey     "$PBXWEAPONS_WHEELZOOM_IN" 	    pbx_zoomin
+defaultbind    K                                pbx_zoomin
+
+Alias          pbx_zoomout	                    "netevent PBXWeapons_ZoomOut"
 AddMenuKey     "$PBXWEAPONS_WHEELZOOM_OUT" 	    pbx_zoomout
+defaultbind    L                                pbx_zoomout
+
+Alias          pbx_prevweapon	                "netevent PBX_Prev_Weapon"
+AddMenuKey     "$PBXWEAPONS_PREV_WEAPON" 	    pbx_prevweapon
+defaultbind    C                                pbx_prevweapon

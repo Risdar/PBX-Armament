@@ -13,7 +13,7 @@ extend class PBX_BDPRailgun
 
 	override void PBX_DoEffectWeaponReady()
     {
-		PBX_SpawnLaserSight(PBX_LaserSightProjectile.BLUE_DOT);
+		PBX_SpawnLaserSight(BLUE_DOT);
     }
 
     override void DoEffect() 

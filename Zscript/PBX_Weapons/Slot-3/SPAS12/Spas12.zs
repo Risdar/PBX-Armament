@@ -595,7 +595,7 @@ class PBX_SPAS12 : PBX_WeaponBase
             "####" C 1          SPAS_Fire(3);
             "####" D 1          SPAS_Fire(4);
             "####" EW 1;
-			// "####" A 0 PB_jumpIfNoAmmo();
+			// "####" A 0 A_JumpIf(invoker.ammo2.amount <= 0, "Reload");
         PumpSlow:
             // Raise
             SPAN BCDEFG 1 SP12_SetSprite('SPAN','SPBL','SPA5','SPB5');
@@ -629,7 +629,7 @@ class PBX_SPAS12 : PBX_WeaponBase
             }
             TNT1 A 0 A_JumpIf(PB_GetZoom(),"Fire2");
 		Fire1Actual:
-			TNT1 A 0 		PB_jumpIfNoAmmo();
+			TNT1 A 0 		    PB_jumpIfNoAmmo();
             SPAA A 1 Bright     SPAS_Fire(1);
             "####" B 1 Bright   SPAS_Fire(2);
             "####" C 1          SPAS_Fire(3);
@@ -679,13 +679,13 @@ class PBX_SPAS12 : PBX_WeaponBase
 				A_SetCrosshair(-1);
 			}
 		Fire2Actual:
-			TNT1 A 0 PB_jumpIfNoAmmo();
+			TNT1 A 0        PB_jumpIfNoAmmo();
             SPA8 D 1 Bright SPAS_Fire(1);
             "####" E 1;
-			"####" A 0 A_ZoomFactor(1.25);
-		    "####" A 0 A_JumpIf(SP12_IsSemiAuto(),"Fire2Semi");
+			"####" A 0      A_ZoomFactor(1.25);
+		    "####" A 0      A_JumpIf(SP12_IsSemiAuto(),"Fire2Semi");
             "####" FGC 1;
-			"####" A 0 A_JumpIf(invoker.ammo2.amount <= 0,"Ready3");
+			"####" A 0      A_JumpIf(invoker.ammo2.amount <= 0,"Ready3");
 		Pump2:
             "####" A 0 A_StartSound("weapons/spas12/pumpback", CHAN_AUTO); 
             SPA8 GHII 1 SP12_SetSprite('SPA8','SPB8','SPA8','SPB8');

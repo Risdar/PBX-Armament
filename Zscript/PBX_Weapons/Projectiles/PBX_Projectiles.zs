@@ -1,11 +1,11 @@
-#include "./PBXWeapons_Bullets.zs"
-#include "./PBXWeapons_Demon.zs"
-#include "./PBXWeapons_Energy.zs"
-#include "./PBXWeapons_Explosives.zs"
-#include "./PBXWeapons_Nails.zs"
-#include "./PBXWeapons_Shells.zs"
-#include "./PBXWeapons_Lightning.zs"
-#include "./PBXWeapons_Freezes.zs"
+#include "./PBX_BulletsDef.zs"
+#include "./PBX_DemonDef.zs"
+#include "./PBX_EnergyDef.zs"
+#include "./PBX_ExplosivesDef.zs"
+#include "./PBX_NailsDef.zs"
+#include "./PBX_ShellsDef.zs"
+#include "./PBX_LightningDef.zs"
+#include "./PBX_FreezesDef.zs"
 
 // Lightning projectile base
 mixin class PBX_LightningProjectile
@@ -63,7 +63,7 @@ mixin class PBX_LightningProjectile
 		// By default it stops attacking or making
 		// the zap sound as soon as the projectile
 		// explodes (which removes the bMissile flag):
-		if (!bMissile)
+		if(!bMissile)
 		{
 			A_StopSound(CHAN_VOICE);
 			return;
@@ -71,7 +71,7 @@ mixin class PBX_LightningProjectile
 
 		// If target is gone for some reason, the projectile
 		// is the source of the attack:
-		Actor damageSource = target != null? target : Actor(self);
+		Actor damageSource = target != null ? target : Actor(self);
 		// Update victim arrays:
 		PBX_LightningController.L_RemoveInvalidVictimsFromArr(damageSource, self, ac_victims, ac_detectRange);
 		PBX_LightningController.L_AddValidVictimsToArr(damageSource, self, ac_victims, ac_detectRange, ac_maxvictims);

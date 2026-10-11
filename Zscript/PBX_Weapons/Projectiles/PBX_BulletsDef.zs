@@ -6,7 +6,7 @@ class PB_357Magnum : PB_500SW
 		PB_Projectile.BaseDamage 120;
 		PB_Projectile.RipperCount 4;
 		PB_Projectile.PenetrationCount 5;
-		// PB_Projectile.SpeedFPS 1670;
+		PB_Projectile.SpeedFPS 1670;
 		+PB_Projectile.WHIZCRACK;
 		Obituary "$OB_PROJ_357MAGNUM";
 	}
@@ -19,7 +19,7 @@ class PB_444Marlin : PB_500SW
 		PB_Projectile.BaseDamage 210;
 		PB_Projectile.RipperCount 5;
 		PB_Projectile.PenetrationCount 5;
-		// PB_Projectile.SpeedFPS 2450;
+		PB_Projectile.SpeedFPS 2450;
 		+PB_Projectile.WHIZCRACK;
 		DamageType "SSG";
 		Obituary "$OB_PROJ_444MARLIN";

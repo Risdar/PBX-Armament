@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBXWeapons_Settings                 = "\cg⟁\c- PBX - Weapons Settings";
-PBXWeapons_Version                  = "\cgPBX - Weapons Version: 3.4.0 - Energy Update";
+PBXWeapons_Version                  = "\cgPBX - Weapons Version: 3.4.1 - Energy Update";
 
 PBXWeapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBXWeapons_SmartScope_CurrHP        = "HP: %u";
@@ -421,15 +421,15 @@ PBX_AmmoNotFound                    = "Ammo Not Found";
 PBX_LaserOn                         = "\cdLaser Sight \c-Activated";
 PBX_LaserOff                        = "\ciLaser Sight \c-Deactivated";
 
-PBX_GoScope                         = "\cdTarget Analysis \c-Switch";
-PBX_Scope1                          = "\cdTarget Analysis \c-Disabled";
-PBX_Scope2                          = "\cdTarget Analysis \c-Minimal";
-PBX_Scope3                          = "\cdTarget Analysis \c-Full";
+PBX_GoScope                         = "\cdSmart Scope \c-Switch";
+PBX_Scope1                          = "\cdSmart Scope \c-Deactivated";
+PBX_Scope2                          = "\cdSmart Scope \c-Partial";
+PBX_Scope3                          = "\cdSmart Scope \c-Full";
 
 PBX_nvgOnWW                         = "Enable \cdInfrared";
 PBX_nvgOffWW                        = "Disable \cdInfrared";
-PBX_nvgOn                           = "\cdInfrared \c-Enabled";
-PBX_nvgOff                          = "\cdInfrared \c-Disabled";
+PBX_nvgOn                           = "\cdInfrared \c-Activated";
+PBX_nvgOff                          = "\cdInfrared \c-Deactivated";
 
 PBX_DisableUpgrade                  = "You can bypass this requirement by disabling the upgrade in the Addon Spawner Settings.";
 
