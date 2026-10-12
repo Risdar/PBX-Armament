@@ -352,7 +352,7 @@ class SuperNail_Hot : PB_MGNailHot
 {
     Default
     {
-		PB_Projectile.BaseDamage 75;
+		PB_Projectile.BaseDamage 80;
     }
 }
 
@@ -362,15 +362,15 @@ class SuperNail_Lightning : PB_MGNail
 
 	Default
 	{
-        PB_Projectile.BaseDamage 50;
-        SuperNail_Lightning.DetectRange 256;
-        SuperNail_Lightning.MaxVictims 5;
-		SuperNail_Lightning.SplitRange 256;
-		SuperNail_Lightning.Damage 1;
-		SuperNail_Lightning.Duration 2;
-		SuperNail_Lightning.Delay 2;
+        PB_Projectile.BaseDamage 60;
+        SuperNail_Lightning.DetectRange 128;
+        SuperNail_Lightning.MaxVictims 1;
+		SuperNail_Lightning.SplitRange 128;
+		SuperNail_Lightning.Damage 10;
+		SuperNail_Lightning.Duration 1;
+		SuperNail_Lightning.Delay 1;
 		SuperNail_Lightning.maxChains 1;
-		SuperNail_Lightning.MaxLinks 2;
+		SuperNail_Lightning.MaxLinks 1;
 		SuperNail_Lightning.DamageType 'plasma';
         DamageType "Nails";
         Translation "112:127=192:207", "224:231=80:87";

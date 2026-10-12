@@ -87,7 +87,12 @@ class PBX_XM21 : PBX_WeaponBase
 			return;
 		}
 
-        if(CountInv(CLOAK_ENERGY) < CLOAK_DURATION && level.time % TICRATE == 0 && !mCloakEngaged)
+        if(level.time % TICRATE != 0)
+        {
+            return;
+        }
+
+        if(CountInv(CLOAK_ENERGY) < CLOAK_DURATION && !mCloakEngaged)
         {
             GiveInventory(CLOAK_ENERGY,CLOAK_ENERGY_GIVE);
             if(CountInv(CLOAK_ENERGY) == CLOAK_DURATION)
@@ -96,8 +101,7 @@ class PBX_XM21 : PBX_WeaponBase
                 owner.a_startsound("Sniper/CloakFull",CLOAK_CHAN,CHANF_OVERLAP,1,ATTN_NONE);
             }
         }
-
-        if(CountInv(CLOAK_ENERGY) != 0 && level.time % TICRATE == 0 && mCloakEngaged)
+        else if(CountInv(CLOAK_ENERGY) != 0 && mCloakEngaged)
         {
             TakeInventory(CLOAK_ENERGY,CLOAK_ENERGY_TAKE);
             if(CountInv(CLOAK_ENERGY) < CLOAK_ENERGY_TAKE)
@@ -193,8 +197,8 @@ class PBX_XM21 : PBX_WeaponBase
                     A_SetRenderStyle(.5, STYLE_Subtract);
                     A_StartSound("Sniper/CloakActive",CLOAK_CHAN,CHANF_OVERLAP);
                     A_StartSound("Sniper/CloakLoop",CLOAK_CHAN_LOOP,CHANF_LOOP|CHANF_OVERLAP);
-                    bShadow = isEngaged;
-                    bCantSeek = isEngaged;
+                    bShadow = true;
+                    bCantSeek = true;
                     self.player.cheats |= CF_NOTARGET;
                     let holo = PBX_SniperTarget(Spawn("PBX_SniperTarget", pos));
                     if(holo)
@@ -210,8 +214,8 @@ class PBX_XM21 : PBX_WeaponBase
                     A_StopSound(CLOAK_CHAN_LOOP);
                     A_SetRenderstyle(1.0, STYLE_Normal);
                     A_StartSound("Sniper/CloakDisabled",CLOAK_CHAN,CHANF_OVERLAP);
-                    bShadow = isEngaged;
-                    bCantSeek = isEngaged;
+                    bShadow = false;
+                    bCantSeek = false;
                     self.player.cheats &= ~CF_NOTARGET;
                 }
                 return ResolveState("Ready3");

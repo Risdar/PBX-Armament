@@ -14,6 +14,7 @@ class PBX_SuperNailgun : PBX_WeaponBase
 	    Inventory.AltHUDIcon "SNPIA0";
 		PB_WeaponBase.MaxOverheat MAX_OVERHEAT;
 		PB_WeaponBase.OverheatCoolingRate OVERHEATCOOLING_RATE;
+		PB_WeaponBase.ReserveToMagAmmoFactor 2;
         Weapon.BobRangeX 0.3;
         Weapon.BobRangeY 0.5;
         Weapon.BobStyle "InverseSmooth";
@@ -45,7 +46,6 @@ class PBX_SuperNailgun : PBX_WeaponBase
     bool mWeaponIsSpinning;
     bool mChargedNailsMode;
 
-    const NAIL_ALTFIRE_AMOUNT   = 5;   // How many nail is shot on the altfire
     const MAGAZINE_SIZE         = 100; 
 
     const MAX_OVERHEAT	 		= 450;
@@ -222,6 +222,7 @@ class PBX_SuperNailgun : PBX_WeaponBase
             TNT1 A 0 SuperNailgun_CheckSpin();
         StopSpin:
             TNT1 A 0 {invoker.mWeaponIsSpinning = false;}
+            TNT1 A 0 A_JumpIf(PB_GetMagUnloaded(),"Ready3");
             SNLR CDECD 1 A_DoPBWeaponAction(WRF_ALLOWRELOAD);
             SNLR ECDE 2 A_DoPBWeaponAction(WRF_ALLOWRELOAD);
             goto Ready3;
@@ -248,7 +249,7 @@ class PBX_SuperNailgun : PBX_WeaponBase
 
 //////////////////////////// RELOAD ////////////////////////////////////////////////////////////////////////////////////
         Reload:
-            TNT1 A 0 PB_CheckReload("ReloadUnloaded",null,null,"Ready3","Ready3",MAGAZINE_SIZE);
+            TNT1 A 0 PB_CheckReload("ReloadUnloaded",null,null,"Ready3","Ready3",MAGAZINE_SIZE,invoker.ReserveToMagAmmoFactor);
             TNT1 A 0 A_ZoomFactor(1.0);
             TNT1 A 0 A_StartSound("IronSights", 30);
             SNRL ABCD 2 PB_SetRoll(roll-2);
@@ -267,7 +268,9 @@ class PBX_SuperNailgun : PBX_WeaponBase
                 PB_AmmoIntoMag(
                     invoker.ammo2.getClassName(),
                     invoker.ammo1.getClassName(),
-                    MAGAZINE_SIZE);
+                    MAGAZINE_SIZE,
+                    invoker.ReserveToMagAmmoFactor
+                );
                 PB_SetChamberEmpty(false);
                 PB_SetMagUnloaded(false);
                 PB_SetMagEmpty(false);
@@ -286,7 +289,13 @@ class PBX_SuperNailgun : PBX_WeaponBase
             SNRL EF 1 PB_SetRoll(roll+2);
             TNT1 A 0 {
                 A_PlaysoundEx("weapons/shotgun/detach", "Auto");
-                PB_UnloadMag(invoker.ammo2.getclassname(),invoker.ammo1.getclassname(),maxsize:MAGAZINE_SIZE,spawnActor:"PBX_SuperNail_DroppedMag");
+                PB_UnloadMag(
+                    invoker.ammo2.getclassname(),
+                    invoker.ammo1.getclassname(),
+                    giveReserve:invoker.ReserveToMagAmmoFactor,
+                    maxsize:MAGAZINE_SIZE,
+                    spawnActor:"PBX_SuperNail_DroppedMag"
+                );
                 PB_SetChamberEmpty(true);
                 PB_SetMagUnloaded(true);
                 PB_SetMagEmpty(true);

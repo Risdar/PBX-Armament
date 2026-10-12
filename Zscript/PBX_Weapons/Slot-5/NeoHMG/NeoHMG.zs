@@ -197,13 +197,25 @@ class PBX_NeoHMG : PBX_WeaponBase
 		// 	goto Ready3;
 
 		HMGShieldBash:
-			PSHL E 0 A_FireProjectile("KickAttack");
+			PSHL E 0 {
+				if(countinv("HMGShield") <= 0)
+				{
+					return resolvestate("HMGShieldBreak");
+				}
+				A_FireProjectile("KickAttack");
+				return resolvestate(null);
+			}
 		HMGShield:
 			TNT1 A 0 {
+				if(countinv("HMGShield") <= 0)
+				{
+					return resolvestate("HMGShieldBreak");
+				}
 				A_OverlayFlags(HMG_SHIELDLAYER,PSPF_FLIP,random[sfx](0,1));
 				A_OverlayFlags(HMG_SHIELDLAYER,PSPF_RENDERSTYLE|PSPF_FORCESTYLE|PSPF_ALPHA|PSPF_FORCEALPHA,true);
 				A_OverlayRenderStyle(HMG_SHIELDLAYER,STYLE_Add);
 				A_OverlayAlpha(HMG_SHIELDLAYER,0.5);
+				return resolvestate(null);
 			}
 			TNT1 A 0 A_JumpIf(invoker.mShieldFrame > 0,"HMGShield2");
 			PSHL A 1 BRIGHT {invoker.mShieldFrame++;}
