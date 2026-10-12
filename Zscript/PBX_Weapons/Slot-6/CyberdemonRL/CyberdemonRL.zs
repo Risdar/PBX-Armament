@@ -277,15 +277,15 @@ class PBX_CyberdemonRL : PBX_WeaponBase
 				A_ZoomFactor(0.92);
 			}
 			CYBF A 1;
-			CYBF I 0 PB_RotateCamera(addAngle:-2);
+			CYBF I 0 PB_WeaponRecoil(pitchDelta:0,angleDelta:-2);
 			CYBF BC 1 A_ZoomFactor(0.94);
-			TNT1 A 0 PB_RotateCamera(addAngle:-1);
+			TNT1 A 0 PB_WeaponRecoil(pitchDelta:0,angleDelta:-1);
 			CYBF DE 1 A_ZoomFactor(0.96);
-			TNT1 A 0 PB_RotateCamera(addAngle:0.6);
+			TNT1 A 0 PB_WeaponRecoil(pitchDelta:0,angleDelta:0.6);
 			CYBF F 1 A_ZoomFactor(0.98);
-			CYBF G 1 PB_RotateCamera(addAngle:0.8);
-			CYBF G 0 PB_RotateCamera(addAngle:0.8);
-			CYBF H 1 PB_RotateCamera(addAngle:0.8);
+			CYBF G 1 PB_WeaponRecoil(pitchDelta:0,angleDelta:0.8);
+			TNT1 A 0 PB_WeaponRecoil(pitchDelta:0,angleDelta:0.8);
+			CYBF H 1 PB_WeaponRecoil(pitchDelta:0,angleDelta:0.8);
 			CYBF J 1 A_ZoomFactor(1.0);
 			TNT1 A 0 PB_ReFire();
 			goto Ready3;
