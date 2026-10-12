@@ -38,8 +38,6 @@ class PBX_Paingiver : PBX_WeaponBase
         +WEAPON.NOAUTOAIM;
         +WEAPON.EXPLOSIVE;
         +WEAPON.NOAUTOFIRE;
-		+Inventory.AUTOACTIVATE;
-        +Inventory.AlwaysPickUp;
         +FORCEXYBILLBOARD;
         +FLOORCLIP;
         +DONTGIB;
