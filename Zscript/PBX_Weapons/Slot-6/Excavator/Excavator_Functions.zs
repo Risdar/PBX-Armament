@@ -62,7 +62,7 @@ extend class PBX_Excavator
 	action int isExcavatorUpgraded()
 	{
 		bool hasUpgraded = countinv("Excavator_Upgraded") > 0;
-		bool isDisabled = (PBXWeapons_backpack_filter & DisablePBX_ExcavatorUpgrade);
+		bool isDisabled = (PBX_Weapons_backpack_filter & DisablePBX_ExcavatorUpgrade);
 		return hasUpgraded || isDisabled || invoker.isUpgraded;
 	}
 

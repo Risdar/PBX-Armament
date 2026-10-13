@@ -1,39 +1,39 @@
 // General
-server bool PBXWeapons_sendTip = true;
-server bool PBXWeapons_startwithnormalrifle = false;
-server bool PBXWeapons_startwithcrossbow = false;
-server bool PBXWeapons_enablesecretweapon = true;
-server bool PBXWeapons_cssghooklockswitch = true;
-server bool PBXWeapons_keepweapons = false;
-server bool PBXWeapons_secretweapon_bfgspawn = false;
-server bool PBXWeapons_LaserShowBeam = true;
-server int PBXWeapons_secretweapon_spawnchance = 5;
+server bool PBX_Weapons_sendTip = true;
+server bool PBX_Weapons_startwithnormalrifle = false;
+server bool PBX_Weapons_startwithcrossbow = false;
+server bool PBX_Weapons_enablesecretweapon = true;
+server bool PBX_Weapons_cssghooklockswitch = true;
+server bool PBX_Weapons_keepweapons = false;
+server bool PBX_Weapons_secretweapon_bfgspawn = false;
+server bool PBX_Weapons_LaserShowBeam = true;
+server int PBX_Weapons_secretweapon_spawnchance = 5;
 
 // Tip Flags
-server int PBXWeapons_GeneralFlags = 0;
-server int PBXWeapons_WeaponHelpFlags = 0;
+server int PBX_Weapons_GeneralFlags = 0;
+server int PBX_Weapons_WeaponHelpFlags = 0;
 server int PBX_Weapons_upgradeTipFlags = 0;
 
 // Spawners
-server int PBXWeapons_chainsaw_filter = 0;
-server int PBXWeapons_pistol_filter = 0;
-server int PBXWeapons_shotgun_filter = 0;
-server int PBXWeapons_ssg_filter = 0;
-server int PBXWeapons_chaingun_filter = 0;
-server int PBXWeapons_rocketlauncher_filter = 0;
-server int PBXWeapons_plasmarifle_filter = 0;
-server int PBXWeapons_bfg_filter = 0;
+server int PBX_Weapons_chainsaw_filter = 0;
+server int PBX_Weapons_pistol_filter = 0;
+server int PBX_Weapons_shotgun_filter = 0;
+server int PBX_Weapons_ssg_filter = 0;
+server int PBX_Weapons_chaingun_filter = 0;
+server int PBX_Weapons_rocketlauncher_filter = 0;
+server int PBX_Weapons_plasmarifle_filter = 0;
+server int PBX_Weapons_bfg_filter = 0;
 
-server int PBXWeapons_backpack_filter = 0;
+server int PBX_Weapons_backpack_filter = 0;
 
-server int PBXWeapons_specialdrop_filter = 0;
-server int PBXWeapons_monsterdrop_filter = 0;
+server int PBX_Weapons_specialdrop_filter = 0;
+server int PBX_Weapons_monsterdrop_filter = 0;
 
 // Powerup Times / Cooldowns
-server int PBXWeapons_meathook_cooldown = 3;
-server int PBXWeapons_hologram_cooldown = 3;
-server int PBXWeapons_hologram_lifetime = 30;
+server int PBX_Weapons_meathook_cooldown = 3;
+server int PBX_Weapons_hologram_cooldown = 3;
+server int PBX_Weapons_hologram_lifetime = 30;
 
 // Weapon Edits
-server bool PBXWeapons_EnableWeaponEdits = true;
-server int PBXWeapons_WeaponEditsFlags = 0;
+server bool PBX_Weapons_EnableWeaponEdits = true;
+server int PBX_Weapons_WeaponEditsFlags = 0;

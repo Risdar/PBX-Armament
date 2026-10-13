@@ -56,13 +56,13 @@ class PBX_ScrollZoomHandler : EventHandler
 
         if (e.KeyScan == InputEvent.Key_MWheelUp)
         {
-            SendNetworkEvent("PBXWeapons_ZoomIn");
+            SendNetworkEvent("PBX_Weapons_ZoomIn");
             return true;
         }
 
         if (e.KeyScan == InputEvent.Key_MWheelDown)
         {
-            SendNetworkEvent("PBXWeapons_ZoomOut");
+            SendNetworkEvent("PBX_Weapons_ZoomOut");
             return true;
         }
 
@@ -78,11 +78,11 @@ class PBX_ScrollZoomHandler : EventHandler
 			return;
 		}
 
-        if (e.Name == "PBXWeapons_ZoomIn")
+        if (e.Name == "PBX_Weapons_ZoomIn")
 		{
 			wpn.PBX_AdjustZoom(1);
 		}
-        else if (e.Name == "PBXWeapons_ZoomOut")
+        else if (e.Name == "PBX_Weapons_ZoomOut")
 		{
 			wpn.PBX_AdjustZoom(-1);
 		}

@@ -13,7 +13,7 @@ Class ExcavatorWheel : wheelinfocontainer
 			return;
 		
 		PBX_InitializeWheel(spw,requester,scale:(0.6,0.6));
-		mDisabled = PBXWeapons_backpack_filter & DisablePBX_ExcavatorUpgrade;
+		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_ExcavatorUpgrade;
 
 		if(PBX_CheckInv("Excavator_Upgraded")) 
 		{

@@ -96,7 +96,7 @@ class PBXCore_Player : PB_PlayerPrawn
 
 		//Others
 		Player.StartItem "PBX_ProsurvBlaster";
-		Player.StartItem "PBXWeapons_TipsManager";
+		Player.StartItem "PBX_Weapons_TipsManager";
 		// SLOT 2
 		Player.StartItem "HellPistolerAmmo", PBX_PlasmaBlaster.CELL_SIZE;
 		Player.StartItem "LeverActionAmmo", PBX_Prosurv_LeverAction.MAGAZINE_SIZE;
@@ -114,6 +114,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		Player.StartItem "XM21Ammo", PBX_XM21.MAGAZINE_SIZE;
 		// SLOT 5
 		Player.StartItem "HMGChamberAmmo", PBX_NeoHMG.MAGAZINE_SIZE;
+		Player.StartItem "HMGShield", PBX_NeoHMG.SHIELD_MAXCHARGE;
 		Player.StartItem "SuperNailgunAmmo", PBX_SuperNailgun.MAGAZINE_SIZE;
 		// SLOT 6
 		Player.StartItem "ExcavatorRounds", PBX_Excavator.MAGAZINE_SIZE;

@@ -47,7 +47,7 @@ class PBX_WeaponBase : PB_WeaponBase abstract
     action void PBX_WeaponRaise(string upSnd = "")
     {
         PB_WeaponRaise(upSnd);
-        if(pbxweapons_sendTip) PBX_WeaponHelpText(); // This function is in PBXWeapons_Tips.zs
+        if(PBX_Weapons_sendTip) PBX_WeaponHelpText(); // This function is in PBX_Weapons_Tips.zs
         PBX_UpgradeWeapon();
     }
 
@@ -70,7 +70,7 @@ class PBX_WeaponBase : PB_WeaponBase abstract
     property TakeWeaponDowngrade: mDowngradeWeapon;
     action void PBX_UpgradeWeapon()
     {
-        if(pbxweapons_keepweapons) return;
+        if(PBX_Weapons_keepweapons) return;
 
         if(invoker.mUpgradeWeapon != "") PB_SelectIfUpgrade(invoker.mUpgradeWeapon);
         if(invoker.mDowngradeWeapon != "") PB_TakeIfUpgrade(invoker.mDowngradeWeapon);

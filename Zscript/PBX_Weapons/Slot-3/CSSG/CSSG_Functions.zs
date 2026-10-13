@@ -40,7 +40,7 @@ extend class PBX_CSSG
 			A_spawnprojectile("hook",32);
 			A_takeinventory("meathook",1);
 			a_startsound("MHKSTRT",193,CHANF_DEFAULT,1,ATTN_NONE);
-			invoker.hookCooldown = pbxweapons_meathook_cooldown;
+			invoker.hookCooldown = PBX_Weapons_meathook_cooldown;
         	PBXCore_Debug.PrintInt("Meathook Cooldown is %d",invoker.hookCooldown);
 			return;
 		}
@@ -61,7 +61,7 @@ extend class PBX_CSSG
 	action state CSSG_Ready()
 	{
 		let pbxplr = PBXCore_Player(invoker.owner);
-		if(pbxplr && pbxplr.Grappled && pbxweapons_cssghooklockswitch)
+		if(pbxplr && pbxplr.Grappled && PBX_Weapons_cssghooklockswitch)
 			return A_DoPBWeaponAction(WRF_NOSWITCH|WRF_DISABLESWITCH);	
 
 		return A_DoPBWeaponAction();

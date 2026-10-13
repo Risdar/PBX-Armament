@@ -186,10 +186,10 @@ class PBX_SmartScopeHandler : EventHandler
 		phud.PBHud_DrawString(phud.mBoldFont, mActorName, (hudX, 10), flags, color, scale: (1.3, 1.3));
 
 		Array<string> lines;
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_MaxHP"), mMaxHealth));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_CurrHP"), mCurrentHealth));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_PainChance"), mPainChance));
-		lines.Push(string.format(StringTable.Localize("$PBXWeapons_SmartScope_Distance"), mDistance));
+		lines.Push(string.format(StringTable.Localize("$PBX_Weapons_SmartScope_MaxHP"), mMaxHealth));
+		lines.Push(string.format(StringTable.Localize("$PBX_Weapons_SmartScope_CurrHP"), mCurrentHealth));
+		lines.Push(string.format(StringTable.Localize("$PBX_Weapons_SmartScope_PainChance"), mPainChance));
+		lines.Push(string.format(StringTable.Localize("$PBX_Weapons_SmartScope_Distance"), mDistance));
 
 		for (int i = 0; i < lines.Size(); i++)
 		{

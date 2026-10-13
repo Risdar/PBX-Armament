@@ -53,7 +53,7 @@ actor PBX_ChainsawEdited : PB_Chainsaw
 		    Loop
 
         UseEquipment:
-			TNT1 A 0 A_JumpIf(!PBXWeapons_EnableWeaponEdits || (PBXWeapons_WeaponEditsFlags & DisablePBX_ChainsawEdit),"super::UseEquipment")
+			TNT1 A 0 A_JumpIf(!PBX_Weapons_EnableWeaponEdits || (PBX_Weapons_WeaponEditsFlags & DisablePBX_ChainsawEdit),"super::UseEquipment")
 			TNT1 A 0 A_JumpIfInventory("CantDoAction", 1, "FailOverlay")
 			TNT1 A 0 A_JumpIf(health <= 0, "FailOverlay")
 			TNT1 A 0 {

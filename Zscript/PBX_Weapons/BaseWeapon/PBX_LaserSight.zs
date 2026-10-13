@@ -154,7 +154,7 @@ extend class PBX_WeaponBase
     protected 
     void MaybeShowBeam(double pitch, Actor a, string shade)
     {
-        if(!PBXWeapons_LaserShowBeam)
+        if(!PBX_Weapons_LaserShowBeam)
         {
             return;
         }

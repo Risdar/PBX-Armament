@@ -1,4 +1,4 @@
-enum PBXWeapons_eUpgradeTipFlags
+enum PBX_Weapons_eUpgradeTipFlags
 {
 	// UPGRADES
     PBX_TIP_METALSNIPER_UPGRADE = 1 << 0,
@@ -95,7 +95,7 @@ class LeverAction_Upgrade : PB_UpgradeItem
 			return false;
 		}
         bool pickup = Super.TryPickup(toucher);
-		if(pickup && pbxweapons_sendTip)
+		if(pickup && PBX_Weapons_sendTip)
 		{
 			Array<String> tips;
 			tips.Push(string.format(StringTable.Localize("$PBX_LeverActionUpgrade_Tip1"),PBX_Prosurv_LeverAction.AMMO_TAKE_MARLIN));
@@ -163,7 +163,7 @@ class CSSGUpgradeBase : PBX_UpgradeBase abstract
 			TNT1 A 0 {
 				A_GiveInventory("PB_Shell",12);
 				
-				if (pbxweapons_sendTip)
+				if (PBX_Weapons_sendTip)
 				{
 					Array<String> tips;
 					tips.Push("$PBX_CSSGUpgrade_Tip1");
@@ -290,7 +290,7 @@ class MetalSniper_Upgrade : PB_UpgradeItem
 			return false;
 		}
         bool pickup = Super.TryPickup(toucher);
-		if(pickup && pbxweapons_sendTip)
+		if(pickup && PBX_Weapons_sendTip)
 		{
 			Array<String> tips;
 			tips.Push("$PBX_MetalSniperUpgrade_Tip1");
@@ -389,7 +389,7 @@ class PBX_ExcavatorUpgrade : PB_UpgradeItem
 			return false;
 		}
 		bool pickup = Super.TryPickup(toucher);
-		if(pickup && pbxweapons_sendTip)
+		if(pickup && PBX_Weapons_sendTip)
 		{
 			Array<String> tips;
 			tips.Push("$PBX_ExcavatorUpgrade_Tip1");
@@ -437,8 +437,8 @@ class SGL_Upgrade : PB_UpgradeItem
 		-INVENTORY.ALWAYSPICKUP;
 		-COUNTITEM;
 		Inventory.Pickupsound "misc/rockboxa";
-		Inventory.PickupMessage "$PBXWeapons_SGLUpgrade_Pickup";
-		Tag "$PBXWeapons_SGLUpgrade_Tag";
+		Inventory.PickupMessage "$PBX_Weapons_SGLUpgrade_Pickup";
+		Tag "$PBX_Weapons_SGLUpgrade_Tag";
 		Scale 0.52;
 		FloatBobStrength 0.5;
 	}
@@ -463,7 +463,7 @@ class SGL_Upgrade : PB_UpgradeItem
 			TNT1 A 0 {
 				A_GiveInventory("PBX_SGLEdited", 1);
 				A_SetInventory("SGLUpgraded", 1);
-				A_SetWeaponTag("PBX_SGLEdited","$PBXWeapons_SGLUpgrade_Tag2");
+				A_SetWeaponTag("PBX_SGLEdited","$PBX_Weapons_SGLUpgrade_Tag2");
 			}
 			Stop;
 	}
@@ -482,8 +482,8 @@ class LMG_Upgrade : PB_UpgradeItem
 		-INVENTORY.ALWAYSPICKUP;
 		-COUNTITEM;
 		Inventory.Pickupsound "LLIDOP";
-		Inventory.PickupMessage "$PBXWeapons_LMGUpgrade_Pickup";
-		Tag "$PBXWeapons_LMGUpgrade_Tag";
+		Inventory.PickupMessage "$PBX_Weapons_LMGUpgrade_Pickup";
+		Tag "$PBX_Weapons_LMGUpgrade_Tag";
 		Scale 0.52;
 		FloatBobStrength 0.5;
 	}
@@ -508,7 +508,7 @@ class LMG_Upgrade : PB_UpgradeItem
 			TNT1 A 0 {
 				A_GiveInventory("PBX_LMGEdited", 1);
 				A_SetInventory("LMGUpgraded", 1);
-				A_SetWeaponTag("PBX_LMGEdited","$PBXWeapons_LMGUpgrade_Tag2");
+				A_SetWeaponTag("PBX_LMGEdited","$PBX_Weapons_LMGUpgrade_Tag2");
 			}
 			Stop;
 	}

@@ -13,7 +13,7 @@ Class CrossbowBallistaWheel : wheelinfocontainer
 			return;
 			
 		PBX_InitializeWheel(spw,requester,scale:(0.7, 0.7));
-		mDisabled = PBXWeapons_backpack_filter & DisablePBX_CrossbowBallistaUpgrade;
+		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_CrossbowBallistaUpgrade;
 
 		// Standard and Explosive Bolt
 		PBX_AddWheel(spw, img:"ProsurvBallista/StandardBallista",	alias:"$PBX_Crossbow_Standard",		token:"CB_Select_NormalMode");

@@ -36,7 +36,7 @@ Class CSSGWeaponWheelPage2 : wheelinfocontainer
 			return;
 
 		PBX_InitializeWheel(spw,requester,scale:(0.5,0.5));
-		mDisabled = PBXWeapons_backpack_filter & DisablePBX_CSSGUpgrades;
+		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_CSSGUpgrades;
 
 		// Switch to Page 1
 		PBX_AddWheel(spw, img:"CSSG/SG_Page",	   alias:"$PBX_CSSG_PAGE1_WW",	token:"SelectCSG_SwitchMenu");

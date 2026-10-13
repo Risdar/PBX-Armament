@@ -1,15 +1,15 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
-PBXWeapons_Settings                 = "\cg⟁\c- PBX - Weapons Settings";
-PBXWeapons_Version                  = "\cgPBX - Weapons Version: 3.4.3 - Energy Update";
+PBX_Weapons_Settings                 = "\cg⟁\c- PBX - Weapons Settings";
+PBX_Weapons_Version                  = "\cgPBX - Weapons Version: 3.4.3 - Energy Update";
 
-PBXWeapons_SmartScope_MaxHP         = "Max. HP: %u";
-PBXWeapons_SmartScope_CurrHP        = "HP: %u";
-PBXWeapons_SmartScope_PainChance    = "Pain chance: %u%%";
-PBXWeapons_SmartScope_Distance      = "Distance: %.1f m.";
+PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
+PBX_Weapons_SmartScope_CurrHP        = "HP: %u";
+PBX_Weapons_SmartScope_PainChance    = "Pain chance: %u%%";
+PBX_Weapons_SmartScope_Distance      = "Distance: %.1f m.";
 
-PBXWeapons_ZoomScroll_Up            = "[\cvScroll Up\c-] or [%s]";
-PBXWeapons_ZoomScroll_Down          = "[\cvScroll Down\c-] or [%s]";
+PBX_Weapons_ZoomScroll_Up            = "[\cvScroll Up\c-] or [%s]";
+PBX_Weapons_ZoomScroll_Down          = "[\cvScroll Down\c-] or [%s]";
 
 //////////////////////////// SLOT 1 ///////////////////////////////////////////////////////////////////////////////
 
@@ -393,15 +393,15 @@ OB_GENERIC_REAPED_BY                = "%o was reaped by %k.";
 
 
 //////////////////////////// Weapon Edits ///////////////////////////////////////////////////////////////////////////////
-PBXWeapons_SGLUpgrade_NoUpgrade     = "Need the \cdElemental Grenade Addon";
-PBXWeapons_SGLUpgrade_Pickup        = "UAC-M7 Automatic Grenade Launcher Elemental Grenades Addon (Slot 6, Upgrade)";
-PBXWeapons_SGLUpgrade_Tag           = "SGL Upgrade";
-PBXWeapons_SGLUpgrade_Tag2          = "UAC-M7 Automatic Grenade Launcher w/ Elemental Grenades";
+PBX_Weapons_SGLUpgrade_NoUpgrade     = "Need the \cdElemental Grenade Addon";
+PBX_Weapons_SGLUpgrade_Pickup        = "UAC-M7 Automatic Grenade Launcher Elemental Grenades Addon (Slot 6, Upgrade)";
+PBX_Weapons_SGLUpgrade_Tag           = "SGL Upgrade";
+PBX_Weapons_SGLUpgrade_Tag2          = "UAC-M7 Automatic Grenade Launcher w/ Elemental Grenades";
 
-PBXWeapons_LMGUpgrade_NoUpgrade     = "Need the \crMicro Missile Conversion Kit";
-PBXWeapons_LMGUpgrade_Pickup        = "Light Machine Gun Micro Missiles Conversion Kit (Slot 4, Upgrade)";
-PBXWeapons_LMGUpgrade_Tag           = "LMG Upgrade";
-PBXWeapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit";
+PBX_Weapons_LMGUpgrade_NoUpgrade     = "Need the \crMicro Missile Conversion Kit";
+PBX_Weapons_LMGUpgrade_Pickup        = "Light Machine Gun Micro Missiles Conversion Kit (Slot 4, Upgrade)";
+PBX_Weapons_LMGUpgrade_Tag           = "LMG Upgrade";
+PBX_Weapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit";
 
 //////////////////////////// OTHERS ///////////////////////////////////////////////////////////////////////////////
 // PBX Command Pack

@@ -1,9 +1,9 @@
-enum PBXWeapons_eWeaponTipFlags
+enum PBX_Weapons_eWeaponTipFlags
 {
     // SLOT 2
     
     // SLOT 3
-    PBX_TIP_CSSG                = 1 << 0
+    PBX_TIP_CSSG                 = 1 << 0
     ,PBX_TIP_PSG                 = 1 << 1
     // SLOT 4
     ,PBX_TIP_METALSNIPER         = 1 << 2
@@ -157,13 +157,13 @@ extend class PBX_WeaponBase
         }
     }
 
-    enum PBXWeapons_SpecialTip
+    enum PBX_Weapons_SpecialTip
     {
         MONSTER_WEAPON,
         DISABLE_UPGRADE
     }
 
-    action void TryGiveSpecialTip(PBXWeapons_SpecialTip whatToSend)
+    action void TryGiveSpecialTip(PBX_Weapons_SpecialTip whatToSend)
     {
         switch(whatToSend)
         {

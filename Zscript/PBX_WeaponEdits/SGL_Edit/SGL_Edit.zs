@@ -19,7 +19,7 @@ class PBX_SGLEdited : PB_SuperGL
             TNT1 A 0 {
 				if(findinventory("SelectSGL_No"))
 				{
-					A_Print("$PBXWeapons_SGLUpgrade_NoUpgrade");
+					A_Print("$PBX_Weapons_SGLUpgrade_NoUpgrade");
 					A_SetInventory("SelectSGL_No",0);
 					return resolvestate("ready");
 				}
@@ -66,7 +66,7 @@ Class PBX_SGLWheelEdited : wheelinfocontainer
 
 		// If the player has the upgrade token or if weapon edits are disabled or if this specific weapon edit is disabled, 
 		// then show the elemental grenades
-		if(requester.FindInventory("SGLUpgraded") || !PBXWeapons_EnableWeaponEdits || (PBXWeapons_WeaponEditsFlags & DisablePBX_SGLEdit))
+		if(requester.FindInventory("SGLUpgraded") || !PBX_Weapons_EnableWeaponEdits || (PBX_Weapons_WeaponEditsFlags & DisablePBX_SGLEdit))
 		{
 			PB_SpecialWheel_Mode grenade_incendiary = new ("PB_SpecialWheel_Mode");
 			grenade_incendiary.img = "graphics/pywheel/grenade_incendiary.png";

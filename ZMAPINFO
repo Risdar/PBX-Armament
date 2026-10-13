@@ -2,13 +2,13 @@ Gameinfo
 {
 	PlayerClasses = "PBXCore_Player"
 	
-	addeventhandlers = "PBXWeapons_HUDHandler"
-	addeventhandlers = "PBXWeapons_CheatsHandler"
-	addeventhandlers = "PBXWeapons_SecretWeaponHandler"
-	addeventhandlers = "PBXWeapons_WeaponEditHandler"
+	addeventhandlers = "PBX_Weapons_HUDHandler"
+	addeventhandlers = "PBX_Weapons_CheatsHandler"
+	addeventhandlers = "PBX_Weapons_SecretWeaponHandler"
+	addeventhandlers = "PBX_Weapons_WeaponEditHandler"
 	addeventhandlers = "PBX_SmartScopeHandler"
 	addeventhandlers = "PBX_ScrollZoomHandler"
-	addeventhandlers = "PBXWeapons_Handler"
+	addeventhandlers = "PBX_Weapons_Handler"
 	addeventhandlers = "ExterminatorHandler"
 	addeventhandlers = "PBX_PreviousWeaponHandler"
 	

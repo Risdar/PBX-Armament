@@ -67,7 +67,7 @@ class PBX_EternalMinigun : PBX_WeaponBase
             if(weap)
             {
                 // If yes then reset the power time
-                weap.mPowerTime = PBXCore_Duration.GetByCVarInSeconds("pbxweapons_echaingun_duration");
+                weap.mPowerTime = PBXCore_Duration.GetByCVarInSeconds("PBX_Weapons_echaingun_duration");
                 // Force switch to this weapon
                 if(plr.readyweapon != weap)
                     plr.PendingWeapon = weap;
@@ -75,9 +75,9 @@ class PBX_EternalMinigun : PBX_WeaponBase
                 if(InStateSequence(plr.FindPSprite(PSP_WEAPON).curstate, weap.ResolveState("Ready3")))
                 {
                     // If yes then give powperup
-                    owner.A_GiveInventory("PBXWeapons_InfiniteAmmo",1);
-                    owner.A_GiveInventory("PBXWeapons_Drain",1);
-                    owner.A_GiveInventory("PBXWeapons_Protection",1);
+                    owner.A_GiveInventory("PBX_Weapons_InfiniteAmmo",1);
+                    owner.A_GiveInventory("PBX_Weapons_Drain",1);
+                    owner.A_GiveInventory("PBX_Weapons_Protection",1);
                 }
                 PBXCore_Debug.PrintInt("Getting Cooldown, %",weap.mPowerTime);
                 if(pb_newmugshot) owner.A_SetMugshotState("MegasphereGrin");
@@ -91,7 +91,7 @@ class PBX_EternalMinigun : PBX_WeaponBase
     // Set Default power time
     override void PostBeginPlay()
     {
-        mPowerTime = PBXCore_Duration.GetByCVarInSeconds("pbxweapons_echaingun_duration");
+        mPowerTime = PBXCore_Duration.GetByCVarInSeconds("PBX_Weapons_echaingun_duration");
         PBXCore_Debug.PrintInt("Power Time is %d",mPowerTime);
         Super.PostBeginPlay();
     }
@@ -195,9 +195,9 @@ class PBX_EternalMinigun : PBX_WeaponBase
             TNT1 A 0 {
                 if(invoker.mPowerTime > 0)
                 {
-                    A_GiveInventory("PBXWeapons_InfiniteAmmo",1);
-                    A_GiveInventory("PBXWeapons_Drain",1);
-                    A_GiveInventory("PBXWeapons_Protection",1);
+                    A_GiveInventory("PBX_Weapons_InfiniteAmmo",1);
+                    A_GiveInventory("PBX_Weapons_Drain",1);
+                    A_GiveInventory("PBX_Weapons_Protection",1);
                 }
             }
             TNT1 A 0 {
@@ -426,15 +426,15 @@ class EternalChaingunTracer : PB_556x45mmAP
     }
 }
 
-mixin class PBXWeapons_EternalChaingun_Duration
+mixin class PBX_Weapons_EternalChaingun_Duration
 {
     override void BeginPlay()
     {
         super.BeginPlay();
-        EffectTics  = pbxweapons_echaingun_duration * TICRATE;
+        EffectTics  = PBX_Weapons_echaingun_duration * TICRATE;
     }
 }
 
-class PBXWeapons_InfiniteAmmo   : PBX_InfiniteAmmoGiver   {mixin PBXWeapons_EternalChaingun_Duration;}
-class PBXWeapons_Drain          : PBX_DrainGiver          {mixin PBXWeapons_EternalChaingun_Duration;} 
-class PBXWeapons_Protection     : PBX_ProtectionGiver     {mixin PBXWeapons_EternalChaingun_Duration; Default {DamageFactor "Normal", 0.75;}} 
+class PBX_Weapons_InfiniteAmmo   : PBX_InfiniteAmmoGiver   {mixin PBX_Weapons_EternalChaingun_Duration;}
+class PBX_Weapons_Drain          : PBX_DrainGiver          {mixin PBX_Weapons_EternalChaingun_Duration;} 
+class PBX_Weapons_Protection     : PBX_ProtectionGiver     {mixin PBX_Weapons_EternalChaingun_Duration; Default {DamageFactor "Normal", 0.75;}} 

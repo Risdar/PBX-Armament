@@ -3,11 +3,11 @@ const WHEEL_ZOOM_SCALE       = 0.16;
 const WHEEL_SCOPE_SCALE      = 0.16;
 const WHEEL_NVG_SCALE        = 0.5;
 const WHEEL_CLOSEMENU_SCALE  = 0.15;
-// Used in this file and in PBXWeapons_BaseWeapons.zs
+// Used in this file and in PBX_Weapons_BaseWeapons.zs
 const IMAGE_DIRECTORY = "graphics/WeaponWheel/";
 
 // Draw the ammo bar for some weapons
-class PBXWeapons_HUDHandler : EventHandler
+class PBX_Weapons_HUDHandler : EventHandler
 {
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
     ui int flagsManualVisor1, flagsManualVisor2;
@@ -46,8 +46,8 @@ class PBXWeapons_HUDHandler : EventHandler
 
         // Begin drawing the HUD
         phud.BeginHUD();                    // Initialize
-        PBXWeapons_DrawAmmoBar();
-        PBXWeapons_DrawScope();
+        PBX_Weapons_DrawAmmoBar();
+        PBX_Weapons_DrawScope();
 
     }
 
@@ -104,7 +104,7 @@ class PBXWeapons_HUDHandler : EventHandler
 
 
     private
-    ui void PBXWeapons_DrawScope()
+    ui void PBX_Weapons_DrawScope()
     {
         let weap = PBX_WeaponBase(pbWeap);
         if(!weap || !weap.IsScopedWeapon() || !mo || !mo.FindInventory("Zoomed")) return;
@@ -113,7 +113,7 @@ class PBXWeapons_HUDHandler : EventHandler
         phud.PBHud_DrawString(phud.mDefaultFont,"Zoom In:",(hudX, -100), BaseStatusBar.DI_SCREEN_LEFT_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT, Font.CR_WHITE);
         phud.PBHud_DrawString(
             phud.mDefaultFont, 
-            (string.format(StringTable.Localize("$PBXWeapons_ZoomScroll_Up"), PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomin"))), 
+            (string.format(StringTable.Localize("$PBX_Weapons_ZoomScroll_Up"), PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomin"))), 
             (hudX, -85), 
             BaseStatusBar.DI_SCREEN_LEFT_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT, 
             Font.CR_WHITE
@@ -122,7 +122,7 @@ class PBXWeapons_HUDHandler : EventHandler
         phud.PBHud_DrawString(phud.mDefaultFont,"Zoom Out:",(hudX, 85), BaseStatusBar.DI_SCREEN_LEFT_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT, Font.CR_WHITE);
         phud.PBHud_DrawString(
             phud.mDefaultFont, 
-            (string.format(StringTable.Localize("$PBXWeapons_ZoomScroll_Down"), PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomout"))), 
+            (string.format(StringTable.Localize("$PBX_Weapons_ZoomScroll_Down"), PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomout"))), 
             (hudX, 100), 
             BaseStatusBar.DI_SCREEN_LEFT_CENTER | BaseStatusBar.DI_TEXT_ALIGN_LEFT, 
             Font.CR_WHITE
@@ -130,7 +130,7 @@ class PBXWeapons_HUDHandler : EventHandler
     }
 
     private
-    ui void PBXWeapons_DrawAmmoBar()
+    ui void PBX_Weapons_DrawAmmoBar()
     {
         if(!pbWeap || !phud || !plr || !mo) return;
         switch(pbWeap.GetClassName())

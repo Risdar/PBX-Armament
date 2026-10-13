@@ -70,7 +70,7 @@ class PBX_PreviousWeaponHandler : EventHandler
 
 } // class mg_PreivousWeaponEventHandler
 
-class PBXWeapons_Handler : EventHandler
+class PBX_Weapons_Handler : EventHandler
 {
     Override void PlayerEntered(PlayerEvent e)
     {
@@ -83,12 +83,12 @@ class PBXWeapons_Handler : EventHandler
             return;
         }
 
-        if(pbxweapons_startwithnormalrifle) 
+        if(PBX_Weapons_startwithnormalrifle) 
         {
             pm.giveinventory("PBX_NormalRifle",1);
         }
 
-		if(pbxweapons_startwithcrossbow) 
+		if(PBX_Weapons_startwithcrossbow) 
         {
             pm.giveinventory("PBX_Prosurv_Ballista",1);
         }
@@ -98,7 +98,7 @@ class PBXWeapons_Handler : EventHandler
 // For easier testing, though you can also disable the upgrades in the backpack spawners
 // and it will bypass the upgrade requirements
 // to use these cheats just type "netevent <insert cheat name here>" in the console
-Class PBXWeapons_CheatsHandler : Eventhandler
+Class PBX_Weapons_CheatsHandler : Eventhandler
 {	
 	override void NetworkProcess(ConsoleEvent e)
 	{

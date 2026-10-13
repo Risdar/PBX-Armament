@@ -1,93 +1,93 @@
 [enu default]
 //////////////////////////// GENERAL MENU ///////////////////////////////////////////////////////////////////////////////
-PBXWEAPONS_MENU_ENABLE_TOOLTIPS = "Enable Weapon Tooltips";
-PBXWEAPONS_MENU_ENABLE_KEEPWEAPONS = "Keep Unupgraded Weapons";
-PBXWEAPONS_MENU_RESET_SPAWNERS = "Reset PBX Weapons Spawners";
-PBXWEAPONS_MENU_RESET_PBTOOLTIPS = "Reset PB Tool Tips";
-PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS = "Reset PBX Weapons Tool Tips";
-PBXWEAPONS_LASER_SHOW_BEAM = "Laser Sights Show Beam";
+PBX_Weapons_MENU_ENABLE_TOOLTIPS = "Enable Weapon Tooltips";
+PBX_Weapons_MENU_ENABLE_KEEPWEAPONS = "Keep Unupgraded Weapons";
+PBX_Weapons_MENU_RESET_SPAWNERS = "Reset PBX Weapons Spawners";
+PBX_Weapons_MENU_RESET_PBTOOLTIPS = "Reset PB Tool Tips";
+PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS = "Reset PBX Weapons Tool Tips";
+PBX_Weapons_LASER_SHOW_BEAM = "Laser Sights Show Beam";
 
-PBXWEAPONS_START_WITH_BDP_RIFLE = "Start with the BDP Rifle";
-PBXWEAPONS_START_WITH_PISTOL_BLASTER = "Start with the Pistol Blaster";
-PBXWEAPONS_START_WITH_CROSSBOW = "Start with the Crossbow Ballista";
-PBXWEAPONS_MENU_ENABLE_SECRET_WEAPONS = "Enable Secret Weapons";
-PBXWEAPONS_MENU_SECRETWEAPON_BFGSPAWN = "Secret Weapons spawns in BFG spawners";
-PBXWEAPONS_MENU_ENABLE_WEAPON_EDITS = "Enable Weapon Edits";
+PBX_Weapons_START_WITH_BDP_RIFLE = "Start with the BDP Rifle";
+PBX_Weapons_START_WITH_PISTOL_BLASTER = "Start with the Pistol Blaster";
+PBX_Weapons_START_WITH_CROSSBOW = "Start with the Crossbow Ballista";
+PBX_Weapons_MENU_ENABLE_SECRET_WEAPONS = "Enable Secret Weapons";
+PBX_Weapons_MENU_SECRETWEAPON_BFGSPAWN = "Secret Weapons spawns in BFG spawners";
+PBX_Weapons_MENU_ENABLE_WEAPON_EDITS = "Enable Weapon Edits";
 
-TIP_pbxweapons_secretweapon_bfgspawn = "Secret weapons will also spawn in BFG spawners. Disabling the secret spawns will not affect this.";
-TIP_PBXWeapons_LaserShowBeam = "Draw the Beam for Laser Sights, may impact performace";
+TIP_PBX_Weapons_secretweapon_bfgspawn = "Secret weapons will also spawn in BFG spawners. Disabling the secret spawns will not affect this.";
+TIP_PBX_Weapons_LaserShowBeam = "Draw the Beam for Laser Sights, may impact performace";
 
 //////////////////////////// WEAPONS MENU ///////////////////////////////////////////////////////////////////////////////
-PBXWEAPONS_SECRETWEAPONS_SPAWNCHANCE = "Secret weapon spawn chance";
-PBXWEAPONS_ECHAINGUN_POWERTIME = "Eternal Chaingun's Power Time Duration";
-PBXWEAPONS_MEATHOOK_COOLDOWN = "CSSG's Meathook Cooldown";
-PBXWEAPONS_HOLOGRAM_COOLDOWN = "Platinum Railgun's Hologram Cooldown";
-PBXWEAPONS_HOLOGRAM_LIFETIME = "Platinum Railgun's Hologram Lifetime";
-PBXWEAPONS_MENU_RESET_WEAPON_DURATIONS = "Reset PBX Weapons Values";
-PBXWEAPONS_CSSG_LOCK_SWITCH = "CSSG Meathook Lock Switch";
+PBX_Weapons_SECRETWEAPONS_SPAWNCHANCE = "Secret weapon spawn chance";
+PBX_Weapons_ECHAINGUN_POWERTIME = "Eternal Chaingun's Power Time Duration";
+PBX_Weapons_MEATHOOK_COOLDOWN = "CSSG's Meathook Cooldown";
+PBX_Weapons_HOLOGRAM_COOLDOWN = "Platinum Railgun's Hologram Cooldown";
+PBX_Weapons_HOLOGRAM_LIFETIME = "Platinum Railgun's Hologram Lifetime";
+PBX_Weapons_MENU_RESET_WEAPON_DURATIONS = "Reset PBX Weapons Values";
+PBX_Weapons_CSSG_LOCK_SWITCH = "CSSG Meathook Lock Switch";
 
-TIP_pbxweapons_keepweapons          = "Keep unupgraded weapons (PBX Weapons Only)";
-TIP_pbxweapons_startwithnormalrifle   = "Start the game with the Platinum Rifle";
-TIP_pbxweapons_startwithcrossbow    = "Start the game with the Crossbow Ballista";
-TIP_pbxweapons_enablesecretweapon   = "Toggle secret weapon spawns";
-TIP_pbxweapons_cssghooklockswitch   = "Disable weapon switching when the CSSG Meathook is attached to a monster";
+TIP_PBX_Weapons_keepweapons          = "Keep unupgraded weapons (PBX Weapons Only)";
+TIP_PBX_Weapons_startwithnormalrifle   = "Start the game with the Platinum Rifle";
+TIP_PBX_Weapons_startwithcrossbow    = "Start the game with the Crossbow Ballista";
+TIP_PBX_Weapons_enablesecretweapon   = "Toggle secret weapon spawns";
+TIP_PBX_Weapons_cssghooklockswitch   = "Disable weapon switching when the CSSG Meathook is attached to a monster";
 
-TIP_pbxweapons_secretweapon_spawnchance = "How frequent should the secret weapons spawn (In Percent)";
+TIP_PBX_Weapons_secretweapon_spawnchance = "How frequent should the secret weapons spawn (In Percent)";
 
-TIP_pbxweapons_meathook_cooldown    = "CSSG's Meathook cooldown (In Seconds)";
-TIP_pbxweapons_hologram_cooldown    = "Platinum Railgun's Hologram cooldown (In Seconds)";
-TIP_pbxweapons_hologram_lifetime    = "Platinum Railgun's Hologram lifetime (In Seconds)";
+TIP_PBX_Weapons_meathook_cooldown    = "CSSG's Meathook cooldown (In Seconds)";
+TIP_PBX_Weapons_hologram_cooldown    = "Platinum Railgun's Hologram cooldown (In Seconds)";
+TIP_PBX_Weapons_hologram_lifetime    = "Platinum Railgun's Hologram lifetime (In Seconds)";
 
 
 //////////////////////////// SPAWN MENU ///////////////////////////////////////////////////////////////////////////////
-PBXWEAPONS_PLASMA_BLASTER = "Enable Plasma Blaster";
-PBXWEAPONS_LEVER_ACTION_RIFLE = "Enable Lever Action Rifle";
-PBXWEAPONS_CROSSBOW_BALLISTA = "Enable Crossbow Ballista";
+PBX_Weapons_PLASMA_BLASTER = "Enable Plasma Blaster";
+PBX_Weapons_LEVER_ACTION_RIFLE = "Enable Lever Action Rifle";
+PBX_Weapons_CROSSBOW_BALLISTA = "Enable Crossbow Ballista";
 
-PBXWEAPONS_SPAS12 = "Enable SPAS-12";
-PBXWEAPONS_CSSG = "Enable Commander SuperShotgun";
-PBXWEAPONS_BATTLE_RIFLE = "Enable Battle Rifle";
-PBXWEAPONS_METAL_SNIPER = "Enable Metal Sniper";
-PBXWEAPONS_XM21 = "Enable Sniper Spec-Ops Pack";
-PBXWEAPONS_NEOHMG = "Enable Neo HMG";
-PBXWEAPONS_SUPERNAILGUN = "Enable Super Nailgun";
+PBX_Weapons_SPAS12 = "Enable SPAS-12";
+PBX_Weapons_CSSG = "Enable Commander SuperShotgun";
+PBX_Weapons_BATTLE_RIFLE = "Enable Battle Rifle";
+PBX_Weapons_METAL_SNIPER = "Enable Metal Sniper";
+PBX_Weapons_XM21 = "Enable Sniper Spec-Ops Pack";
+PBX_Weapons_NEOHMG = "Enable Neo HMG";
+PBX_Weapons_SUPERNAILGUN = "Enable Super Nailgun";
 
-PBXWEAPONS_EXCAVATOR = "Enable Excavator";
-PBXWEAPONS_PAINGIVER = "Enable Paingiver";
+PBX_Weapons_EXCAVATOR = "Enable Excavator";
+PBX_Weapons_PAINGIVER = "Enable Paingiver";
 
-PBXWEAPONS_CYBERRL = "Cyberdemon drop their Weapon";
-PBXWEAPONS_SPIDERCG = "Spider Mastermind drop their Weapon";
+PBX_Weapons_CYBERRL = "Cyberdemon drop their Weapon";
+PBX_Weapons_SPIDERCG = "Spider Mastermind drop their Weapon";
 
-PBXWEAPONS_CRYOSG = "Enable Plasma Shotgun"; 
-PBXWEAPONS_PLATINUM_RAILGUN = "Enable Platinum Railgun"; 
-PBXWEAPONS_TESLAGUN = "Enable Tesla Gun"; 
-PBXWEAPONS_CRYOASG = "Enable Plasma Auto Shotgun"; 
-PBXWEAPONS_FREEZE_RIFLE = "Enable Freeze Rifle"; 
+PBX_Weapons_CRYOSG = "Enable Plasma Shotgun"; 
+PBX_Weapons_PLATINUM_RAILGUN = "Enable Platinum Railgun"; 
+PBX_Weapons_TESLAGUN = "Enable Tesla Gun"; 
+PBX_Weapons_CRYOASG = "Enable Plasma Auto Shotgun"; 
+PBX_Weapons_FREEZE_RIFLE = "Enable Freeze Rifle"; 
 
-PBXWEAPONS_DEMONIC_EXTERMINATOR = "Enable Demonic Exterminator";
-PBXWEAPONS_DEMONEXT_ARTIFACT = "Enable Demonic Exterminator Artifacts";
-PBXWEAPONS_NUKE_LAUNCHER = "Enable Nuke Launcher";
-PBXWEAPONS_HEXA_SHOTGUN = "Enable Hexa Shotgun";
-PBXWEAPONS_MINI_SHOTGUN = "Enable Mini Shotgun";
+PBX_Weapons_DEMONIC_EXTERMINATOR = "Enable Demonic Exterminator";
+PBX_Weapons_DEMONEXT_ARTIFACT = "Enable Demonic Exterminator Artifacts";
+PBX_Weapons_NUKE_LAUNCHER = "Enable Nuke Launcher";
+PBX_Weapons_HEXA_SHOTGUN = "Enable Hexa Shotgun";
+PBX_Weapons_MINI_SHOTGUN = "Enable Mini Shotgun";
 
-PBXWEAPONS_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
+PBX_Weapons_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
 
-PBXWEAPONS_LEVER_ACTION_UPGRADE = "Enable Lever Action Rifle Upgrade"; 
-PBXWEAPONS_CROSSBOW_BALLISTA_UPGRADE = "Enable Crossbow Ballista Upgrade";
-PBXWEAPONS_METAL_SNIPER_UPGRADE = "Enable Metal Sniper Upgrade";
+PBX_Weapons_LEVER_ACTION_UPGRADE = "Enable Lever Action Rifle Upgrade"; 
+PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE = "Enable Crossbow Ballista Upgrade";
+PBX_Weapons_METAL_SNIPER_UPGRADE = "Enable Metal Sniper Upgrade";
 
-PBXWEAPONS_EXCAVATOR_UPGRADE = "Enable Excavator Upgrade";
+PBX_Weapons_EXCAVATOR_UPGRADE = "Enable Excavator Upgrade";
 
-PBXWEAPONS_CSSG_UPGRADES = "Enable CSSG Upgrades";
+PBX_Weapons_CSSG_UPGRADES = "Enable CSSG Upgrades";
 
-PBXWEAPONS_ETERNAL_CHAINGUN = "Enable Eternal Chaingun";
+PBX_Weapons_ETERNAL_CHAINGUN = "Enable Eternal Chaingun";
 
-PBXWEAPONS_SGL_EDIT         = "Enable SGL Upgrade";
-PBXWEAPONS_LMG_EDIT         = "Enable LMG Upgrade";
-PBXWEAPONS_CHAINSAW_EDIT    = "Enable Chainsaw Edit";
+PBX_Weapons_SGL_EDIT         = "Enable SGL Upgrade";
+PBX_Weapons_LMG_EDIT         = "Enable LMG Upgrade";
+PBX_Weapons_CHAINSAW_EDIT    = "Enable Chainsaw Edit";
 
 //////////////////////////// KEYS MENU ///////////////////////////////////////////////////////////////////////////////
-PBXWEAPONS_KEYMENU       = "PBX Keys Menu";
-PBXWEAPONS_WHEELZOOM_IN  = "Manual Zoom In Key";
-PBXWEAPONS_WHEELZOOM_OUT = "Manual Zoom Out Key";
-PBXWEAPONS_PREV_WEAPON   = "Previous Weapon Key";
+PBX_Weapons_KEYMENU       = "PBX Keys Menu";
+PBX_Weapons_WHEELZOOM_IN  = "Manual Zoom In Key";
+PBX_Weapons_WHEELZOOM_OUT = "Manual Zoom Out Key";
+PBX_Weapons_PREV_WEAPON   = "Previous Weapon Key";

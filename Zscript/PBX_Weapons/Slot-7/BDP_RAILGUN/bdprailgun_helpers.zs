@@ -107,7 +107,7 @@ class PBX_Hologram : PB_Monster
 	override void PostBeginPlay()
 	{
 		super.PostBeginPlay();
-		mLifetime = pbxweapons_hologram_lifetime;
+		mLifetime = PBX_Weapons_hologram_lifetime;
 	}
 	
 	override void Tick()

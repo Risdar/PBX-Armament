@@ -1,22 +1,6 @@
 extend class PBX_NeoHMG
 {
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////    
-	override void postbeginplay()
-	{
-		mShieldIsReady = true;
-		super.postbeginplay();
-	}
-
-	override bool TryPickup(in out Actor toucher) 
-	{
-		bool pickup = super.TryPickup(toucher);
-		if(pickup)
-		{
-			toucher.giveinventory("HMGShield", SHIELD_MAXCHARGE);
-		}
-		return pickup;
-	}
-
 	override void ModifyDamage(int damage, Name damageType, out int newDamage, bool passive, Actor inflictor, Actor source, int flags)
     {
 		if (passive && damage > 0)

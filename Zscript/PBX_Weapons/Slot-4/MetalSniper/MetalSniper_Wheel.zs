@@ -13,7 +13,7 @@ Class MetalSniperWheel : wheelinfocontainer
 			return;
 
 		PBX_InitializeWheel(spw,requester,scale:(0.7, 0.7));
-		mDisabled = PBXWeapons_backpack_filter & DisablePBX_MetalSniperUpgrade;
+		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_MetalSniperUpgrade;
 		
 		// Laser
 		PBX_LaserWheel(spw,"MetalSniper");
