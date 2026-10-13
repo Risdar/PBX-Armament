@@ -1,9 +1,8 @@
 // General
 #include "./BaseWeapon/PBX_BaseWeapon.zs"
-#include "./PBXWeapons_Upgrades.zs"
-#include "./PBXWeapons_Hud.zs"
-#include "./PBXWeapons_Ammo.zs"
-#include "./PBXWeapons_Tips.zs"
+#include "./PBX_Weapons_Upgrades.zs"
+#include "./PBX_Weapons_Ammo.zs"
+#include "./PBX_Weapons_Tips.zs"
 
 // Projectiles
 #include "./Projectiles/PBX_Projectiles.zs"

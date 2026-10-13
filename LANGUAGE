@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBXWeapons_Settings                 = "\cg⟁\c- PBX - Weapons Settings";
-PBXWeapons_Version                  = "\cgPBX - Weapons Version: 3.4.2 - Energy Update";
+PBXWeapons_Version                  = "\cgPBX - Weapons Version: 3.4.3 - Energy Update";
 
 PBXWeapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBXWeapons_SmartScope_CurrHP        = "HP: %u";

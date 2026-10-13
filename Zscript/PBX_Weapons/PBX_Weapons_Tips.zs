@@ -3,33 +3,33 @@ enum PBXWeapons_eWeaponTipFlags
     // SLOT 2
     
     // SLOT 3
-    PBX_TIP_CSSG                = 1 << 0,
-    PBX_TIP_PSG                 = 1 << 1,
+    PBX_TIP_CSSG                = 1 << 0
+    ,PBX_TIP_PSG                 = 1 << 1
     // SLOT 4
-    PBX_TIP_METALSNIPER         = 1 << 2,
+    ,PBX_TIP_METALSNIPER         = 1 << 2
     // SLOT 5 
-    PBX_TIP_NEOHMG              = 1 << 3,
-    PBX_TIP_SUPERNAILGUN        = 1 << 4,
+    ,PBX_TIP_NEOHMG              = 1 << 3
+    ,PBX_TIP_SUPERNAILGUN        = 1 << 4
     // SLOT 6
-    PBX_TIP_EXCAVATOR           = 1 << 5,
-    PBX_TIP_PAINGIVER           = 1 << 6,
+    ,PBX_TIP_EXCAVATOR           = 1 << 5
+    ,PBX_TIP_PAINGIVER           = 1 << 6
     // SLOT 7
-    PBX_TIP_BDPRAILGUN          = 1 << 7,
+    ,PBX_TIP_BDPRAILGUN          = 1 << 7
     // SLOT 8
-    PBX_TIP_TESLAGUN            = 1 << 8,
+    ,PBX_TIP_TESLAGUN            = 1 << 8
     // SLOT 9
-    PBX_TIP_DEMONEXT            = 1 << 9,
+    ,PBX_TIP_DEMONEXT            = 1 << 9
     // OTHERS
-    PBX_TIP_SCROLLZOOM          = 1 << 28,
-    PBX_TIP_COMMANDERWEAPON     = 1 << 29,
-    PBX_TIP_MONSTERWEAPON       = 1 << 30,
-    PBX_TIP_DEMONICWEAPON       = 1 << 31
+    ,PBX_TIP_SCROLLZOOM          = 1 << 28
+    ,PBX_TIP_COMMANDERWEAPON     = 1 << 29
+    ,PBX_TIP_MONSTERWEAPON       = 1 << 30
+    ,PBX_TIP_DEMONICWEAPON       = 1 << 31
 }
 
+const WEAPON_HELPTEXT = "PBX_Weapons_weaponTipFlags";
+const WEAPON_UPGRADE_HELPTEXT = "PBX_Weapons_upgradeTipFlags";
 extend class PBX_WeaponBase
 {
-    const WEAPON_HELPTEXT = "PBXWeapons_WeaponHelpFlags";
-    const WEAPON_UPGRADE_HELPTEXT = "PBXWeapons_UpgradeHelpFlags";
 
     action void PBX_WeaponHelpText()
 	{

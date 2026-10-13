@@ -10,7 +10,7 @@ AddOptionMenu "PBXCore_Menu"
     Option "$PBXWEAPONS_MENU_ENABLE_KEEPWEAPONS", "pbxweapons_keepweapons", "OnOff"
     SafeCommand "$PBXWEAPONS_MENU_RESET_SPAWNERS", "set PBXWeapons_chainsaw_filter 0; set PBXWeapons_pistol_filter 0; set PBXWeapons_shotgun_filter 0; set PBXWeapons_ssg_filter 0; set PBXWeapons_chaingun_filter 0; set PBXWeapons_rocketlauncher_filter 0; set PBXWeapons_plasmarifle_filter 0; set PBXWeapons_bfg_filter 0;set pbxweapons_backpack_filter 0;set PBXWeapons_monsterdrop_filter 0;set PBXWeapons_specialdrop_filter 0; set PBXWeapons_WeaponEditsFlags 0;"
     SafeCommand "$PBXWEAPONS_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS", "set PBXWeapons_WeaponHelpFlags 0; set PBXWeapons_UpgradeHelpFlags 0"
+    SafeCommand "$PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS", "set PBX_Weapons_weaponTipFlags 0; set PBX_Weapons_upgradeTipFlags 0"
     StaticText "$PBXWeapons_Version",red
     StaticText " "
 }
@@ -28,7 +28,7 @@ OptionMenu "PBXWeapons_Menu"
     StaticText " "
     SafeCommand "$PBXWEAPONS_MENU_RESET_SPAWNERS", "set PBXWeapons_chainsaw_filter 0; set PBXWeapons_pistol_filter 0; set PBXWeapons_shotgun_filter 0; set PBXWeapons_ssg_filter 0; set PBXWeapons_chaingun_filter 0; set PBXWeapons_rocketlauncher_filter 0; set PBXWeapons_plasmarifle_filter 0; set PBXWeapons_bfg_filter 0;set pbxweapons_backpack_filter 0;set PBXWeapons_monsterdrop_filter 0;set PBXWeapons_specialdrop_filter 0; set PBXWeapons_WeaponEditsFlags 0;"
     SafeCommand "$PBXWEAPONS_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS", "set PBXWeapons_WeaponHelpFlags 0; set PBXWeapons_UpgradeHelpFlags 0"
+    SafeCommand "$PBXWEAPONS_MENU_RESET_PBXWEAPONS_TOOLTIPS", "set PBX_Weapons_weaponTipFlags 0; set PBX_Weapons_upgradeTipFlags 0"
     StaticText " "
     StaticText	"--------- Weapon Settings ---------", 1
     Option "$PBXWEAPONS_MENU_ENABLE_KEEPWEAPONS", "pbxweapons_keepweapons", "OnOff"

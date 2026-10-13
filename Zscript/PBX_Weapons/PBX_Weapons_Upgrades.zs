@@ -99,7 +99,7 @@ class LeverAction_Upgrade : PB_UpgradeItem
 		{
 			Array<String> tips;
 			tips.Push(string.format(StringTable.Localize("$PBX_LeverActionUpgrade_Tip1"),PBX_Prosurv_LeverAction.AMMO_TAKE_MARLIN));
-			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBXWeapons_UpgradeHelpFlags", PBX_TIP_LEVERACTION_UPGRADE);
+			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBX_Weapons_upgradeTipFlags", PBX_TIP_LEVERACTION_UPGRADE);
 		}
 		return pickup;
 	}
@@ -168,7 +168,7 @@ class CSSGUpgradeBase : PBX_UpgradeBase abstract
 					Array<String> tips;
 					tips.Push("$PBX_CSSGUpgrade_Tip1");
 					tips.Push("$PBX_CSSGUpgrade_Tip2");
-					PBXCore_TipsManager.SendTipArrayIfNeeded(tips, "PBXWeapons_UpgradeHelpFlags", PBX_TIP_CSSG_UPGRADE);
+					PBXCore_TipsManager.SendTipArrayIfNeeded(tips, "PBX_Weapons_upgradeTipFlags", PBX_TIP_CSSG_UPGRADE);
 				}
 				
 				if(!FindInventory(invoker.upgradetoken))
@@ -294,7 +294,7 @@ class MetalSniper_Upgrade : PB_UpgradeItem
 		{
 			Array<String> tips;
 			tips.Push("$PBX_MetalSniperUpgrade_Tip1");
-			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBXWeapons_UpgradeHelpFlags", PBX_TIP_METALSNIPER_UPGRADE);
+			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBX_Weapons_upgradeTipFlags", PBX_TIP_METALSNIPER_UPGRADE);
 		}
 		return pickup;
 	}
@@ -395,7 +395,7 @@ class PBX_ExcavatorUpgrade : PB_UpgradeItem
 			tips.Push("$PBX_ExcavatorUpgrade_Tip1");
 			tips.Push("$PBX_ExcavatorUpgrade_Tip2");
 			tips.Push("$PBX_ExcavatorUpgrade_Tip3");
-			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBXWeapons_UpgradeHelpFlags", PBX_TIP_EXCAVATOR_UPGRADE);
+			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBX_Weapons_upgradeTipFlags", PBX_TIP_EXCAVATOR_UPGRADE);
 		}
 		return pickup;
 	}

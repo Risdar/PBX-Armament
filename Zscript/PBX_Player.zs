@@ -16,19 +16,19 @@ class PBXCore_Player : PB_PlayerPrawn
 		;
 		
 		Player.WeaponSlot 2
-		,"PB_Pistol"
-		,"PBX_ProsurvBlaster"
 		,"PB_MP40"
+		,"PBX_ProsurvBlaster"
+		,"PBX_PlasmaBlaster"
+		,"PB_Pistol"
 		,"PB_SMG"
 		,"PB_Revolver"
 		,"PB_Deagle"
-		,"PBX_PlasmaBlaster"
 		,"PBX_Prosurv_LeverAction"
 		;
 		
 		Player.WeaponSlot 3
-		,"PBX_ProSurvPSG"
 		,"PB_Shotgun"
+		,"PBX_ProSurvPSG"
 		,"PB_AutoShotgun"
 		,"PB_SSG"
 		,"PBX_CryoSG"
@@ -41,14 +41,14 @@ class PBXCore_Player : PB_PlayerPrawn
 		Player.WeaponSlot 4
 		,"PB_ChexRifle"
 		,"PB_DMR"
-		,"PB_Carbine"
-		,"PB_LMG"
-		,"PBX_LMGEdited"
-		,"PBX_NormalRifle"
+		,"PBX_Prosurv_Ballista"
 		,"PBX_BDPBattleRifle"
 		,"PBX_XM21"
 		,"PBX_MetalSniper"
-		,"PBX_Prosurv_Ballista"
+		,"PBX_NormalRifle"
+		,"PB_Carbine"
+		,"PB_LMG"
+		,"PBX_LMGEdited"
 		;
 		
 		Player.WeaponSlot 5

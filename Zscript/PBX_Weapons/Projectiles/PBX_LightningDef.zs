@@ -21,7 +21,6 @@ class Tesla_LightningBall : PB_ProjectileAlt
         Gravity 0;
         Scale 1;
         renderstyle "ADD";
-        alpha 1.0;
         +NODAMAGE;
         // +INVULNERABLE;
         +MISSILE; +FRIENDLY;

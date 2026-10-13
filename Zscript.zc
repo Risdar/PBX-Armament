@@ -1,12 +1,13 @@
 Version 5.0
 
 // General
-#include "Zscript/PBX_Systems.zs"
-#include "Zscript/PBX_Spawners.zs"
+#include "Zscript/PBX_Armaments_Systems.zs"
+#include "Zscript/PBX_Armaments_Spawners.zs"
+#include "Zscript/PBX_Armaments_Hud.zs"
 #include "Zscript/PBX_Player.zs"
 #include "Zscript/PBX_Lightning.zs" //Lighttning Library by jekyllgrim
 #include "Zscript/PBX_BeamZ.zs" // BEAMZ by Lewis3k
-#include "Zscript/PBX_Weapons/PBXWeapons_Includes.zs"
-#include "Zscript/PBX_WeaponEdits/PBXWeaponEdits_Includes.zs"
+#include "Zscript/PBX_Weapons/PBX_Weapons_Includes.zs"
+#include "Zscript/PBX_WeaponEdits/PBX_WPEdits_Includes.zs"
 
 

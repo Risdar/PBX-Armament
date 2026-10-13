@@ -12,7 +12,7 @@ server int PBXWeapons_secretweapon_spawnchance = 5;
 // Tip Flags
 server int PBXWeapons_GeneralFlags = 0;
 server int PBXWeapons_WeaponHelpFlags = 0;
-server int PBXWeapons_UpgradeHelpFlags = 0;
+server int PBX_Weapons_upgradeTipFlags = 0;
 
 // Spawners
 server int PBXWeapons_chainsaw_filter = 0;
