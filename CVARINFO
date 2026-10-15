@@ -5,13 +5,18 @@ server bool PBX_Weapons_startwithcrossbow = false;
 server bool PBX_Weapons_enablesecretweapon = true;
 server bool PBX_Weapons_cssghooklockswitch = true;
 server bool PBX_Weapons_keepweapons = false;
-server bool PBX_Weapons_secretweapon_bfgspawn = false;
 server bool PBX_Weapons_LaserShowBeam = true;
-server int PBX_Weapons_secretweapon_spawnchance = 5;
+server bool PBX_SecretWeapon_BFGSpawn = false;
+server int PBX_SecretWeapon_Chance = 5;
+
+// Backpack Reload
+server bool PBX_BackpackReload_Enable = false;
+server int 	PBBCKPR_Time		= 	70;
+server int 	PBBCKPR_Ref			=	5;
+server bool PBBCKPR_Tell		=	false;
 
 // Tip Flags
-server int PBX_Weapons_GeneralFlags = 0;
-server int PBX_Weapons_WeaponHelpFlags = 0;
+server int PBX_Weapons_weaponTipFlags = 0;
 server int PBX_Weapons_upgradeTipFlags = 0;
 
 // Spawners
@@ -35,5 +40,5 @@ server int PBX_Weapons_hologram_cooldown = 3;
 server int PBX_Weapons_hologram_lifetime = 30;
 
 // Weapon Edits
-server bool PBX_Weapons_EnableWeaponEdits = true;
-server int PBX_Weapons_WeaponEditsFlags = 0;
+server bool PBX_WPEdit_Enable = true;
+server int PBX_WPEdit_SpawnFlags = 0;

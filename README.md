@@ -1,11 +1,11 @@
-# Project Brutality Extended - Weapons
-This is the Repository for Project Brutality Extended - Weapons
+# Project Brutality Extended - Armament
+This is the Repository for Project Brutality Extended - Armament
 
 ------------
 
 
 ## Description
-This is the Weapons Module from the [Project Brutality Extended Series](https://github.com/Risdar/PBX-Core). This mod adds 15 unique weapons (some from other mods) that has been modified with unique abilities and has been integrated to use Project Brutality various systems.
+This is the Armament Module from the [Project Brutality Extended Series](https://github.com/Risdar/PBX-Core). This mod adds 15 unique weapons (some from other mods) that has been modified with unique abilities and has been integrated to use Project Brutality various systems.
 
 General information about the mod such as installation, download, feedback, etc. can be found in the [Main Repository](https://github.com/Risdar/PBX-Core)
 
@@ -29,8 +29,6 @@ This is the current list of Weapons (As of July 5th 2026):
 ## PBX Modules
 
 - [PBX - Core](https://github.com/Risdar/PBX-Core)
-- [PBX - Weapons](https://github.com/Risdar/PBX-Weapons) (You are currently here)
-- [PBX - Addons](https://github.com/Risdar/PBX-Addons)
-- [PBX - Armors](https://github.com/Risdar/PBX-Armors)
-- [PBX - Items](https://github.com/Risdar/PBX-Items)
+- [PBX - Armament](https://github.com/Risdar/PBX-Armament) (You are currently here)
+- [PBX - Armory](https://github.com/Risdar/PBX-Armory)
 

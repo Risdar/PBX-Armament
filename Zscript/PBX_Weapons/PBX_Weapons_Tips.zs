@@ -30,7 +30,6 @@ const WEAPON_HELPTEXT = "PBX_Weapons_weaponTipFlags";
 const WEAPON_UPGRADE_HELPTEXT = "PBX_Weapons_upgradeTipFlags";
 extend class PBX_WeaponBase
 {
-
     action void PBX_WeaponHelpText()
 	{
         // PBXCore_Debug.Print("Help Text Called");

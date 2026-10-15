@@ -222,7 +222,7 @@ class PBXBFG_Injector : PBInjector
 		}
 
 		// Secret Weapons
-		if(PBX_Weapons_secretweapon_bfgspawn)
+		if(PBX_SecretWeapon_BFGSpawn)
 		{
 			handler.InjectSpawn("PB_BFGSpawnerT1","PBX_NukeLauncher",255,1);
 			handler.InjectSpawn("PB_BFGSpawnerT1","PBX_HexaShotgun",255,1);
@@ -301,7 +301,7 @@ class PBX_Weapons_SecretWeaponHandler : EventHandler
 		if(mSecretWeaponSpawned || !PBX_Weapons_enablesecretweapon) return;
 
 		int mSpawnChance = random(1,100);
-		if(mSpawnChance > PBX_Weapons_secretweapon_spawnchance) //5% chance of spawning by default
+		if(mSpawnChance > PBX_SecretWeapon_Chance) //5% chance of spawning by default
 		{
 			PBXCore_Debug.PrintInt("PBX_Weapons_SecretWeaponSpawner not Spawned!, got %d",mSpawnChance);
 			return;
@@ -448,6 +448,7 @@ class PBX_Weapons_WeaponEditHandler : EventHandler
 
         if(act && act.getClassName() == "PB_Chainsaw") 
         {
+			PBXCore_Debug.Print("Spawned Edited Chainsaw");
             act.Spawn("PBX_ChainsawEdited",act.pos);
             act.Destroy();
         }
@@ -459,18 +460,18 @@ class PBX_Weapons_WeaponEditSpawner : PBInjector
 {
 	override void Init(PB_EventHandler handler)
 	{
-        if(!PBX_Weapons_EnableWeaponEdits)
+        if(!PBX_WPEdit_Enable)
         {
             return;
         }
         
-        if(!(PBX_Weapons_WeaponEditsFlags & DisablePBX_SGLEdit))
+        if(!(PBX_WPEdit_SpawnFlags & DisablePBX_SGLEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'SGL_Upgrade', 255, 1);
             handler.InjectSpawn('PB_RLSpawnerT3', 'SGL_Upgrade', 255, 1);
         }
 
-        if(!(PBX_Weapons_WeaponEditsFlags & DisablePBX_LMGEdit))
+        if(!(PBX_WPEdit_SpawnFlags & DisablePBX_LMGEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LMG_Upgrade', 255, 1);
 		    handler.InjectSpawn('PB_MGSpawnerT3', 'LMG_Upgrade', 255, 1);

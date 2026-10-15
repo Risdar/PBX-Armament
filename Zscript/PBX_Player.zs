@@ -96,7 +96,6 @@ class PBXCore_Player : PB_PlayerPrawn
 
 		//Others
 		Player.StartItem "PBX_ProsurvBlaster";
-		Player.StartItem "PBX_Weapons_TipsManager";
 		// SLOT 2
 		Player.StartItem "HellPistolerAmmo", PBX_PlasmaBlaster.CELL_SIZE;
 		Player.StartItem "LeverActionAmmo", PBX_Prosurv_LeverAction.MAGAZINE_SIZE;

@@ -17,7 +17,7 @@ actor PBX_LMGEdited : PB_LMG
 			}
             TNT1 A 0 {
 				// If there is no upgrade and the lmg edit is true and the weapon edits are enabled, then print the message and return to ready3 state
-				if(!(findinventory("LMGUpgraded")) && !(PBX_Weapons_WeaponEditsFlags & DisablePBX_LMGEdit) && PBX_Weapons_EnableWeaponEdits)
+				if(!(findinventory("LMGUpgraded")) && !(PBX_WPEdit_SpawnFlags & DisablePBX_LMGEdit) && PBX_WPEdit_Enable)
 				{
 					A_Print("$PBX_Weapons_LMGUpgrade_NoUpgrade");
 					return resolvestate("ready3");

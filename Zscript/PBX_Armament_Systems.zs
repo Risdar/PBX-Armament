@@ -92,6 +92,15 @@ class PBX_Weapons_Handler : EventHandler
         {
             pm.giveinventory("PBX_Prosurv_Ballista",1);
         }
+
+		if(PBX_BackpackReload_Enable) 
+        {
+			if (!pm.FindBehavior("PBX_BackpackReloadBehavior"))
+			{
+				pm.AddBehavior("PBX_BackpackReloadBehavior");
+			}
+        }
+
     }
 }
 
