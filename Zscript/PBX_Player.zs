@@ -92,6 +92,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_NukeLauncher"
 		,"PBX_DemonExt"
 		,"PBX_HexaShotgun"
+		,"PBX_RipperChaingun"
 		;
 
 		//Others

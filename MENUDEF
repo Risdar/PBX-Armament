@@ -164,10 +164,18 @@ AddOptionMenu "AddonWeaponSpawns" after "BFGT1"
     // SLOT 9
     FlagOption    "$PBX_Weapons_DEMONIC_EXTERMINATOR",    "PBX_Weapons_bfg_filter",    "OffOn", 0
     FlagOption    "$PBX_Weapons_DEMONEXT_ARTIFACT",           "PBX_Weapons_backpack_filter",    "OffOn", 6
-    FlagOption    "$PBX_Weapons_ETERNAL_CHAINGUN",       "PBX_Weapons_specialdrop_filter",    "OffOn", 0
-    FlagOption    "$PBX_Weapons_NUKE_LAUNCHER",      "PBX_Weapons_specialdrop_filter",    "OffOn", 1 // I dont know where else to put this
-    FlagOption    "$PBX_Weapons_HEXA_SHOTGUN",      "PBX_Weapons_specialdrop_filter",    "OffOn", 2 // I dont know where else to put this
-    FlagOption    "$PBX_Weapons_MINI_SHOTGUN",      "PBX_Weapons_specialdrop_filter",    "OffOn", 4 // I dont know where else to put this
+}
+
+AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
+{
+    // SLOT 9
+    StaticText " "
+    StaticText	"--------- Secret Weapons ---------", 1
+    FlagOption    "$PBX_Weapons_ETERNAL_CHAINGUN",   "PBX_Weapons_specialdrop_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_NUKE_LAUNCHER",      "PBX_Weapons_specialdrop_filter",    "OffOn", 1 
+    FlagOption    "$PBX_Weapons_HEXA_SHOTGUN",       "PBX_Weapons_specialdrop_filter",    "OffOn", 2 
+    FlagOption    "$PBX_Weapons_MINI_SHOTGUN",       "PBX_Weapons_specialdrop_filter",    "OffOn", 3 
+    FlagOption    "$PBX_Weapons_RIPPER_CHAINGUN",    "PBX_Weapons_specialdrop_filter",    "OffOn", 4 
 }
 
 // Backpacks/Upgrades/Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

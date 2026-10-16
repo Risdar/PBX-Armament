@@ -1,0 +1,26 @@
+brightmap sprite RIPRB0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRB0.png" disablefullbright}
+brightmap sprite RIPRC0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRC0.png" disablefullbright}
+brightmap sprite RIPRD0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRD0.png" disablefullbright}
+brightmap sprite RIPRE0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRE0.png" disablefullbright}
+brightmap sprite RIPRF0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRF0.png" disablefullbright}
+
+brightmap sprite RIPRG0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRG0.png" disablefullbright}
+brightmap sprite RIPRH0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRH0.png" disablefullbright}
+brightmap sprite RIPRI0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRI0.png" disablefullbright}
+brightmap sprite RIPRJ0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRJ0.png" disablefullbright}
+brightmap sprite RIPRK0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRK0.png" disablefullbright}
+brightmap sprite RIPRL0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRL0.png" disablefullbright}
+brightmap sprite RIPRM0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRM0.png" disablefullbright}
+brightmap sprite RIPRN0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRN0.png" disablefullbright}
+brightmap sprite RIPRO0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRO0.png" disablefullbright}
+brightmap sprite RIPRP0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRP0.png" disablefullbright}
+brightmap sprite RIPRQ0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRQ0.png" disablefullbright}
+brightmap sprite RIPRR0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRR0.png" disablefullbright}
+brightmap sprite RIPRS0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRS0.png" disablefullbright}
+brightmap sprite RIPRT0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRT0.png" disablefullbright}
+brightmap sprite RIPRU0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRU0.png" disablefullbright}
+
+brightmap sprite RIPRV0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRV0.png" disablefullbright}
+brightmap sprite RIPRW0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRW0.png" disablefullbright}
+brightmap sprite RIPRX0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRX0.png" disablefullbright}
+brightmap sprite RIPRY0 { map "Brightmaps/Weapons/Slot-9/RipperChaingun/RIPRY0.png" disablefullbright}

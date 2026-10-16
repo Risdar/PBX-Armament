@@ -143,7 +143,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             AMGR QRSTUV 1 A_DoPBWeaponAction();
             TNT1 A 0 A_PlaySound("CELLIN2", 6);
             AMGR WXY 1 A_DoPBWeaponAction();
-            Goto Ready3;
+            goto Ready3;
 
         WeaponInspect:
         HoldInspect:
@@ -158,8 +158,6 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 
         Select:
             TNT1 A 0 {
-				A_WeaponOffset(0,32);
-				PB_SetRoll(0);
 			    PB_HandleCrosshair(39);
                 PBX_WeaponRaise("weapons/smg_magfly1");
 			    return PB_RespectIfNeeded();
@@ -185,7 +183,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             AMGF E 1    fireWeapon(1);
             AMGF FG 1   fireWeapon(2);
             TNT1 A 0    fireWeapon(3);
-            Goto Ready3;
+            goto Ready3;
   
 //////////////////////////// ALT FIRE ////////////////////////////////////////////////////////////////////////////////////
         AltFire:
@@ -217,7 +215,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
                 return A_DoPBWeaponAction(WRF_ALLOWRELOAD | WRF_NOPRIMARY);
             }
             TNT1 A 0 PB_ReFire("AltFireBurst");
-            Goto Ready3;
+            goto Ready3;
 
 //////////////////////////// RELOAD ////////////////////////////////////////////////////////////////////////////////////
         ReloadFromADS:
@@ -255,12 +253,12 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
                 PB_SetChamberEmpty(false);
             }
             AMGR WXY 1;
-            Goto Ready3;
+            goto Ready3;
         
         RaiseFromEmpty:
             AMGR ABCD 1;
             AMGZ ABC 1;
-            Goto ContinueReload;
+            goto ContinueReload;
 
 //////////////////////////// UNLOAD ////////////////////////////////////////////////////////////////////////////////////
         Unload:
@@ -276,32 +274,41 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 //////////////////////////// WEAPON SPECIAL ////////////////////////////////////////////////////////////////////////////////////
         WeaponSpecial:
             TNT1 A 0 A_TakeInventory("GoWeaponSpecialAbility", 1);
-            Goto Ready3;            
+            goto Ready3;            
 
 //////////////////////////// FLASH STATES ////////////////////////////////////////////////////////////////////////////////////
         FlashPunching:
             // 14 frames
-            MSNQ ABCDEFGHFEDCBA 1;      
+            MSNQ ABCDE 1;
+            MSNQ FGHF 1;
+            MSNQ EDCBA 1;      
             goto Ready3;
 
         FlashKicking:
             // 15 frames
-            MSNK ABCDEFGHGFEDCBA 1;     
+            MSNQ ABCDE 1;
+            MSNQ FGHF 1;
+            MSNQ EDCBA 1;  
             goto Ready3;
 
         FlashAirKicking:
             // 16 frames
-            MSNQ ABCDEFGHHGFEDCBA 1;    
+            MSNQ ABCDE 1;
+            MSNQ FGHF 1;
+            MSNQ EDCBA 1;
             goto Ready3;
 
         FlashSlideKicking:
             // 27 frames
-            MSNK ABCDEFGHHHHHHHHHHHHHGFEDCBA 1; 
+            MSNK ABCDEFGHHHHHHHHHHHHHGFEDCBA 1; MSNQ ABCDE 1;
+            MSNQ FGHF 1;
+            MSNQ EDCBA 1;
             goto Ready3;
 
         FlashSlideKickingStop:
             // 7 frames
-            MSNK GFEDCBA 1;             
+            MSNQ FGHF 1;
+            MSNQ EDCBA 1;       
             goto Ready3;
     }
 }

@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings                = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.0.0 - The Great Reset";
+PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.1.0 - The Great Reset";
 
 PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP        = "HP: %u";
@@ -367,10 +367,21 @@ PBX_HexaShotgun_Pickup              = "You Have Found The Hexa Shotgun! (Slot 9)
 PBX_HexaShotgun_Tag                 = "Hexa Shotgun";
 OB_WEAP_HEXASG                      = "%o was eviscerated by %k's Hexa Shotgun.";
 
+PBX_HexaShotgun_HellBlast           = "\cgHellBlast \c-Mode \n\n(\cgDeals Self Damage\c-)";
+PBX_HexaShotgun_Normal              = "\cdStandard \c-Mode";
+
 // Mini Shotgun
 PBX_MiniShotgun_Pickup              = "You Have Found The Mini Shotgun! (Slot 9)";
 PBX_MiniShotgun_Tag                 = "Rotating Double Barrel Shotgun";
 OB_WEAP_MINISHOTGUN                 = "%o was Mowed down by %k's Rotating Double Barrel Mini-Shotgun.";
+
+// Ripper Chaingun
+PBX_RipperChaingun_Pickup           = "You Have Found The Ripper Chaingun! (Slot 9)";
+PBX_RipperChaingun_Tag              = "Ripper Chaingun";
+OB_WEAP_RIPPERCHAINGUN              = "%o was mowed down by %k's Ripper Chaingun.";
+
+PBX_RipperChaingun_DNF              = "\crDuke Nukem Forever \c-Mode";
+PBX_RipperChaingun_Classic          = "\cdDuke Nukem 3D \c-Mode";
 
 //////////////////////////// PROJECTILES ///////////////////////////////////////////////////////////////////////////////
 // Bullets

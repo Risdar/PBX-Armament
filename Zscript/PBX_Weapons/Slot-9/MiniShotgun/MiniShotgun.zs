@@ -25,7 +25,7 @@ class PBX_MiniShotgun : PBX_WeaponBase
         Obituary "$OB_WEAP_MINISHOTGUN";
         AttackSound "None";
         Tag "$PBX_MiniShotgun_Tag";
-        Scale 0.8;
+        Scale 1.0;
 
 //////////////////////////// WEAPON FLAGS ////////////////////////////////////////////////////////////////////////////////////
         +WEAPON.NOAUTOAIM;
@@ -34,30 +34,71 @@ class PBX_MiniShotgun : PBX_WeaponBase
     }
 
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
+    Array<PBX_ShellTypes> mShellArray;
     int mAvailableShellTypes;
     bool mWeaponIsSpinning;
 
     const AMMO_TAKE = 2;
 
-    enum ShellTypes
-    {
-		Shell_Buck,
-		Shell_Slug,
-		Shell_Flech,
-		Shell_Flak,
-		Shell_Drgn,
-		Shell_EXPL,
-		Shell_WPSP,
-		Shell_Doom,
-		Shell_Damn,
-		Shell_SubZ,
-		Shell_HellF,
-		Shell_Acid
-	}
-
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////
+    static const name shellUpgrades[] = {
+        "DragonBreathUpgrade", "ExplosiveUpgrade", "WhitePhosphorusUpgrade",
+        "TripleDoomUpgrade", "DanmakuUpgrade", "SubZeroUpgrade",
+        "HellFireUpgrade", "AcidShellsUpgrade"
+    };
+
+    override void AttachToOwner(Actor other)
+    {
+        Super.AttachToOwner(other);
+        buildShellArray();
+    }
+
+    override bool HandlePickup(Inventory item)
+    {
+        bool result = Super.HandlePickup(item);
+
+        for (int i = 0; i < shellUpgrades.Size(); i++)
+        {
+            if (item.GetClassName() == shellUpgrades[i])
+            {
+                AddShell(Shell_Drgn + i);
+                break;
+            }
+        }
+        return result;
+    }
     
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
+    // Not private since it'll be called by the cheat handler
+    void buildShellArray()
+    {
+        mShellArray.Clear();
+
+        // Insert default shells
+        for (int m = Shell_Buck; m < Shell_Drgn; m++)
+        {
+            mShellArray.Push(m);
+        }
+
+        // Check if the player already has an upgrade
+        for (int i = 0; i < shellUpgrades.Size(); i++)
+        {
+            if (owner && owner.CountInv(shellUpgrades[i]) > 0)
+            {
+                addShell(Shell_Drgn + i);
+            }
+        }
+    }
+
+    private
+    void addShell(PBX_ShellTypes mode)
+    {
+        if (mShellArray.Find(mode) == mShellArray.Size())
+        {
+            mShellArray.Push(mode);
+        }
+    }
+
     action void fireWeapon()
     {
         A_FireCustomMissile("YellowFlareSpawn", 0, 0, 0, 0);
@@ -74,40 +115,40 @@ class PBX_MiniShotgun : PBX_WeaponBase
 
     action void fireShells()
     {
-        ShellTypes mode = random(Shell_Buck,Shell_Acid);
-		string shelltype;
+        PBX_ShellTypes mode = invoker.mShellArray[random(0, invoker.mShellArray.Size() - 1)];
+		name casingType;
         switch(mode)
 		{
 			case Shell_Buck: 
 				PB_FireBullets("PB_10GAPellet",20,8,0,0,6);
-			    shelltype = "BuckShellCasing"; 		
+			    casingType = "BuckShellCasing"; 		
 				break;
 			case Shell_Slug:
 				PB_FireBullets("PB_12GASlug",1,0.1,2,0,0); 
 				PB_FireBullets("PB_12GASlug",1,0.1,-2,0,0); 
-			    shelltype = "SlugShellCasing"; 		
+			    casingType = "SlugShellCasing"; 		
 				break;
 			case Shell_Flech: 
 				PB_FireBullets("PB_MGNail",12,3,0,0,3); 
-			    shelltype = "FlechetShellCasing"; 	
+			    casingType = "FlechetShellCasing"; 	
 				break;
 			case Shell_Flak: 
 				PBX_FireBullets("chunk1",3,5,0,0,3); 
 				PBX_FireBullets("chunk2",3,3,0,0,4);
 				PBX_FireBullets("chunk4",2,4,0,0,3);
-			    shelltype = "FlakShellCasing"; 		
+			    casingType = "FlakShellCasing"; 		
 				break;
 			case Shell_Drgn: 
 				PB_FireBullets("PB_DragonsBreathTracer",10,6,0,0,6); 
-			    shelltype = "DragonShellCasing"; 	
+			    casingType = "DragonShellCasing"; 	
 				break; 
 			case Shell_EXPL:
 				PB_FireBullets("ExplosiveProjectile",5,6,0,0,6); 
-			    shelltype = "ExplosiveShellCasing"; 
+			    casingType = "ExplosiveShellCasing"; 
 				break; 
 			case Shell_WPSP: 
 				PB_FireBullets("WPhosphorusProjectile",7,6,0,0,6);
-			    shelltype = "WhitePShellCasing"; 	
+			    casingType = "WhitePShellCasing"; 	
 				break;
 			case Shell_Doom:
 				PB_FireBullets("PB_12GASlug",1,0.1,2,0,0); 
@@ -115,26 +156,26 @@ class PBX_MiniShotgun : PBX_WeaponBase
 				PB_FireBullets("PB_10GAPellet",10,6,0,0,6);
 				PB_FireBullets("PB_10GAPellet_LP",1,6,0,0,6);
 				PB_FireBullets("PB_8GAPellet",10,16,0,0,12);
-			    shelltype = "TDoomCasing"; 			
+			    casingType = "TDoomCasing"; 			
 				break;
 			case Shell_Damn:
 				PBX_FireBullets("DanmakuProjectile",16,4.0,0,0,2.5);
-			    shelltype = "DanmakuCasing"; 		
+			    casingType = "DanmakuCasing"; 		
 				break;
 			case Shell_SubZ:
 				A_SpawnItemEx("BlueFlareSpawn", 0, 0, -3);
 				A_SpawnItemEx("BlueFlareSpawn", 0, 0, 3);
 				PB_FireBullets("SubZeroProjectile",6,3,0,0,3);
          		A_FireBullets(8, 6, 10, 18, "SubZ_Puff",FBF_NORANDOM,8192,"CSSG_FrozenTracer",-12);
-			    shelltype = "SubZeroCasing"; 		
+			    casingType = "SubZeroCasing"; 		
 				break;
 			case Shell_HellF:
 				PB_FireBullets("HellFireProjectile",16,6,0,0,6);
-			    shelltype = "HellFireCasing"; 		
+			    casingType = "HellFireCasing"; 		
 				break;
 			case Shell_Acid:
 				PB_FireBullets("AcidShellsProjectile",3,6,0,0,6);
-			    shelltype = "AcidShellsCasing"; 	
+			    casingType = "AcidShellsCasing"; 	
 				break;
 		}
 		// Always shoot the shield breaking projectile
@@ -142,7 +183,7 @@ class PBX_MiniShotgun : PBX_WeaponBase
 
         for(int i = 0; i < 2; i++)
         {
-            PB_SpawnCasing(shelltype,random(10,14),random(-1,3),random(26,28),random(1,3),random(-5,-2),random(4,7));
+            PB_SpawnCasing(casingType,random(10,14),random(-1,3),random(26,28),random(1,3),random(-5,-2),random(4,7));
             A_FireProjectile("ShotgunWad",random(-2,2),0,-3,-4,FPF_NOAUTOAIM,random(-2,2));
         }
     }

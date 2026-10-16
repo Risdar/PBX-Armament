@@ -124,6 +124,11 @@ Class PBX_Weapons_CheatsHandler : Eventhandler
 			pm.giveinventory("DanmakuUpgrade",1);
 			pm.giveinventory("SubZeroUpgrade",1);
 			console.printf("[PBX] Gave all CSSG shells");
+			let minisg = PBX_MiniShotgun(pm.FindInventory("PBX_MiniShotgun"));
+			if(minisg)
+			{
+				minisg.buildShellArray(); // So it updates
+			}
 		}
 
 		if (e.Name ~== "PBX_AllUpgrades")

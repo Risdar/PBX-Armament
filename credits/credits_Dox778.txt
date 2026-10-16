@@ -29,3 +29,12 @@ SgtMarkIV, TypicalSF, Acclaim Entertainment and Probe Entertainment - muzzle fla
 Port to Even Older PB - Jenny / Jeniffer
 Pickup sprite is from Brutal Doom Arthur Edition by arthoriusb2593
 
+// Ripper Chaingun
+SPRITES:
+Mike12, 3D Realms and Ryan Cordell - BASE
+SgtMarkIV, TypicalSF, Acclaim Entertainment and Probe Entertainment - muzzle flashes
+Sechtera - Improved firing frames + help with brightmaps
+SOUNDS
+Gearbox - select/pickup sounds (Duke Nukem Forever)
+Firing sound - 3D Realms
+HQ edit - CeeJay - Forums.duke4.net

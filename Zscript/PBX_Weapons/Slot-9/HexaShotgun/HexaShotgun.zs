@@ -35,11 +35,62 @@ class PBX_HexaShotgun : PBX_WeaponBase
     }
 
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
+    bool mHellBlast;
+    const HELLBLAST_SELFDAMAGE = 10; // Take this amount of hp every hellblast shot
+
     const BARREL_CAPACITY = 6;
 
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
+    action void fireHexa()
+    {
+        bool hblast = invoker.mHellBlast;
+
+        A_StartSound("QSGFIRE1", CHAN_WEAPON, CHANF_DEFAULT, 1.0);
+        A_AlertMonsters();
+        
+        if(hblast)
+        {
+            PB_FireBullets("HellFireProjectile", 72,7, 0, 0, 5);
+            A_Startsound("DTechShotty/Fire",CHAN_WEAPON,CHANF_OVERLAP);
+            A_Startsound("DTechShotty/PrimaryAmb",CHAN_AUTO,CHANF_OVERLAP);
+            PB_FireOffset();
+            PB_IncrementHeat(30);
+            A_Recoil3D(30);
+            A_DamageSelf(HELLBLAST_SELFDAMAGE);
+        }
+        else
+        {
+            PB_FireBullets("PB_8GAPellet", 72,7, 0, 0, 5);
+            PB_FireBullets("PB_8GAPellet_LP", 6, 0, 0, 0, 0);				
+            PB_IncrementHeat(20);
+            A_Recoil3D(20);
+        }
+
+        A_TakeInventory(invoker.ammo2.getclassname(),BARREL_CAPACITY);
+        A_FireCustomMissile("YellowFlareSpawn", 15, 0, 0, 0);
+        A_FireCustomMissile("YellowFlareSpawn", -15, 0, 0, 0);
+        A_FlashOverlay();
+        A_ZoomFactor(0.7);
+        PB_FireOffset();
+    }
+
+    action state handleSpecial()
+    {
+        A_TakeInventory("GoWeaponSpecialAbility", 1);
+        invoker.mHellBlast = !invoker.mHellBlast;
+        if(invoker.mHellBlast)
+        {
+            A_Print("$PBX_HexaShotgun_HellBlast");
+            return resolvestate("NormalToHellBlast");
+        }
+        else
+        {
+            A_Print("$PBX_HexaShotgun_Normal");
+            return resolvestate("HellBlastToNormal");
+        }
+    }
 
 //////////////////////////// STATES ////////////////////////////////////////////////////////////////////////////////////
     States
@@ -102,7 +153,7 @@ class PBX_HexaShotgun : PBX_WeaponBase
             HSGF U 10 A_DoPBWeaponAction();
             HSGF VW 1 A_DoPBWeaponAction();
             HSF2 A 15 A_DoPBWeaponAction(); 
-            HSGF WVU 1 A_DoPBWeaponAction();
+            HSGF WVV 1 A_DoPBWeaponAction();
             Goto Ready3;
 
         HoldInspect:
@@ -130,9 +181,19 @@ class PBX_HexaShotgun : PBX_WeaponBase
             HSGS FEDCBA 1;
 //////////////////////////// READY ////////////////////////////////////////////////////////////////////////////////////
         Ready3:
+            TNT1 A 0 A_JumpIf(invoker.mHellBlast,"Ready2");
+        ReadyToFire:
             TNT1 A 0 PBX_CheckInspect();
 		    TNT1 A 0 A_JumpIfTargetInLOS("BlinkBegin", 0, 0, JLOSF_COMBATANTONLY, 12000); //checks if an enemy/player is in sight
 			HSGF T 1 {
+                PB_CoolDownBarrel();
+                return A_DoPBWeaponAction();
+            }
+            loop;
+
+        Ready2:
+            TNT1 A 0 PBX_CheckInspect();
+			HSF2 A 1 {
                 PB_CoolDownBarrel();
                 return A_DoPBWeaponAction();
             }
@@ -150,19 +211,7 @@ class PBX_HexaShotgun : PBX_WeaponBase
 //////////////////////////// FIRE ////////////////////////////////////////////////////////////////////////////////////
         Fire:
             TNT1 A 0 PB_JumpIfNoAmmo(min:BARREL_CAPACITY);
-            HSGF A 1 BRIGHT {
-                A_StartSound("QSGFIRE1", CHAN_WEAPON, CHANF_DEFAULT, 1.0);
-                A_TakeInventory(invoker.ammo2.getclassname(),BARREL_CAPACITY);
-                A_FireCustomMissile("YellowFlareSpawn", 15, 0, 0, 0);
-                A_FireCustomMissile("YellowFlareSpawn", -15, 0, 0, 0);
-                PB_FireBullets("PB_8GAPellet_LP", 6, 0, 0, 0, 0);				
-                PB_FireBullets("PB_8GAPellet", 72,7, 0, 0, 5);
-                A_FlashOverlay();
-                PB_IncrementHeat(20);
-				A_ZoomFactor(0.7);
-				A_Recoil3D(20);
-                PB_FireOffset();
-            }
+            HSGF A 1 BRIGHT fireHexa();
             HSGF B 1 BRIGHT {
 				A_ZoomFactor(0.8);
                 PB_WeaponRecoil(-10,-5);
@@ -186,10 +235,16 @@ class PBX_HexaShotgun : PBX_WeaponBase
 //////////////////////////// ALT FIRE ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// WEAPON SPECIAL ////////////////////////////////////////////////////////////////////////////////////
         WeaponSpecial:
-            TNT1 A 0 {
-                A_TakeInventory("GoWeaponSpecialAbility", 1);
-                A_Print("$PBX_NoSpecial");
-            }
+            TNT1 A 0 handleSpecial();
+        NormalToHellBlast:
+            TNT1 A 0 A_StartSound("QSGCHRG",CHAN_WEAPON,CHANF_OVERLAP);
+            HSGF UVW 1;
+            Goto Ready3;
+
+        HellBlastToNormal:
+            HSGF WVU 1;
+            Goto Ready3;
+
         AltFire:
             Goto Ready3;
 

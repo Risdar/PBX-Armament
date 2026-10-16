@@ -17,6 +17,7 @@ enum PBX_Weapons_eWeaponSpecialSpawns
 	,DisablePBX_NukeLauncher		        = 1 << 1
 	,DisablePBX_HexaShotgun					= 1 << 2 
 	,DisablePBX_MiniShotgun					= 1 << 3  
+	,DisablePBX_RipperChaingun				= 1 << 4  
 ////// Weapon Edits /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	,DisablePBX_SGLEdit					    = 1 << 0
 	,DisablePBX_LMGEdit					    = 1 << 1  
@@ -367,6 +368,7 @@ class PBX_Weapons_SecretWeaponSpawner : PB_WeaponSpawner
 		DropItem 'PBX_HexaShotgun', 255, 1;
 		DropItem 'PBX_MiniShotgun', 255, 1;
 		DropItem 'PBX_EternalMinigun', 255, 1;
+		DropItem 'PBX_RipperChaingun', 255, 1;
 	}
 
 	override bool HandleSpawnExceptions(name toSpawn)
@@ -378,6 +380,8 @@ class PBX_Weapons_SecretWeaponSpawner : PB_WeaponSpawner
 		if(toSpawn == "PBX_MiniShotgun" && (PBX_Weapons_specialdrop_filter & DisablePBX_MiniShotgun))
 			return false;
 		if(toSpawn == "PBX_EternalMinigun" && (PBX_Weapons_specialdrop_filter & DisablePBX_EternalChaingun))
+			return false;
+		if(toSpawn == "PBX_RipperChaingun" && (PBX_Weapons_specialdrop_filter & DisablePBX_RipperChaingun))
 			return false;
 		return true;
 	}

@@ -46,6 +46,8 @@ class PBX_WeaponBase : PB_WeaponBase abstract
     // A wrapper for PB_WeaponRaise so we can do some default behaviours
     action void PBX_WeaponRaise(string upSnd = "")
     {
+        A_WeaponOffset(0,32);
+        PB_SetRoll(0);
         PB_WeaponRaise(upSnd);
         if(PBX_Weapons_sendTip) PBX_WeaponHelpText(); // This function is in PBX_Weapons_Tips.zs
         PBX_UpgradeWeapon();

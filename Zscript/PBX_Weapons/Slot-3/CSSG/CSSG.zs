@@ -40,22 +40,6 @@ Class PBX_CSSG : PBX_WeaponBase
 	bool mWheelPage2;
 
 	const BARREL_CAPACITY = 2;
-	
-	enum CM_ShellTypes 
-	{
-		Shell_Buck = 1,
-		Shell_Slug,
-		Shell_Flech,
-		Shell_Flak,
-		Shell_Drgn,
-		Shell_EXPL,
-		Shell_WPSP,
-		Shell_Doom,
-		Shell_Damn,
-		Shell_SubZ,
-		Shell_HellF,
-		Shell_Acid = 12
-	}
 
 	enum CM_Wheel 
 	{

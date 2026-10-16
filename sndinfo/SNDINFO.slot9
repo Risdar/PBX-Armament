@@ -32,3 +32,8 @@ HEXAFIR1 HEXAFIR1
 weapons/SpinSpin/MINISHOTSPI    "Sounds/Weapons/Slot-9/MiniShotgun/MINISHOTSPI.ogg"
 weapons/SpinSpin/MINISHOTSTO    "Sounds/Weapons/Slot-9/MiniShotgun/MINISHOTSTO.mp3"
 weapons/SpinSpin/MINISHOTSTA    "Sounds/Weapons/Slot-9/MiniShotgun/MINISHOTSTA.mp3"
+
+// Ripper Chaingun
+RipprPew RipprPew
+RipprSel RipprSel
+RiprSel2 RiprSel2

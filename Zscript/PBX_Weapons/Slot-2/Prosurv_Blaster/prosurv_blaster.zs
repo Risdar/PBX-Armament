@@ -283,7 +283,7 @@ class PBX_ProsurvBlaster : PBX_WeaponBase
                 PB_SetRoll(0);
                 PB_HandleCrosshair(65);
             }
-            TNT1 A 0 A_StartSound("IronSights");
+            TNT1 A 0 A_StartSound("IronSights",CHAN_AUTO,CHANF_OVERLAP);
             TNT1 A 0 A_JumpIf(PB_GetZoom(),"Zoomout");
         ZoomIn:
             TNT1 A 0 A_ZoomFactor(1.25);

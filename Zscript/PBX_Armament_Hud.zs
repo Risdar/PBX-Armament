@@ -518,6 +518,11 @@ class PBXHUDService_PBX_AllWeapons : service
             return MakeData(imgOffset1:(-25, 30), imgScale1:1.7);
         }
 
+        case 'PBX_RipperChaingun':
+        {
+            return MakeData(imgOffset1:(-25, 30), imgScale1:1.2);
+        }
+
 //////////////////////////// WEAPON EDITS ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_SGLEdited':
         {

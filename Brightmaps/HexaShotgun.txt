@@ -1,4 +1,4 @@
-brightmap sprite SHF2A0 { map "brightmaps/doom/HSF2AB.png" disablefullbright }
-brightmap sprite HSGFW0 { map "brightmaps/doom/HSGFWB.png" disablefullbright }
-brightmap sprite HSGFV0 { map "brightmaps/doom/HSGFVB.png" disablefullbright }
-brightmap sprite HSGFU0 { map "brightmaps/doom/HSGFUB.png" disablefullbright }
+brightmap sprite SHF2A0 { map "Brightmaps/Weapons/Slot-9/HexaShotgun/HSF2AB.png" disablefullbright }
+brightmap sprite HSGFW0 { map "Brightmaps/Weapons/Slot-9/HexaShotgun/HSGFWB.png" disablefullbright }
+brightmap sprite HSGFV0 { map "Brightmaps/Weapons/Slot-9/HexaShotgun/HSGFVB.png" disablefullbright }
+brightmap sprite HSGFU0 { map "Brightmaps/Weapons/Slot-9/HexaShotgun/HSGFUB.png" disablefullbright }

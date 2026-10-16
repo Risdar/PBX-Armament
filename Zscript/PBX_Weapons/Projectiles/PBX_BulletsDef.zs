@@ -138,8 +138,6 @@ class EChaingunFreeze : EternalChaingunTracer
 	}
 }
 
-
-
 class EChaingunLightning : EternalChaingunTracer
 {
 	mixin PBX_LightningProjectile;

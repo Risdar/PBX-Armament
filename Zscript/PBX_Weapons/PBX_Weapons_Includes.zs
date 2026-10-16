@@ -53,5 +53,6 @@
 #include "./Slot-9/NukeLauncher/NukeLauncher.zs" // Nuke Launcher
 #include "./Slot-9/HexaShotgun/HexaShotgun.zs" // Hexa Shotgun
 #include "./Slot-9/MiniShotgun/MiniShotgun.zs" // Mini Shotgun
+#include "./Slot-9/RipperChaingun/RipperChaingun.zs" // Mini Shotgun
 
 
