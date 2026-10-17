@@ -75,9 +75,6 @@ PBX_Weapons_SUPERNAILGUN = "Enable Super Nailgun";
 PBX_Weapons_EXCAVATOR = "Enable Excavator";
 PBX_Weapons_PAINGIVER = "Enable Paingiver";
 
-PBX_Weapons_CYBERRL = "Cyberdemon drop their Weapon";
-PBX_Weapons_SPIDERCG = "Spider Mastermind drop their Weapon";
-
 PBX_Weapons_CRYOSG = "Enable Plasma Shotgun"; 
 PBX_Weapons_PLATINUM_RAILGUN = "Enable Platinum Railgun"; 
 PBX_Weapons_TESLAGUN = "Enable Tesla Gun"; 
@@ -92,6 +89,10 @@ PBX_Weapons_NUKE_LAUNCHER = "Enable Nuke Launcher";
 PBX_Weapons_HEXA_SHOTGUN = "Enable Hexa Shotgun";
 PBX_Weapons_MINI_SHOTGUN = "Enable Mini Shotgun";
 PBX_Weapons_RIPPER_CHAINGUN = "Enable Ripper Chaingun";
+
+PBX_Weapons_CYBERRL = "Cyberdemon drop their Weapon";
+PBX_Weapons_SPIDERCG = "Spider Mastermind drop their Weapon";
+PBX_Weapons_GRABCACO = "You can grab unsuspecting Cacodemons";
 
 PBX_Weapons_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
 

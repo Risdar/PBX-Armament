@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings                = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.1.0 - The Great Reset";
+PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.0 - The Great Reset";
 
 PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP        = "HP: %u";
@@ -58,7 +58,6 @@ PBX_PSG_DETONATOR                   = "Detonator";
 PBX_PSG_Tip1                        = "Switch \cfcharges\c- using %s and manually detonate them using the Detonator";
 PBX_PSG_Tip2                        = "The number below the \cfcharges\c- shows the amount of \cgRocket ammo\c- needed.";
 PBX_PSG_Tip3                        = "Recover any thrown \cfcharges\c- by pressing %s near them.";
-
 
 // CSSG 
 PBX_CSSG_PICKUP                     = "Commander Super Shotgun (Slot 3)";
@@ -271,13 +270,9 @@ PBX_Excavator_TryDrillorDrop        = "\cdDrill\c- and \ciDrop\c- Mode Requires 
 PBX_ExcavatorUpgrade_Pickup         = "Excavator Upgrade (Slot 6)";
 PBX_Excavator_UpgradeTag            = "Excavator Universal Demolition Tool (UDT)";
 
-PBX_Excavator_Tip1                  = "The Excavator has two modes and can be \crmanually detonated\c- with %s";
-PBX_Excavator_Tip2                  = "\cdDrill\c- mode rocket will burrow into the ground and come to the surface upon detonation.";
-PBX_Excavator_Tip3                  = "\ciDrop\c- mode rocket will fly normally and drop into the ground upon detonation.";
+PBX_Excavator_Tip1                  = "Press %s to \crManually detonate\c- the projectiles.";
 
-PBX_ExcavatorUpgrade_Tip1           = "The Excavator Upgrade adds 2 new modes.";
-PBX_ExcavatorUpgrade_Tip2           = "\crThe Explosive Bolas\c- mode launches Sticky Bolas that detonates while the Secondary shoots 6 burst of Sticky Grenades.";
-PBX_ExcavatorUpgrade_Tip3           = "\ckThe Razorblade\c- mode launches a Razorblade that sticks to enemies while the Secondary charges a bouncing Razorblade.";
+PBX_ExcavatorUpgrade_Tip1           = "The Excavator Upgrade adds 2 new modes, Sticky Bolas and Razor Blade.";
 
 // CyberdemonRL
 PBX_CyberdemonRL_Pickup             = "You got the Cyberdemon's missile launcher! This thing's heavy... (Slot 6)";
@@ -419,6 +414,9 @@ PBX_Weapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit"
 PBX_CommandPack_Pickup              = "You found the UAC Command Pack! You got the standard issue UAC Rifle and Pump Shotgun!";
 PBX_CommandPack_Tag                 = "UAC Command Pack";
 
+// Funny Caco
+PBX_PBX_RideableCaco_Stealth               = "Grab Cacodemon";
+
 // SHARED
 PBX_CloseMenu                       = "Close Menu";
 PBX_AlreadySelected                 = "Mode Already Selected";
@@ -447,7 +445,7 @@ PBX_DisableUpgrade                  = "You can bypass this requirement by disabl
 PBX_ScrollZoom_Tip1                 = "Every scoped weapon zoom strength can be adjusted using the \cnScroll Wheel\c- when \cdZoomed \c-in";
 PBX_ScrollZoom_Tip2                 = "You can also manually adjust the zoom using %s to Zoom In or %s to Zoom Out";
 
-PBX_MonsterWeapon1                  = "Every Monster Weapon are very powerful but has durability. Restore its durability by picking up the same weapon again.";
+PBX_MonsterWeapon1                  = "Every Monster Weapon has durability. You can restore some weapon's durability by picking up the same weapon type again.";
 
 PBX_SecretWeaponSpawned             = "Secret Weapon Spawned!";
 

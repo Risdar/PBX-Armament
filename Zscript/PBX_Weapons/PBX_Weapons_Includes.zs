@@ -8,6 +8,10 @@
 #include "./Projectiles/PBX_Projectiles.zs"
 
 // Some weapon has their own includes (basically helper files), you cen see these in each weapon files
+
+// Others
+#include "./Others/FunnyCaco.zs" // Cacodemon 
+
 // Slot 1
 
 

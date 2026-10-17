@@ -600,6 +600,21 @@ Class HexaShotgunAmmo : PB_Ammo
 }
 
 //////////////////////////// OTHERS ////////////////////////////////////////////////////////////////////////////////////
+// Funny Caco Timer
+Class CacoTimer: PB_Ammo
+{
+    Default
+    {
+        inventory.amount 0;
+		inventory.maxamount PBX_RideableCaco.CACO_DURATION;
+		ammo.backpackamount 0;
+		ammo.backpackmaxamount PBX_RideableCaco.CACO_DURATION;
+	    Inventory.Icon "ARMZA0";
+        +INVENTORY.IGNORESKILL;
+        PB_Ammo.HUDGraphics "BARBADD1", "BARBADD2", "BARBADD3", "BARBADD4", "ABAR10", "AMMOIC10", "DarkGray";
+    }
+}
+
 // Soul Charge
 Class SoulCharge: PB_Ammo
 {

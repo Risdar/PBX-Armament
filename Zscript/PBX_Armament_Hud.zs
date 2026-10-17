@@ -1,13 +1,8 @@
-// The Wheel for Scope Mode, Variable Zoom, and NVG Toggle uses these values for its scale
-const WHEEL_ZOOM_SCALE       = 0.16;
-const WHEEL_SCOPE_SCALE      = 0.16;
-const WHEEL_NVG_SCALE        = 0.5;
-const WHEEL_CLOSEMENU_SCALE  = 0.15;
-// Used in this file and in PBX_Weapons_BaseWeapons.zs
+// Used in this file and in PBX_WeaponWheel.zs
 const IMAGE_DIRECTORY = "graphics/WeaponWheel/";
 
 // Draw the ammo bar for some weapons
-class PBX_Weapons_HUDHandler : EventHandler
+class PBX_Armament_HUDHandler : EventHandler
 {
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
     ui int flagsManualVisor1, flagsManualVisor2;
@@ -522,6 +517,12 @@ class PBXHUDService_PBX_AllWeapons : service
         {
             return MakeData(imgOffset1:(-25, 30), imgScale1:1.2);
         }
+
+//////////////////////////// OTHERS ////////////////////////////////////////////////////////////////////////////////////
+        case 'PBX_RideableCaco':
+        {
+            return MakeData(imgOffset1:(-15, 30), imgScale1:0.7);
+        } 
 
 //////////////////////////// WEAPON EDITS ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_SGLEdited':

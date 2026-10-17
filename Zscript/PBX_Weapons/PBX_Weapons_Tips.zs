@@ -104,12 +104,10 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push(string.format(StringTable.Localize("$PBX_Excavator_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+ALTATTACK")));
-                tips.Push("$PBX_Excavator_Tip2");
-                tips.Push("$PBX_Excavator_Tip3");
                 PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_EXCAVATOR);
             }
             break;
-            case 'PBX_CyberdemonRL':  case 'PBX_MastermindChaingun':
+            case 'PBX_CyberdemonRL':  case 'PBX_MastermindChaingun': case 'PBX_RideableCaco':
             {
                 TryGiveSpecialTip(MONSTER_WEAPON);
             }

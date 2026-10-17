@@ -393,8 +393,6 @@ class PBX_ExcavatorUpgrade : PB_UpgradeItem
 		{
 			Array<String> tips;
 			tips.Push("$PBX_ExcavatorUpgrade_Tip1");
-			tips.Push("$PBX_ExcavatorUpgrade_Tip2");
-			tips.Push("$PBX_ExcavatorUpgrade_Tip3");
 			PBXCore_TipsManager.SendTipArrayIfNeeded(tips,"PBX_Weapons_upgradeTipFlags", PBX_TIP_EXCAVATOR_UPGRADE);
 		}
 		return pickup;

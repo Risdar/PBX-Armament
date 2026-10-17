@@ -17,7 +17,7 @@
 
 // Modified Previous Weapon Handler from m_gizmos
 
-class PBX_PreviousWeaponHandler : EventHandler
+class PBX_PreviousWeapon_Handler : EventHandler
 {
 // public: // EventHandler /////////////////////////////////////////////////////
 	override void NetworkProcess(ConsoleEvent e)
@@ -70,7 +70,7 @@ class PBX_PreviousWeaponHandler : EventHandler
 
 } // class mg_PreivousWeaponEventHandler
 
-class PBX_Weapons_Handler : EventHandler
+class PBX_Armament_Handler : EventHandler
 {
     Override void PlayerEntered(PlayerEvent e)
     {
