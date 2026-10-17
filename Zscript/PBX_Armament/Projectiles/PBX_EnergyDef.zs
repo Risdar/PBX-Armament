@@ -113,18 +113,19 @@ class ProsurvBlasterTracerTrail : actor
 //////////////////////////// FUNNY CACO ////////////////////////////////////////////////////////////////////////////////////
 class CacoBallPlayer : PB_ProjectileAlt
 {
-    const orbitDurationTics = 35;
-    const SeekRange = 800.0;       // How far the parent/orbiters look for enemies
-    const OrbLaunchSpeed = 16.0;
+    const ORB_DURATION = 35;
+    const ORB_RANGE = 800.0;       // How far the orbiters look for enemies
+    const ORB_LAUNCH_SPEED = 16.0;
+    const ORB_AMOUNT = 3;
 
     bool isAlive;
     int startTime;
 
-    double orbInitX[3];
-    double orbInitY[3];
+    double orbInitX[ORB_AMOUNT];
+    double orbInitY[ORB_AMOUNT];
 
     Actor lastKnownTarget;
-    Actor orbiters[3];
+    Actor orbiters[ORB_AMOUNT];
     double initialVelocity;
     int CascadeTimer;
     int OrbTimer;
@@ -188,12 +189,12 @@ class CacoBallPlayer : PB_ProjectileAlt
         OrbTimer = 22;
         checkDistanceTimer = 5;
         launchStartTime = -1;
-        dist = 4096;   // don't start "in range"
+        dist = 4096;
 
         double centerX = self.pos.x;
         double centerY = self.pos.y;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < ORB_AMOUNT; i++)
         {
             double angleDeg = i * 120.0;
             orbInitX[i] = 30.0 * Cos(angleDeg);
@@ -204,7 +205,6 @@ class CacoBallPlayer : PB_ProjectileAlt
             {
                 orb.master = self;
                 orb.target = self.target;   // so it won't hurt the player
-                // orb.Damage = PBX_RideableCaco.CACOBALL_SEEKER_DAMAGE;
                 orbiters[i] = orb;
             }
         }
@@ -221,11 +221,11 @@ class CacoBallPlayer : PB_ProjectileAlt
         {
             distanceTimerInterval = level.time;
 
-            // Rescan for the nearest enemy
-            lastKnownTarget = FindNearestEnemy(self, SeekRange);
+            // Check for targets
+            lastKnownTarget = FindNearestEnemy(self, ORB_RANGE);
             dist = lastKnownTarget ? distance3d(lastKnownTarget) : 4096;
 
-            // Wall/floor avoidance nudge
+            // Avoid walls/floors
             FLineTraceData traceData;
             bool traceResult = self.LineTrace(angle, 75, 25, TRF_THRUACTORS, 0, 0, 0, data: traceData);
             if (traceResult && (traceData.HitType == TRACE_HitFloor || traceData.HitType == TRACE_HitWall))
@@ -234,8 +234,8 @@ class CacoBallPlayer : PB_ProjectileAlt
             }
         }
 
-        // Start the launch sequence the first time an enemy is in range
-        if (launchStartTime == -1 && dist <= SeekRange)
+        // Start seeking when an enemy is in range
+        if (launchStartTime == -1 && dist <= ORB_RANGE)
             launchStartTime = level.time;
 
         // Decelerate when close
@@ -247,10 +247,10 @@ class CacoBallPlayer : PB_ProjectileAlt
             if (vel.Length() > 0) vel = vel.Unit() * velocityFactor;
         }
 
-        // Orbit + staggered launch
-        double rotationAngleDeg = ticDiff * (360.0 / double(orbitDurationTics));
+        // Orbit
+        double rotationAngleDeg = ticDiff * (360.0 / double(ORB_DURATION));
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < ORB_AMOUNT; i++)
         {
             if (!orbiters[i]) continue;
 
@@ -272,7 +272,7 @@ class CacoBallPlayer : PB_ProjectileAlt
         if (!orb) return;
 
         // Each orb picks its own nearest enemy at launch time
-        Actor tgt = FindNearestEnemy(orb, SeekRange * 1.5);
+        Actor tgt = FindNearestEnemy(orb, ORB_RANGE * 1.5);
 
         Vector3 dir;
         if (tgt)
@@ -282,17 +282,17 @@ class CacoBallPlayer : PB_ProjectileAlt
         }
         else
         {
-            // No enemy: continue along the parent's heading
+            // If no enemy then just follow the main projectile
             dir = vel;
         }
 
         if (dir.Length() > 0) dir = dir.Unit();
         else dir = (Cos(angle), Sin(angle), 0);
 
-        orb.vel = dir * OrbLaunchSpeed;
+        orb.vel = dir * ORB_LAUNCH_SPEED;
         orb.angle = VectorAngle(dir.x, dir.y);
         orb.pitch = -ASin(dir.z);
-        orb.master = null;   // detach from the parent
+        orb.master = null;
 
         orbiters[i] = null;
     }
@@ -302,7 +302,7 @@ class CacoBallPlayer : PB_ProjectileAlt
         Super.OnDestroy();
         isAlive = false;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < ORB_AMOUNT; i++)
         {
             if (orbiters[i])
             {

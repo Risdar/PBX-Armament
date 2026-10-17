@@ -324,14 +324,14 @@ class PBX_FreezeRifle : PBX_WeaponBase
         InspectStartCharged:
             // Swap to Normal Animation
             TNT1 A 0 A_StartSound("IronSights", CHAN_WEAPON, CHANF_OVERLAP);
-			FR06 QPONMMMMM 1 A_DoPBWeaponAction();
-			FR06 LKJIHGF 1 A_DoPBWeaponAction();
+			FRF6 QPONMMMMM 1 A_DoPBWeaponAction();
+			FRF6 LKJIHGF 1 A_DoPBWeaponAction();
 			TNT1 A 0 A_StartSound("weapons/CryoRifle/respect2", CHAN_WEAPON, CHANF_OVERLAP);
-			FR06 F 1 A_DoPBWeaponAction();
+			FRF6 F 1 A_DoPBWeaponAction();
         HoldInspectCharged:
-            FR06 F 1 A_DoPBWeaponAction();
+            FRF6 F 1 A_DoPBWeaponAction();
             TNT1 A 0 A_JumpIf(PressingReload(),"HoldInspectCharged");
-			FR06 FGHIJKLMNOPQ 1 {
+			FRF6 FGHIJKLMNOPQ 1 {
                 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
 				return A_DoPBWeaponAction();
             }
@@ -598,12 +598,12 @@ class PBX_FreezeRifle : PBX_WeaponBase
 				A_Print("$PBX_FreezeRifle_Attack");
 				A_StartSound("IronSights", CHAN_WEAPON, CHANF_OVERLAP);
 			}
-			FR06 ABCDEEEEE 1;
+			FRF6 ABCDEEEEE 1;
 			TNT1 A 0 {
                 // A_SetBlend("Blue", 0.6, 12);
                 A_StartSound("weapons/CryoRifle/respect1", CHAN_WEAPON, CHANF_OVERLAP);
             }
-			FR06 FGHIJKLMNOPQ 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+			FRF6 FGHIJKLMNOPQ 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
             Goto Ready3;           
             
         SwapToDefense:
@@ -612,9 +612,9 @@ class PBX_FreezeRifle : PBX_WeaponBase
 				A_Print("$PBX_FreezeRifle_Defense");
 				A_StartSound("IronSights", CHAN_WEAPON, CHANF_OVERLAP);
 			}
-			FR06 QPONMMMMM 1;
+			FRF6 QPONMMMMM 1;
 			TNT1 A 0 A_StartSound("weapons/CryoRifle/respect2", CHAN_WEAPON, CHANF_OVERLAP);
-			FR06 LKJIHGFEDCBA 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+			FRF6 LKJIHGFEDCBA 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
 			Goto Ready3;
 
 //////////////////////////// FLASH STATES ////////////////////////////////////////////////////////////////////////////////////

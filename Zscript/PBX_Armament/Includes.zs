@@ -1,8 +1,8 @@
 // General
 #include "./BaseWeapon/PBX_BaseWeapon.zs"
-#include "./PBX_Weapons_Upgrades.zs"
-#include "./PBX_Weapons_Ammo.zs"
-#include "./PBX_Weapons_Tips.zs"
+#include "./PBX_Armament_Upgrades.zs"
+#include "./PBX_Armament_Ammo.zs"
+#include "./PBX_Armament_Tips.zs"
 
 // Projectiles
 #include "./Projectiles/PBX_Projectiles.zs"
@@ -13,6 +13,7 @@
 #include "./Others/FunnyCaco.zs" // Cacodemon 
 
 // Slot 1
+#include "./Slot-1/Chainsaw_Edit/Chainsaw_Edit.zs" // Chainsaw Edit 
 
 
 // Slot 2
@@ -44,6 +45,7 @@
 #include "./Slot-6/CyberdemonRL/CyberdemonRL.zs" // Cyberdemon Rocket launcher
 #include "./Slot-6/MastermindCG/MastermindCG.zs" // Mastermind Chaingun
 #include "./Slot-6/Paingiver/Paingiver.zs" // Paingiver
+#include "./Slot-6/SGL_Edit/SGL_Edit.zs" // SGL Edit
 
 // Slot 7
 #include "./Slot-7/BDP_Railgun/bdp_railgun.zs" // BDP Railgun
@@ -57,6 +59,6 @@
 #include "./Slot-9/NukeLauncher/NukeLauncher.zs" // Nuke Launcher
 #include "./Slot-9/HexaShotgun/HexaShotgun.zs" // Hexa Shotgun
 #include "./Slot-9/MiniShotgun/MiniShotgun.zs" // Mini Shotgun
-#include "./Slot-9/RipperChaingun/RipperChaingun.zs" // Mini Shotgun
+#include "./Slot-9/RipperChaingun/RipperChaingun.zs" // Ripper Chaingun
 
 
