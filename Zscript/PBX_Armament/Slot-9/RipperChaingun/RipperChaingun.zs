@@ -54,23 +54,64 @@ class PBX_RipperChaingun : PBX_WeaponBase
         A_StartSound("weapons/empty", CHAN_AUTO, CHANF_OVERLAP);
     }
 
-    action void fireWeapon(bool classicFire = false)
+    action int getMinAmmo()
     {
-        PB_FireBullets("PB_792x57mm",1,1,0,0,1);
-        PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
-        PB_FireOffset();
-        A_ZoomFactor(1.0);
-        PB_WeaponRecoil(-0.5,0);
-        A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
-        invoker.mFiringAnimation = (invoker.mFiringAnimation + 1) % 3;
-
-        // Since it technically fires two of the barrels
-        if(classicFire)
+        if(!invoker.mDNFFireMode && invoker.mFiringAnimation == FIRE_SECOND)
         {
-            PB_FireBullets("PB_792x57mm",1,1,0,0,1);
-            PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
-            A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
+            return 2;
         }
+        return 1;
+    }
+
+    action void fireWeapon(int tic)
+    {
+        switch(tic)
+        {
+            case 1:
+                A_StartSound("RipprPew", CHAN_AUTO, CHANF_OVERLAP);
+                A_StartSound("FARRIF", CHAN_5, CHANF_OVERLAP);
+                A_ZoomFactor(0.98);
+                break;
+
+            case 2:
+                PB_FireBullets("PB_792x57mm",1,1,0,0,1);
+                PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
+                PB_FireOffset();
+                A_ZoomFactor(1.0);
+                PB_WeaponRecoil(-0.5,0);
+                A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
+
+                // Since it technically fires two of the barrels
+                if(invoker.mFiringAnimation == FIRE_SECOND)
+                {
+                    PB_FireBullets("PB_792x57mm",1,1,0,0,1);
+                    PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
+                    A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
+                }
+
+                if(invoker.mDNFFireMode)
+                {
+                    setAnimationFrame(2, 3, 4);
+                }
+                else
+                {
+                    setAnimationFrame(3, 5, 3);
+                }
+                break;
+
+            case 3:
+                if (invoker.mDNFFireMode)
+                {
+                    setAnimationFrame(21, 22, 23);
+                }
+                else
+                {
+                    setAnimationFrame(22, 24, 22);
+                }
+                invoker.mFiringAnimation = (invoker.mFiringAnimation + 1) % 3;
+                break;  
+        }
+        
     }
 
     action void setAnimationFrame(int frm1, int frm2, int frm3)
@@ -118,45 +159,19 @@ class PBX_RipperChaingun : PBX_WeaponBase
 
 //////////////////////////// FIRE ////////////////////////////////////////////////////////////////////////////////////
         Fire:
-            TNT1 A 0 PB_JumpIfNoAmmo(secondary:false);
-            TNT1 A 0 {
-                A_StartSound("RipprPew",CHAN_AUTO,CHANF_OVERLAP);
-                A_StartSound("FARRIF",CHAN_5,CHANF_OVERLAP);
-                A_ZoomFactor(0.98);
-            }
-			TNT1 A 0 A_JumpIf(invoker.mDNFFireMode,"FireDNF");
-			TNT1 A 0 A_JumpIf(invoker.mFiringAnimation == FIRE_SECOND,"Fire2");
-			RIPR D 1 BRIGHT fireWeapon();
-			RIPR W 1 BRIGHT;
-        EndFire:
-			RIPR H 1;
-			TNT1 A 0 PB_Refire();
-            goto Ready3;
-            
-		Fire2:
-            TNT1 A 0 PB_JumpIfNoAmmo(min:2,secondary:false);
-			RIPR F 1 BRIGHT fireWeapon(classicFire:true);
-			RIPR Y 1 BRIGHT;
-            goto EndFire;
-			
-		FireDNF:
-            TNT1 A 0 PB_JumpIfNoAmmo(secondary:false);
-			RIPR C 1 BRIGHT {
-                fireWeapon();
-                setAnimationFrame(2,3,4);
-            }
-			RIPR V 1 BRIGHT setAnimationFrame(21,22,23);
-            goto EndFire;
+            TNT1 A 0 PB_JumpIfNoAmmo(min: getMinAmmo(), secondary: false);
+            TNT1 A 0 fireWeapon(1);
+            RIPR D 1 BRIGHT fireWeapon(2);
+            RIPR W 1 BRIGHT fireWeapon(3);
+            RIPR H 1;
+            TNT1 A 0 PB_Refire();
+            Goto Ready3;
 			
 //////////////////////////// ALT FIRE ////////////////////////////////////////////////////////////////////////////////////
-        AltFire:
-            goto Ready3;
-
 //////////////////////////// RELOAD ////////////////////////////////////////////////////////////////////////////////////
-		Reload:
-            goto Ready3;
-        
 //////////////////////////// UNLOAD ////////////////////////////////////////////////////////////////////////////////////
+        AltFire:
+		Reload:
         Unload:
             goto Ready3;
 

@@ -155,7 +155,6 @@ class PBX_NeoHMG : PBX_WeaponBase
 				HMG_CoolDownBarrel();
 				cooldownOverheat();
 			}
-			TNT1 A 0 HMG_DetonateShield();
 			HG0F A 45 {
 				setMagSprite("HG0F","XH04","XH03","XH02","XH01");
 				return A_DoPBWeaponAction(WRF_NOFIRE|WRF_NOSWITCH);

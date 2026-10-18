@@ -195,7 +195,7 @@ class PBX_XM21 : PBX_WeaponBase
                 if(isEngaged) 
                 {
                     A_SetRenderStyle(.5, STYLE_Subtract);
-                    A_StartSound("Sniper/CloakActive",CLOAK_CHAN,CHANF_OVERLAP);
+                    A_StartSound("Sniper/CloakActive",CLOAK_CHAN,CHANF_OVERLAP,volume:5.0);
                     A_StartSound("Sniper/CloakLoop",CLOAK_CHAN_LOOP,CHANF_LOOP|CHANF_OVERLAP);
                     bShadow = true;
                     bCantSeek = true;
@@ -633,6 +633,8 @@ class PBX_SniperTarget : PBX_Hologram
     Default
     {
         +FRIENDLY
+        +THRUSPECIES
+        +THRUACTORS
         BloodType '';
         Species 'Marines';
         Health 1000;

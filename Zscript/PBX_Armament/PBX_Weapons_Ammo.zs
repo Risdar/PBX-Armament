@@ -562,14 +562,6 @@ Class TeslaAmmo : PB_Ammo
 	}
 }
 
-class Tesla_LightningCharge : PB_Ammo 
-{
-    Default 
-	{
-        Inventory.MaxAmount PBX_TeslaGun.LIGHTNING_SPECIAL_MAXCHARGE;
-    }
-}
-
 // Freeze Rifle 
 Class FreezeRifleAmmo : PB_Ammo
 {

@@ -152,7 +152,7 @@ class PBX_FreezeRifle : PBX_WeaponBase
         }
         else if(!isAltfire)
         {
-            PBX_FireBullets("IceMissile", 1, 3, 0, 0, 3);
+            PBX_FireBullets("IceMissileGravity", 1, 3, 0, 0, 3);
             A_StartSound("weapons/CryoRifle/missile", CHAN_WEAPON, CHANF_OVERLAP);
         }
 
@@ -167,11 +167,6 @@ class PBX_FreezeRifle : PBX_WeaponBase
         }
         else if(isAltfire)
         {
-            // PBX_FireBullets("IceFlak1", 15, 10, 5, 10, 3);
-            // PBX_FireBullets("IceFlak2", 15, 10, 5, 10, 3);
-            // PBX_FireBullets("IceFlak3", 15, 10, 5, 10, 3);
-            // PBX_FireBullets("IceFlak4", 15, 10, 5, 10, 3);
-            // PBX_FireBullets("IceFlak1", 15, 10, 5, 10, 3);
             PBX_FireBullets("CryoWall", 1, 3, 0, 0, 3);
             A_StartSound("weapons/CryoRifle/flak", CHAN_WEAPON, CHANF_OVERLAP);
         }
@@ -373,7 +368,8 @@ class PBX_FreezeRifle : PBX_WeaponBase
                 stopSound();
 				A_StartSound("weapons/CryoRifle/powerdown", CHAN_5, CHANF_OVERLAP);
             }
-            F10R DDDDDCCCCCCBBBBBBAAAAA 1 setSprite('F11R');
+            F10R DDDDDCCCCCC 1 setSprite('F11R');
+            "####" BBBBBBAAAAA 1 A_DoPBWeaponAction();
             TNT1 A 0 {
                 A_StartSound("PLSCOOL",CHAN_WEAPON,CHANF_OVERLAP);
                 A_ClearReFire();
@@ -387,6 +383,7 @@ class PBX_FreezeRifle : PBX_WeaponBase
 				A_WeaponOffset(0,32);
 				PB_SetRoll(0);
 				PB_HandleCrosshair(94);
+                A_ClearReFire();
 			}
             TNT1 A 0 PB_JumpIfNoAmmo(min:getAmmoTake(),emptysound:"RAILDRY");
             // Charge

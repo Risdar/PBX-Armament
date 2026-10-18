@@ -244,20 +244,6 @@ class PBX_Armament_HUDHandler : EventHandler
             }
             break;
 
-            // Draw lightning charge bar
-            case 'PBX_TeslaGun':
-            {
-                PBXCore_HUDHandler.PBX_DrawAmmoBar(
-                    phud,
-                    PBXCore_HUDHandler.DRAW_THIRD_BAR,
-                    "BARBACC3",
-                    "ABAR8",
-                    "Tesla_LightningCharge",
-                    Font.FindFontColor("HUDBLUEBAR")
-                );
-                break;
-            }
-
             // Draw the resouce gather icon
             case 'PBX_ChainsawEdited':
             {
@@ -485,7 +471,7 @@ class PBXHUDService_PBX_AllWeapons : service
 //////////////////////////// SLOT 8 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_TeslaGun':
         {
-            return MakeData(imgOffset1:(-10, -10), imgScale1:1.4);
+            return MakeData(imgOffset1:(-10, 15), imgScale1:2.0);
         }
         case 'PBX_FreezeRifle':
         {

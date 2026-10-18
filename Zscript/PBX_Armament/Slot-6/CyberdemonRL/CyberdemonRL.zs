@@ -157,9 +157,10 @@ class PBX_CyberdemonRL : PBX_WeaponBase
 		{
 			spos += (dr * railpartstepaim);
 			if(i > 0) //skip the first iteration, so it doesnt spawn a particle blocking the view
-				PB_DrawRailFx1(spos,0);
+				PBX_DrawRedRail(spos,size:8);
 		}
 	}
+
 	
 
 //////////////////////////// STATES ////////////////////////////////////////////////////////////////////////////////////

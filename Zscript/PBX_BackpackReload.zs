@@ -1,7 +1,5 @@
 Class PBX_BackpackReloadBehavior : Behavior
 {
-	int reloadTimer;
-
 	// Exception list, for weapons that use AmmoType2 but is not a mag
 	static const string PB_noreloadweapons[] = {
 		"PB_Unmaker","PBX_DemonExt"
@@ -15,15 +13,12 @@ Class PBX_BackpackReloadBehavior : Behavior
 		// Check if disabled
 		if (!PBX_BackpackReload_Enable)
 		{
-			reloadTimer = 0;
 			return;
 		}
 
 		// Reload every PBBCKPR_Time
-		reloadTimer++;
-		if (reloadTimer >= max(1, PBBCKPR_Time))
+		if(owner.getage() % PBBCKPR_Time == 0)
 		{
-			reloadTimer = 0;
 			refillweapons();
 		}
 	}

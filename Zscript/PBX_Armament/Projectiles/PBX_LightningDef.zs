@@ -17,7 +17,9 @@ class Tesla_LightningBall : PB_ProjectileAlt
         BounceType "Doom";
         BounceFactor 0.5;
         BounceSound "electrogun/hit";
+        DeathSound "CacoBallImpact";
         Species "Marines";
+        Alpha 0.99;
         Gravity 0;
         Scale 1;
         renderstyle "ADD";
@@ -43,10 +45,11 @@ class Tesla_LightningBall : PB_ProjectileAlt
 
     int mLightningCharge;
     int mLifetime;
+    bool mAlreadySummonedLightning;
 
-    void increaseCharge()
+    void increaseCharge(int incr = 1)
     {
-        mLightningCharge++;
+        mLightningCharge += incr;
     }
 
     void changeShade()
@@ -64,10 +67,10 @@ class Tesla_LightningBall : PB_ProjectileAlt
 
     override void Tick()
 	{
-		if (isFrozen() || level.isFrozen()) return;
+		if (isFrozen() || level.isFrozen() || health <= 0) return;
         // changeShade(); // I'll just disable it for now
 
-        if(mLightningCharge > 0)
+        if(mLightningCharge > 0 && health > 0)
         {
             L_ProjTick();
             pbxcore_debug.printInt("Detonate Amount %d",mLightningCharge);            
@@ -93,6 +96,7 @@ class Tesla_LightningBall : PB_ProjectileAlt
         name ac_damageType = 'Stun'
     )
     {
+        if(mAlreadySummonedLightning) return;
         Actor damageSource = self.target;
         Vector3 origin = PBX_LightningController.L_GetBeamAttachPos(self);
 
@@ -108,6 +112,7 @@ class Tesla_LightningBall : PB_ProjectileAlt
             Spawn("LightningBolt", v.pos);
         }
         S_StartSound("Thunder",0);
+        mAlreadySummonedLightning = true;
     }
 
 	States

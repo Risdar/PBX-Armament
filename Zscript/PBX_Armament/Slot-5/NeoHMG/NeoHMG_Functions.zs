@@ -36,8 +36,7 @@ extend class PBX_NeoHMG
 		bool isWeapon = owner.player.readyweapon is self.getClass();
 		bool isPressingAlt = owner.player.cmd.buttons & BT_ALTATTACK;
 		bool hasShieldCharge = countinv("HMGShield") != 0;
-		bool isNotOverheating = overheat <= MAX_OVERHEAT-5;
-		bool shouldEnable = isWeapon && isPressingAlt && mShieldIsReady && hasShieldCharge && isNotOverheating;
+		bool shouldEnable = isWeapon && isPressingAlt && mShieldIsReady && hasShieldCharge;
 
 		// If the shield should be enabled
 		If(shouldEnable)

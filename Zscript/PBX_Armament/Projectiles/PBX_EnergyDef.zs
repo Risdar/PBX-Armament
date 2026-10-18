@@ -321,8 +321,7 @@ class CacoBallPlayer : PB_ProjectileAlt
             Loop;
 
         Death:
-            TNT1 A 0
-            {
+            TNT1 A 0 {
                 A_StopSound(CHAN_BODY);
                 A_StartSound("CacoBallImpact", CHAN_AUTO);
                 A_SpawnItem("Plasma_Puff", 0);

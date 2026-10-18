@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings                = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.1 - The Great Reset";
+PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.2 - The Great Reset";
 
 PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP        = "HP: %u";
@@ -318,13 +318,14 @@ PBX_TeslaGun_Pickup                 = "Tesla Gun (Slot 8)";
 PBX_TeslaGun_Tag                    = "Prototype Tesla-Lightning Accelerator";
 OB_WEAP_TESLAGUN                    = "%o was electrocuted by %k.";
 
-PBX_TeslaGun_Arc                    = "\cnArc \c-Mode";
-PBX_TeslaGun_Pulse                  = "\cvPulse \c-Mode";
+PBX_TeslaGun_Arc                    = "\cvArc Flash \c-Mode";
+PBX_TeslaGun_Shock                  = "\cnThunder Storm \c-Mode";
 
 PBX_TeslaGun_NoLightningCharge      = "You Need Atleast \ci%d \cyLightning Charges \c\nTo Summon A \cyLightning Storm";
 
-PBX_Teslagun_Tip1                   = "The Secondary fires a \cnlightning ball\c- that bounces on walls and can be \chcharged\c- using the primary fire.";
-PBX_Teslagun_Tip2                   = "\chCharged\c- \cnlightning ball\c- zaps nearby enemies and when \chfully charged\c- will summon \cylightning\c- to everything nearby.";
+PBX_Teslagun_Tip1                   = "Arc Flash Secondary fires a \cnlightning ball\c- that can be \chcharged\c- using the primary fire.";
+PBX_Teslagun_Tip2                   = "Thunder Storm Secondary fires a \cvlightning storm\c- that needs to hit the first target.";
+PBX_Teslagun_Tip3                   = "Press %s while \cnCharging\c- a secondary to cancel it.";
 
 // Freeze Rifle
 PBX_FreezeRifle_Pickup              = "Freeze Rifle (Slot 8)";

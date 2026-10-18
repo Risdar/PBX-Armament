@@ -65,7 +65,7 @@ class PBX_Excavator : PBX_WeaponBase
     const AMMO_TAKE_SAW = 5;
     enum ExcMode
     {
-        eNoUpgrade = -1,
+        eNoUpgrade = -2,
         eCloseWheel,
         eDrillChargeMode, // Default Mode
         eDropShotMode,

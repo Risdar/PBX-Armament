@@ -137,6 +137,7 @@ extend class PBX_WeaponBase
                 Array<String> tips;
                 tips.Push("$PBX_Teslagun_Tip1");
                 tips.Push("$PBX_Teslagun_Tip2");
+                tips.Push(string.format(StringTable.Localize("$PBX_Teslagun_Tip3"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+reload")));
                 PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_TESLAGUN);
             }
             break;

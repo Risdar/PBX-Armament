@@ -290,6 +290,46 @@ class PBX_WeaponBase : PB_WeaponBase abstract
 	}
 
 //////////////////////////// OTHERS ////////////////////////////////////////////////////////////////////////////////////
+    Action Void PBX_DrawRedRail(vector3 where, double alfa = 1.0, int size = 10)
+	{
+		FSpawnParticleParams BlueRailPx;
+		BlueRailPx.Texture = TexMan.CheckForTexture("CPSQB0");
+		BlueRailPx.Color1 = "FFFFFF";
+		BlueRailPx.Style = STYLE_Add;
+		BlueRailPx.Flags = SPF_ROLL|SPF_FULLBRIGHT|SPF_NOTIMEFREEZE;
+		BlueRailPx.Vel = (0,0,0); 
+		BlueRailPx.Startroll = randompick(0,180);
+		BlueRailPx.RollVel = 0;
+		BlueRailPx.StartAlpha = 1.0;
+		//fadestep and lifetime controls how fast it dissappears
+		BlueRailPx.FadeStep = 0;
+		BlueRailPx.Size = size;
+		BlueRailPx.SizeStep = 0.01;
+		BlueRailPx.Lifetime = 1;
+		BlueRailPx.Pos = where;
+		Level.SpawnParticle(BlueRailPx);
+	}
+
+    Action Void PBX_DrawBlueRail(vector3 where, double alfa = 1.0, int size = 10)
+	{
+		FSpawnParticleParams BlueRailPx;
+		BlueRailPx.Texture = TexMan.CheckForTexture("CPSQC0");
+		BlueRailPx.Color1 = "FFFFFF";
+		BlueRailPx.Style = STYLE_Add;
+		BlueRailPx.Flags = SPF_ROLL|SPF_FULLBRIGHT|SPF_NOTIMEFREEZE;
+		BlueRailPx.Vel = (0,0,0); 
+		BlueRailPx.Startroll = randompick(0,180);
+		BlueRailPx.RollVel = 0;
+		BlueRailPx.StartAlpha = 1.0;
+		//fadestep and lifetime controls how fast it dissappears
+		BlueRailPx.FadeStep = 0;
+		BlueRailPx.Size = size;
+		BlueRailPx.SizeStep = 0.01;
+		BlueRailPx.Lifetime = 1;
+		BlueRailPx.Pos = where;
+		Level.SpawnParticle(BlueRailPx);
+	}
+
     action state PBX_CheckInspect()
     {
 		int ammoToCheck = invoker.ammotype2 ? invoker.ammo2.amount : 0;
