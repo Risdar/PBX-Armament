@@ -21,7 +21,8 @@ class PBX_RideableCaco : PBX_WeaponBase
     Weapon savedWeapon; // what the player was holding before force switch
     const CACOBALL_DIRECT_DAMAGE = 150;
     const CACOBALL_SEEKER_DAMAGE = 50;
-    const CACO_DURATION = 48;
+    const CACO_DURATION = 60; //In seconds
+    const CACO_HP = 120;
 
     override void PostBeginPlay()
     {
@@ -32,16 +33,38 @@ class PBX_RideableCaco : PBX_WeaponBase
 
         // Force switch
         if(owner.player.readyweapon != self)
+        {
             owner.player.PendingWeapon = self;
+        }
+
+        owner.A_GiveInventory("CacoTimer",CACO_DURATION);
+        owner.A_GiveInventory("CacoHP",CACO_HP);
+    }
+
+    override void ModifyDamage(int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags)
+    {
+        if (owner && passive && damage > 0)
+        {
+            int damageTake = Int(damage * 0.9); // The Caco takes 90% of the damage
+            int taken = min(damageTake, owner.CountInv("CacoHP"));
+
+            if(taken > 0)
+            {
+                owner.TakeInventory("CacoHP", taken);
+                newdamage = damage - taken;
+            }
+        }
     }
 
     States
     {
 		Select:
-            TNT1 A 0 A_GiveInventory("CacoTimer",48);
-            TNT1 A 0 setplayerproperty (1, 1, 3);
-            TNT1 A 0 A_SetInvulnerable();
 			TNT1 A 0 {
+                bfloatbob 	= true;
+                bfloat 		= true;
+                bnogravity 	= true;
+                bfly 		= true;
+
                 // This is a modified PB_WeaponRaise
                 A_weaponoffset(0,32);
 		
@@ -50,25 +73,21 @@ class PBX_RideableCaco : PBX_WeaponBase
                 invoker.curBlood = (0,0,0);
                 
                 //this was in the SelectFirstPersonLegs state
-                A_StopSound(1);
+                A_StopSound(CHAN_WEAPON);
                 A_StopSound(CHAN_VOICE);
-                A_StopSound(5);
-                A_StopSound(6);
-                A_StopSound(7);
+                A_StopSound(CHAN_5);
+                A_StopSound(CHAN_6);
+                A_StopSound(CHAN_7);
                 A_StopSOund(CHAN_AUTO);
                 
-                A_SetInventory("CantWeaponSpecial",0);		//Fixes bug with Weapon Special Key no longer working when changing SGL grenade type or RL missile mode
+                A_SetInventory("CantWeaponSpecial",1);
                 A_SetInventory("Grabbing_A_Ledge", 0);		//Fixed bug where movement is locked when vaulting after entering a level
                 A_SetInventory("DualFireReload",0);
                 A_SetInventory("Kicking",0);
                 A_SetInventory("Zoomed",0);
                 
                 A_ClearOverlays(-999, -999);
-                // A_Overlay(PSP_MELEEEQHANDLER, "Melee_Equipment_Handler_Overlay");
-                // A_Overlay(PSP_KICKHANDLER, "KickHandler_Overlay");
-                // A_Overlay(PSP_EQTOGGLEHANDLER, "Equipment_Toggle_Handler_Overlay");
                 invoker.WeaponScaleX = 1.0;
-                // A_Overlay(PSP_FIRSPERSONLEGS, "FirstPersonLegsStand");
                 invoker.WeaponScaleX = PB_PixelRenderingFix ? 1.2 : 1.0;
                 
                 PB_SetUsingKick(false);
@@ -80,39 +99,46 @@ class PBX_RideableCaco : PBX_WeaponBase
 		SelectAnimation:
 			TNT1 A 0;
         Ready3:
-            TNT1 A 0 PB_JumpIfNoAmmo("TimeOut");
-            TNT1 A 0 A_PlaySound ("pb/monsters/caco/pain", 6);
-            CAPL ABCDEEEE 4 {
-                A_WeaponReady(WRF_NOBOB | WRF_NOSWITCH | WRF_DISABLESWITCH);
-                PB_SetRoll(roll-3);
-                A_CustomMissile ("Blue_FlyingBlood", 47, 0, random (0, 360), 2, random (30, 150));
+            TNT1 A 0 A_StartSound("pb/monsters/caco/pain",CHAN_AUTO);
+            TNT1 A 0 A_Recoil3D(random(0,1) ? 8 : -5);
+            CAPL ABCDEEEEABCDEEEEABCDEEEEABCDEEEE 1 {
+                PB_SetRoll(random(-3,3));
+                A_CustomMissile("Blue_FlyingBlood", 47, 0, random (0, 360), 2, random (30, 150));
+                if(CountInv("CacoHP") <= 0 || CountInv("CacoTimer") <= 0)
+                {
+                    return resolvestate("TimeOut");
+                }
+                return A_DoPBWeaponAction(WRF_NOBOB | WRF_NOSWITCH | WRF_DISABLESWITCH);
             }
-            TNT1 A 0 A_Recoil3D(8);
-            CAPL ABCDEEEE 4 {
-                A_WeaponReady(WRF_NOBOB | WRF_NOSWITCH | WRF_DISABLESWITCH);
-                PB_SetRoll(roll+3);
-                A_CustomMissile ("Blue_FlyingBlood", 47, 0, random (0, 360), 2, random (30, 150));
-            }
-            TNT1 A 0 A_Recoil3D(-5);
             TNT1 A 0 A_Jump(90, "Fire"); // A chance to randomly fire
-            TNT1 A 0 PB_TakeAmmo(invoker.ammo1.getClassName());
+            TNT1 A 0 PB_TakeAmmo(invoker.ammo1.getClassName(),emptyMag:0);
             Loop;
 
         Fire:
-            TNT1 A 0 PB_SetRoll(0);
-            TNT1 A 0 A_Recoil3D(-8);
-            TNT1 A 0 PB_TakeAmmo(invoker.ammo1.getClassName());
-            TNT1 A 0 A_FireCustomMissile("CacoBallPlayer");
-            CAPL EFGHIHGFE 2 PB_SetRoll(roll-2);
-            TNT1 A 0 PB_SetRoll(0);
-            Goto Ready;
+            TNT1 A 0 PB_JumpIfNoAmmo("TimeOut",chamber:false,secondary:false);
+            TNT1 A 0 {
+                PB_SetRoll(0);
+                A_Recoil3D(-8);
+                PB_TakeAmmo(invoker.ammo1.getClassName(),emptyMag:0);
+                PBX_FireBullets("CacoBallPlayer",1,0,0,0,0);
+                PB_WeaponRecoil(-2,random[sfx](-1,1));
+                PB_FireOffset();
+            }
+            CAPL EFGHIHGFE 2;
+            Goto Ready3;
 
         TimeOut:
         AltFire:
-            TNT1 A 0 PB_SetRoll(0);
-            TNT1 A 0 SetPlayerProperty(1,0,3);
-            TNT1 A 0 PB_SetPlayerExecutionProperties();
+            TNT1 A 0 {
+                PB_SetRoll(0);
+                bfloatbob 	= false;
+                bfloat 		= false;
+                bnogravity 	= false;
+                bfly 	    = false;
+            }
+            TNT1 A 0 A_JumpIf(CountInv("CacoHP") <= 0, "Death_Caco"); // If it died because of HP and not manual (pressing altfire)
         Execution_Cacodemon1:
+            TNT1 A 0 PB_SetPlayerExecutionProperties();
             TNT1 A 0  {
 				A_SpawnItemEx("PB_Cacodemon_Execution_1", 32, 0,0,0,0,0,0,SXF_NOCHECKPOSITION);
 				A_ZoomFactor(0.8);
@@ -185,13 +211,37 @@ class PBX_RideableCaco : PBX_WeaponBase
 			TNT1 AA 1;
 			TNT1 AAAAA 1 PB_RotateCamera(addAngle:1.0,addPitch:-4.0,addRoll:-9.0);	
 			TNT1 A 0 PB_UnsetPlayerExecutionProperties();
+        TakeWeapon:
 			TNT1 A 0 A_SetInventory("CantWeaponSpecial",0);
             TNT1 A 0 {
                 player.pendingweapon = invoker.savedWeapon ? invoker.savedWeapon : player.mo.BestWeapon(null);
 		        self.RemoveInventory(invoker);
             }
             stop;
-                    
+
+        Death_Caco:
+            TNT1 A 0 {
+                A_SpawnProjectile("PB_CacodemonGib3", 30, 0, random (0, 360), 2, random (-30, -150));
+				A_SpawnProjectile ("PB_CacodemonGib11", 35, 0, random (0, 360), 2, random (-30, -150));
+				A_SpawnProjectile("PB_CacodemonGib2", 30, 0, random (0, 360), 2, random (-30, -150));
+				A_SpawnProjectile("PB_CacodemonGib10", 30, 0, random (0, 360), 2, random (-30, -150));
+				A_SpawnProjectile ("PB_CacodemonGib12", 24, 0, random (0, 360), 2, random (-65, -150));
+				A_SpawnProjectile ("PB_CacodemonGib13", 32, 0, random (0, 360), 2, random (-65, -150));
+				A_SpawnProjectile("PB_CacoDemonGib14", 48, 0, random (160, 220), 2, random (-30, -150));
+				A_SpawnProjectile ("PB_CacodemonGib5", 24, 0, random (0, 360), 2, random (-65, -150));
+				A_SpawnProjectile ("PB_CacodemonGib5", 24, 0, random (0, 360), 2, random (-65, -150));
+				A_SpawnProjectile("PB_CacodemonGib8", 30, 0, random (0, 360), 2, random (-30, -150));
+
+                for(int i = 0; i < 8; i++) {
+                    A_CustomMissile("PB_BloodMistBig", 47, 0, random (0, 360), 2, random (30, 150));
+                    A_CustomMissile("PB_FlyingBlood", 47, 0, random (0, 360), 2, random (30, 150));
+				}
+
+            }
+            CCD3 A 7;
+			CCD3 B 6;
+			CCD3 C 0 A_SpawnItemEx ("PB_DeadCacodemon7",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0);
+            goto TakeWeapon;
     }
 }
 

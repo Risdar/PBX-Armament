@@ -94,7 +94,7 @@ extend class PBX_BDPRailgun
             return;
         }
 
-        invoker.hologramCooldown = PBX_Weapons_hologram_cooldown;
+        invoker.hologramCooldown = PBX_RailgunHologram_Cooldown;
         PBXCore_Debug.PrintInt("Hologram Cooldown is %d",invoker.hologramCooldown);
 
 		A_radiusgive("KillHologram",10000,RGF_MONSTERS | RGF_NOSIGHT,1,"PBX_Hologram");

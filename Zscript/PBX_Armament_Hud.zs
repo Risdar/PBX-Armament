@@ -253,6 +253,20 @@ class PBX_Armament_HUDHandler : EventHandler
                 }
             }
 
+            // Draw the Cacodemon's HP
+            case 'PBX_RideableCaco':
+            {
+                PBXCore_HUDHandler.PBX_DrawAmmoBar(
+                    phud,
+                    PBXCore_HUDHandler.DRAW_SECOND_BAR,
+                    "BARBACC2",
+                    "ABAR8",
+                    "CacoHP",
+                    Font.FindFontColor("HUDBLUEBAR")
+                );
+                break;
+            }
+
             default:
                 break;
         }
@@ -507,7 +521,7 @@ class PBXHUDService_PBX_AllWeapons : service
 //////////////////////////// OTHERS ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_RideableCaco':
         {
-            return MakeData(imgOffset1:(-15, 30), imgScale1:0.7);
+            return MakeData(imgOffset1:(-30, 20), imgScale1:0.7);
         } 
 
 //////////////////////////// WEAPON EDITS ////////////////////////////////////////////////////////////////////////////////////

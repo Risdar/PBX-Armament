@@ -451,6 +451,7 @@ class HMGShield : PB_Ammo
 	{
 		Inventory.Amount 0;
         Inventory.MaxAmount PBX_NeoHMG.SHIELD_MAXCHARGE;
+		ammo.backpackamount 0;
 		ammo.backpackmaxamount PBX_NeoHMG.SHIELD_MAXCHARGE;
         +INVENTORY.IGNORESKILL;
     }
@@ -592,7 +593,7 @@ Class HexaShotgunAmmo : PB_Ammo
 }
 
 //////////////////////////// OTHERS ////////////////////////////////////////////////////////////////////////////////////
-// Funny Caco Timer
+// Funny 1 Timer
 Class CacoTimer: PB_Ammo
 {
     Default
@@ -604,6 +605,18 @@ Class CacoTimer: PB_Ammo
 	    Inventory.Icon "ARMZA0";
         +INVENTORY.IGNORESKILL;
         PB_Ammo.HUDGraphics "BARBADD1", "BARBADD2", "BARBADD3", "BARBADD4", "ABAR10", "AMMOIC10", "DarkGray";
+    }
+}
+
+class CacoHP : PB_Ammo 
+{
+    Default 
+	{
+		Inventory.Amount 0;
+        Inventory.MaxAmount PBX_RideableCaco.CACO_HP;
+		ammo.backpackamount 0;
+		ammo.backpackmaxamount PBX_RideableCaco.CACO_HP;
+        +INVENTORY.IGNORESKILL;
     }
 }
 

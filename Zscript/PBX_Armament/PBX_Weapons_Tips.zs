@@ -26,8 +26,8 @@ enum PBX_Weapons_eWeaponTipFlags
     ,PBX_TIP_DEMONICWEAPON       = 1 << 31
 }
 
-const WEAPON_HELPTEXT = "PBX_Weapons_weaponTipFlags";
-const WEAPON_UPGRADE_HELPTEXT = "PBX_Weapons_upgradeTipFlags";
+const WEAPON_HELPTEXT = "PBX_Armament_weaponTipFlags";
+const WEAPON_UPGRADE_HELPTEXT = "PBX_Armament_upgradeTipFlags";
 extend class PBX_WeaponBase
 {
     action void PBX_WeaponHelpText()

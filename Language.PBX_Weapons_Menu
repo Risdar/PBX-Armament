@@ -30,14 +30,14 @@ PBX_Weapons_SECRETWEAPONS_SPAWNCHANCE = "Secret weapon spawn chance";
 TIP_PBX_SecretWeapon_Chance = "How frequent should the secret weapons spawn (In Percent)";
 
 //////////////////////////// WEAPON DURATIONS ///////////////////////////////////////////////////////////////////////////////
-PBX_Weapons_MEATHOOK_COOLDOWN = "CSSG's Meathook Cooldown";
-TIP_PBX_Weapons_meathook_cooldown    = "CSSG's Meathook cooldown (In Seconds)";
+PBX_CSSGMeathook_Cooldown = "CSSG's Meathook Cooldown";
+TIP_PBX_CSSGMeathook_Cooldown    = "CSSG's Meathook cooldown (In Seconds)";
 
-PBX_Weapons_HOLOGRAM_COOLDOWN = "Platinum Railgun's Hologram Cooldown";
-TIP_PBX_Weapons_hologram_cooldown    = "Platinum Railgun's Hologram cooldown (In Seconds)";
+PBX_RailgunHologram_Cooldown = "Platinum Railgun's Hologram Cooldown";
+TIP_PBX_RailgunHologram_Cooldown    = "Platinum Railgun's Hologram cooldown (In Seconds)";
 
-PBX_Weapons_HOLOGRAM_LIFETIME = "Platinum Railgun's Hologram Lifetime";
-TIP_PBX_Weapons_hologram_lifetime    = "Platinum Railgun's Hologram lifetime (In Seconds)";
+PBX_RailgunHologram_Lifetime = "Platinum Railgun's Hologram Lifetime";
+TIP_PBX_RailgunHologram_Lifetime    = "Platinum Railgun's Hologram lifetime (In Seconds)";
 
 PBX_Weapons_MENU_RESET_WEAPON_DURATIONS = "Reset PBX Weapons Values";
 

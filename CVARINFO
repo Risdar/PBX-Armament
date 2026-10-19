@@ -1,5 +1,5 @@
 // General
-server bool PBX_Weapons_sendTip = true;
+server bool PBX_Armament_SendTip = true;
 server bool PBX_Weapons_startwithnormalrifle = false;
 server bool PBX_Weapons_startwithcrossbow = false;
 server bool PBX_SecretWeapon_Enable = true;
@@ -9,36 +9,36 @@ server bool PBX_Weapons_LaserShowBeam = true;
 server bool PBX_SecretWeapon_BFGSpawn = false;
 server int PBX_SecretWeapon_Chance = 5;
 
+// Tip Flags
+server int PBX_Armament_weaponTipFlags = 0;
+server int PBX_Armament_upgradeTipFlags = 0;
+
+// Spawners
+server int PBX_Chainsaw_filter = 0;
+server int PBX_Pistol_filter = 0;
+server int PBX_Shotgun_filter = 0;
+server int PBX_SSG_filter = 0;
+server int PBX_Chaingun_filter = 0;
+server int PBX_RocketLauncher_filter = 0;
+server int PBX_Plasma_filter = 0;
+server int PBX_BFG_filter = 0;
+
+server int PBX_BackPack_filter = 0;
+
+server int PBX_SecretWeapon_filter = 0;
+server int PBX_MonsterWeapon_filter = 0;
+
+// Cooldowns
+server int PBX_CSSGMeathook_Cooldown = 3;
+server int PBX_RailgunHologram_Cooldown = 3;
+server int PBX_RailgunHologram_Lifetime = 30;
+
+// Weapon Edits
+server bool PBX_WPEdit_Enable = true;
+server int PBX_WPEdit_filter = 0;
+
 // Backpack Reload
 server bool PBX_BackpackReload_Enable = false;
 server int 	PBBCKPR_Time		= 	70;
 server int 	PBBCKPR_Ref			=	5;
 server bool PBBCKPR_Tell		=	false;
-
-// Tip Flags
-server int PBX_Weapons_weaponTipFlags = 0;
-server int PBX_Weapons_upgradeTipFlags = 0;
-
-// Spawners
-server int PBX_Weapons_chainsaw_filter = 0;
-server int PBX_Weapons_pistol_filter = 0;
-server int PBX_Weapons_shotgun_filter = 0;
-server int PBX_Weapons_ssg_filter = 0;
-server int PBX_Weapons_chaingun_filter = 0;
-server int PBX_Weapons_rocketlauncher_filter = 0;
-server int PBX_Weapons_plasmarifle_filter = 0;
-server int PBX_Weapons_bfg_filter = 0;
-
-server int PBX_Weapons_backpack_filter = 0;
-
-server int PBX_SecretrWeapon_filter = 0;
-server int PBX_MonsterWeapon_filter = 0;
-
-// Powerup Times / Cooldowns
-server int PBX_Weapons_meathook_cooldown = 3;
-server int PBX_Weapons_hologram_cooldown = 3;
-server int PBX_Weapons_hologram_lifetime = 30;
-
-// Weapon Edits
-server bool PBX_WPEdit_Enable = true;
-server int PBX_WPEdit_SpawnFlags = 0;

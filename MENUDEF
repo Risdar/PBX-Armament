@@ -6,11 +6,11 @@ AddOptionMenu "PB_AddonOptions"
 AddOptionMenu "PBXCore_Menu"
 {
     StaticText	"--------- PBX Weapons Settings ---------", 1
-    Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Weapons_sendTip", "OnOff","PBXCore_SendTip"
+    Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Armament_SendTip", "OnOff","PBXCore_SendTip"
     Option "$PBX_Weapons_MENU_ENABLE_KEEPWEAPONS", "PBX_Weapons_keepweapons", "OnOff"
-    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Weapons_chainsaw_filter 0; set PBX_Weapons_pistol_filter 0; set PBX_Weapons_shotgun_filter 0; set PBX_Weapons_ssg_filter 0; set PBX_Weapons_chaingun_filter 0; set PBX_Weapons_rocketlauncher_filter 0; set PBX_Weapons_plasmarifle_filter 0; set PBX_Weapons_bfg_filter 0;set PBX_Weapons_backpack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretrWeapon_filter 0; set PBX_WPEdit_SpawnFlags 0;"
+    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Chainsaw_filter 0; set PBX_Pistol_filter 0; set PBX_Shotgun_filter 0; set PBX_SSG_filter 0; set PBX_Chaingun_filter 0; set PBX_RocketLauncher_filter 0; set PBX_Plasma_filter 0; set PBX_BFG_filter 0;set PBX_BackPack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretWeapon_filter 0; set PBX_WPEdit_filter 0;"
     SafeCommand "$PBX_Weapons_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Weapons_weaponTipFlags 0; set PBX_Weapons_upgradeTipFlags 0"
+    SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Armament_weaponTipFlags 0; set PBX_Armament_upgradeTipFlags 0"
     StaticText "$PBX_Armament_Version",red
     StaticText " "
 }
@@ -22,42 +22,41 @@ OptionMenu "PBX_Armament_Menu"
     Position	-48
 
     StaticText	"--------- General Settings ---------", 1
-    Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Weapons_sendTip", "OnOff","PBXCore_SendTip"
+    Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Armament_SendTip", "OnOff","PBXCore_SendTip"
     Option "$PBX_Weapons_MENU_ENABLE_KEEPWEAPONS", "PBX_Weapons_keepweapons", "OnOff"
     StaticText " "
-    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Weapons_chainsaw_filter 0; set PBX_Weapons_pistol_filter 0; set PBX_Weapons_shotgun_filter 0; set PBX_Weapons_ssg_filter 0; set PBX_Weapons_chaingun_filter 0; set PBX_Weapons_rocketlauncher_filter 0; set PBX_Weapons_plasmarifle_filter 0; set PBX_Weapons_bfg_filter 0;set PBX_Weapons_backpack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretrWeapon_filter 0; set PBX_WPEdit_SpawnFlags 0;"
+    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Chainsaw_filter 0; set PBX_Pistol_filter 0; set PBX_Shotgun_filter 0; set PBX_SSG_filter 0; set PBX_Chaingun_filter 0; set PBX_RocketLauncher_filter 0; set PBX_Plasma_filter 0; set PBX_BFG_filter 0;set PBX_BackPack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretWeapon_filter 0; set PBX_WPEdit_filter 0;"
     SafeCommand "$PBX_Weapons_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Weapons_weaponTipFlags 0; set PBX_Weapons_upgradeTipFlags 0"
+    SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Armament_weaponTipFlags 0; set PBX_Armament_upgradeTipFlags 0"
     StaticText " "
     StaticText	"--------- Weapon Settings ---------", 1
     Option "$PBX_Weapons_START_WITH_BDP_RIFLE", "PBX_Weapons_startwithnormalrifle", "OnOff"
     Option "$PBX_Weapons_START_WITH_CROSSBOW", "PBX_Weapons_startwithcrossbow", "OnOff"
     Option "$PBX_Weapons_CSSG_LOCK_SWITCH", "PBX_Weapons_cssghooklockswitch", "OnOff"
     Option "$PBX_Weapons_LASER_SHOW_BEAM", "PBX_Weapons_lasershowbeam", "OnOff"
-    FlagOption    "$PBX_Weapons_GRABCACO",       "PBX_MonsterWeapon_filter",    "OffOn", 2
     StaticText " "
     Option "$PBX_Weapons_MENU_SECRETWEAPON_ENABLE", "PBX_SecretWeapon_Enable", "OnOff"
     Option "$PBX_Weapons_MENU_SECRETWEAPON_BFGSPAWN", "PBX_SecretWeapon_BFGSpawn", "OnOff"
     Slider "$PBX_Weapons_SECRETWEAPONS_SPAWNCHANCE",  "PBX_SecretWeapon_Chance",     1, 100, 1,0,"PBX_SecretWeapon_Enable"
     StaticText " "
-    Slider "$PBX_Weapons_MEATHOOK_COOLDOWN",     "PBX_Weapons_meathook_cooldown",     1, 500, 1
-    Slider "$PBX_Weapons_HOLOGRAM_COOLDOWN",     "PBX_Weapons_hologram_cooldown",     1, 500, 1
-    Slider "$PBX_Weapons_HOLOGRAM_LIFETIME",     "PBX_Weapons_hologram_lifetime",     1, 500, 1
-    SafeCommand "$PBX_Weapons_MENU_RESET_WEAPON_DURATIONS", "resetcvar PBX_SecretWeapon_Chance; resetcvar PBX_Weapons_meathook_cooldown; resetcvar PBX_Weapons_hologram_cooldown; resetcvar PBX_Weapons_hologram_lifetime"
+    Slider "$PBX_CSSGMeathook_Cooldown",        "PBX_CSSGMeathook_Cooldown",        1, 500, 1
+    Slider "$PBX_RailgunHologram_Cooldown",     "PBX_RailgunHologram_Cooldown",     1, 500, 1
+    Slider "$PBX_RailgunHologram_Lifetime",     "PBX_RailgunHologram_Lifetime",     1, 500, 1
+    SafeCommand "$PBX_Weapons_MENU_RESET_WEAPON_DURATIONS", "resetcvar PBX_SecretWeapon_Chance; resetcvar PBX_CSSGMeathook_Cooldown; resetcvar PBX_RailgunHologram_Cooldown; resetcvar PBX_RailgunHologram_Lifetime"
     StaticText " "
     StaticText	"--------- Weapon Edits Settings ---------", 1
     Option "$PBX_MENU_WEAPONEDIT_ENABLE", "PBX_WPEdit_Enable", "OnOff"
     StaticText " "
-    FlagOption    "$PBX_Weapons_SGL_EDIT",                       "PBX_WPEdit_SpawnFlags",   "OffOn", 0, "PBX_WPEdit_Enable"
-	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_WPEdit_SpawnFlags",   "OffOn", 1, "PBX_WPEdit_Enable"
-	FlagOption    "$PBX_Weapons_CHAINSAW_EDIT",                  "PBX_WPEdit_SpawnFlags",   "OffOn", 2, "PBX_WPEdit_Enable"
+    FlagOption    "$PBX_Weapons_SGL_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 0, "PBX_WPEdit_Enable"
+	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 1, "PBX_WPEdit_Enable"
+	FlagOption    "$PBX_Weapons_CHAINSAW_EDIT",                  "PBX_WPEdit_filter",   "OffOn", 2, "PBX_WPEdit_Enable"
     StaticText " "
     StaticText	"--------- Backpack Reload Settings ---------", 1
     Option "$PBX_MENU_BACKPACK_RELOAD_ENABLE", "PBX_BackpackReload_Enable", "OnOff"
     StaticText " "
     slider "$PBX_MENU_BACKPACK_RELOAD_FREQ",             "PBBCKPR_Time",1,350,5
-    slider "$PBX_MENU_BACKPACK_RELOAD_AMOUNT",                "PBBCKPR_Ref",1,10,1
-    option "$PBX_MENU_BACKPACK_RELOAD_ANNOUNCE",              "PBBCKPR_Tell","yesno"
+    slider "$PBX_MENU_BACKPACK_RELOAD_AMOUNT",           "PBBCKPR_Ref",1,10,1
+    option "$PBX_MENU_BACKPACK_RELOAD_ANNOUNCE",         "PBBCKPR_Tell","yesno"
 
     StaticText " "
     StaticText "$PBX_Armament_Version",red
@@ -69,16 +68,16 @@ OptionMenu "PBX_Armament_Menu"
 AddOptionMenu "AddonWeaponSpawns" after "SHOT1"
 {
     // SLOT 2
-    FlagOption    "$PBX_Weapons_LEVER_ACTION_RIFLE",     "PBX_Weapons_shotgun_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_LEVER_ACTION_RIFLE",     "PBX_Shotgun_filter",    "OffOn", 0
     // SLOT 4
-    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA",      "PBX_Weapons_shotgun_filter",    "OffOn", 3
+    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA",      "PBX_Shotgun_filter",    "OffOn", 3
 }
 // TIER 2
 AddOptionMenu "AddonWeaponSpawns" after "SHOT2"
 {
     // SLOT 3
-    FlagOption    "$PBX_Weapons_PLASMA_BLASTER",         "PBX_Weapons_shotgun_filter",    "OffOn", 1
-    FlagOption    "$PBX_Weapons_SPAS12",                "PBX_Weapons_shotgun_filter",    "OffOn", 2
+    FlagOption    "$PBX_Weapons_PLASMA_BLASTER",         "PBX_Shotgun_filter",    "OffOn", 1
+    FlagOption    "$PBX_Weapons_SPAS12",                "PBX_Shotgun_filter",    "OffOn", 2
 }
 
 // SSG /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,7 +85,7 @@ AddOptionMenu "AddonWeaponSpawns" after "SHOT2"
 AddOptionMenu "AddonWeaponSpawns" after "SSGT3"
 {
     // SLOT 3
-    FlagOption    "$PBX_Weapons_CSSG",    "PBX_Weapons_ssg_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_CSSG",    "PBX_SSG_filter",    "OffOn", 0
 }
 
 // CHAINGUN /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +93,7 @@ AddOptionMenu "AddonWeaponSpawns" after "SSGT3"
 AddOptionMenu "AddonWeaponSpawns" after "CHNT1"
 {
     // SLOT 4
-    FlagOption    "$PBX_Weapons_BATTLE_RIFLE",           "PBX_Weapons_chaingun_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_BATTLE_RIFLE",           "PBX_Chaingun_filter",    "OffOn", 0
 }
 // TIER 2
 /* AddOptionMenu "AddonWeaponSpawns" after "CHNT2"
@@ -106,17 +105,17 @@ AddOptionMenu "AddonWeaponSpawns" after "CHNT1"
 AddOptionMenu "AddonWeaponSpawns" after "CHNT3"
 {
     // SLOT 5
-    FlagOption    "$PBX_Weapons_NEOHMG",                "PBX_Weapons_chaingun_filter",    "OffOn", 2
+    FlagOption    "$PBX_Weapons_NEOHMG",                "PBX_Chaingun_filter",    "OffOn", 2
 }
 
 // TIER 4
 AddOptionMenu "AddonWeaponSpawns" after "CHNT4"
 {
     // SLOT 4
-    FlagOption    "$PBX_Weapons_METAL_SNIPER",           "PBX_Weapons_chaingun_filter",    "OffOn", 1
-    FlagOption    "$PBX_Weapons_XM21",                   "PBX_Weapons_chaingun_filter",    "OffOn", 4
+    FlagOption    "$PBX_Weapons_METAL_SNIPER",           "PBX_Chaingun_filter",    "OffOn", 1
+    FlagOption    "$PBX_Weapons_XM21",                   "PBX_Chaingun_filter",    "OffOn", 4
     // SLOT 5
-    FlagOption    "$PBX_Weapons_SUPERNAILGUN",          "PBX_Weapons_chaingun_filter",    "OffOn", 3
+    FlagOption    "$PBX_Weapons_SUPERNAILGUN",          "PBX_Chaingun_filter",    "OffOn", 3
 }
 
 // ROCKET LAUNCHER /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,35 +123,35 @@ AddOptionMenu "AddonWeaponSpawns" after "CHNT4"
 AddOptionMenu "AddonWeaponSpawns" after "LAUT3"
 {
     // SLOT 6
-    FlagOption    "$PBX_Weapons_EXCAVATOR",      "PBX_Weapons_rocketlauncher_filter",    "OffOn", 0
-    FlagOption    "$PBX_Weapons_PAINGIVER",      "PBX_Weapons_rocketlauncher_filter",    "OffOn", 1
+    FlagOption    "$PBX_Weapons_EXCAVATOR",      "PBX_RocketLauncher_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_PAINGIVER",      "PBX_RocketLauncher_filter",    "OffOn", 1
 }
 // PLASMA /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 2
 AddOptionMenu "AddonWeaponSpawns" after "PLST2"
 {
     // SLOT 3
-    FlagOption    "$PBX_Weapons_CRYOSG",               "PBX_Weapons_plasmarifle_filter",    "OffOn", 2
+    FlagOption    "$PBX_Weapons_CRYOSG",               "PBX_Plasma_filter",    "OffOn", 2
 
     // SLOT 7
-    FlagOption    "$PBX_Weapons_PLATINUM_RAILGUN",               "PBX_Weapons_plasmarifle_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_PLATINUM_RAILGUN",               "PBX_Plasma_filter",    "OffOn", 0
 
     // Slot 8
-    FlagOption    "$PBX_Weapons_FREEZE_RIFLE",                   "PBX_Weapons_plasmarifle_filter",    "OffOn", 4
+    FlagOption    "$PBX_Weapons_FREEZE_RIFLE",                   "PBX_Plasma_filter",    "OffOn", 4
 }
 
 // TIER 3
 AddOptionMenu "AddonWeaponSpawns" after "PLST3"
 {
     // SLOT 8
-    FlagOption    "$PBX_Weapons_TESLAGUN",                       "PBX_Weapons_plasmarifle_filter",    "OffOn", 1
+    FlagOption    "$PBX_Weapons_TESLAGUN",                       "PBX_Plasma_filter",    "OffOn", 1
 }
 
 // TIER 4
 AddOptionMenu "AddonWeaponSpawns" after "PLST4"
 {
     // SLOT 3
-    FlagOption    "$PBX_Weapons_CRYOASG",                       "PBX_Weapons_plasmarifle_filter",    "OffOn", 3
+    FlagOption    "$PBX_Weapons_CRYOASG",                       "PBX_Plasma_filter",    "OffOn", 3
 }
 
 // BFG /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,8 +159,8 @@ AddOptionMenu "AddonWeaponSpawns" after "PLST4"
 AddOptionMenu "AddonWeaponSpawns" after "BFGT1"
 {
     // SLOT 9
-    FlagOption    "$PBX_Weapons_DEMONIC_EXTERMINATOR",    "PBX_Weapons_bfg_filter",    "OffOn", 0
-    FlagOption    "$PBX_Weapons_DEMONEXT_ARTIFACT",           "PBX_Weapons_backpack_filter",    "OffOn", 6
+    FlagOption    "$PBX_Weapons_DEMONIC_EXTERMINATOR",    "PBX_BFG_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_DEMONEXT_ARTIFACT",           "PBX_BackPack_filter",    "OffOn", 6
 }
 
 // This is a pretty hacky way to do this lol
@@ -170,48 +169,53 @@ AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
     // SLOT 9
     StaticText " "
     StaticText	"--------- Secret Weapons ---------", 1
-    FlagOption    "$PBX_Weapons_ETERNAL_CHAINGUN",   "PBX_SecretrWeapon_filter",    "OffOn", 0
-    FlagOption    "$PBX_Weapons_NUKE_LAUNCHER",      "PBX_SecretrWeapon_filter",    "OffOn", 1 
-    FlagOption    "$PBX_Weapons_HEXA_SHOTGUN",       "PBX_SecretrWeapon_filter",    "OffOn", 2 
-    FlagOption    "$PBX_Weapons_MINI_SHOTGUN",       "PBX_SecretrWeapon_filter",    "OffOn", 3 
-    FlagOption    "$PBX_Weapons_RIPPER_CHAINGUN",    "PBX_SecretrWeapon_filter",    "OffOn", 4 
+    FlagOption    "$PBX_Weapons_ETERNAL_CHAINGUN",   "PBX_SecretWeapon_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_NUKE_LAUNCHER",      "PBX_SecretWeapon_filter",    "OffOn", 1 
+    FlagOption    "$PBX_Weapons_HEXA_SHOTGUN",       "PBX_SecretWeapon_filter",    "OffOn", 2 
+    FlagOption    "$PBX_Weapons_MINI_SHOTGUN",       "PBX_SecretWeapon_filter",    "OffOn", 3 
+    FlagOption    "$PBX_Weapons_RIPPER_CHAINGUN",    "PBX_SecretWeapon_filter",    "OffOn", 4 
     StaticText " "
     StaticText	"--------- Monster Weapons ---------", 1
     FlagOption    "$PBX_Weapons_CYBERRL",        "PBX_MonsterWeapon_filter",    "OffOn", 0
     FlagOption    "$PBX_Weapons_SPIDERCG",       "PBX_MonsterWeapon_filter",    "OffOn", 1
     FlagOption    "$PBX_Weapons_GRABCACO",       "PBX_MonsterWeapon_filter",    "OffOn", 2
+    StaticText " "
+    StaticText	"--------- Weapon Edits ---------", 1
+    FlagOption    "$PBX_Weapons_SGL_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 0
+	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 1
+	FlagOption    "$PBX_Weapons_CHAINSAW_EDIT",                  "PBX_WPEdit_filter",   "OffOn", 2
 }
 
 // Backpacks/Upgrades/Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 1
 AddOptionMenu "AddonAmmoSpawns" after "PACKT1"
 {
-    FlagOption    "$PBX_Weapons_UAC_COMMANDER_BACKPACK",       "PBX_Weapons_backpack_filter",    "OffOn", 4
+    FlagOption    "$PBX_Weapons_UAC_COMMANDER_BACKPACK",       "PBX_BackPack_filter",    "OffOn", 4
 }
 
 // TIER 2
 AddOptionMenu "AddonAmmoSpawns" after "PACKT2"
 {
-    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE",      "PBX_Weapons_backpack_filter",    "OffOn", 3
+    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE",      "PBX_BackPack_filter",    "OffOn", 3
 }
 
 // TIER 3
 AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
 {
-    FlagOption    "$PBX_Weapons_LEVER_ACTION_UPGRADE",           "PBX_Weapons_backpack_filter",    "OffOn", 2
-    FlagOption    "$PBX_Weapons_METAL_SNIPER_UPGRADE",           "PBX_Weapons_backpack_filter",    "OffOn", 1
-    FlagOption    "$PBX_Weapons_EXCAVATOR_UPGRADE",              "PBX_Weapons_backpack_filter",    "OffOn", 5
-	FlagOption    "$PBX_Weapons_SGL_EDIT",                       "PBX_WPEdit_SpawnFlags",   "OffOn", 0
-	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_WPEdit_SpawnFlags",   "OffOn", 1
-	FlagOption    "$PBX_Weapons_CHAINSAW_EDIT",                  "PBX_WPEdit_SpawnFlags",   "OffOn", 2
+    FlagOption    "$PBX_Weapons_LEVER_ACTION_UPGRADE",           "PBX_BackPack_filter",    "OffOn", 2
+    FlagOption    "$PBX_Weapons_METAL_SNIPER_UPGRADE",           "PBX_BackPack_filter",    "OffOn", 1
+    FlagOption    "$PBX_Weapons_EXCAVATOR_UPGRADE",              "PBX_BackPack_filter",    "OffOn", 5
+	FlagOption    "$PBX_Weapons_SGL_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 0
+	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_WPEdit_filter",   "OffOn", 1
+	FlagOption    "$PBX_Weapons_CHAINSAW_EDIT",                  "PBX_WPEdit_filter",   "OffOn", 2
 }
 
 // OTHERS
 AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 {
-    FlagOption    "$PBX_Weapons_CSSG_UPGRADES",                  "PBX_Weapons_backpack_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_CSSG_UPGRADES",                  "PBX_BackPack_filter",    "OffOn", 0
 }
 
-AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"
+/* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"
 {
-}
+} */

@@ -49,7 +49,7 @@ class PBX_WeaponBase : PB_WeaponBase abstract
         A_WeaponOffset(0,32);
         PB_SetRoll(0);
         PB_WeaponRaise(upSnd);
-        if(PBX_Weapons_sendTip) PBX_WeaponHelpText(); // This function is in PBX_Weapons_Tips.zs
+        if(PBX_Armament_SendTip) PBX_WeaponHelpText(); // This function is in PBX_Weapons_Tips.zs
         PBX_UpgradeWeapon();
     }
 

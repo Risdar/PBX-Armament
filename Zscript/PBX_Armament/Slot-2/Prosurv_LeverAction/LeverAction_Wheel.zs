@@ -13,7 +13,7 @@ Class LeverActionWheel : wheelinfocontainer
 			return;
 			
 		PBX_InitializeWheel(spw,requester,scale:(0.5,0.5));
-		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_LeverActionUpgrade;
+		mDisabled = PBX_BackPack_filter & DisablePBX_LeverActionUpgrade;
 
 		// Magnum
 		PBX_AddWheel(spw,     img:"LeverAction/Magnum",	  alias:"$PBX_LeverAction_Magnum", token:"LA_Select_Magnum");

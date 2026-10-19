@@ -70,24 +70,24 @@ class PBX_Armament_SpawnInjector : PBInjector
 	{
 //////////////////////////// Shotgun ////////////////////////////////////////////////////////////////////////////////////
 		// Plasma Blaster
-		if(!(PBX_Weapons_shotgun_filter & DisablePBX_PlasmaBlaster))
+		if(!(PBX_Shotgun_filter & DisablePBX_PlasmaBlaster))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_PlasmaBlaster', 255, 1);
 		}
 		// Lever Action
-		if(!(PBX_Weapons_shotgun_filter & DisablePBX_LeverActionRifle))
+		if(!(PBX_Shotgun_filter & DisablePBX_LeverActionRifle))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT1', 'PBX_Prosurv_LeverAction', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_Prosurv_LeverAction', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT3', 'PBX_Prosurv_LeverAction', 255, 1);
 		}
 		// SPAS12
-		if(!(PBX_Weapons_shotgun_filter & DisablePBX_SPAS12))
+		if(!(PBX_Shotgun_filter & DisablePBX_SPAS12))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_SPAS12', 255, 1);
 		}
 		// Crossbow Ballista
-		if(!(PBX_Weapons_shotgun_filter & DisablePBX_CrossbowBallista))
+		if(!(PBX_Shotgun_filter & DisablePBX_CrossbowBallista))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT1', 'PBX_Prosurv_Ballista', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_Prosurv_Ballista', 255, 1);
@@ -95,7 +95,7 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// SSG ////////////////////////////////////////////////////////////////////////////////////
 		// CSSG
-		if(!(PBX_Weapons_ssg_filter & DisablePBX_CSSG))
+		if(!(PBX_SSG_filter & DisablePBX_CSSG))
 		{
 			handler.InjectSpawn('PB_SSGSpawnerT3', 'PBX_CSSG', 255, 1);
 			handler.InjectSpawn('PB_SSGSpawnerT4', 'PBX_CSSG', 255, 1);
@@ -103,76 +103,76 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// CHAINGUN ////////////////////////////////////////////////////////////////////////////////////
 		// Battle Rifle
-		if(!(PBX_Weapons_chaingun_filter & DisablePBX_BattleRifle))
+		if(!(PBX_Chaingun_filter & DisablePBX_BattleRifle))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT1', 'PBX_BDPBattleRifle', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT2', 'PBX_BDPBattleRifle', 255, 1);
 		}
 		// Metal Sniper
-		if(!(PBX_Weapons_chaingun_filter & DisablePBX_MetalSniper))
+		if(!(PBX_Chaingun_filter & DisablePBX_MetalSniper))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT3', 'PBX_MetalSniper', 255, 1);
 		}
 		// XM21 
-		if(!(PBX_Weapons_chaingun_filter & DisablePBX_XM21))
+		if(!(PBX_Chaingun_filter & DisablePBX_XM21))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_XM21', 255, 1);
 		}
 		// Neo HMG
-		if(!(PBX_Weapons_chaingun_filter & DisablePBX_NeoHMG))
+		if(!(PBX_Chaingun_filter & DisablePBX_NeoHMG))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT3', 'PBX_NeoHMG', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_NeoHMG', 255, 1);
 		}
 		// Super Nailgun
-		if(!(PBX_Weapons_chaingun_filter & DisablePBX_SuperNailgun))
+		if(!(PBX_Chaingun_filter & DisablePBX_SuperNailgun))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_SuperNailgun', 255, 1);
 		}
 
 //////////////////////////// ROCKETLAUNCHER ////////////////////////////////////////////////////////////////////////////////////
 		// Excavator
-		if(!(PBX_Weapons_rocketlauncher_filter & DisablePBX_Excavator))
+		if(!(PBX_RocketLauncher_filter & DisablePBX_Excavator))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT3', 'PBX_Excavator', 255, 1);
 			handler.InjectSpawn('PB_RLSpawnerT4', 'PBX_Excavator', 255, 1);
 		}
 		// Paingiver
-		if(!(PBX_Weapons_rocketlauncher_filter & DisablePBX_Paingiver))
+		if(!(PBX_RocketLauncher_filter & DisablePBX_Paingiver))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT4', 'PBX_Paingiver', 255, 1);
 		}
 
 //////////////////////////// PLASMARIFLE ////////////////////////////////////////////////////////////////////////////////////
 		// BDP Railgun
-		if(!(PBX_Weapons_plasmarifle_filter & DisablePBX_BDPRailgun))
+		if(!(PBX_Plasma_filter & DisablePBX_BDPRailgun))
 		{
 		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_BDPRailgun",255,1);
 		}
 		// Tesla Gun
-		if(!(PBX_Weapons_plasmarifle_filter & DisablePBX_TeslaGun))
+		if(!(PBX_Plasma_filter & DisablePBX_TeslaGun))
 		{
 		   handler.InjectSpawn("PB_PlasSpawnerT3","PBX_TeslaGun",255,1);
 		}
 		// Cryo SG
-		if(!(PBX_Weapons_plasmarifle_filter & DisablePBX_CryoSG))
+		if(!(PBX_Plasma_filter & DisablePBX_CryoSG))
 		{
 		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_CryoSG",255,1);
 		}
 		// Cryo ASG
-		if(!(PBX_Weapons_plasmarifle_filter & DisablePBX_CryoASG))
+		if(!(PBX_Plasma_filter & DisablePBX_CryoASG))
 		{
 		   handler.InjectSpawn("PB_PlasSpawnerT4","PBX_CryoASG",255,1);
 		}
 		// Freze Rifle 
-		if(!(PBX_Weapons_plasmarifle_filter & DisablePBX_FreezeRifle))
+		if(!(PBX_Plasma_filter & DisablePBX_FreezeRifle))
 		{
 		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_FreezeRifle",255,1);
 		}
 
 //////////////////////////// BFG ////////////////////////////////////////////////////////////////////////////////////
 		// Demon Ext
-		if(!(PBX_Weapons_bfg_filter & DisablePBX_DemonExt))
+		if(!(PBX_BFG_filter & DisablePBX_DemonExt))
 		{
 		   handler.InjectSpawn("PB_BFGSpawnerT1","PBX_DemonExt",255,1);
 		}
@@ -188,13 +188,13 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// UPGRADES ////////////////////////////////////////////////////////////////////////////////////
 		// UAC Backpack
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_UACBackpack))
+		if(!(PBX_BackPack_filter & DisablePBX_UACBackpack))
 		{
 			handler.InjectSpawn('PB_PackSpawnerT1', 'PBX_CommandPack', 255, 1);
 		}
 
 		// CSSG Upgrades
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_CSSGUpgrades))
+		if(!(PBX_BackPack_filter & DisablePBX_CSSGUpgrades))
 		{
 			handler.InjectSpawn('PB_ShellboxSpawnerT3', 'WPShellsUpgrade', 255, 1);
 			handler.InjectSpawn('PB_ShellboxSpawnerT3', 'SubZeroShellsUpgrade', 255, 1);
@@ -206,42 +206,42 @@ class PBX_Armament_SpawnInjector : PBInjector
 		}
 		
 		// Metal Sniper Upgrade
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_MetalSniperUpgrade))
+		if(!(PBX_BackPack_filter & DisablePBX_MetalSniperUpgrade))
 		{
 			handler.InjectSpawn('PB_UpgradeSpawnerT4', 'MetalSniper_Upgrade', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT4', 'MetalSniper_Upgrade', 255, 1);
 		}
 
 		// Lever Action Upgrade
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_LeverActionUpgrade))
+		if(!(PBX_BackPack_filter & DisablePBX_LeverActionUpgrade))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT3', 'LeverAction_Upgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LeverAction_Upgrade', 255, 1);
 		}
 
 		// Crossbow Ballista Upgrades
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_CrossbowBallistaUpgrade))
+		if(!(PBX_BackPack_filter & DisablePBX_CrossbowBallistaUpgrade))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_DemonicBallistaUpgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT2', 'PBX_DemonicBallistaUpgrade', 255, 1);
 		}
 
 		// Crossbow Ballista Upgrades
-		if(!(PBX_Weapons_backpack_filter & DisablePBX_ExcavatorUpgrade))
+		if(!(PBX_BackPack_filter & DisablePBX_ExcavatorUpgrade))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT3', 'PBX_ExcavatorUpgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'PBX_ExcavatorUpgrade', 255, 1);
 		}
 
 		// SGL Upgrade
-		if(PBX_WPEdit_Enable && !(PBX_WPEdit_SpawnFlags & DisablePBX_SGLEdit))
+		if(PBX_WPEdit_Enable && !(PBX_WPEdit_filter & DisablePBX_SGLEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'SGL_Upgrade', 255, 1);
             handler.InjectSpawn('PB_RLSpawnerT3', 'SGL_Upgrade', 255, 1);
         }
 
 		// LMG Upgrade
-        if(PBX_WPEdit_Enable && !(PBX_WPEdit_SpawnFlags & DisablePBX_LMGEdit))
+        if(PBX_WPEdit_Enable && !(PBX_WPEdit_filter & DisablePBX_LMGEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LMG_Upgrade', 255, 1);
 		    handler.InjectSpawn('PB_MGSpawnerT3', 'LMG_Upgrade', 255, 1);
@@ -337,15 +337,15 @@ class PBX_SecretWeapon_Spawner : PB_WeaponSpawner
 
 	override bool HandleSpawnExceptions(name toSpawn)
 	{
-		if(toSpawn == "PBX_NukeLauncher" && (PBX_SecretrWeapon_filter & DisablePBX_NukeLauncher))
+		if(toSpawn == "PBX_NukeLauncher" && (PBX_SecretWeapon_filter & DisablePBX_NukeLauncher))
 			return false;
-		if(toSpawn == "PBX_HexaShotgun" && (PBX_SecretrWeapon_filter & DisablePBX_HexaShotgun))
+		if(toSpawn == "PBX_HexaShotgun" && (PBX_SecretWeapon_filter & DisablePBX_HexaShotgun))
 			return false;
-		if(toSpawn == "PBX_MiniShotgun" && (PBX_SecretrWeapon_filter & DisablePBX_MiniShotgun))
+		if(toSpawn == "PBX_MiniShotgun" && (PBX_SecretWeapon_filter & DisablePBX_MiniShotgun))
 			return false;
-		if(toSpawn == "PBX_EternalMinigun" && (PBX_SecretrWeapon_filter & DisablePBX_EternalChaingun))
+		if(toSpawn == "PBX_EternalMinigun" && (PBX_SecretWeapon_filter & DisablePBX_EternalChaingun))
 			return false;
-		if(toSpawn == "PBX_RipperChaingun" && (PBX_SecretrWeapon_filter & DisablePBX_RipperChaingun))
+		if(toSpawn == "PBX_RipperChaingun" && (PBX_SecretWeapon_filter & DisablePBX_RipperChaingun))
 			return false;
 		return true;
 	}

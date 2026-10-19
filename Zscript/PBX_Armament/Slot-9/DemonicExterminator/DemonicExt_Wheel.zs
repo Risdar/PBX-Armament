@@ -10,7 +10,7 @@ Class DemonicExtWheel : wheelinfocontainer
 	override void GetSpecials(in out array <PB_SpecialWheel_Mode> spw, actor requester)
 	{
 		PBX_InitializeWheel(spw,requester,scale:(0.6,0.6));
-		mDisabled = PBX_Weapons_backpack_filter & DisablePBX_DemonExtArtifacts;
+		mDisabled = PBX_BackPack_filter & DisablePBX_DemonExtArtifacts;
 
 		// Laser Mode
 		PBX_AddWheel(spw, img:"DemonExt/LaserAlt",				alias:"$PBX_DemonExt_Laser",	 token:"UMDE_Select_LaserMode");

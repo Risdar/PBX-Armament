@@ -27,7 +27,7 @@ class ExterminatorHandler : EventHandler
 	bool mArtifactSpawned;
     override void WorldLoaded(WorldEvent e)
 	{
-		if(mArtifactSpawned || (PBX_Weapons_backpack_filter & DisablePBX_DemonExtArtifacts) || !mShouldSpawnArtifact) 
+		if(mArtifactSpawned || (PBX_BackPack_filter & DisablePBX_DemonExtArtifacts) || !mShouldSpawnArtifact) 
         {
             PBXCore_Debug.Print("Artifact NOT Spawned!");
             return;
