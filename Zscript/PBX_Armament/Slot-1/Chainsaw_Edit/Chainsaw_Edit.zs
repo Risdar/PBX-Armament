@@ -109,7 +109,7 @@ CLASS PBX_ThrownChainsaw : actor
             TNT1 A 0  {	
                 //We need to make this the physical chainsaw actor because of the new pickup system
                 //Through the magic of zscript we can give it the same properties as the original actor
-                if(target.FindInventory("PBX_PowerInfiniteAmmo"))
+                if(target.FindInventory("PowerInfiniteAmmo"))
                 {
                     return resolvestate(null);
                 }
@@ -137,7 +137,7 @@ CLASS PBX_ThrownChainsaw : actor
                 //We need to make this the physical chainsaw actor because of the new pickup system
                 //Through the magic of zscript we can give it the same properties as the original actor
                 //A_SpawnItemEx ("ChainsawStuckInWall",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION);
-                if(target.FindInventory("PBX_PowerInfiniteAmmo"))
+                if(target.FindInventory("PowerInfiniteAmmo"))
                 {
                     return resolvestate(null);
                 }
