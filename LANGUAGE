@@ -233,9 +233,9 @@ OB_WEAP_NEOHMG                      = "%o is riddled with bullets by %k's HMG.";
 PBX_NeoHMG_DetonateShield           = "\caDetonate \c-Shield";
 PBX_NeoHMG_PlaceShield              = "\caPlace \c-Shield";
 
-PBX_NeoHMG_Tip1                     = "Activate the \cdshield\c- using %s, the \cdshield\c- \cvrecharges\c- only when there's \cgoverheat\-.";
-PBX_NeoHMG_Tip2                     = "Pressing %s while the \cdshield\c- is active will \cgdetonate\c- the \cdshield\c- \cnstunning\c- nearby enemies.";
-PBX_NeoHMG_Tip3                     = "When \cgoverheat\c- reaches \ca%d° C\c- the weapon will use a stronger projectile and \cvrecharge\c- the \cdshield\c- faster.";
+PBX_NeoHMG_Tip1                     = "Press %s to activate the \cdshield\c-. It recharges only when there's \cgoverheat\c-.";
+PBX_NeoHMG_Tip2                     = "Press %s again to detonate the \cdshield\c- and \cnstun\c- nearby enemies.";
+PBX_NeoHMG_Tip3                     = "At \cg%d° C\c-, shots become \cxstronger\c- and the \cdshield\c- recharges faster.";
 
 
 // Eternal Chaingun

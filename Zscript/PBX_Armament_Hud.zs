@@ -433,7 +433,12 @@ class PBXHUDService_PBX_AllWeapons : service
 //////////////////////////// SLOT 5 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_NeoHMG':
         {
-            return MakeData(imgOffset1:(-3, -3), imgScale1:1.6);
+            let hmg = PBX_NeoHMG(weapon); if (!hmg) return null;
+
+            // I dont think it needs this many null checks lol
+            bool shld = hmg.mShieldIsReady && players[consoleplayer].mo && players[consoleplayer].mo.CountInv("HMGShield") > 0;
+
+            return MakeData(img2:shld ? "shldhud" : "shldhudn",imgOffset1:(-3, -3), imgScale1:1.6);
         }
 
         case 'PBX_EternalMinigun':
