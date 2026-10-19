@@ -367,23 +367,30 @@ class PBXCore_Player : PB_PlayerPrawn
                 BlockThingsIterator CheckForTargets = BlockThingsIterator.create(Self,1600); 
                 Actor CurrentActor; //A pointer to whatever actor the iterator is iterating through.
                 While (CheckForTargets.Next()) 
-                {
-                    CurrentActor = CheckForTargets.Thing;
-                    If(CurrentActor && (CurrentActor.bIsMonster && currentactor.bshootable && !currentactor.bfriendly || currentactor is "PBXCore_Player") && CheckSight(CurrentActor,SF_IGNOREWATERBOUNDARY) && currentactor != self)
-                    {
-                        vector3 targetpos = LevelLocals.SphericalCoords((pos.x,pos.y,player.viewz),currentactor.pos+(0,0,currentactor.default.height*0.5),(angle,pitch));
-                        let tr = new("HookTracer");
-                        if(tr)
-                        {
-                            tr.Trace((pos.x,pos.y,player.viewz),cursector,(AngleToVector(angle - targetpos.x, cos(pitch - targetpos.y)), -sin(pitch - targetpos.y)),1600,0,ignore:self);
-                            if (tr.results.HitActor == CurrentActor && abs(targetpos.x) <= CurrentActor.Radius * 2 / (Distance3D(CurrentActor) / 100) && abs(targetpos.y) <= CurrentActor.Height / (Distance3D(CurrentActor) / 100) && (lastAim == -1 || abs(targetpos.x) + abs(targetpos.y) <= lastAim))
-                            {
-                                lastAim = abs(targetpos.x) + abs(targetpos.y);
-                                aimActor2 = currentactor;
-                            }
-                        }
-                    }
-                }
+				{
+					CurrentActor = CheckForTargets.Thing;
+					If(CurrentActor && (CurrentActor.bIsMonster && currentactor.bshootable && !currentactor.bfriendly || currentactor is "PBXCore_Player") && CheckSight(CurrentActor,SF_IGNOREWATERBOUNDARY) && currentactor != self)
+					{
+						double dist = Distance3D(CurrentActor);
+						if (dist < 1.0) continue; // skip actors stacked on us
+						double scale = dist / 100;
+
+						vector3 targetpos = LevelLocals.SphericalCoords((pos.x,pos.y,player.viewz),currentactor.pos+(0,0,currentactor.default.height*0.5),(angle,pitch));
+						let tr = new("HookTracer");
+						if(tr)
+						{
+							tr.Trace((pos.x,pos.y,player.viewz),cursector,(AngleToVector(angle - targetpos.x, cos(pitch - targetpos.y)), -sin(pitch - targetpos.y)),1600,0,ignore:self);
+							if (tr.results.HitActor == CurrentActor
+								&& abs(targetpos.x) <= CurrentActor.Radius * 2 / scale
+								&& abs(targetpos.y) <= CurrentActor.Height / scale
+								&& (lastAim == -1 || abs(targetpos.x) + abs(targetpos.y) <= lastAim))
+							{
+								lastAim = abs(targetpos.x) + abs(targetpos.y);
+								aimActor2 = currentactor;
+							}
+						}
+					}
+				}
             }
         }
     }
