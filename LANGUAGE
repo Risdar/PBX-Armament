@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings                = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.2 - The Great Reset";
+PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.3 - The Great Reset";
 
 PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP        = "HP: %u";

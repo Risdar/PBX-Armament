@@ -206,7 +206,7 @@ extend class PBX_TeslaGun
 	action void Tesla_FireShock()
 	{
 		blockthingsiterator bti = blockthingsiterator.create(self,500);
-		array<PB_LightningTarget> vic;
+		array<PBX_LightningTarget> vic;
 		int maxbeams = LIGHTSHOCK_TARGET;
 		
 		while(bti.next())
@@ -218,7 +218,7 @@ extend class PBX_TeslaGun
 			&& abs(an) < 45 && distance3d(mo) <= 450 && checksight(mo))
 			{
 				vic.push(
-				PB_LightningTarget.addnew(mo,mo.pos + (0,0,mo.height * 0.5),angleto(mo),pitchto(mo),distance3d(mo))
+				PBX_LightningTarget.addnew(mo,mo.pos + (0,0,mo.height * 0.5),angleto(mo),pitchto(mo),distance3d(mo))
 				);
 				maxbeams--;
 			}
