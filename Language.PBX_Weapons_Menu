@@ -106,7 +106,7 @@ PBX_Weapons_CSSG_UPGRADES = "Enable CSSG Upgrades";
 
 
 //////////////////////////// KEYS MENU ///////////////////////////////////////////////////////////////////////////////
-PBX_Weapons_KEYMENU       = "PBX Keys Menu";
-PBX_Weapons_WHEELZOOM_IN  = "Manual Zoom In Key";
-PBX_Weapons_WHEELZOOM_OUT = "Manual Zoom Out Key";
-PBX_Weapons_PREV_WEAPON   = "Previous Weapon Key";
+PBX_ARMAMENT_KEYMENU    = "PBX Armament Keys";
+PBX_WHEELZOOM_IN        = "Manual Zoom In Key";
+PBX_WHEELZOOM_OUT       = "Manual Zoom Out Key";
+PBX_PREV_WEAPON         = "Previous Weapon Key";

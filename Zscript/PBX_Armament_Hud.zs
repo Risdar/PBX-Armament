@@ -252,6 +252,7 @@ class PBX_Armament_HUDHandler : EventHandler
                     phud.PBHud_DrawImage("CHAINHL", (-90, -44), BaseStatusBar.DI_SCREEN_RIGHT_BOTTOM, 1, (32, 32));
                 }
             }
+            break;
 
             // Draw the Cacodemon's HP
             case 'PBX_RideableCaco':
@@ -264,8 +265,8 @@ class PBX_Armament_HUDHandler : EventHandler
                     "CacoHP",
                     Font.FindFontColor("HUDBLUEBAR")
                 );
-                break;
             }
+            break;
 
             default:
                 break;
