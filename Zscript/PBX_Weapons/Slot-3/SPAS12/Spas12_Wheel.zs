@@ -18,7 +18,7 @@ Class Spas12Wheel : wheelinfocontainer
         //Toggle Secondary, Placeholder icons
         if(sp12.mDualBlast)
         {
-            PBX_AddWheel(spw, img:sp12.mStockIsFolded ? "SPAS-12/SP12_Fold_Zoom" : "SPAS-12/SP12_Unfold_Zoom",	    alias:"$PBX_SPAS12_ADS",	    token:"SP12_Toggle_Secondary");
+            PBX_AddWheel(spw, img:sp12.mStockIsFolded ? "SPAS-12/SP12_Fold_Zoom" : "SPAS-12/SP12_Unfold_Zoom",	    alias:"$PBX_SECONDARY_ZOOM",	    token:"SP12_Toggle_Secondary");
         }
         else
         {

@@ -20,13 +20,13 @@
 #include "./Slot-2/Plasma_Blaster/PlasmaBlaster.zs" // PLasma Blaster 
 #include "./Slot-2/Prosurv_Blaster/prosurv_blaster.zs" // Prosurv Blaster 
 #include "./Slot-2/Prosurv_LeverAction/Prosurv_LeverAction.zs" // Lever Action 
+#include "./Slot-2/Revolver_Edit/Revolver_Edit.zs" // Revolver Edit 
+#include "./Slot-2/Deagle_Edit/Deagle_Edit.zs" // Deagle Edit 
 
 // Slot 3
 #include "./Slot-3/CSSG/CSSG.zs" // CSSG
 #include "./Slot-3/Prosurv_PumpShotgun/prosurv_psg.zs" // PSG
 #include "./Slot-3/SPAS12/Spas12.zs" // SPAS 12 My Beloved
-#include "./Slot-3/CryoSG/CryoSG.zs" // Cryo Shotgun
-#include "./Slot-3/CryoASG/CryoASG.zs" // Cryo AutoShotgun
 
 // Slot 4
 #include "./Slot-4/NormalRifle/NormalRifle.zs" // Normal Rifle
@@ -49,6 +49,8 @@
 
 // Slot 7
 #include "./Slot-7/BDP_Railgun/bdp_railgun.zs" // BDP Railgun
+#include "./Slot-7/CryoSG/CryoSG.zs" // Cryo Shotgun
+#include "./Slot-7/CryoASG/CryoASG.zs" // Cryo AutoShotgun
 
 // Slot 8
 #include "./Slot-8/TeslaGun/TeslaGun.zs" // Tesla Gun

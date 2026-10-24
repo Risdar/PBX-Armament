@@ -44,13 +44,18 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
     bool blasterSecondary;
     int burstcount;
     const MAXCHARGE = 16;
-    enum blasterEnum {
-        PRIM_SEMI       = 0,
-        PRIM_AUTO       = 1,
-        SEC_BURST       = 0,
-        SEC_CHARGE      = 1,
-        TAKE_CHARGE     = 2   // Ammo take charge
-    }
+
+    enum CrossbowMode
+	{
+        ERROR_WHEEL = -2
+        ,CLOSE_WHEEL
+        ,NO_UPGRADE
+		,NORMAL_BOLT
+		,EXPLOSIVE_BOLT
+		,DEMONIC_BOLT
+        ,SHOCK_BOLT
+	}
+    
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////
     override void attachtoowner(actor other)
 	{
@@ -71,6 +76,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 	}
     
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
+    private
     action void setCrossbowSprite(name unloaded = '', name bolt = '', name explosive = '', name demonic = '', name shock = '')
 	{
 		int mode = getCrossbowMode();
@@ -92,7 +98,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 			A_SetWeaponSpriteEx(spriteToUse);
 	}
     
-    action int getCrossbowMode()
+    action int getCrossbowMode() const
 	{
 		return invoker.currentMode;
 	}
@@ -102,6 +108,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 		invoker.currentMode = mode;
 	}
     
+    private
     action int getTokens()
 	{
 		// Prioritize checking the tokens
@@ -121,6 +128,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 			return ERROR_WHEEL;
 	}
 
+    private
     action void cleanTokens()
     {
         A_SetInventory("CryoSG_Select_PlasmaBlast",0);
@@ -166,6 +174,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             AMGR FEDCBA 1;
 //////////////////////////// READY ////////////////////////////////////////////////////////////////////////////////////
         Ready3:
+            TNT1 A 0 PBX_CheckInspect();
 			AMGL A 1 {
                 PB_CoolDownBarrel();
                 PB_HandleCrosshair(39);

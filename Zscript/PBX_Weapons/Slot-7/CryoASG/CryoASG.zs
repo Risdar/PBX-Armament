@@ -55,6 +55,10 @@ class PBX_CryoASG : PBX_WeaponBase
     const PRIMARY_AMMOTAKE = 1;
     const SECONDARY_AMMOTAKE = 2;
 
+    const LIGHTSHOCK_DAMAGE = 25;
+    const LIGHTSHOCK_TARGET = 10; // How many beams it'll fire
+    const LIGHTSHOCK_RANGE = 50;
+
     enum CryoASGMode {
         ERROR_WHEEL = -2,
         CLOSE_WHEEL,
@@ -79,46 +83,6 @@ class PBX_CryoASG : PBX_WeaponBase
     }
 
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
-    action void PBX_FireLightningShotgun(
-        int damage = 25,
-        int numrays = 32,
-        double coneAngle = 40,
-        double distance = 1024,
-        double vrange = 30,
-        int duration = 1,
-        int delay = 0,
-        int maxChains = 5,
-        int maxLinks = 0,
-        name damageType = 'plasma'
-    )
-    {
-        Vector3 beamstart = PBX_LightningController.L_GetBeamAttachPos(self);
-        Array<Actor> hitTargets;
-
-        for (int i = 0; i < numrays; i++)
-        {
-            double an = angle - coneAngle * 0.5 + (numrays > 1 ? coneAngle / (numrays - 1) * i : 0);
-
-            FTranslatedLineTarget t;
-            AimLineAttack(an, distance, t, vrange);
-
-            if (t.linetarget && PBX_LightningController.L_IsValidVictim(t.linetarget, self)
-                && hitTargets.Find(t.linetarget) == hitTargets.Size())
-            {
-                hitTargets.Push(t.linetarget);
-            }
-        }
-
-        for (int i = 0; i < hitTargets.Size(); i++)
-        {
-            PBX_LightningController.L_StartChain(self, hitTargets[i], damage, distance, duration, delay, maxChains, maxLinks, damageType:damageType);
-
-            Vector3 beamEnd = PBX_LightningController.L_GetBeamAttachPos(hitTargets[i]);
-            PBX_LightningController.L_DrawLightning(beamstart, beamEnd, spawnSpark: true, playersource: player);
-        }
-
-    }
-
     action void FireWeapon(CryoASGMode mode)
     {
         A_AlertMonsters();
@@ -126,7 +90,9 @@ class PBX_CryoASG : PBX_WeaponBase
         A_StartSound("weapons/CryoRifle/missile1",CHAN_AUTO,CHANF_OVERLAP);
 
         if(mode == PRIMARY_MODE)
+        {
             PB_SpawnCasing("SubZeroCasing",18,-6,24,0,3,3);
+        }
 
         PB_IncrementHeat();
         A_GunFlash();
@@ -150,8 +116,7 @@ class PBX_CryoASG : PBX_WeaponBase
                 
             case LIGHTNING_ARC:
                 A_StartSound("PLSULT", CHAN_WEAPON, CHANF_OVERLAP);
-                PB_FireM2Lightning();
-                PBX_FireLightningShotgun();
+                PBX_FireShock(LIGHTSHOCK_DAMAGE,LIGHTSHOCK_TARGET,LIGHTSHOCK_RANGE);
                 break;
 
             case PLASMA_BREATH:

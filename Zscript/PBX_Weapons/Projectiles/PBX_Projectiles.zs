@@ -196,3 +196,148 @@ class HomingShots_Aux : Inventory
 		}
 	}
 }
+
+// Coin
+Class PBX_Coin : actor
+{
+	DEFAULT
+	{
+        Projectile;
+        +BOUNCEONWALLS
+        +BOUNCEONCEILINGS
+        +BOUNCEONFLOORS
+        WallBounceFactor 0.1;
+        BounceFactor 0.2;
+        DamageFactor "poison", 0.0;
+        DamageFactor "Bleedout", 0.0;
+        BounceSound "revolver/coinBounce";
+        DeathSound "revolver/coinDeath";
+        Damage 1;
+        +BOUNCEAUTOOFFFLOORONLY
+        -NOGRAVITY
+        +DONTTHRUST
+        +SHOOTABLE;
+        -NOBLOCKMAP
+        +NORADIUSDMG;
+        +ISMONSTER;
+        +FRIENDLY;
+        -COUNTKILL;
+        +THRUACTORS
+        +FORCEPAIN
+        +ROLLSPRITE
+        +ROLLCENTER
+        Speed 20;
+        PainChance 255;
+        Gravity 0.5;
+        seeSound "revolver/coin";
+        +BRIGHT;
+        Health 4000;
+        +BUDDHA
+        +FORCEXYBILLBOARD
+        +LOOKALLAROUND
+        scale 0.5;
+        +NOTARGET;
+        +NEVERTARGET;
+        +NOBLOOD
+        +STOPRAILS
+        +MTHRUSPECIES
+        +THRUSPECIES
+        ProjectileKickback 1;
+	}
+	
+	void CheckForBarrels()
+	{
+		BlockThingsIterator it = BlockThingsIterator.Create(self, 256);
+		Actor mo;
+		while (it.Next())
+		{
+			mo = it.thing;
+			if (mo 
+			&& mo is "PB_BarrelBase" 
+			&& mo.health > 0
+			&& CheckSight(mo)
+			)
+			{
+				target = mo;
+				A_FaceTarget(0,180, flags:FAF_TOP);
+				break;
+			}
+		}
+	}
+	
+	States
+	{
+        Spawn:
+            COIN ABCDMN 2 { 
+                A_SpriteOffset(0, -10); 
+                A_SetRoll(roll+15); 
+            }
+            loop;
+        Pain:
+            "####" A 1 { 
+                A_Stop(); 
+                frame = random[sfx](0,1);
+            }
+            "####" A 1 A_LookEx(LOF_NOSOUNDCHECK|LOF_DONTCHASEGOAL|LOF_NOSEESOUND|LOF_NOJUMP,0, 2048, 0, 360);
+            "####" A 0 {
+                A_FaceTarget(0,180, flags:FAF_MIDDLE);
+                CheckForBarrels();
+            }
+            "####" A 0 {
+                A_StartSound("revolver/fire", 1, pitch:1.5);
+                A_SetRoll(roll+random[sfx](1,10)*15);
+                int ShotDamage = GetMaxHealth() - health; //max health - health = damage taken
+                let [bl,ColTrac] = self.A_SpawnItemEx("ParryTracer",0,0,0,0,0,0,0,SXF_TRANSFERPITCH);
+                
+                if(target && ColTrac)
+                {
+                    if(target.player) //uh oh! It has its sights on the player!!!
+                    {
+                        ColTrac.Scale.y = 256;
+                        ColTrac.angle = random[sfx](0,360);
+                        ColTrac.pitch = random[sfx](-90,90);
+                    }
+                    else
+                    {
+                        ColTrac.Scale.y = Distance2D(target)/5;
+                        A_DamageTarget(ShotDamage*2, "HeadHitbox"); // Put it after the scale change because damaing a target can reset the target field
+                    }
+                }
+                A_SetHealth(4000);
+                vel = (frandom[sfx](1.0,-1.0), frandom[sfx](1.0,-1.0), 8);
+            }
+            Goto Spawn;
+
+        Pain.melee:	
+        Death:
+            COIN O 175  {
+                A_SpriteOffset(0, -1);
+                roll = 0;
+            }
+            stop;
+	}
+}
+
+Class ParryTracer : Actor
+{
+	Default 
+	{
+		Height 1;
+		+NOINTERACTION //means it can clip through walls and floors and nothing can check for it
+		+FLATSPRITE
+		+NoGravity
+		+WINDTHRUST
+		RenderStyle "Add";
+		alpha 0.8;
+	}
+
+	States
+    {
+		Spawn:
+            LZBM D 5 BRIGHT NoDelay;
+            LZBM DDDDDDDDDDDDDDDDDDDD 1 BRIGHT {
+                Scale.x -= 0.05;
+            }
+            Stop;
+	 }
+}

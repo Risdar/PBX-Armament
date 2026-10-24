@@ -44,6 +44,7 @@ class PBX_CyberdemonRL : PBX_WeaponBase
 	}
 
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
+	bool mDurabilityGiven;
 	bool mLaserMode;
 	int shotCount;
 
@@ -62,8 +63,11 @@ class PBX_CyberdemonRL : PBX_WeaponBase
 	override bool TryPickup(in out Actor toucher)
     {
         bool pickup = Super.TryPickup(toucher);
-        if (pickup)
+        if (pickup && !mDurabilityGiven)
+		{
 			toucher.A_giveinventory(DURABILITY_NAME,DURABILITY);
+			mDurabilityGiven = true;
+		}
 		
         return pickup;
     }

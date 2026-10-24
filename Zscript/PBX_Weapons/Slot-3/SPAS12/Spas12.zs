@@ -124,7 +124,7 @@ class PBX_SPAS12 : PBX_WeaponBase
             case TOGGLE_SECONDARY:
                 cleanTokens();
                 invoker.mDualBlast = !invoker.mDualBlast;
-                A_Print(invoker.mDualBlast ? "$PBX_SPAS12_DUALFIRE" : "$PBX_SPAS12_ADS");
+                A_Print(invoker.mDualBlast ? "$PBX_SPAS12_DUALFIRE" : "$PBX_SECONDARY_ZOOM");
                 return ResolveState("SecondarySwitchAnimation");
                 
         }

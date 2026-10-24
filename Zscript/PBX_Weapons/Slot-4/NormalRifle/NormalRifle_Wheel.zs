@@ -17,15 +17,23 @@ Class NormalRifleWheel : wheelinfocontainer
 		
 		// Toggle Fire
 		if(!nr.doBurst)
+		{
 			PBX_AddWheel(spw, img:"NormalRifle/Burst",	alias:"$PB_WHEEL_BURST",	token:"NR_Select_FireMode");
+		}
 		else
+		{
 			PBX_AddWheel(spw, img:"NormalRifle/fullauto",	alias:"PB_WHEEL_FULL",	token:"NR_Select_FireMode");
+		}
 
 		// Dual Wield
 		if(nr.akimboMode)
+		{
 			PBX_AddWheel(spw, img:"NormalRifle/LaserOff",	alias:"$PBX_NormalRifle_Single",	token:"NR_Select_DualWield");
+		}
 		else
+		{
 			PBX_AddWheel(spw, img:"NormalRifle/dualwield",	alias:"$PBX_NormalRifle_Akimbo",	token:"NR_Select_DualWield");
+		}
 
 		// Laser
 		PBX_LaserWheel(spw,"NormalRifle",mIconScale);

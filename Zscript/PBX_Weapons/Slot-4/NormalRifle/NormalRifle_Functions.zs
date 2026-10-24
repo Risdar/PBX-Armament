@@ -13,7 +13,8 @@ extend class PBX_NormalRifle
         "RaiseFromEmpty","Reload","ContinueReload","FinishReload","Rechamber",
 
         "ReloadUnloadRight","ReloadUnloadLeft","ReloadDualWield","ContinueReloadRight",
-        "ReloadLeft","ContinueReloadLeft",
+        "ReloadLeft","ContinueReloadLeft","ReloadFromADS","StartRechamberRight",
+        "RechamberRight","CheckLeftRel","StartRechamberLeft","RechamberLeft",
 
         "Unload","UnloadChamber","UnloadDualWield","UnloadLeft",
 
@@ -173,19 +174,19 @@ extend class PBX_NormalRifle
         if(countinv("PBX_CloseWheel") > 0)
 		{
             cleanmodetokens();
-            if(PB_GetZoom()) return resolvestate("Ready2");
-			else return resolvestate("Ready3");
+			return PBX_ReturnReady();
 		}
 
 		if(toggleFireMode)
 		{
-			if(invoker.doBurst) invoker.doBurst = false;
-            else invoker.doBurst = true;
+            invoker.doBurst = !invoker.doBurst;
             A_Print(invoker.doBurst ? "$PB_FIREMODE_BURST" : "$PB_FIREMODE_FULL");
 		}
 
 		if (toggleLaser) 
+        {
             PBX_ToggleLaserSight(skipPlaySound:true);
+        }
 
         if (toggleDualWield)
         {

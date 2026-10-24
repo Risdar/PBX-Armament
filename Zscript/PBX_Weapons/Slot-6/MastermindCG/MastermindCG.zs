@@ -46,23 +46,21 @@ class PBX_MastermindChaingun : PBX_WeaponBase
 	}
 
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
-	bool SoulSeekerMode;
+	bool mDurabilityGiven;
+	bool mSoulSeekerMode;
 	const AMMO_PER_DURABILITY = 1; // How many rockets does it take for one point of durability
 	const DURABILITY = 200; // Durability Amount
 	const DURABILITY_NAME = "MastermindCGDurability"; 
       
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////
-    override void PostBeginPlay()
-    {
-        SoulSeekerMode = false;
-        Super.PostBeginPlay();
-    }
-
 	override bool TryPickup(in out Actor toucher)
     {
         bool pickup = Super.TryPickup(toucher);
-        if (pickup)
+        if (pickup && !mDurabilityGiven)
+		{
 			toucher.A_giveinventory(DURABILITY_NAME,DURABILITY);
+			mDurabilityGiven = true;
+		}
 		
         return pickup;
     }
@@ -70,7 +68,7 @@ class PBX_MastermindChaingun : PBX_WeaponBase
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
 	action void MastermindCG_FireWeapon(int ticCount)
 	{
-		name tofire = invoker.SoulSeekerMode ? "MastermindCG_SoulSeeker" : "MastermindCGProjectile";
+		name tofire = invoker.mSoulSeekerMode ? "MastermindCG_SoulSeeker" : "MastermindCGProjectile";
 
 		switch (ticCount)
 		{
@@ -163,15 +161,15 @@ class PBX_MastermindChaingun : PBX_WeaponBase
 		Weaponspecial:
 			TNT1 A 0 A_Takeinventory("GoWeaponSpecialAbility",1);
 			TNT1 A 0 {
-				if(invoker.SoulSeekerMode) {
-					invoker.SoulSeekerMode = false;
+				if(invoker.mSoulSeekerMode) {
+					invoker.mSoulSeekerMode = false;
 				}
 				else {
-					invoker.SoulSeekerMode = true;
+					invoker.mSoulSeekerMode = true;
 				}
             	A_StartSound("REVCYC", CHAN_AUTO, CHANF_OVERLAP);
 				A_StartSound("weapons/rocket/innercycle", CHAN_AUTO, CHANF_OVERLAP);
-				A_Print(invoker.SoulSeekerMode ? "$PBX_MastermindCG_SoulSeeker" : "$PBX_MastermindCG_Normal");
+				A_Print(invoker.mSoulSeekerMode ? "$PBX_MastermindCG_SoulSeeker" : "$PBX_MastermindCG_Normal");
 			}
 			goto Ready3;
 

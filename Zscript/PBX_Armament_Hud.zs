@@ -133,8 +133,7 @@ class PBX_Armament_HUDHandler : EventHandler
             // Draw bars and effects for specific modes
             case 'PBX_MetalSniper':
             {
-                let sniper = PBX_MetalSniper(pbWeap);
-                if(!sniper) return;
+                let sniper = PBX_MetalSniper(pbWeap); if(!sniper) return;
                 
                 // Show Rocket Ammo if Grenade Secondary Mode is Selected
                 if (sniper.AltMode) 
@@ -154,8 +153,7 @@ class PBX_Armament_HUDHandler : EventHandler
             case 'PBX_XM21':
             {
 
-                let snp = PBX_XM21(pbWeap);
-                if(!snp) return;
+                let snp = PBX_XM21(pbWeap); if(!snp) return;
                 
                 // Show Cloak Energy
                 PBXCore_HUDHandler.PBX_DrawAmmoBar(
@@ -247,9 +245,23 @@ class PBX_Armament_HUDHandler : EventHandler
             // Draw the resouce gather icon
             case 'PBX_ChainsawEdited':
             {
-                if(mo.FindInventory("ChainsawResourceGather"))
+                let saw = PBX_ChainsawEditedBase(pbWeap); if(!saw) return;
+
+                if(saw.mChainsawLifesteal)
                 {
                     phud.PBHud_DrawImage("CHAINHL", (-90, -44), BaseStatusBar.DI_SCREEN_RIGHT_BOTTOM, 1, (32, 32));
+                }
+
+                if(saw.mChainsawAlt == PBX_ChainsawEditedBase.SELECT_QUICKSSG && saw.ptrSSG && !mo.FindInventory("PB_QuadSG"))
+                {
+                    PBXCore_HUDHandler.PBX_DrawAmmoBar(
+                        phud,
+                        PBXCore_HUDHandler.DRAW_SECOND_BAR,
+                        "BARBACO2",
+                        "ABAR3",
+                        "PB_SSGMag",
+                        Font.FindFontColor("Orange")
+                    );
                 }
             }
             break;
@@ -411,8 +423,8 @@ class PBXHUDService_PBX_AllWeapons : service
                 offImage: IMAGE_DIRECTORY.."NormalRifle/laseroff.png",
                 onOffset: (0, 8), 
                 offOffset: (-5, 8), 
-                onScale: 1.0, 
-                offScale: 1.1
+                onScale: 0.8, 
+                offScale: 0.9
             );
         }
 
@@ -559,7 +571,68 @@ class PBXHUDService_PBX_AllWeapons : service
 
         case 'PBX_ChainsawEdited':
         {
-            return MakeData(imgOffset1:(-20, 32),imgScale1:0.8);
+            let saw = PBX_ChainsawEditedBase(weapon); if(!saw) return null;
+
+            vector2 ofs = (-20, 32);
+
+            if(saw.mChainsawAlt == PBX_ChainsawEditedBase.SELECT_QUICKSSG && saw.ptrSSG && !PBXCore_HUDHandler.PBX_PlayerHasInventory("PB_QuadSG"))
+            {
+                ofs.y += -20;
+            }
+
+            return MakeData(imgOffset1:ofs,imgScale1:0.8);
+        }
+
+        case 'PBX_RevolverEdited':
+        {
+            let rev = PBX_RevolverEdited(weapon); if(!rev) return null;
+            vector2 ofs = (-20, 12);
+
+            if(rev.GetLaserActive())
+            {
+                ofs = (0,12);
+            }
+
+            if(rev.akimboMode)
+            {
+                ofs.y -= 6;
+            }
+
+            return MakeLaserData(
+                laserOn: rev.GetLaserActive(),
+                onImage: IMAGE_DIRECTORY.."RevolverEdit/laseron.png",
+                offImage: IMAGE_DIRECTORY.."RevolverEdit/laseroff.png",
+                onOffset: ofs, 
+                offOffset: ofs, 
+                onScale: 1.0, 
+                offScale: 1.0
+            );
+        }
+
+        case 'PBX_DeagleEdited':
+        {
+            let deag = PBX_DeagleEdited(weapon); if(!deag) return null;
+            vector2 ofs = (-30, 13);
+
+            if(deag.GetLaserActive())
+            {
+                ofs = (-15,13);
+            }
+
+            if(deag.akimboMode)
+            {
+                ofs.y -= 6;
+            }
+
+            return MakeLaserData(
+                laserOn: deag.GetLaserActive(),
+                onImage: IMAGE_DIRECTORY.."DeagleEdit/laseron.png",
+                offImage: IMAGE_DIRECTORY.."DeagleEdit/laseroff.png",
+                onOffset: ofs, 
+                offOffset: ofs, 
+                onScale: 1.0, 
+                offScale: 1.0
+            );
         }
 
         default:

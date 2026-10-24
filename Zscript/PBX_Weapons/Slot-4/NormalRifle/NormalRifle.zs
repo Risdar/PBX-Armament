@@ -477,8 +477,6 @@ Class PBX_NormalRifle : PBX_WeaponBase
             TNT1 A 0 A_StartSound("Sniper/BoltForward",CHAN_AUTO);
             RIR2 R 3;
             RIR2 SSTUV 1;
-			goto CheckLeftRel;
-
         CheckLeftRel:
             TNT1 A 0 {
 				if(invoker.ammoleft.amount == MAGAZINE_SIZE)

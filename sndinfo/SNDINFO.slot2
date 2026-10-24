@@ -19,3 +19,11 @@ weapons/leveraction/rechamber "sounds/Weapons/Slot-2/ProSurv - LeverAction/lever
 weapons/leveraction/loadshell "sounds/Weapons/Slot-2/ProSurv - LeverAction/lever_action_loadshell.ogg"
 weapons/leveraction/fire "sounds/Weapons/Slot-2/ProSurv - LeverAction/lever_action_fire.ogg"
 weapons/leveraction/magfire "sounds/Weapons/Slot-2/ProSurv - LeverAction/lever_action_magfire.ogg"
+
+// Coin
+revolver/coin COINTOSS
+revolver/coinBounce COINTOSS
+$pitchset revolver/coinBounce 2.0
+revolver/coinDeath COINTOSS
+$pitchset revolver/coinDeath 2.5
+revolver/firePowered REVFIRE2

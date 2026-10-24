@@ -8,6 +8,8 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_UACBackpack					= 1 << 4
 	,DisablePBX_ExcavatorUpgrade			= 1 << 5
 	,DisablePBX_DemonExtArtifacts			= 1 << 6
+	,DisablePBX_SGLEdit					    = 1 << 7
+	,DisablePBX_LMGEdit					    = 1 << 8  
 
 ////// Monster Drops /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SLOT 6
@@ -21,11 +23,6 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_HexaShotgun					= 1 << 2 
 	,DisablePBX_MiniShotgun					= 1 << 3  
 	,DisablePBX_RipperChaingun				= 1 << 4  
-
-////// Weapon Edits /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	,DisablePBX_SGLEdit					    = 1 << 0
-	,DisablePBX_LMGEdit					    = 1 << 1  
-	,DisablePBX_ChainsawEdit				= 1 << 2  
 }
 
 enum PBX_Armament_WeapnSpawnFlags
@@ -234,14 +231,14 @@ class PBX_Armament_SpawnInjector : PBInjector
 		}
 
 		// SGL Upgrade
-		if(PBX_WPEdit_Enable && !(PBX_WPEdit_filter & DisablePBX_SGLEdit))
+		if(!(PBX_BackPack_filter & DisablePBX_SGLEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'SGL_Upgrade', 255, 1);
             handler.InjectSpawn('PB_RLSpawnerT3', 'SGL_Upgrade', 255, 1);
         }
 
 		// LMG Upgrade
-        if(PBX_WPEdit_Enable && !(PBX_WPEdit_filter & DisablePBX_LMGEdit))
+        if(!(PBX_BackPack_filter & DisablePBX_LMGEdit))
         {
             handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LMG_Upgrade', 255, 1);
 		    handler.InjectSpawn('PB_MGSpawnerT3', 'LMG_Upgrade', 255, 1);
@@ -394,17 +391,12 @@ class PBX_WeaponEdit_Handler : EventHandler
 		// Always replace since the exception code is in the weapon itself
         switch(e.Replacee.GetClassName())
         {
-            case 'PB_SuperGL':      
-                e.Replacement  = "PBX_SGLEdited";  
-                break;
-
-            case 'PB_LMG':          
-                e.Replacement  = "PBX_LMGEdited";  
-                break;
-
-			case 'PB_Chainsaw':          
-                e.Replacement  = "PBX_ChainsawEdited";  
-                break;
+            case 'PB_SuperGL':    e.Replacement  = "PBX_SGLEdited";   	   break;
+            case 'PB_LMG':        e.Replacement  = "PBX_LMGEdited";   	   break;
+			case 'PB_ChainsawPickup':
+			case 'PB_Chainsaw':   e.Replacement  = "PBX_ChainsawEdited";   break;
+			case 'PB_Revolver':   e.Replacement  = "PBX_RevolverEdited";   break;
+			case 'PB_Deagle':     e.Replacement  = "PBX_DeagleEdited";     break;
         }
     }
 

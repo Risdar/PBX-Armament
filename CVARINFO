@@ -32,10 +32,7 @@ server int PBX_MonsterWeapon_filter = 0;
 server int PBX_CSSGMeathook_Cooldown = 3;
 server int PBX_RailgunHologram_Cooldown = 3;
 server int PBX_RailgunHologram_Lifetime = 30;
-
-// Weapon Edits
-server bool PBX_WPEdit_Enable = true;
-server int PBX_WPEdit_filter = 0;
+server int PBX_Coin_Cooldown = 5;
 
 // Backpack Reload
 server bool PBX_BackpackReload_Enable = false;

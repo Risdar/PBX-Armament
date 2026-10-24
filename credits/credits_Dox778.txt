@@ -1,7 +1,7 @@
 // Massive thanks to Dox778 for giving me permission to port his bd addons and some of hsi code from doom deluxe for this addon
 // His addons include Are:
 
-// Hexa Shotgun 
+// Hexa Shotgun (https://www.moddb.com/mods/brutal-doom/addons/hexa-shotgun-for-brutal-doom-v21)
 Complex Doom LCA - Firing sound effect, reload/idle frames
 ȽʘɌƉ ȽʘŦḢɅɌ - New Hexa Shotgun idle frame
 Iamcarrotmaster - Polishing the idle sprite
@@ -9,10 +9,10 @@ leonelc - Firing frames
 IDDQD_1337 - help with sprinting/firing frames, firing sound effect
 Doom 3/ID Software - Reload sound effects
 
-// Mini Shotgun
+// Mini Shotgun (https://www.moddb.com/mods/brutal-doom/addons/rotating-double-barrel-shotgun-for-brutal-doom-v21)
 ȽʘɌƉ ȽʘŦḢɅɌ - Sprites
 
-// Mastermind Chaingun
+// Mastermind Chaingun (https://www.moddb.com/mods/brutal-doom/addons/spider-mastermins-chaingun-for-brutal-doom-v21)
 SPRITES
 BASE - Dr_Cosmobyte, Captain J and Mike12.
 Lighting - Sechtera
@@ -21,7 +21,7 @@ CODE
 Port to Old PB - 517qwerty
 Port to Even Older PB - Jenny / Jeniffer
 
-// Cyberdemon Rocket Launcher
+// Cyberdemon Rocket Launcher (https://www.moddb.com/mods/brutal-doom/addons/cyberdemons-missile-launcher-for-brutal-doom-v21)
 Ali Jr. - base sprites
 IDDQD_1337 - base brightmaps
 Sechtera - improved firing frames
@@ -29,7 +29,7 @@ SgtMarkIV, TypicalSF, Acclaim Entertainment and Probe Entertainment - muzzle fla
 Port to Even Older PB - Jenny / Jeniffer
 Pickup sprite is from Brutal Doom Arthur Edition by arthoriusb2593
 
-// Ripper Chaingun
+// Ripper Chaingun (https://www.moddb.com/mods/brutal-doom/addons/ripper-chaingun-remastered-for-brutal-doom-v21)
 SPRITES:
 Mike12, 3D Realms and Ryan Cordell - BASE
 SgtMarkIV, TypicalSF, Acclaim Entertainment and Probe Entertainment - muzzle flashes
@@ -38,3 +38,6 @@ SOUNDS
 Gearbox - select/pickup sounds (Duke Nukem Forever)
 Firing sound - 3D Realms
 HQ edit - CeeJay - Forums.duke4.net
+
+// Coin Mechanic
+From his mod Doom Deluxe (https://www.moddb.com/mods/doom-deluxe)

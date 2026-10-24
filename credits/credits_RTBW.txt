@@ -1,1 +1,2 @@
-// The lightning code is from Return to Brutal Wolfenstein (https://github.com/jaih1r0/Return_to_Brutal_Wolfenstein)
+// The lightning code is from Return to Brutal Wolfenstein 
+(https://github.com/jaih1r0/Return_to_Brutal_Wolfenstein)

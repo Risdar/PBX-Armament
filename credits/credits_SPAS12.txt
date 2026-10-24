@@ -1,11 +1,14 @@
 The SPAS 12 sprite is made by Wocht11k and MG0061
 
 The code is made by yaelvolador for Brutal Doom Plus
+(https://www.moddb.com/mods/brutal-plus)
 
 Which is then ported to PB2022 by RENEGADE_ANDROiD
+(https://github.com/RENEGADE-ANDROiD/ProjectBrutality2022/)
 
 the PB2022 version is the base for the PBX version
 
 some sounds are from Half-Life 2
 
 reworked spas 12 uses edited sprites by Edewaa from his brutal doom addon
+(https://www.moddb.com/mods/brutal-doom/addons/spas-12-mods-for-brutal-doom-semi-auto-shotgun)

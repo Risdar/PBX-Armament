@@ -26,19 +26,19 @@ extend class PBX_WeaponBase
         BLUE_DOT
     }
 
-    const maxDistance = 400000.0;
-    const minDistance = 50.0;
+    const mMaxDistance = 400000.0;
+    const mMinDistance = 50.0;
     const lFlags      = LAF_NOIMPACTDECAL | LAF_NORANDOMPUFFZ;
 
-    const beamLifetime = 1;
-    const beamFlags    = SPF_FULLBRIGHT;
-    const beamAngle    = 0.0;
-    const beamVel      = 0.0;
-    const beamAcc      = 0.0;
+    const mBeamLifetime = 1;
+    const mBeamFlags    = SPF_FULLBRIGHT;
+    const mBeamAngle    = 0.0;
+    const mBeamVel      = 0.0;
+    const mBeamAcc      = 0.0;
 
 // Modify these values if you want to change how the beams look
-    const beamScale = 1.0;
-    const beamStep = 5.0;
+    const mBeamScale = 1.0;
+    const mBeamStep = 5.0;
 
 // attributes section ////////////////////////////////////////////////////////
     private bool mLaserSightActivated;
@@ -125,7 +125,7 @@ extend class PBX_WeaponBase
         let tempPuffClass = "PBX_InvisibleSkyPuff";
 
         Actor tempPuff = a.LineAttack( a.angle
-                                    , maxDistance
+                                    , mMaxDistance
                                     , pitch
                                     , 0
                                     , "none"
@@ -154,13 +154,13 @@ extend class PBX_WeaponBase
     protected 
     void MaybeShowBeam(double pitch, Actor a, string shade)
     {
-        if(!PBX_Weapons_LaserShowBeam)
+        if(!PBX_Weapons_LaserShowBeam || self.akimboMode) // Just dont draw the beam if its dual wield
         {
             return;
         }
         
         Actor  tempPuff = a.LineAttack( a.angle
-                                    , maxDistance
+                                    , mMaxDistance
                                     , pitch
                                     , 0
                                     , "none"
@@ -181,13 +181,13 @@ extend class PBX_WeaponBase
     void ShowBeam(Actor a, vector3 targetPos, double distance, string shade)
     {
         color   beamColor  = shade;
-        double  size       = 2.0 * beamScale;
+        double  size       = 2.0 * mBeamScale;
 
         double  viewHeight = a.player.viewz - a.pos.z - PlayerPawn(a).attackZOffset;
         targetPos.z -= viewHeight;
 
         vector3 relPos = targetPos - a.pos;
-        int     nSteps = int(distance / beamStep);
+        int     nSteps = int(distance / mBeamStep);
 
         if (nSteps == 0) 
         { 
@@ -206,9 +206,9 @@ extend class PBX_WeaponBase
             double yoff = yStep * i;
             double zoff = zStep * i + viewHeight;
 
-            a.A_SpawnParticle( beamColor, beamFlags, beamLifetime, size, beamAngle
+            a.A_SpawnParticle( beamColor, mBeamFlags, mBeamLifetime, size, mBeamAngle
                             , xoff, yoff, zoff
-                            , beamVel, beamVel, beamVel, beamAcc, beamAcc, beamAcc
+                            , mBeamVel, mBeamVel, mBeamVel, mBeamAcc, mBeamAcc, mBeamAcc
                             , alpha
                             );
         }
@@ -222,7 +222,7 @@ extend class PBX_WeaponBase
 mixin class PBX_LaserSight
 {
     private
-    void PBX_SpawnLaserSight(PBX_LaserColor laserColor = RED_DOT, StateLabel defaultReadyState = "Ready3")
+    void PBX_SpawnLaserSight(PBX_LaserColor laserColor = RED_DOT, StateLabel defaultReadyState = "Ready3", StateLabel defaultDualState = "ReadyDualWield")
     {
         if(!GetLaserActive() || PB_executingEnemy() || !mLaserInitialized || !mLaserPuff) 
         {
@@ -232,10 +232,13 @@ mixin class PBX_LaserSight
 
 		let psp = owner.player.FindPSprite(PSP_WEAPON); if(!psp) return;
 
+        bool inReady = InStateSequence(psp.curstate, ResolveState(defaultReadyState)) || InStateSequence(psp.curstate, ResolveState(defaultDualState));
+
         for (int i = 0; i < blockedLaserStates.Size(); i++)
         {
-            if(InStateSequence(psp.curstate, ResolveState(blockedLaserStates[i])) && !InStateSequence(psp.curstate, ResolveState(defaultReadyState)))
+            if(InStateSequence(psp.curstate, ResolveState(blockedLaserStates[i])) && !inReady)
             {
+                // console.printf("blocked state is at index %d",i);
                 ClearPuff();
                 return;
             }

@@ -4,8 +4,8 @@ extend class PBX_Prosurv_LeverAction
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////  
 	override void postbeginplay()
 	{
-		LAMode = LA_357Magnum;
-		currentMaxAmmo = MAGAZINE_SIZE;
+		mCurrentMode = LA_357Magnum;
+		mCurrentMaxAmmo = MAGAZINE_SIZE;
 		super.postbeginplay();
 	}
 
@@ -22,14 +22,14 @@ extend class PBX_Prosurv_LeverAction
 
 //////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
 
-	action void setLAMode(int mode = LA_444Marlin)
+	action void setLAMode(LA_Mode mode = LA_444Marlin)
 	{
-		invoker.LAMode = mode;
+		invoker.mCurrentMode = mode;
 	}
 
-	action int getLAMode()
+	action LA_Mode getLAMode()
 	{
-		return invoker.LAMode;
+		return invoker.mCurrentMode;
 	}
 
 	action void clearLAModeTokens()
@@ -37,14 +37,35 @@ extend class PBX_Prosurv_LeverAction
 		A_SetInventory("LA_Select_No", 0);
 		A_SetInventory("LA_Select_Marlin", 0);
 		A_SetInventory("LA_Select_Magnum", 0);
+		A_SetInventory("LA_Select_Coin", 0);
 		A_SetInventory("PBX_Toggle_Laser" ,0);
 		A_SetInventory("PBX_CloseWheel", 0);
+	}
+
+	private
+    action LA_WW_Mode getTokens()
+	{
+		// Prioritize checking the tokens
+		if(FindInventory("LA_Select_No"))
+			return NO_UPGRADE;
+		else if(FindInventory("LA_Select_Marlin"))
+			return SELECT_MARLIN;
+		else if (FindInventory("LA_Select_Magnum"))
+			return SELECT_MAGNUM;
+		else if (FindInventory("LA_Select_Coin"))
+			return SELECT_COIN;
+		else if(FindInventory("PBX_Toggle_Laser"))
+			return TOGGLE_LASER_SIGHT;
+		else if (FindInventory("PBX_CloseWheel"))
+			return CLOSE_WHEEL;
+		else
+			return ERROR_WHEEL;
 	}
 	
 	action void LA_FireWeapon(int ticCount)
 	{
 		bool ads = PB_GetZoom();
-		bool mode = getLAMode();
+		LA_Mode mode = getLAMode();
 		double zoomA = ads ? 1.23 : 0.98;
 		double zoomB = ads ? 1.24 : 0.99;
 		double recoilX = ads ? frandom[sfx](-1.75,1.75) : frandom[sfx](-1.83,1.83);
@@ -125,38 +146,51 @@ extend class PBX_Prosurv_LeverAction
 		A_SetInventory("CantWeaponSpecial",0);
 		A_SetInventory("GoWeaponSpecialAbility",0);
 
-		if(noUpgrade)
-		{
-			clearLAModeTokens();
-			A_Print("$PBX_AmmoNotAvailable");
-			return PBX_ReturnReady();
-		}
-		
-		if(goMarlin && getLAMode() == LA_444Marlin || goMagnum && getLAMode() == LA_357Magnum)
+		LA_WW_Mode tokens = getTokens();
+		LA_Mode mode = getLAMode();
+
+		if(tokens == mode)
 		{
 			clearLAModeTokens();
 			A_Print("$PB_ALREADYSELECTED");
 			return PBX_ReturnReady();
 		}
 
-		if(toggleLaser)
+		switch(getTokens())
 		{
-			clearLAModeTokens();
-			PBX_ToggleLaserSight();
-			// Plays the switch animation only when its not in ADS
-			if(!PB_GetZoom())
+			case NO_UPGRADE:
+				clearLAModeTokens();
+				A_Print("$PBX_AmmoNotAvailable");
+				return PBX_ReturnReady();
+
+			case TOGGLE_LASER_SIGHT:
+				clearLAModeTokens();
+				PBX_ToggleLaserSight();
+				// Plays the switch animation only when its not in ADS
+				return PBX_ReturnReady(null,"WeaponSwitch");
+
+			// token cleanup is handled in the actual mode change
+			case SELECT_MARLIN: case SELECT_MAGNUM:
+				A_Print(mode == SELECT_MARLIN ? "$PBX_LeverAction_Marlin" : "$PBX_LeverAction_Magnum", 2);
+				if(invoker.ammo2.amount == 0)
+				{
+					return resolvestate("finishunload");
+				}
+				return resolvestate("Unload");
+
+			case SELECT_COIN:
+				clearLAModeTokens();
+				if(invoker.mCoinCooldown > 0)
+				{
+					A_Print("$PBX_Coin_NotReady");
+					return resolvestate("Ready3");
+				}
+				A_Overlay(COIN_LAYER,"CoinToss");
+				A_OverlayFlags(COIN_LAYER,PSPF_FLIP|PSPF_MIRROR,true);
 				return resolvestate("WeaponSwitch");
+				
 		}
-
-		if(goMarlin || goMagnum) 
-		{
-			A_Print(goMarlin ? "$PBX_LeverAction_Marlin" : "$PBX_LeverAction_Magnum", 2);
-
-			if(invoker.ammo2.amount == 0)
-				return resolvestate("finishunload");
-			return resolvestate("Unload");
-		}
-
+	
 		clearLAModeTokens();
 		return resolvestate(null);
 	}
@@ -171,14 +205,14 @@ extend class PBX_Prosurv_LeverAction
 					LA_SetAmmo(LA_444Marlin);
 					setLAMode(LA_444Marlin);
 					invoker.ReserveToMagAmmoFactor = AMMO_TAKE_MARLIN;
-					invoker.currentMaxAmmo = MAGAZINE_SIZE/2;
+					invoker.mCurrentMaxAmmo = MAGAZINE_SIZE/2;
 				}
 				if (CountInv("LA_Select_Magnum") > 0) 
 				{
 					LA_SetAmmo(LA_357Magnum);
 					setLAMode(LA_357Magnum);
 					invoker.ReserveToMagAmmoFactor = AMMO_TAKE_MAGNUM;
-					invoker.currentMaxAmmo = MAGAZINE_SIZE;
+					invoker.mCurrentMaxAmmo = MAGAZINE_SIZE;
 				}
 			}
 			clearLAModeTokens();

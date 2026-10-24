@@ -1,4 +1,5 @@
 The Prosurv PSG sprites are taken from CVP
+(https://forum.zdoom.org/viewtopic.php?t=78436)
 
 Sprite credits:
 

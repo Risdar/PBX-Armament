@@ -1,1 +1,2 @@
-the ridable cacodemon is a port from PB2022 made by RENEGAEDE_ANDROiD https://github.com/RENEGADE-ANDROiD/ProjectBrutality2022/
+the ridable cacodemon is a port from PB2022 made by RENEGAEDE_ANDROiD 
+(https://github.com/RENEGADE-ANDROiD/ProjectBrutality2022/)

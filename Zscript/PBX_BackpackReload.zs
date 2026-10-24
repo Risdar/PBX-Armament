@@ -1,8 +1,12 @@
 Class PBX_BackpackReloadBehavior : Behavior
 {
 	// Exception list, for weapons that use AmmoType2 but is not a mag
+	// Or edited weapon
 	static const string PB_noreloadweapons[] = {
-		"PB_Unmaker","PBX_DemonExt"
+		"PB_Unmaker"
+		,"PBX_DemonExt"
+		,"PB_Revolver"
+		,"PB_Deagle"
 	};
 
 	override void Tick()

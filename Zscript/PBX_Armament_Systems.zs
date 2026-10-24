@@ -35,6 +35,16 @@ class PBX_PreviousWeapon_Handler : EventHandler
 		updatePreviousWeapon(player);
 	}
 
+	static PBX_PreviousWeapon_Handler Get()
+    {
+        return PBX_PreviousWeapon_Handler(EventHandler.Find('PBX_PreviousWeapon_Handler'));
+    }
+
+	Weapon getPreviousWeapon()
+	{
+		return previousWeapon;
+	}
+
 // private: ////////////////////////////////////////////////////////////////////
 	private
 	void updatePreviousWeapon(PlayerInfo player)
@@ -57,7 +67,7 @@ class PBX_PreviousWeapon_Handler : EventHandler
 	private
 	void selectPreviousWeapon(PlayerInfo player)
 	{
-		if (previousWeapon != NULL && player.ReadyWeapon != previousWeapon)
+		if (previousWeapon != NULL && player.ReadyWeapon != previousWeapon && player.mo.FindInventory(previousWeapon.getClassName()))
 		{
 			player.PendingWeapon = previousWeapon;
 		}

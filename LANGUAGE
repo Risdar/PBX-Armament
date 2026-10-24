@@ -1,17 +1,23 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
-PBX_Armament_Settings                = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                 = "\cgPBX - Armament Version: 1.2.3 - The Great Reset";
+PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
+PBX_Armament_Version                = "\cgPBX - Armament Version: 1.3.0 - Edits Galore";
 
-PBX_Weapons_SmartScope_MaxHP         = "Max. HP: %u";
-PBX_Weapons_SmartScope_CurrHP        = "HP: %u";
-PBX_Weapons_SmartScope_PainChance    = "Pain chance: %u%%";
-PBX_Weapons_SmartScope_Distance      = "Distance: %.1f m.";
+PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
+PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
+PBX_Weapons_SmartScope_PainChance   = "Pain chance: %u%%";
+PBX_Weapons_SmartScope_Distance     = "Distance: %.1f m.";
 
-PBX_Weapons_ZoomScroll_Up            = "[\cvScroll Up\c-] or [%s]";
-PBX_Weapons_ZoomScroll_Down          = "[\cvScroll Down\c-] or [%s]";
+PBX_Weapons_ZoomScroll_Up           = "[\cvScroll Up\c-] or [%s]";
+PBX_Weapons_ZoomScroll_Down         = "[\cvScroll Down\c-] or [%s]";
 
 //////////////////////////// SLOT 1 ///////////////////////////////////////////////////////////////////////////////
+// Chainsaw
+PBX_ChainsawEdit_NoSSG              = "No SSG Found";
+PBX_ChainsawEdit_Slash              = "\cjSecondary: \cySlash";
+PBX_ChainsawEdit_Throw              = "\cjSecondary: \cfThrow";
+PBX_ChainsawEdit_SSG                = "\cjSecondary: \cgQuick SSG";
+PBX_ChainsawEdit_LifeSteal          = "\cjToggle \cgLife Steal";
 
 //////////////////////////// SLOT 2 ///////////////////////////////////////////////////////////////////////////////
 // Plasmna Blaster
@@ -19,8 +25,8 @@ PBX_PlasmaBlaster_Pickup            = "Plasma Blaster (Slot-2)";
 PBX_PlasmaBlaster_Tag               = "UAC-UM-03∅ HP Plasma Blaster";
 OB_WEAP_PLASMABLASTER               = "%o was decapitated by %k's Assasin.";
 
-PBX_PlasmaBlaster_Semi              = "\ckPrimary: \caSemi-Auto";
-PBX_PlasmaBlaster_Auto              = "\ckPrimary: \cxFull-Auto";
+PBX_PlasmaBlaster_Semi              = "\cjPrimary: \caSemi-Auto";
+PBX_PlasmaBlaster_Auto              = "\cjPrimary: \cxFull-Auto";
 PBX_PlasmaBlaster_Burst             = "\cjSecondary: \ctBurst-Fire";
 PBX_PlasmaBlaster_Charge            = "\cjSecondary: \cvCharge-Fire";
 
@@ -122,7 +128,6 @@ PBX_SPAS12_PICKUP                   = "You got the \caSPAS-12! \c-(slot 3). Perf
 PBX_SPAS12_TAG                      = "Franchi SPAS-12 Combat Shotgun";
 OB_WEAP_SPAS12                      = "\cr%o\c- was terminated by \cr%k's \c-SPAS-12.";
 
-PBX_SPAS12_ADS                      = "\cjSecondary: \chZoom";
 PBX_SPAS12_DUALFIRE                 = "\cjSecondary: \cgDual Blast";
 
 PBX_SPAS12_MANUAL                   = "Switching to\n\n\cdSlug\c- shells\n(\cdManual\c- Pump)";
@@ -138,28 +143,6 @@ PBX_SPAS12_FOLD_STOCK_WW            = "Fold Stock";
 PBX_SPAS12_UNFOLD_STOCK_WW          = "Unfold Stock";
 PBX_SPAS12_MANUAL_WW                = "Switch to \cdSlug\c- (\cdManual\c- Pump)";
 PBX_SPAS12_SEMI_WW                  = "Switch to \caBuckshot\c- (\caSemi-auto\c- Mode)";
-
-// CryoSG
-PBX_CryoSG_Pickup                   = "Plasma Shotgun (Slot 3)";
-PBX_CryoSG_Tag                      = "UAC M-19 GSC-21 Plasma Shotgun";
-OB_WEAP_CRYOSG                      = "%o got frozen to death by %k's Cryo Shotgun.";
-
-PBX_CryoSG_PlasmaBlast              = "\cvPlasma Blast \c-Mode";
-PBX_CryoSG_PlasmaBreath             = "\cnPlasma Breath \c-Mode";
-PBX_CryoSG_Freeze                   = "\cyFreeze \c-Mode";
-
-// CryoASG
-PBX_CryoASG_Pickup                  = "Plasma Auto Shotgun (Slot 3)";
-PBX_CryoASG_Tag                     = "UAC M-20 GSC-22 Automatic Plasma Shotgun";
-OB_WEAP_CRYOASG                     = "%o was shot down by %k's CryoASG.";
-
-PBX_CryoASG_PlasmaBlast             = "\ckPrimary: \cvPlasma Blast";
-PBX_CryoASG_FreezeBlast             = "\ckPrimary: \cyFreeze Blast";
-PBX_CryoASG_LightningArc            = "\ckPrimary: \cnLightning Arc";
-
-PBX_CryoASG_PlasmaBreath            = "\cjSecondary: \cvPlasma Breath";
-PBX_CryoASG_IceSpear                = "\cjSecondary: \cyIce Spear";
-PBX_CryoASG_StunBomb                = "\cjSecondary: \cnStun Bomb";
 
 //////////////////////////// SLOT 4 ///////////////////////////////////////////////////////////////////////////////
 // BattleRifle 
@@ -302,6 +285,7 @@ PBX_Paingiver_Tip1                  = "The Primary shoots normal Rockets while i
 PBX_Paingiver_Tip2                  = "Enraged State significantly reduces firing delay, removes ammo take when shooting, and gives 75 Percent damage reduction.";
 
 //////////////////////////// SLOT 7 ///////////////////////////////////////////////////////////////////////////////
+// Railgun
 PBX_BDPRailgun_Pickup               = "Platinum Railgun (Slot 7)";
 PBX_BDPRailgun_Tag                  = "UAC MK-III 'Platinum' Railgun";
 OB_WEAP_RAILGUN                     = "%o was pierced by %k's Railgun.";
@@ -311,6 +295,28 @@ PBX_BDPRailgun_NoHologram           = "\cnHologram\c- is Charging";
 
 PBX_BDPRailgun_Tip1                 = "Press %s to spawn a \cnHologram\c-.";
 PBX_BDPRailgun_Tip2                 = "Pressing %s when \cdZoomed \c- will let you select the Scoped Modes.";
+
+// CryoSG
+PBX_CryoSG_Pickup                   = "Plasma Shotgun (Slot 3)";
+PBX_CryoSG_Tag                      = "UAC M-19 GSC-21 Plasma Shotgun";
+OB_WEAP_CRYOSG                      = "%o got frozen to death by %k's Cryo Shotgun.";
+
+PBX_CryoSG_PlasmaBlast              = "\cvPlasma Blast \c-Mode";
+PBX_CryoSG_PlasmaBreath             = "\cnPlasma Breath \c-Mode";
+PBX_CryoSG_Freeze                   = "\cyFreeze \c-Mode";
+
+// CryoASG
+PBX_CryoASG_Pickup                  = "Plasma Auto Shotgun (Slot 3)";
+PBX_CryoASG_Tag                     = "UAC M-20 GSC-22 Automatic Plasma Shotgun";
+OB_WEAP_CRYOASG                     = "%o was shot down by %k's CryoASG.";
+
+PBX_CryoASG_PlasmaBlast             = "\cjPrimary: \cvPlasma Blast";
+PBX_CryoASG_FreezeBlast             = "\cjPrimary: \cyFreeze Blast";
+PBX_CryoASG_LightningArc            = "\cjPrimary: \cnLightning Arc";
+
+PBX_CryoASG_PlasmaBreath            = "\cjSecondary: \cvPlasma Breath";
+PBX_CryoASG_IceSpear                = "\cjSecondary: \cyIce Spear";
+PBX_CryoASG_StunBomb                = "\cjSecondary: \cnStun Bomb";
 
 //////////////////////////// SLOT 8 ///////////////////////////////////////////////////////////////////////////////
 // Tesla Gun
@@ -410,6 +416,13 @@ PBX_Weapons_LMGUpgrade_Pickup        = "Light Machine Gun Micro Missiles Convers
 PBX_Weapons_LMGUpgrade_Tag           = "LMG Upgrade";
 PBX_Weapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit";
 
+PBX_Coin_NotReady                    = "\cfCoin\c- not Ready";
+PBX_Coin_Select                      = "\cjSecondary: \cfCoin";
+PBX_Coin_Toss                        = "\cfCoin\c- Toss";
+
+PBX_RevEdit_Single         = "Single Assault Rifle";
+PBX_RevEdit_Akimbo         = "Akimbo Assault Rifle";
+
 //////////////////////////// OTHERS ///////////////////////////////////////////////////////////////////////////////
 // PBX Command Pack
 PBX_CommandPack_Pickup              = "You found the UAC Command Pack! You got the standard issue UAC Rifle and Pump Shotgun!";
@@ -419,6 +432,7 @@ PBX_CommandPack_Tag                 = "UAC Command Pack";
 PBX_PBX_RideableCaco_Stealth               = "Grab Cacodemon";
 
 // SHARED
+PBX_SECONDARY_ZOOM                  = "\cjSecondary: \chZoom";
 PBX_CloseMenu                       = "Close Menu";
 PBX_AlreadySelected                 = "Mode Already Selected";
 PBX_NoUpgrade                       = "You Don't Have the Upgrade for This Weapon";

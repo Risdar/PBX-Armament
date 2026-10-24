@@ -21,8 +21,10 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_PlasmaBlaster"
 		,"PB_Pistol"
 		,"PB_SMG"
-		,"PB_Revolver"
-		,"PB_Deagle"
+		// ,"PB_Revolver"
+		,"PBX_RevolverEdited"
+		// ,"PB_Deagle"
+		,"PBX_DeagleEdited"
 		,"PBX_Prosurv_LeverAction"
 		;
 		
@@ -31,8 +33,6 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_ProSurvPSG"
 		,"PB_AutoShotgun"
 		,"PB_SSG"
-		,"PBX_CryoSG"
-		,"PBX_CryoASG"
 		,"PBX_SPAS12"
 		,"PB_QuadSG"
 		,"PBX_CSSG"
@@ -71,6 +71,8 @@ class PBXCore_Player : PB_PlayerPrawn
 		;
 
 		Player.WeaponSlot 7
+		,"PBX_CryoSG"
+		,"PBX_CryoASG"
 		,"PB_M1Plasma"
 		,"PB_M2Plasma"
 		,"PB_DTechRifle"
@@ -95,6 +97,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_RipperChaingun"
 		;
 
+		Player.StartItem "PB_DMR"; // This is so the DMR is the first weapon selected
 		//Others
 		Player.StartItem "PBX_ProsurvBlaster";
 		// SLOT 2
@@ -184,7 +187,6 @@ class PBXCore_Player : PB_PlayerPrawn
 		//Player.ViewBob 0.0;
 
 		// Player.StartItem "PB_PDAWeaponContainer",1;
-		Player.StartItem "PB_DMR";
 		Player.StartItem "PB_Pistol";
 		Player.StartItem "PB_Fists";
 		

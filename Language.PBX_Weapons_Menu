@@ -34,18 +34,12 @@ PBX_CSSGMeathook_Cooldown = "CSSG's Meathook Cooldown";
 TIP_PBX_CSSGMeathook_Cooldown    = "CSSG's Meathook cooldown (In Seconds)";
 
 PBX_RailgunHologram_Cooldown = "Platinum Railgun's Hologram Cooldown";
-TIP_PBX_RailgunHologram_Cooldown    = "Platinum Railgun's Hologram cooldown (In Seconds)";
-
 PBX_RailgunHologram_Lifetime = "Platinum Railgun's Hologram Lifetime";
-TIP_PBX_RailgunHologram_Lifetime    = "Platinum Railgun's Hologram lifetime (In Seconds)";
+
+PBX_RevDGEdit_Cooldown = "Thrown Coin's Cooldown";
+
 
 PBX_Weapons_MENU_RESET_WEAPON_DURATIONS = "Reset PBX Weapons Values";
-
-//////////////////////////// WEAPON EDITS ///////////////////////////////////////////////////////////////////////////////
-PBX_MENU_WEAPONEDIT_ENABLE  = "Enable Weapon Edits";
-PBX_Weapons_SGL_EDIT        = "Enable SGL Upgrade";
-PBX_Weapons_LMG_EDIT        = "Enable LMG Upgrade";
-PBX_Weapons_CHAINSAW_EDIT   = "Enable Chainsaw Edit";
 
 //////////////////////////// BACKPACK RELOAD ///////////////////////////////////////////////////////////////////////////////
 PBX_MENU_BACKPACK_RELOAD_ENABLE = "Enable Backpack Reload";
@@ -99,6 +93,8 @@ PBX_Weapons_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
 PBX_Weapons_LEVER_ACTION_UPGRADE = "Enable Lever Action Rifle Upgrade"; 
 PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE = "Enable Crossbow Ballista Upgrade";
 PBX_Weapons_METAL_SNIPER_UPGRADE = "Enable Metal Sniper Upgrade";
+PBX_Weapons_SGL_EDIT        = "Enable SGL Upgrade";
+PBX_Weapons_LMG_EDIT        = "Enable LMG Upgrade";
 
 PBX_Weapons_EXCAVATOR_UPGRADE = "Enable Excavator Upgrade";
 

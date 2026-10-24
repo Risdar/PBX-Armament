@@ -50,8 +50,8 @@ class PBX_TeslaGun : PBX_WeaponBase
     const DECHARGE_LOOP_SHOCK = LIGHTSTORM_AMMO_TAKE/DECHARGE_GIVE;
 
     const LIGHTSTORM_AMMO_TAKE = 50;
-    const LIGHTSHOCK_AMMO_TAKE = 5;
-    const LIGHTSHOCK_DAMAGE = 50;
+    const LIGHTSHOCK_AMMO_TAKE = 2;
+    const LIGHTSHOCK_DAMAGE = 25;
     const LIGHTSHOCK_TARGET = 10; // How many beams it'll fire
     const LIGHTSHOCK_RANGE = 50;
 
@@ -80,8 +80,8 @@ class PBX_TeslaGun : PBX_WeaponBase
             TNT1 A 0 A_StartSound("PLSCOOL",CHAN_WEAPON);
 			ETRR K 15 A_DoPBWeaponAction();
             TNT1 A 0 {
-                A_FireProjectile("PlasmaFlareSpawner",0,0,-20,0);
-				A_FireProjectile("BlueFlareSpawn",0,0,-20,0);
+                // A_FireProjectile("PlasmaFlareSpawner",0,0,-20,0);
+				// A_FireProjectile("BlueFlareSpawn",0,0,-20,0);
                 A_StartSound("BEPBEP",CHAN_WEAPON);
                 return A_DoPBWeaponAction();
             }
@@ -179,12 +179,13 @@ class PBX_TeslaGun : PBX_WeaponBase
             TNT1 A 0 PB_jumpIfNoAmmo(min:Tesla_GetMinAmmo(),chamber:false,emptysound:"BEP");
 			ETRF D 1 BRIGHT;
             ETRF F 1 BRIGHT Tesla_FirePrimary(); // This also randomizes the frames
-            TNT1 A 0 {
-                if(invoker.mLightShockMode)
-                    PB_ReFire("Fire");
-                else
-                    PB_ReFire("Hold");
-            }
+            TNT1 A 0 PB_ReFire("Hold");
+            // TNT1 A 0 {
+            //     if(invoker.mLightShockMode)
+            //         PB_ReFire("Fire");
+            //     else
+            //         PB_ReFire("Hold");
+            // }
             TNT1 A 0 A_StartSound("LGEnd1",CHAN_WEAPON);
 			ETRF ABC 1 BRIGHT;
 			ETRF ABCB 1 BRIGHT A_FireProjectile("RailGunTrailSpark_Fast", random(-2,2), 0, random(-5,5), -15, 0, random(-2,2));

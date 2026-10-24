@@ -18,7 +18,7 @@ Class CryoASGWheel : wheelinfocontainer
 		// Primary
 		PBX_AddWheel(spw, img:"CryoASG/PlasmaBlast",	alias:"$PBX_CryoASG_PlasmaBlast",	token:"CryoASG_Select_PlasmaBlast");
 		PBX_AddWheel(spw, img:"CryoASG/FreezeBlast",	alias:"$PBX_CryoASG_FreezeBlast",	token:"CryoASG_Select_FreezeBlast");
-		PBX_AddWheel(spw, img:"CryoASG/LightningArc",	alias:"$PBX_CryoASG_Lightning",		token:"CryoASG_Select_Lightning");
+		PBX_AddWheel(spw, img:"CryoASG/LightningArc",	alias:"$PBX_CryoASG_LightningArc",	token:"CryoASG_Select_Lightning");
 		// Secondary
 		PBX_AddWheel(spw, img:"CryoASG/StunBomb",		alias:"$PBX_CryoASG_StunBomb",		token:"CryoASG_Select_StunBomb");
 		PBX_AddWheel(spw, img:"CryoASG/IceSpear",		alias:"$PBX_CryoASG_IceSpear",		token:"CryoASG_Select_IceSpear");

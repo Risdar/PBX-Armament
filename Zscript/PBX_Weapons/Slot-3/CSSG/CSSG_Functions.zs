@@ -19,7 +19,7 @@ extend class PBX_CSSG
 				if(hookCooldown == 0)
 				{
 					PBXCore_Debug.Print("Hook Cooldown finished");
-					owner.a_startsound("MHKSTRT",193,CHANF_DEFAULT,1,ATTN_NONE);
+					owner.a_startsound("MHKSTRT",PBX_COOLDOWN_CHAN,CHANF_OVERLAP,1,ATTN_NONE);
 				}
 			}
 		}
@@ -47,7 +47,9 @@ extend class PBX_CSSG
 		else
 		{
 			if(invoker.hookCooldown > 0)
+			{
 				A_Print("$PBX_CSSG_NOHOOK");
+			}
 			A_StartSound("weapons/empty",190,CHANF_DEFAULT,1,ATTN_NONE);
 		}
 	}

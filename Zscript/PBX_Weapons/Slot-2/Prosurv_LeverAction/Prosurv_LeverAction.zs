@@ -9,6 +9,7 @@
 class LA_Select_No : inventory {default{inventory.maxamount 1;}}
 class LA_Select_Marlin : inventory {default{inventory.maxamount 1;}}
 class LA_Select_Magnum : inventory {default{inventory.maxamount 1;}}
+class LA_Select_Coin : inventory {default{inventory.maxamount 1;}}
 class LA_Upgraded : inventory {default{inventory.maxamount 1;}}
 
 class PBX_Prosurv_LeverAction : PBX_WeaponBase
@@ -52,17 +53,30 @@ class PBX_Prosurv_LeverAction : PBX_WeaponBase
 	}
 	
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
-	int currentMaxAmmo;
-	int LAMode;
+	int mCurrentMaxAmmo;
+	int mCurrentMode;
 	bool laserActive;
 	const MAGAZINE_SIZE = 12; // mag size for marlin is half of this
 	const AMMO_TAKE_MAGNUM = 2;
 	const AMMO_TAKE_MARLIN = 4;
-	enum eLAMode
+
+	enum LA_Mode
 	{
-		LA_444Marlin,
+		LA_444Marlin = 1,
 		LA_357Magnum
 	}
+
+	enum LA_WW_Mode
+	{
+        ERROR_WHEEL = -2
+        ,NO_UPGRADE
+        ,CLOSE_WHEEL
+		,SELECT_MARLIN
+		,SELECT_MAGNUM
+		,SELECT_COIN
+		,TOGGLE_LASER_SIGHT
+	}
+	
     
 //////////////////////////// STATES ////////////////////////////////////////////////////////////////////////////////////
 	States
@@ -345,12 +359,12 @@ class PBX_Prosurv_LeverAction : PBX_WeaponBase
 			}
 			TNT1 A 0 A_StartSound("weapons/leveraction/inspect");
 			LVR2 MNOP 1 PB_SetRoll(roll+1.0);
-            TNT1 A 0 PB_CheckReload( null, null, "Pump", "Ready3", "Ready3", invoker.currentMaxAmmo);
+            TNT1 A 0 PB_CheckReload( null, null, "Pump", "Ready3", "Ready3", invoker.mCurrentMaxAmmo);
 			TNT1 A 0 A_StartSound("weapons/leveraction/openchamber");
 			LVR2 QQ 1 PB_SetRoll(roll-2.0);
 			LVR2 RSTUVV 1 PB_SetRoll(roll-0.6);
 		ReloadLoop:
-			TNT1 A 0 A_JumpIf(invoker.ammo1.amount == 0 || invoker.ammo2.amount == invoker.currentMaxAmmo,"ReloadFinished");
+			TNT1 A 0 A_JumpIf(invoker.ammo1.amount == 0 || invoker.ammo2.amount == invoker.mCurrentMaxAmmo,"ReloadFinished");
 			LVR2 V 2 A_DoPBWeaponAction(WRF_NOBOB);
 			LVR3 AB 1 A_DoPBWeaponAction(WRF_NOBOB);
 			LVR3 C 1 { 
@@ -418,9 +432,22 @@ class PBX_Prosurv_LeverAction : PBX_WeaponBase
 			TNT1 A 0 PB_PreHandleLAWheel();
 			goto Ready3;
 
+		CoinToss:
+			// 13 Frames
+            COIN E 1;
+            COIN F 1 A_FireProjectile("PBX_Coin",0,false,0, -6, FPF_NOAUTOAIM, -10);
+        CoinTossFinish:
+            COIN G 3;
+            COIN HIJK 2;
+            Stop;
+
+        CoinTossFail:
+            COIN L 2;
+            Goto CoinTossFinish;
+
 		WeaponSwitch:
 			LVRA VWXYZZ 1;
-			LVRA ZZYXWV 1;
+			LVRA ZZYXWV 1 A_DoPBWeaponAction();
 			goto Ready3;
 		
 //////////////////////////// FLASH STATES ////////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,5 @@
 Energy Pistol, LeverAction, pump shotgun (code), Ballista, and Excavator by ThePopeOfDope from his mod Project Survival!
-https://www.moddb.com/mods/project-survival
+(https://www.moddb.com/mods/project-survival)
 
 /*=============================================================================
 //

@@ -98,7 +98,7 @@ class PBX_XM21 : PBX_WeaponBase
             if(CountInv(CLOAK_ENERGY) == CLOAK_DURATION)
             {
                 PBXCore_Debug.Print("Cloak Full");
-                owner.a_startsound("Sniper/CloakFull",CLOAK_CHAN,CHANF_OVERLAP,1,ATTN_NONE);
+                owner.a_startsound("Sniper/CloakFull",CLOAK_CHAN,CHANF_OVERLAP,5,ATTN_NONE);
             }
         }
         else if(CountInv(CLOAK_ENERGY) != 0 && mCloakEngaged)

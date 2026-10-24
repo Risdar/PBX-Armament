@@ -66,7 +66,7 @@ Class PBX_SGLWheelEdited : wheelinfocontainer
 
 		// If the player has the upgrade token or if weapon edits are disabled or if this specific weapon edit is disabled, 
 		// then show the elemental grenades
-		if(requester.FindInventory("SGLUpgraded") || !PBX_WPEdit_Enable || (PBX_WPEdit_filter & DisablePBX_SGLEdit))
+		if(requester.FindInventory("SGLUpgraded") || (PBX_BackPack_filter & DisablePBX_SGLEdit))
 		{
 			PB_SpecialWheel_Mode grenade_incendiary = new ("PB_SpecialWheel_Mode");
 			grenade_incendiary.img = "graphics/pywheel/grenade_incendiary.png";

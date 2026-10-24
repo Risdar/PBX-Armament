@@ -181,7 +181,7 @@ class PBX_SPAS12 : PBX_WeaponBase
             TNT1 A 0 {
                 invoker.dualfiremode = !invoker.dualfiremode;
                 A_StartSound("MS/Button", CHAN_AUTO, CHANF_OVERLAP);
-                A_Print(invoker.dualfiremode ? "$PBX_SPAS12_DUALFIRE" : "$PBX_SPAS12_ADS");
+                A_Print(invoker.dualfiremode ? "$PBX_SPAS12_DUALFIRE" : "$PBX_SECONDARY_ZOOM");
             }
             Goto Ready3;
 

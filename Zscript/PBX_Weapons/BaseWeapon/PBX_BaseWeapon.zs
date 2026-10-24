@@ -1,3 +1,4 @@
+// Includes
 #include "./PBX_LaserSight.zs"
 #include "./PBX_SmartScope.zs"
 #include "./PBX_ScrollZoom.zs"
@@ -11,6 +12,9 @@ class PBX_CloseWheel   : inventory {default{inventory.maxamount 1;}}
 
 // What gives the player Nightvision, its basically a powerup
 class PBX_Infrared : PB_PowerLightAmp  {default{Powerup.Duration -1800;}}
+
+// Constants
+const PBX_COOLDOWN_CHAN = 193; // Sound channel for the cooldowns
 
 class PBX_WeaponBase : PB_WeaponBase abstract
 {
@@ -39,6 +43,12 @@ class PBX_WeaponBase : PB_WeaponBase abstract
 		    PBX_HandleNightVision();
             PBX_DoEffectWeaponReady();
 		}
+    }
+
+    override void OnDrop (Actor dropper)
+    {
+        ClearPuff(); 
+        if(mLaserPuff) mLaserPuff.bInvisible = true;
     }
 
     protected virtual void PBX_DoEffectWeaponReady() {}
@@ -78,14 +88,24 @@ class PBX_WeaponBase : PB_WeaponBase abstract
         if(invoker.mDowngradeWeapon != "") PB_TakeIfUpgrade(invoker.mDowngradeWeapon);
     }
 
+    // Coin Stuff
+	int mCoinCooldown;
+    const COIN_LAYER = -271;
+
+    // Note: really need to decide whether to play the zoom out animation first
+    // before checking dual wield
     action state PBX_SetupDualWield(string noAkimboMsg)
     {
         // Dual Wield Toggle
         if (A_CheckAkimbo()) 
+        {
+            PB_ClearDualWield();
             return ResolveState("StopDualWield");
+        }
+
         if (invoker.amount >= 2) 
         {
-            if(PB_GetZoom()) return ResolveState("ZoomOut"); // After zoomout it goes to "SwitchToDualWield"
+            PB_SetZoom(false);
             return ResolveState("SwitchToDualWield");
         }
 
@@ -143,6 +163,337 @@ class PBX_WeaponBase : PB_WeaponBase abstract
     }
 
 //////////////////////////// FIRING ////////////////////////////////////////////////////////////////////////////////////
+    action void PBX_FireBeam(int damage, int target, int range)
+	{
+		vector3 fw = (cos(angle),sin(angle),0);
+		int playerz = height * 0.5 - floorclip + player.mo.AttackZOffset * player.crouchFactor;
+		playerz -= 6;
+		
+		//get the pitch and adjust the forward offset if looking up/down
+		//cos(pitch) < 1.0, and get closer to 0 when looking up/down, ig sin(pitch) ** 2 could also work (yes,this time the calculator wasnt in radians :D)
+		double pt = cos(pitch);
+		if(pt < 1.0)
+		{
+			if(pt < 0.1) //if pt is lower than 0.1, set it as 0.1, so it doesnt spawn at player feets
+				pt = 0.1;
+			fw *= (pt*pt);
+		}
+		
+		double pit = pitch;
+		for(int i = 0; i < target; i++)
+		{
+			flinetracedata t;
+			//randomize the beam direction
+			double actpitch = pit + frandom(-10,10);
+			double actangle = angle + frandom(-10,10);
+			
+			bool shouldEnd;	//indicates this beam should stop, since it either hit geometry or hit an actor or went too far
+			int maxdistTravel = 450; //9 segments if it goes the full path
+			bool isFirst = true;
+			vector3 cursp = (pos.xy + fw.xy,pos.z + playerz);
+			
+			vector2 prevangles = (actangle,actpitch);
+			vector3 hitloc;
+			actor from;		//pointer to the last dummy puff, used to fire linetraces
+			int safety = 0;	//just in case, we dont want infinite loops
+			bool landed;	
+			
+			//fire the linetraces
+			while(!shouldEnd)
+			{
+				bool avoid = false;
+				if(safety > 12)	//normally no iteration should go this far, but just in case
+				{
+					shouldend = true;
+					break;
+				}
+				
+				if(isFirst)	//fire the trace from the player
+				{
+					linetrace(actangle,range,actpitch,0,playerz,1,0,t);
+					isFirst = false;
+					avoid = true;
+				}
+				else		//fire the trace from the dummy puff
+				{
+					if(!from)
+					{
+						shouldend = true;
+						break;
+						return;
+					}
+					from.linetrace(prevangles.x,range,prevangles.y,0,1,-1,0,t);
+					
+				}
+				
+				//substract the traveled distance
+				maxdistTravel -= t.distance;
+				
+				//indicates the beam hit geometry
+				if(t.hittype == TRACE_HitFloor ||
+				t.hittype == TRACE_HitCeiling  ||
+				t.hittype == TRACE_HitWall )
+				{
+					shouldEnd = true;
+					landed = true;
+				}
+				
+				//hit an actor
+				if(t.hitactor != null)
+				{
+					t.hitactor.TriggerPainChance("Stun", true);
+					if(from)
+						t.hitactor.damagemobj(from,self,damage,'plasma');
+					else
+						t.hitactor.damagemobj(self,self,damage,'plasma');
+					shouldEnd = true;
+				}
+				
+				//check the distance left to travel
+				if(maxdistTravel <= 0)
+					shouldEnd = true;
+				
+				if(!avoid)	//skip the first beam
+					PBX_DrawBeam(cursp,t.hitlocation - t.hitdir,prevangles);
+					
+				safety++;
+				//update variables
+				cursp = t.hitlocation - t.hitdir;
+				prevangles += (frandom(-15,15),frandom(15,-15));	//randomize the next beam direction
+				hitloc = t.hitlocation - t.hitdir;
+				from = spawn("PBX_TeslaPosPuff",cursp);		//spawn a dummy puff
+				
+			}
+			//vector3 ds = levellocals.vec3diff(pos + (0,0,playerz),hitloc);
+			//double di = ds.length();
+			//console.printf("");
+			//console.printf("hit %d took %d interations (maxdist: %d, traveled: %f)",i,ite,maxdisttravel,di);
+			if(landed)
+			{
+				actor spk = spawn("PBX_EndFx",hitloc);
+				if(spk)
+					spk.A_Startsound("Tesla/Sparks");
+					spk.A_startsound("Tesla/FireAdd",CHAN_AUTO, CHANF_OVERLAP, 1);
+			}
+			
+		}
+		
+		PB_QuakeCamera(4, 1);
+		PB_WeaponRecoil(-0.1, frandom(-0.2,0.2));
+	}
+	
+	action void PBX_FireShock(int damage, int target, int range)
+	{
+		blockthingsiterator bti = blockthingsiterator.create(self,500);
+		array<PBX_LightningTarget> vic;
+		int maxbeams = target;
+		
+		while(bti.next())
+		{
+			actor mo = bti.thing;
+			double an = deltaangle(angle,angleto(mo));
+			
+			if(mo && mo.bismonster && mo.health > 0 && maxbeams > 0
+			&& abs(an) < 45 && distance3d(mo) <= 450 && checksight(mo))
+			{
+				vic.push(
+				PBX_LightningTarget.addnew(mo,mo.pos + (0,0,mo.height * 0.5),angleto(mo),pitchto(mo),distance3d(mo))
+				);
+				maxbeams--;
+			}
+		}
+		
+		PBX_FireBeam(damage,target,range);
+		
+		if(vic.size() <= 0)
+			return;
+		
+		vector3 fw = (cos(angle),sin(angle),0);
+		int playerz = height * 0.5 - floorclip + player.mo.AttackZOffset * player.crouchFactor;
+		playerz -= 6;
+	
+		//get the pitch and adjust the forward offset if looking up/down
+		//cos(pitch) < 1.0, and get closer to 0 when looking up/down, ig sin(pitch) ** 2 could also work (yes,this time the calculator wasnt in radians :D)
+		double pt = cos(pitch);
+		if(pt < 1.0)
+		{
+			if(pt < 0.1) //if pt is lower than 0.1, set it as 0.1, so it doesnt spawn at player feets
+				pt = 0.1;
+			fw *= (pt*pt);
+		}
+		
+		for(int i = 0; i < vic.size(); i++)
+		{
+			if(!vic[i])
+				continue;
+			flinetracedata t;
+			//randomize the initial beam direction
+			double actpitch = pitch + frandom(-7,12);
+			double actangle = angle + frandom(-12,12);
+			bool isFirst = true;
+			int safety = 0;
+			vector3 cursp = (pos.xy + fw.xy,pos.z + playerz);
+			double disttravel = vic[i].dist;
+			int its = vic[i].dist / range;
+			its = max(1,its);
+			vector2 prevangles = (actangle,actpitch);
+			vector3 hitloc;
+			bool landed;	
+			bool shouldend;
+			actor from;
+
+			bool setted;
+			
+			while(!shouldend)
+			{
+				bool avoid = false;
+				if(safety > 14)	//normally no iteration should go this far, but just in case
+				{
+					shouldend = true;
+					break;
+				}
+				
+				if(isFirst)	//fire the trace from the player
+				{
+					linetrace(actangle,range,actpitch,0,playerz,1,0,t);
+					isFirst = false;
+					avoid = true;
+				}
+				else		//fire the trace from the dummy puff
+				{
+					if(!from)
+					{
+						shouldend = true;
+						break;
+						return;
+					}
+					from.linetrace(prevangles.x,
+					max(disttravel < range ? disttravel : range,0)
+					,prevangles.y,0,1,-1,0,t);
+					
+				}
+				
+				disttravel -= t.distance;
+				
+				if(disttravel <= 0)
+				{
+					shouldend = true;
+					break;
+				}
+				safety++;
+				if(!avoid)
+					PBX_DrawBeam(cursp,t.hitlocation - t.hitdir,prevangles);
+				//update variables
+				cursp = t.hitlocation - t.hitdir;
+				//prevangles += (frandom(-7,7),frandom(5,-3));	//randomize the next beam direction
+				if(safety < 2)
+					prevangles += (frandom(-7,7),frandom(5,-3));
+				else
+				{
+					if(!setted && vic[i] && vic[i].targ)
+					{
+						if(!from)
+							from = spawn("PBX_TeslaPosPuff",cursp);
+						//idk why i overcomplicated too much with this
+						/*vector3 diffr = levellocals.vec3diff(from.pos,vic[i].tpos);
+						vector3 dir = diffr.unit();
+						double angh = atan2(dir.y,dir.x);
+						double angv = atan(-dir.z/dir.x);*/
+						double angh = from.angleto(vic[i].targ);
+						double angv = from.pitchto(vic[i].targ);
+						prevangles = (angh,angv);
+						setted = true;
+					}
+					else
+						prevangles += (frandom(-1.0,1.0),frandom(1.0,-1.0));
+					
+				}
+				
+				hitloc = t.hitlocation - t.hitdir;
+				from = spawn("PBX_TeslaPosPuff",cursp);		//spawn a dummy puff
+				from.angle = prevangles.x;
+				from.pitch = prevangles.y;
+			}
+			
+			if(landed)
+			{
+				actor spk = spawn("PBX_EndFx",hitloc);
+				if(spk)
+					spk.A_Startsound("Tesla/Sparks");
+			}
+			
+			if(vic[i] && vic[i].targ)
+			{
+				vic[i].targ.TriggerPainChance("Stun", true);
+				if(from)
+					vic[i].targ.damagemobj(from,self,damage,'plasma',DMG_USEANGLE,from.angleto(vic[i].targ));
+				else
+					vic[i].targ.damagemobj(self,self,damage,'plasma',DMG_USEANGLE,self.angleto(vic[i].targ));
+			}
+		}
+		PB_QuakeCamera(4, 1);
+		PB_WeaponRecoil(-0.1, frandom(-0.2,0.2));
+	}
+
+	action void PBX_DrawBeam(vector3 cur, vector3 next,vector2 angles, bool islong = false)
+	{
+		actor beam;
+		cur.z -= 5;
+		
+		vector3 diff = levellocals.vec3diff(cur,next);
+		double dist = diff.length();
+		
+		beam = spawn("PBX_Tesla_Beam",cur);
+		if(beam)
+		{
+			beam.angle = angles.x;
+			beam.pitch = (angles.y - 90);
+			beam.scale.y = (dist + 5);
+			if(islong)
+				beam.setstatelabel("LongSpawn");
+		}
+	}
+
+    action void PBX_FireLightningShotgun(
+        int damage = 25,
+        int numrays = 32,
+        double coneAngle = 40,
+        double distance = 1024,
+        double vrange = 30,
+        int duration = 1,
+        int delay = 0,
+        int maxChains = 5,
+        int maxLinks = 0,
+        name damageType = 'plasma'
+    )
+    {
+        Vector3 beamstart = PBX_LightningController.L_GetBeamAttachPos(self);
+        Array<Actor> hitTargets;
+
+        for (int i = 0; i < numrays; i++)
+        {
+            double an = angle - coneAngle * 0.5 + (numrays > 1 ? coneAngle / (numrays - 1) * i : 0);
+
+            FTranslatedLineTarget t;
+            AimLineAttack(an, distance, t, vrange);
+
+            if (t.linetarget && PBX_LightningController.L_IsValidVictim(t.linetarget, self)
+                && hitTargets.Find(t.linetarget) == hitTargets.Size())
+            {
+                hitTargets.Push(t.linetarget);
+            }
+        }
+
+        for (int i = 0; i < hitTargets.Size(); i++)
+        {
+            PBX_LightningController.L_StartChain(self, hitTargets[i], damage, distance, duration, delay, maxChains, maxLinks, damageType:damageType);
+
+            Vector3 beamEnd = PBX_LightningController.L_GetBeamAttachPos(hitTargets[i]);
+            PBX_LightningController.L_DrawLightning(beamstart, beamEnd, spawnSpark: true, playersource: player);
+        }
+
+    }
+
     // PB's firebullets modified to shoot non pb_projectile projectiles
     // Taken from one of CSSG's function
     action void PBX_FireBullets(string type, int amount, double angle, double offs, double height, double pitch)
@@ -364,8 +715,9 @@ class PBX_WeaponBase : PB_WeaponBase abstract
 	}
 
     // Return to a ready state based on zoom
-    action state PBX_ReturnReady(StateLabel zoomed = "Ready2", StateLabel normal = "Ready3")
+    action state PBX_ReturnReady(StateLabel zoomed = "Ready2", StateLabel normal = null)
     {
+        if(A_CheckAkimbo() && normal) return resolvestate(normal);
         if(PB_GetZoom()) return resolvestate(zoomed);
         return resolvestate(normal);
     }
@@ -388,8 +740,15 @@ class PBX_WeaponBase : PB_WeaponBase abstract
         // So any weapon can go to this state if they want to be safely removed
         SafelyRemoveWeapon:
             TNT1 A 0 {
-                player.pendingweapon = player.mo.BestWeapon(null);
-                self.RemoveInventory(invoker);
+                Weapon savedWeapon = player.mo.BestWeapon(null);
+				let handler = PBX_PreviousWeapon_Handler.Get();
+				if(handler)
+				{
+					savedWeapon = handler.getPreviousWeapon();
+				}
+
+				player.pendingweapon = savedWeapon;
+				self.RemoveInventory(invoker);
             }
 			Stop;
 
