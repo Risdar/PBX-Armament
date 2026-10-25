@@ -101,20 +101,17 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
                 A_Print("$PBX_ChainsawEdit_NoSSG");
                 break;
 
-            case SELECT_SLASH: 
+            case SELECT_SLASH: case SELECT_THROW: 
                 Saw_SetMode(tokens);
-                A_Print("$PBX_ChainsawEdit_Slash");
+                A_Print(tokens == SELECT_SLASH ? "$PBX_ChainsawEdit_Slash" : "$PBX_ChainsawEdit_Throw");
+                A_StartSound("weapons/chainsaw/draw",CHAN_WEAPON,CHANF_OVERLAP);
                 break;
 
-            case SELECT_THROW: 
-                Saw_SetMode(tokens);
-                A_Print("$PBX_ChainsawEdit_Throw");
-                break;
-                
             case SELECT_QUICKSSG:
                 Saw_GetSSG();
                 Saw_SetMode(tokens);
 			    A_Overlay(SAWSSG_LAYER,"SSGSelect",false);
+                A_StartSound("weapons/ssg/inspect4",CHAN_WEAPON,CHANF_OVERLAP);
                 A_Print("$PBX_ChainsawEdit_SSG");
                 break;
                 
@@ -230,7 +227,6 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
             TNT1 A 0 A_PlaySoundEx("weapons/ssg/open", "Auto");
             SGAR KJOP 1;
             TNT1 A 0 A_PlaySoundEx("weapons/ssg/open2", "Auto");
-            TNT1 A 0 A_JumpIf(Saw_GetSSGPtr().ammo2.amount >= 1, "HalfReloadRight");
             TNT1 A 0 {
                 if(Saw_GetSSGPtr().getSpentR() > 0) {
                     PB_SpawnCasing("ShotgunCasing",14,-3,30,-1,4,4);
@@ -256,7 +252,7 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
             SGAR QR 1;
             TNT1 A 3;
 		    TNT1 A 0 A_SetInventory("CantDoAction",0);
-		    Goto Ready;
+		    Goto SelectAnimation;
     }
 }
 

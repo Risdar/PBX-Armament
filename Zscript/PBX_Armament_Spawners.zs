@@ -406,12 +406,19 @@ class PBX_WeaponEdit_Handler : EventHandler
         if (!e || !e.thing) return;
         let act = e.Thing;
 
-        if(act && act.getClassName() == "PB_Chainsaw") 
-        {
-			PBXCore_Debug.Print("Spawned Edited Chainsaw");
-            act.Spawn("PBX_ChainsawEdited",act.pos);
-            act.Destroy();
-        }
+		switch(act.getClassName())
+		{
+			case 'PB_Chainsaw':
+				act.Spawn("PBX_ChainsawEdited",act.pos);
+            	act.Destroy();
+				break;
+
+			case 'PB_Revolver':
+				act.Spawn("PBX_RevolverEdited",act.pos);
+            	act.Destroy();
+				break;
+		}
+
     }
 
 }

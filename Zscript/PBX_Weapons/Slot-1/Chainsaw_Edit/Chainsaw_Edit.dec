@@ -60,9 +60,7 @@ Actor PBX_ChainsawEdited : PBX_ChainsawEditedBase //replaces Chainsaw
 		SAWS A 1 {A_Zoomfactor(0.98); A_DoPBWeaponAction;}
 		SAWS B 1 {A_Zoomfactor(0.96); A_DoPBWeaponAction;}
 		SAWS C 1 {A_Zoomfactor(0.98); A_DoPBWeaponAction;}
-	HoldInspect:
 		SAWS D 1 {A_Zoomfactor(1.0); A_DoPBWeaponAction;}
-		TNT1 A 0 A_JumpIf(PressingReload(),"HoldInspect")
 		SAWS EFGH 1 {A_SetRoll(roll-0.6,SPF_INTERPOLATE); A_DoPBWeaponAction;}
 		RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0)
 		SAWS I 1 A_DoPBWeaponAction
@@ -71,6 +69,7 @@ Actor PBX_ChainsawEdited : PBX_ChainsawEditedBase //replaces Chainsaw
 		RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0)
 		SAWS K 1 A_DoPBWeaponAction
 		RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0)
+		TNT1 A 0 A_JumpIf(PressingReload(),"WeaponInspect")
 		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0
 		goto OnLoop
 		
@@ -961,8 +960,9 @@ Actor PBX_ChainsawEdited : PBX_ChainsawEditedBase //replaces Chainsaw
 		stop
 
 	SSGSelect:
-		SSGQ ABCD 1
-		SSGQ DCBA 1
+		SSGQ ABC 1
+		SSGQ D 5
+		SSGQ CBA 1
 		stop
 
 	SSGBang:

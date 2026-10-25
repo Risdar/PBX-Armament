@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                = "\cgPBX - Armament Version: 1.3.0 - Edits Galore";
+PBX_Armament_Version                = "\cgPBX - Armament Version: 1.3.1 - Edits Galore";
 
 PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
