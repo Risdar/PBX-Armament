@@ -4,8 +4,7 @@ Gameinfo
 	
 	addeventhandlers = "PBX_Armament_Handler"
 	addeventhandlers = "PBX_Armament_HUDHandler"
-	addeventhandlers = "PBX_SecretWeapon_Handler"
-	addeventhandlers = "PBX_WeaponEdit_Handler"
+	addeventhandlers = "PBX_WeaponSpawner_Handler"
 
 	// Others
 	addeventhandlers = "PBX_Weapons_CheatsHandler"

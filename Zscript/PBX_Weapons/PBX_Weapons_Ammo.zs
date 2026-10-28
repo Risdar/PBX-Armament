@@ -83,6 +83,20 @@ class PBX_MagnumRound : PB_LowCalMag
     }
 }
 
+// Shotvolver
+Class ShotvolverAmmo : PB_Ammo
+{
+	Default
+	{
+		inventory.amount 0;
+		inventory.maxamount PBX_Shotvolver.CHAMBER_AMOUNT;
+		ammo.backpackamount 0;
+		ammo.backpackmaxamount PBX_Shotvolver.CHAMBER_AMOUNT;
+	    Inventory.Icon "REVPA0";
+        +INVENTORY.IGNORESKILL;
+	}
+}
+
 //////////////////////////// SLOT 3 ////////////////////////////////////////////////////////////////////////////////////
 // CSSG
 Class CSSGShellsIn : Ammo

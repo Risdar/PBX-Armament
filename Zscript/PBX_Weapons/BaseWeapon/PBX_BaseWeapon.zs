@@ -746,7 +746,6 @@ class PBX_WeaponBase : PB_WeaponBase abstract
 				{
 					savedWeapon = handler.getPreviousWeapon();
 				}
-
 				player.pendingweapon = savedWeapon;
 				self.RemoveInventory(invoker);
             }

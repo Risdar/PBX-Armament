@@ -202,6 +202,7 @@ AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
 AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 {
     FlagOption    "$PBX_Weapons_CSSG_UPGRADES",                  "PBX_BackPack_filter",    "OffOn", 0
+    FlagOption    "$PBX_Weapons_Shotvolver",                     "PBX_BackPack_filter",    "OffOn", 10
 }
 
 /* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"

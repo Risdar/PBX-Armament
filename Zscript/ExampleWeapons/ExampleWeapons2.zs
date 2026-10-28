@@ -156,7 +156,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
         WeaponInspect:
         HoldInspect:
             TNT1 A 0 A_JumpIf(PressingReload(),"HoldInspect");
-            stop;
+            goto Ready3;
 
         Deselect:
             TNT1 A 0 PBX_WeaponLower();
@@ -309,7 +309,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 
         FlashSlideKicking:
             // 27 frames
-            MSNK ABCDEFGHHHHHHHHHHHHHGFEDCBA 1; MSNQ ABCDE 1;
+            MSNK ABCDEFGHHHHHHHHHHHHHGFEDCBA 1;
             MSNQ FGHF 1;
             MSNQ EDCBA 1;
             goto Ready3;

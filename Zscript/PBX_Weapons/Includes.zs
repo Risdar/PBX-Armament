@@ -22,6 +22,7 @@
 #include "./Slot-2/Prosurv_LeverAction/Prosurv_LeverAction.zs" // Lever Action 
 #include "./Slot-2/Revolver_Edit/Revolver_Edit.zs" // Revolver Edit 
 #include "./Slot-2/Deagle_Edit/Deagle_Edit.zs" // Deagle Edit 
+#include "./Slot-2/ShotVolver/ShotVolver.zs" // Shotvolver 
 
 // Slot 3
 #include "./Slot-3/CSSG/CSSG.zs" // CSSG

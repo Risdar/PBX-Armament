@@ -67,7 +67,7 @@ class PBX_PreviousWeapon_Handler : EventHandler
 	private
 	void selectPreviousWeapon(PlayerInfo player)
 	{
-		if (previousWeapon != NULL && player.ReadyWeapon != previousWeapon && player.mo.FindInventory(previousWeapon.getClassName()))
+		if (previousWeapon != NULL && player.ReadyWeapon != previousWeapon && (previousWeapon == player.mo.FindInventory(previousWeapon.getClass())))
 		{
 			player.PendingWeapon = previousWeapon;
 		}

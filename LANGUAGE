@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                = "\cgPBX - Armament Version: 1.3.1 - Edits Galore";
+PBX_Armament_Version                = "\cgPBX - Armament Version: 1.4.0 - Edits Galore";
 
 PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
@@ -47,6 +47,11 @@ PBX_LeverAction_UpgradePickup       = "Lever Action Rifle Upgrade (Slot 2)";
 PBX_LeverAction_UpgradeTag          = "Lever Action Rifle Upgrade";
 
 PBX_LeverActionUpgrade_Tip1         = "The \cd.444 Marlin\c- deals increased damage but takes %d low caliber ammo and halves your magazine.";
+
+// Shotvolver
+PBX_Shotvolver_Pickup              = "Shotvolver (Slot 2)";
+PBX_Shotvolver_Tag                 = "Shotgun Revolver";
+OB_WEAP_SHOTVOLVER                 = "\cr%o\c- lost a duel against \cr%k\c-.";
 
 //////////////////////////// SLOT 3 ///////////////////////////////////////////////////////////////////////////////
 // PSG

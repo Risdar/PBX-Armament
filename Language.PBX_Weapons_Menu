@@ -99,6 +99,7 @@ PBX_Weapons_LMG_EDIT        = "Enable LMG Upgrade";
 PBX_Weapons_EXCAVATOR_UPGRADE = "Enable Excavator Upgrade";
 
 PBX_Weapons_CSSG_UPGRADES = "Enable CSSG Upgrades";
+PBX_Weapons_Shotvolver = "Enable Shotgun Revolver";
 
 
 //////////////////////////// KEYS MENU ///////////////////////////////////////////////////////////////////////////////

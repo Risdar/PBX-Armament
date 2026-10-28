@@ -13,3 +13,11 @@ meleeweapon/break "SOUNDS/Weapons/General/metalpipe.ogg"
 // Lightning
 lightnin/loop	"sounds/Lightning/lightning_loop.ogg"
 lightnin/blast	"sounds/Lightning/lightning_blast.ogg"
+
+// Coin
+revolver/coin COINTOSS
+revolver/coinBounce COINTOSS
+$pitchset revolver/coinBounce 2.0
+revolver/coinDeath COINTOSS
+$pitchset revolver/coinDeath 2.5
+revolver/firePowered REVFIRE2

@@ -324,6 +324,11 @@ class PBXHUDService_PBX_AllWeapons : service
             );
         }
 
+        case 'PBX_Shotvolver':
+        {
+            return MakeData(skipAutoDraw:true,img1:"REVPB0",imgOffset1:(-15, 15),imgScale1:1.5);
+        }
+
 //////////////////////////// SLOT 3 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_CSSG':
         {

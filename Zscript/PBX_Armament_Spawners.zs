@@ -1,6 +1,6 @@
 enum PBX_Armament_OthersSpawnFlags
 {
-////// Backpacks / Upgrades /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// Backpacks / Upgrades / Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	DisablePBX_CSSGUpgrades			        = 1 << 0 // Actually spawns on the ShellBox spawner
 	,DisablePBX_MetalSniperUpgrade			= 1 << 1
 	,DisablePBX_LeverActionUpgrade			= 1 << 2
@@ -10,6 +10,7 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_DemonExtArtifacts			= 1 << 6
 	,DisablePBX_SGLEdit					    = 1 << 7
 	,DisablePBX_LMGEdit					    = 1 << 8  
+	,DisablePBX_Shotvolver					= 1 << 10 // Spawns alongside explosive shells upgrade  
 
 ////// Monster Drops /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SLOT 6
@@ -247,7 +248,7 @@ class PBX_Armament_SpawnInjector : PBInjector
 }
 
 //////////////////////////// OTHER TYPES ////////////////////////////////////////////////////////////////////////////////////
-class PBX_SecretWeapon_Handler : EventHandler
+class PBX_WeaponSpawner_Handler : EventHandler
 {
 	bool mSecretWeaponSpawned;
 
@@ -284,6 +285,49 @@ class PBX_SecretWeapon_Handler : EventHandler
 			}			
 		}
 	}
+
+	override void CheckReplacement(ReplaceEvent e) 
+	{
+		// Always replace since the exception code is in the weapon itself
+        switch(e.Replacee.GetClassName())
+        {
+            case 'PB_SuperGL':    e.Replacement  = "PBX_SGLEdited";   	   break;
+            case 'PB_LMG':        e.Replacement  = "PBX_LMGEdited";   	   break;
+			case 'PB_ChainsawPickup':
+			case 'PB_Chainsaw':   e.Replacement  = "PBX_ChainsawEdited";   break;
+			case 'PB_Revolver':   e.Replacement  = "PBX_RevolverEdited";   break;
+			case 'PB_Deagle':     e.Replacement  = "PBX_DeagleEdited";     break;
+        }
+    }
+
+    override void WorldThingSpawned (WorldEvent e)
+    {
+        if (!e || !e.thing) return;
+        let act = e.Thing;
+
+		switch(act.getClassName())
+		{
+			case 'PB_Chainsaw':
+				act.Spawn("PBX_ChainsawEdited",act.pos);
+            	act.Destroy();
+				break;
+
+			case 'PB_Revolver':
+				act.Spawn("PBX_RevolverEdited",act.pos);
+            	act.Destroy();
+				break;
+
+			case 'ExplosiveShellsUpgrade':
+
+				if(!(PBX_BackPack_filter & DisablePBX_Shotvolver) && random(0,1) == 1) // 50% chance of spawning alongside the explosive upgrade
+				{
+					act.Spawn("PBX_Shotvolver",act.pos);
+				}
+				break;
+
+		}
+
+    }
 
 	override void WorldThingDied (WorldEvent e)
     {
@@ -382,43 +426,4 @@ class PBX_CommandPack : CustomInventory
 			}
             Stop;
     }
-}
-
-class PBX_WeaponEdit_Handler : EventHandler
-{
-    override void CheckReplacement(ReplaceEvent e) 
-	{
-		// Always replace since the exception code is in the weapon itself
-        switch(e.Replacee.GetClassName())
-        {
-            case 'PB_SuperGL':    e.Replacement  = "PBX_SGLEdited";   	   break;
-            case 'PB_LMG':        e.Replacement  = "PBX_LMGEdited";   	   break;
-			case 'PB_ChainsawPickup':
-			case 'PB_Chainsaw':   e.Replacement  = "PBX_ChainsawEdited";   break;
-			case 'PB_Revolver':   e.Replacement  = "PBX_RevolverEdited";   break;
-			case 'PB_Deagle':     e.Replacement  = "PBX_DeagleEdited";     break;
-        }
-    }
-
-    // Because scientists also drop chainsaws
-    override void WorldThingSpawned (WorldEvent e)
-    {
-        if (!e || !e.thing) return;
-        let act = e.Thing;
-
-		switch(act.getClassName())
-		{
-			case 'PB_Chainsaw':
-				act.Spawn("PBX_ChainsawEdited",act.pos);
-            	act.Destroy();
-				break;
-
-			case 'PB_Revolver':
-				act.Spawn("PBX_RevolverEdited",act.pos);
-            	act.Destroy();
-				break;
-		}
-
-    }
-
 }
