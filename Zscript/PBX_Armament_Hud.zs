@@ -454,8 +454,15 @@ class PBXHUDService_PBX_AllWeapons : service
 
             // I dont think it needs this many null checks lol
             bool shld = hmg.mShieldIsReady && players[consoleplayer].mo && players[consoleplayer].mo.CountInv("HMGShield") > 0;
+            bool overcharged = hmg.overheat >= PBX_NeoHMG.OVERHEAT_THRESHOLD;
 
-            return MakeData(img2:shld ? "shldhud" : "shldhudn",imgOffset1:(-3, -3), imgScale1:1.6);
+            return MakeData(
+                img2:shld ? "shldhud" : "shldhudn"
+                ,img3:overcharged ? "ovrchrhd" : "noovrchr"
+                ,imgOffset1:(-3,-3)
+                ,imgOffset3:(0,-50)
+                ,imgScale1:1.6
+            );
         }
 
         case 'PBX_EternalMinigun':
@@ -651,14 +658,16 @@ class PBXHUDService_PBX_AllWeapons : service
 //////////////////////////// HELPER FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
     private 
     PBXHUDData MakeData(
-        bool skipAutoDraw = false,
-        String img1 = "", 
-        String img2 = "", 
-        String img3 = "",
-        Vector2 imgOffset1 = (0, 0),
-        Vector2 imgOffset2 = (0, 0),
-        double imgScale1 = 1.0, 
-        double imgScale2 = 1.0
+        bool skipAutoDraw = false
+        ,String img1 = ""
+        ,String img2 = ""
+        ,String img3 = ""
+        ,Vector2 imgOffset1 = (0, 0)
+        ,Vector2 imgOffset2 = (0, 0)
+        ,Vector2 imgOffset3 = (0, 0)
+        ,double imgScale1 = 1.0
+        ,double imgScale2 = 1.0
+        ,double imgScale3 = 1.0
     )
     {
         let data = PBXHUDData(new("PBXHUDData"));
@@ -673,9 +682,11 @@ class PBXHUDService_PBX_AllWeapons : service
 
         data.Offset1 = imgOffset1;
         data.Offset2 = imgOffset2;
+        data.Offset3 = imgOffset3;
 
         data.Scale1 = imgScale1;
         data.Scale2 = imgScale2;
+        data.Scale3 = imgScale3;
 
         return data;
     }
