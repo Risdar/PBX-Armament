@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                = "\cgPBX - Armament Version: 1.4.0 - Edits Galore";
+PBX_Armament_Version                = "\cgPBX - Armament Version: 1.4.1 - Edits Galore";
 
 PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
@@ -275,7 +275,7 @@ PBX_MastermindCG_Pickup             = "You got the Mastermind's Chaingun! (Slot 
 PBX_MastermindCG_Tag                = "Spider Mastermind's Chaingun";
 OB_WEAP_MASTERMINDCG                = "Mowed down by Mastermind's Chaingun.";
 
-PBX_MastermindCG_SoulSeeker         = "\crSoul Seeker \c-Mode";
+PBX_MastermindCG_SoulSeeker         = "\crHeat Seeking \c-Mode";
 PBX_MastermindCG_Normal             = "\caExplosive Tracers \c-Mode";
 
 // Paingiver

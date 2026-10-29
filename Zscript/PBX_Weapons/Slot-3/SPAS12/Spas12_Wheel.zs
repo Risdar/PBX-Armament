@@ -28,11 +28,11 @@ Class Spas12Wheel : wheelinfocontainer
 		// Fold/Unfold Stock
         if(sp12.mStockIsFolded)
         {
-            PBX_AddWheel(spw, img:"SPAS-12/SP12_Unfold",	alias:"$PBX_SPAS12_UNFOLD_STOCK_WW",	token:"SP12_Toggle_Stock");
+            PBX_AddWheel(spw, img:"SPAS-12/SP12_Fold",	        alias:"$PBX_SPAS12_UNFOLD_STOCK_WW",	token:"SP12_Toggle_Stock");
         }
         else
         {
-            PBX_AddWheel(spw, img:"SPAS-12/SP12_Fold",	    alias:"$PBX_SPAS12_FOLD_STOCK_WW",	token:"SP12_Toggle_Stock");
+            PBX_AddWheel(spw, img:"SPAS-12/SP12_Unfold",	    alias:"$PBX_SPAS12_FOLD_STOCK_WW",	    token:"SP12_Toggle_Stock");
         }
 
 		// Toggle Semi

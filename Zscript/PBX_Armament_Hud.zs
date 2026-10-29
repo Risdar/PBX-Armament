@@ -471,7 +471,10 @@ class PBXHUDService_PBX_AllWeapons : service
 //////////////////////////// SLOT 6 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_CyberdemonRL':
         {
-            return MakeData(imgOffset1:(-12, 12), imgScale1:1.6);
+            let crl = PBX_CyberdemonRL(weapon); if (!crl) return null;
+            string mode = crl.mLaserMode ? "cybrllas" : "trplhud";
+
+            return MakeData(img2:mode, imgOffset1:(-12, 12), imgScale1:1.6);
         }
 
         case 'PBX_MastermindChaingun':
