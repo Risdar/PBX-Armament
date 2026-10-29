@@ -472,7 +472,19 @@ class PBXHUDService_PBX_AllWeapons : service
 
         case 'PBX_SuperNailgun':
         {
-            return MakeData(imgOffset1:(-2, 16), imgScale1:0.7);
+            let sng = PBX_SuperNailgun(weapon); if (!sng) return null;
+
+            bool chargednails = sng.mChargedNailsMode;
+            bool overcharged = sng.overheat >= PBX_SuperNailgun.OVERHEAT_THRESHOLD;
+
+            return MakeData(
+                img2:chargednails ? "sngchrg" : "sngheat"
+                ,img3:overcharged ? "ovrchrhd" : "noovrchr"
+                ,imgOffset1:(-2, 16)
+                ,imgOffset3:(0,-50)
+                ,imgScale1:0.7
+            );
+
         }
 
 //////////////////////////// SLOT 6 ////////////////////////////////////////////////////////////////////////////////////
