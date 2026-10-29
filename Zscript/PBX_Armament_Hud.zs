@@ -74,17 +74,6 @@ class PBX_Armament_HUDHandler : EventHandler
                 }
                 break;
 
-            // Draw bars and effects
-            // case 'PBX_XM21':
-            //     let snp = PBX_XM21(pbWeap); if(!snp) return;
-            //     // This draws the overlay when the cloak is active
-            //     if (snp.mCloakEngaged)
-            //     {
-            //         // Draw
-			// 		phud.PBHud_DrawImageManualAlpha("RADSUIT", (topOffsets1.x, 0), flagsManualVisor1, 0.5 + 0.5 * abs(sin(level.MapTime)), scale: (0.3, 0.3), parallax: 1.5, parallax2: 1.5);
-			// 		phud.PBHud_DrawImageManualAlpha("RADSUIT", (topOffsets2.x, 0), flagsManualVisor2, 0.5 + 0.5 * abs(sin(level.MapTime)), scale: (0.3, 0.3), parallax: 1.5, parallax2: 1.5);
-            //     }
-            //     break;
         }
 
         // So the overlay is always there even if you switch weapon
@@ -97,7 +86,7 @@ class PBX_Armament_HUDHandler : EventHandler
         }
     }
 
-
+//////////////////////////// PRIVATE ////////////////////////////////////////////////////////////////////////////////////
     private
     ui void PBX_Weapons_DrawScope()
     {
@@ -314,13 +303,13 @@ class PBXHUDService_PBX_AllWeapons : service
             let lar = PBX_Prosurv_LeverAction(weapon); if (!lar) return null;
 
             return MakeLaserData(
-                laserOn: lar.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."LeverAction/LaserOn.png",
-                offImage: IMAGE_DIRECTORY.."LeverAction/LaserOff.png",
-                onOffset: (0, 18), 
-                offOffset: (-10, 18), 
-                onScale: 0.6, 
-                offScale: 0.7
+                laserOn: lar.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."LeverAction/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."LeverAction/LaserOff.png"
+                ,onOffset: (0, 18)
+                ,offOffset: (-10, 18)
+                ,onScale: 0.6
+                ,offScale: 0.7
             );
         }
 
@@ -351,13 +340,13 @@ class PBXHUDService_PBX_AllWeapons : service
             let psg = PBX_ProSurvPSG(weapon); if (!psg) return null;
 
             return MakeLaserData(
-                laserOn: psg.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOn.png",
-                offImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOff.png",
-                onOffset: (13, -9), 
-                offOffset: (-5, -7), 
-                onScale: 0.8, 
-                offScale: 1.1
+                laserOn: psg.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."ProsurvPSG/LaserOff.png"
+                ,onOffset: (13, -9)
+                ,offOffset: (-5, -7)
+                ,onScale: 0.8
+                ,offScale: 1.1
             );
         }
 
@@ -385,13 +374,14 @@ class PBXHUDService_PBX_AllWeapons : service
             let br = PBX_BDPBattleRifle(weapon); if (!br) return null;
 
             return MakeLaserData(
-                laserOn: br.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."BattleRifle/LaserOn.png",
-                offImage: IMAGE_DIRECTORY.."BattleRifle/LaserOff.png",
-                onOffset: (0, 12), 
-                offOffset: (-7, 12), 
-                onScale: 0.7, 
-                offScale: 1.3);
+                laserOn: br.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."BattleRifle/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."BattleRifle/LaserOff.png"
+                ,onOffset: (0, 12)
+                ,offOffset: (-7, 12)
+                ,onScale: 0.7
+                ,offScale: 1.3
+            );
         }
 
         case 'PBX_MetalSniper':
@@ -423,13 +413,13 @@ class PBXHUDService_PBX_AllWeapons : service
             let nr = PBX_NormalRifle(weapon); if (!nr) return null;
 
             return MakeLaserData(
-                laserOn: nr.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."NormalRifle/laseron.png",
-                offImage: IMAGE_DIRECTORY.."NormalRifle/laseroff.png",
-                onOffset: (0, 8), 
-                offOffset: (-5, 8), 
-                onScale: 0.8, 
-                offScale: 0.9
+                laserOn: nr.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."NormalRifle/laseron.png"
+                ,offImage: IMAGE_DIRECTORY.."NormalRifle/laseroff.png"
+                ,onOffset: (0, 8)
+                ,offOffset: (-5, 8)
+                ,onScale: 0.8
+                ,offScale: 0.9
             );
         }
 
@@ -438,13 +428,14 @@ class PBXHUDService_PBX_AllWeapons : service
             let snp = PBX_XM21(weapon); if (!snp) return null;
 
             return MakeLaserData(
-                laserOn: snp.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."XM21/LaserOn.png",
-                offImage: IMAGE_DIRECTORY.."XM21/LaserOff.png",
-                onOffset: (0,-12), 
-                offOffset: (-7,-12), 
-                onScale: 0.7, 
-                offScale: 1.3);
+                laserOn: snp.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."XM21/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."XM21/LaserOff.png"
+                ,onOffset: (0,-12)
+                ,offOffset: (-7,-12)
+                ,onScale: 0.7
+                ,offScale: 1.3
+            );
         }
 
 //////////////////////////// SLOT 5 ////////////////////////////////////////////////////////////////////////////////////
@@ -517,13 +508,13 @@ class PBXHUDService_PBX_AllWeapons : service
             let railgun = PBX_BDPRailgun(weapon); if (!railgun) return null;
             
             return MakeLaserData(
-                laserOn: railgun.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOn.png",
-                offImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOff.png",
-                onOffset: (0, 12), 
-                offOffset: (-5, 12), 
-                onScale: 0.7, 
-                offScale: 1.4
+                laserOn: railgun.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."PlatRailgun/LaserOff.png"
+                ,onOffset: (0, 12)
+                ,offOffset: (-5, 12)
+                ,onScale: 0.7
+                ,offScale: 1.4
             );
         }
 
@@ -626,13 +617,13 @@ class PBXHUDService_PBX_AllWeapons : service
             }
 
             return MakeLaserData(
-                laserOn: rev.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."RevolverEdit/laseron.png",
-                offImage: IMAGE_DIRECTORY.."RevolverEdit/laseroff.png",
-                onOffset: ofs, 
-                offOffset: ofs, 
-                onScale: 1.0, 
-                offScale: 1.0
+                laserOn: rev.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."RevolverEdit/laseron.png"
+                ,offImage: IMAGE_DIRECTORY.."RevolverEdit/laseroff.png"
+                ,onOffset: ofs
+                ,offOffset: ofs
+                ,onScale: 1.0
+                ,offScale: 1.0
             );
         }
 
@@ -652,13 +643,13 @@ class PBXHUDService_PBX_AllWeapons : service
             }
 
             return MakeLaserData(
-                laserOn: deag.GetLaserActive(),
-                onImage: IMAGE_DIRECTORY.."DeagleEdit/laseron.png",
-                offImage: IMAGE_DIRECTORY.."DeagleEdit/laseroff.png",
-                onOffset: ofs, 
-                offOffset: ofs, 
-                onScale: 1.0, 
-                offScale: 1.0
+                laserOn: deag.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."DeagleEdit/laseron.png"
+                ,offImage: IMAGE_DIRECTORY.."DeagleEdit/laseroff.png"
+                ,onOffset: ofs
+                ,offOffset: ofs
+                ,onScale: 1.0
+                ,offScale: 1.0
             );
         }
 
