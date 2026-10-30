@@ -395,11 +395,11 @@ class PBXHUDService_PBX_AllWeapons : service
             string img2 = sniper.resonanceAmmoLoaded ? IMAGE_DIRECTORY.."metalsniper/ResonanceAlt.png" : IMAGE_DIRECTORY.."metalsniper/StandardAlt.png";
 
             return MakeData(
-                skipAutoDraw:true, 
-                img1: img1, 
-                img2: img2, 
-                imgOffset1: imgOffset1, 
-                imgScale2:0.7
+                skipAutoDraw:true
+                ,img1: img1
+                ,img2: img2
+                ,imgOffset1: imgOffset1
+                ,imgScale2:0.7
             );
         }
 
@@ -443,13 +443,12 @@ class PBXHUDService_PBX_AllWeapons : service
         {
             let hmg = PBX_NeoHMG(weapon); if (!hmg) return null;
 
-            // I dont think it needs this many null checks lol
             bool shld = hmg.mShieldIsReady && players[consoleplayer].mo && players[consoleplayer].mo.CountInv("HMGShield") > 0;
             bool overcharged = hmg.overheat >= PBX_NeoHMG.OVERHEAT_THRESHOLD;
 
             return MakeData(
                 img2:shld ? "shldhud" : "shldhudn"
-                ,img3:overcharged ? "ovrchrhd" : "noovrchr"
+                ,img3:overcharged ? "ovrheatd" : "noovrhtd"
                 ,imgOffset1:(-3,-3)
                 ,imgOffset3:(0,-50)
                 ,imgScale1:1.6
@@ -470,7 +469,7 @@ class PBXHUDService_PBX_AllWeapons : service
 
             return MakeData(
                 img2:chargednails ? "sngchrg" : "sngheat"
-                ,img3:overcharged ? "ovrchrhd" : "noovrchr"
+                ,img3:overcharged ? "ovrheatd" : "noovrhtd"
                 ,imgOffset1:(-2, 16)
                 ,imgOffset3:(0,-50)
                 ,imgScale1:0.7
@@ -604,52 +603,55 @@ class PBXHUDService_PBX_AllWeapons : service
         case 'PBX_RevolverEdited':
         {
             let rev = PBX_RevolverEdited(weapon); if(!rev) return null;
-            vector2 ofs = (-20, 12);
 
-            if(rev.GetLaserActive())
-            {
-                ofs = (0,12);
-            }
+            bool laserOn = rev.GetLaserActive();
+            string img = laserOn ? IMAGE_DIRECTORY.."RevolverEdit/laseron.png" : IMAGE_DIRECTORY.."RevolverEdit/laseroff.png";
+            vector2 ofs = laserOn ? (0,12) : (-20, 12);
 
             if(rev.akimboMode)
             {
                 ofs.y -= 6;
             }
 
-            return MakeLaserData(
-                laserOn: rev.GetLaserActive()
-                ,onImage: IMAGE_DIRECTORY.."RevolverEdit/laseron.png"
-                ,offImage: IMAGE_DIRECTORY.."RevolverEdit/laseroff.png"
-                ,onOffset: ofs
-                ,offOffset: ofs
-                ,onScale: 1.0
-                ,offScale: 1.0
+            // Coin
+            bool coold = rev.mCoinCooldown > 0;
+            string img2 = coold ? "nocoinhd" : "coinhud";
+
+            return MakeData(
+                skipAutoDraw:true
+                ,img1:img
+                ,img2:rev.mCoinSecondary ? img2 : ""
+                ,imgOffset1:ofs
+                ,imgOffset2:(0,-10)
+                ,imgScale1:1.0
             );
+
         }
 
         case 'PBX_DeagleEdited':
         {
             let deag = PBX_DeagleEdited(weapon); if(!deag) return null;
-            vector2 ofs = (-30, 13);
 
-            if(deag.GetLaserActive())
-            {
-                ofs = (-15,13);
-            }
+            bool laserOn = deag.GetLaserActive();
+            string img = laserOn ? IMAGE_DIRECTORY.."DeagleEdit/laseron.png" : IMAGE_DIRECTORY.."DeagleEdit/laseroff.png";
+            vector2 ofs = laserOn ? (-15,13) : (-30, 13);
 
             if(deag.akimboMode)
             {
                 ofs.y -= 6;
             }
 
-            return MakeLaserData(
-                laserOn: deag.GetLaserActive()
-                ,onImage: IMAGE_DIRECTORY.."DeagleEdit/laseron.png"
-                ,offImage: IMAGE_DIRECTORY.."DeagleEdit/laseroff.png"
-                ,onOffset: ofs
-                ,offOffset: ofs
-                ,onScale: 1.0
-                ,offScale: 1.0
+            // Coin
+            bool coold = deag.mCoinCooldown > 0;
+            string img2 = coold ? "nocoinhd" : "coinhud";
+
+            return MakeData(
+                skipAutoDraw:true
+                ,img1:img
+                ,img2:deag.mCoinSecondary ? img2 : ""
+                ,imgOffset1:ofs
+                ,imgOffset2:(0,-10)
+                ,imgScale1:1.0
             );
         }
 
