@@ -20,7 +20,7 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
 
     enum Saw_WW_Mode
 	{
-        ERROR_WHEEL = -2
+        ERROR_WHEEL = -3
         ,NO_SSG
         ,CLOSE_WHEEL
 		,SELECT_SLASH
@@ -28,12 +28,6 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
 		,SELECT_QUICKSSG
 		,TOGGLE_LIFESTEAL
 	}
-
-    override void PostBeginPlay()
-    {
-        super.PostBeginPlay();
-        mChainsawAlt = SELECT_SLASH;
-    } 
 
     const QUICKSSG_LAYER = 78;
     const SAWSSG_LAYER = 79;
@@ -212,9 +206,201 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
         A_SetInventory("PBX_CloseWheel",0);
     }
 
+    protected
+    action void Saw_SetSprite(name red, name blue, name green)
+    {
+        if(PB_IsVisorBlood())
+        {
+            name spr;
+            switch(PB_GetVisorBlood())
+            {
+                case REDBLOODVISOR:     spr = red;   break;
+                case BLUEBLOODVISOR:    spr = blue;  break;
+                case GREENBLOODVISOR:   spr = green; break;
+            }
+            A_SetWeaponSpriteEx(spr);
+        }
+    }
+
     States
     {
-        ReloadChainsawSSGContinue:
+        Spawnthrown:
+            CSAW B 8 {
+                A_StartSound("weapons/chainsaw/idle", 6); 
+                A_SpawnProjectile("SmokeSpawner");
+                Saw_SetMode(SELECT_THROW);
+            }
+            Loop;
+
+        WeaponInspect:
+            SAWS WXYZ 1 {
+                A_SetRoll(roll+0.6,SPF_INTERPOLATE); 
+                return A_DoPBWeaponAction();
+            }
+            TNT1 A 0 A_PlaySound("DSSAWZIP");
+            SAWS A 1 {
+                A_Zoomfactor(0.98); 
+                return A_DoPBWeaponAction();
+            }
+            SAWS B 1 {
+                A_Zoomfactor(0.96); 
+                return A_DoPBWeaponAction();
+            }
+            SAWS C 1 {
+                A_Zoomfactor(0.98); 
+                return A_DoPBWeaponAction();
+            }
+            SAWS D 1 {
+                A_Zoomfactor(1.0); 
+                return A_DoPBWeaponAction();
+            }
+            SAWS EFGH 1 {
+                A_SetRoll(roll-0.6,SPF_INTERPOLATE); 
+                return A_DoPBWeaponAction();
+            }
+            RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            SAWS I 1 A_DoPBWeaponAction();
+            RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            SAWS J 1 {
+                A_playsound("weapons/chainsaw/draw", CHAN_AUTO); 
+                return A_DoPBWeaponAction();
+            }
+            RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            SAWS K 1 A_DoPBWeaponAction();
+            RIFF A 0 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            TNT1 A 0 A_JumpIf(PressingReload(),"WeaponInspect");
+            goto OnLoop;
+
+        OnLoop:
+            TNT1 A 0 { 
+                A_StartSound("weapons/chainsaw/idle",CHAN_WEAPON,CHANF_LOOPING, 0.5);
+                A_SetRoll(0);
+                A_SetInventory("ComboSeq", 0);
+                A_SetInventory("FiredGun", 0);
+            }
+        OnLoop1:
+            TNT1 A 0 {
+                if(PB_IsVisorBlood())
+                {
+                    A_Overlay(-2,"BloodDrop");
+                }
+            }
+            S4WG ABABCDCD 1 {
+                Saw_SetSprite('SAW2','SAW3','SAW4');
+                return PBX_CheckInspectSimple();
+            }
+            Loop;
+
+        WeaponSpecial:
+            TNT1 A 0 Saw_HandleWheel();
+            goto OnLoop;
+            
+        RevAnimation:
+            TNT1 A 0 A_StartSound("DSSAWZIP", CHAN_AUTO);
+            SAWS A 1 A_Zoomfactor(0.98);
+            SAWS B 1 A_Zoomfactor(0.96);
+            SAWS C 1 A_Zoomfactor(0.98);
+            SAWS D 1 A_Zoomfactor(1.0);
+            SAWS EFGH 1 A_SetRoll(roll-0.6,SPF_INTERPOLATE);
+            SAWS I 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            SAWS J 1 {
+                A_playsound("weapons/chainsaw/draw", CHAN_AUTO);
+                A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            }
+            SAWS K 1 A_FireCustomMissile("GunFireSmoke", 0, 0, -5, -5, 0, 0);
+            Goto OnLoop;
+
+        AltFire:
+            "####" A 0 Saw_HandleAltFire();
+            Goto Onloop;
+
+        QuickSSG:
+            TNT1 A 0 Saw_HandleQuickSSG();
+            TNT1 A 3 {
+                A_Overlay(SAWSSG_LAYER,"SSGBang",false);
+                A_Overlay(QUICKSSG_LAYER,"PutChainAside",false);
+                A_SetRoll(0);
+            }
+            TNT1 A 0 A_SetInventory("CantDoAction",1);
+            TNT1 A 1 BRIGHT {
+                PB_IncrementHeat(10);
+                A_GunFlash();
+
+                if(Saw_GetSSGAmmoCount() == 1)
+                {
+                    A_AlertMonsters();
+                    PB_FireBullets("PB_10GAPellet",10,8,0,0,6);
+                    A_StartSound("weapons/shh2", CHAN_Weapon, CHANF_DEFAULT, 1.0);
+                    PB_DynamicTail("shotgun", "shotgun");
+                    PB_GunSmoke(-3,0,0); PB_MuzzleFlashEffects(-3,0,0);
+                    PB_GunSmoke(-5,0,0); PB_MuzzleFlashEffects(-5,0,0);
+                    A_ZoomFactor(0.95);
+                    Saw_TakeSSGAmmo(1);
+                    A_FireProjectile("ShotgunWad",random(-1,1),0,6,-2,FPF_NOAUTOAIM,random(-1,1));
+                }
+                else 
+                {
+                    A_AlertMonsters();
+                    PB_FireBullets("PB_10GAPellet_LP",1,0,0,0,0);
+                    PB_FireBullets("PB_10GAPellet",20,8,0,0,6);
+                    PB_GunSmoke(-3,0,0); PB_MuzzleFlashEffects(-3,0,0);
+                    PB_GunSmoke(-5,0,0); PB_MuzzleFlashEffects(-5,0,0);
+                    A_StartSound("SSHFIRE", CHAN_Weapon, CHANF_DEFAULT, 1.0);
+                    PB_DynamicTail("shotgun", "shotgun");
+                    A_ZoomFactor(0.95);
+                    Saw_TakeSSGAmmo(2);
+                    A_FireProjectile("ShotgunWad",random(-1,1),0,10,-2,FPF_NOAUTOAIM,random(-1,1));
+                    A_FireProjectile("ShotgunWad",random(-1,1),0,6,-2,FPF_NOAUTOAIM,random(-1,1));
+                }
+            }
+            TNT1 A 1 BRIGHT {
+                PB_GunSmoke(-3,0,0); PB_MuzzleFlashEffects(-3,0,0);
+                PB_GunSmoke(-5,0,0); PB_MuzzleFlashEffects(-5,0,0);
+            }
+            TNT1 A 1 {
+                A_ZoomFactor(0.975);
+                PB_WeaponRecoil(-3.80,-2.40);
+            }
+            TNT1 A 1 {
+                A_ZoomFactor(1.0);
+                PB_WeaponRecoil(-3.80,-2.40);
+            }
+            TNT1 A 1 PB_WeaponRecoil(-3.80,-2.40);
+            TNT1 AA 1;
+            TNT1 A 0 A_PlaySoundEx("weapons/ssg/inspect4", "Auto");
+            TNT1 A 12;
+            TNT1 A 0 A_ClearOverlays(QUICKSSG_LAYER,SAWSSG_LAYER,true);
+            TNT1 A 0 A_SetInventory("CantDoAction",0);
+            Goto Onloop;
+
+        PutChainAside:		
+            CSK1 ABCDEEEDCBA 2 Saw_SetSprite('CSK2','CSK3','CSK4');
+            SAWG GFEDC 2 Saw_SetSprite('SAW2','SAW3','SAW4');
+            stop;
+
+        SSGSelect:
+            SSGQ ABC 1;
+            SSGQ D 5;
+            SSGQ CBA 1;
+            stop;
+
+        SSGBang:
+            SSGQ ABCD 1;
+            P6W1 ABCDEFGHIJK 1;
+            SSGQ DCBA 1;
+            stop;
+
+        ReloadChainsawSSG:
+            TNT1 A 0 {
+                A_WeaponOffset(0,32);
+                A_SetRoll(0);
+                A_SetInventory("CantDoAction",1);
+            }
+            TNT1 A 0 A_Stopsound(CHAN_WEAPON);
+            SAWS YXW 1 Saw_SetSprite('S1WS','S2WS','S3WS');
+            "####" W 1 Offset(-15,46);
+            "####" W 1 Offset(-25,58);
+            "####" W 1 Offset(-35,70);
             TNT1 A 0 {
                 Saw_GetSSG();
                 if(!Saw_GetSSGPtr())
@@ -253,6 +439,41 @@ class PBX_ChainsawEditedBase : PBX_WeaponBase abstract
             TNT1 A 3;
 		    TNT1 A 0 A_SetInventory("CantDoAction",0);
 		    Goto SelectAnimation;
+
+        ThrowChainsawStart:
+            "####" A 0 {
+                A_SetRoll(0);
+                A_AlertMonsters();
+                A_SetInventory("ComboSeq", 0);
+                A_SetInventory("FiredGun", 0);
+                A_PlaySound("sawswing", 7, 0.5);
+                A_PlaySound("weapons/gswing", 0, 0.8);
+                A_Recoil(-5);
+                A_DoPBWeaponAction(WRF_NOFIRE|WRF_NOSWITCH);
+            }
+            C7S1 A 0 Saw_SetSprite('C7S2','C7S3','C7S4');
+            "####" A 0 A_StartSound("weapons/chainsaw/idle",5,CHANF_LOOPING);
+            "####" ABCDEFGHIJKLM 1 A_SetRoll(roll+2);
+            "####" NOP 1;
+        ThrowChainsawHold:
+            C7S1 A 0 Saw_SetSprite('C7S2','C7S3','C7S4');
+            "####" Q 1;
+            "####" A 0 A_JumpIf(PressingAltfire(), "ThrowChainsawHold");
+        ThrowChainsawActual:
+            C8S1 A 0 Saw_SetSprite('C8S2','C8S3','C8S4');
+            "####" ABCD 1;
+            "####" EFG 1;
+            AXEG A 0 A_FireProjectile("PBX_ThrownChainsaw", 0, 0, 0, 0);
+            AXEZ ABC 1 PB_RotateCamera(addPitch:1,addAngle:2);
+            AXEZ D 1 PB_RotateCamera(addPitch:0.5,addAngle:1);
+            AXEZ E 1 PB_RotateCamera(addPitch:0.2,addAngle:0.5);
+            AXEZ E 2;
+            AXEZ E 1 PB_RotateCamera(addPitch:-0.2,addAngle:-0.5);
+            AXEZ EEF 1 PB_RotateCamera(addPitch:-1,addAngle:-2);
+            AXEZ G 1 PB_RotateCamera(addPitch:-0.5,addAngle:-1);
+            AXEZ HI 1;
+            TNT1 A 0 A_JumpIfInventory("PowerInfiniteAmmo", 1, "GoingToReady");
+            Goto SafelyRemoveWeapon;
     }
 }
 
@@ -282,10 +503,10 @@ CLASS PBX_ThrownChainsaw : actor
         //+ripper
 	}	
 	
-    Vector3 stickOfs;
-    double stickAngle;
+    Vector3 mStickOfs;
+    double mStickAngle;
 	
-	int sawtimer;
+	int mSawTimer;
 	
 	Override int SpecialMissileHit(Actor victim) 
     {
@@ -293,8 +514,8 @@ CLASS PBX_ThrownChainsaw : actor
         if (victim && victim.bshootable && victim.health > 0 && !victim.binvulnerable)
         {
             tracer = victim;
-            stickOfs = victim.Vec3To(self);
-            stickAngle = tracer.angle;
+            mStickOfs = victim.Vec3To(self);
+            mStickAngle = tracer.angle;
         }
         Else if(victim)
             setstatelabel("fall");
@@ -304,7 +525,7 @@ CLASS PBX_ThrownChainsaw : actor
 	Override void postbeginplay()
     {
         super.postbeginplay();
-        sawtimer = 0;
+        mSawTimer = 0;
         //savedangle = angle;
     }
 	
@@ -325,25 +546,25 @@ CLASS PBX_ThrownChainsaw : actor
             }
         Stuck:
             CSAW BBBB 1 {
-                If(!tracer || tracer.health < 1 || sawtimer > 150)
+                If(!tracer || tracer.health < 1 || mSawTimer > 150)
                 {
                     If(tracer && !tracer.bnoblood)
                         A_startsound("misc/gibbed",24);
                     setstatelabel("fall");
                 }
-                sawtimer++;
+                mSawTimer++;
                 if(tracer) 
                 { 
                     If(tracer.health > 0)
                     {
-                        double angDiff = DeltaAngle(stickAngle, tracer.angle);
+                        double angDiff = DeltaAngle(mStickAngle, tracer.angle);
                         if (angDiff)
                         {
-                            stickOfs.xy = RotateVector(stickOfs.xy, angDiff);
+                            mStickOfs.xy = RotateVector(mStickOfs.xy, angDiff);
                             angle += angDiff;
                         }
-                        SetOrigin(tracer.Vec3Offset(stickOfs.x, stickOfs.y, stickOfs.z), true);
-                        stickAngle = tracer.angle;
+                        SetOrigin(tracer.Vec3Offset(mStickOfs.x, mStickOfs.y, mStickOfs.z), true);
+                        mStickAngle = tracer.angle;
                     }
                 }
             }
@@ -370,17 +591,15 @@ CLASS PBX_ThrownChainsaw : actor
                     return resolvestate(null);
                 }
 
-                let thrownchainsaw = spawn("PBX_ChainsawEdited",pos);
+                let thrownchainsaw = PBX_ChainsawEditedBase(spawn("PBX_ChainsawEdited",pos));
                 If(thrownchainsaw)
                 {
                     //Thrown chainsaws are 3d and get stuck in walls, 
                     //so we need to set their state label and disable their gravity
-                    thrownchainsaw.setstatelabel("SpawnThrown");
+                    thrownchainsaw.setstatelabel("SpawnThrown"); // This state sets the mode to throw
                     thrownchainsaw.bnogravity = true;
                     thrownchainsaw.angle = angle;
-                    let weap = Weapon(thrownchainsaw);
-                    if(weap) weap.ammogive1 = 0;
-
+                    thrownchainsaw.ammogive1 = 0;
                 }
                 return resolvestate(null);
             }
@@ -398,13 +617,12 @@ CLASS PBX_ThrownChainsaw : actor
                     return resolvestate(null);
                 }
                 
-                let thrownchainsaw = spawn("PBX_ChainsawEdited",pos);
+                let thrownchainsaw = PBX_ChainsawEditedBase(spawn("PBX_ChainsawEdited",pos));
                 If(thrownchainsaw)
                 {
-                    thrownchainsaw.setstatelabel("SpawnThrown");
+                    thrownchainsaw.setstatelabel("SpawnThrown"); // This state sets the mode to throw
                     thrownchainsaw.angle = angle;
-                    let weap = Weapon(thrownchainsaw);
-                    if(weap) weap.ammogive1 = 0;
+                    thrownchainsaw.ammogive1 = 0;
                 }
                 return resolvestate(null);
             }

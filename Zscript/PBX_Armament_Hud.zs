@@ -597,7 +597,19 @@ class PBXHUDService_PBX_AllWeapons : service
                 ofs.y += -20;
             }
 
-            return MakeData(imgOffset1:ofs,imgScale1:0.8);
+            name img2;
+            switch(saw.mChainsawAlt)
+            {
+                case PBX_ChainsawEditedBase.SELECT_SLASH:    img2 = 'chnslsh'; break;
+                case PBX_ChainsawEditedBase.SELECT_THROW:    img2 = 'chnthrw'; break;
+                case PBX_ChainsawEditedBase.SELECT_QUICKSSG: img2 = 'chnssg';  break;
+            }
+
+            return MakeData(
+                img2:img2
+                ,imgOffset1:ofs
+                ,imgScale1:0.8
+            );
         }
 
         case 'PBX_RevolverEdited':

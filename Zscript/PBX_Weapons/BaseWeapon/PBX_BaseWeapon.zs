@@ -694,6 +694,15 @@ class PBX_WeaponBase : PB_WeaponBase abstract
         return resolvestate(null);
     }
 
+	action state PBX_CheckInspectSimple(StateLabel inspect = "WeaponInspect")
+	{
+		if(PressingReload())
+		{
+			return resolvestate(inspect);
+		}
+		return A_DoPBWeaponAction();
+	}
+
     action bool PlayerPressedOnce(int button)
 	{
 		int bt = player.cmd.buttons;
