@@ -27,53 +27,6 @@ class PBX_MistBurst : Actor
 	}
 }
 
-Class ChaosInfighter : CustomInventory
-{
-	Default
-	{
-		Inventory.MaxAmount 0;
-		+INVENTORY.AUTOACTIVATE
-	}
-
-	States
-	{
-		Use:
-            TNT1 A 0;
-            TNT1 A 1
-            {
-                //Console.Printf("Chaos given to "..GetClassName());
-                bool isNotPlayer = !(target is "PBXCore_Player");
-                if(target && isNotPlayer)
-                {
-                    Console.Printf(GetClassName().." already has a target, whomst is "..target.GetClassName());
-                    return;
-                }
-                else
-                {
-                    Console.Printf("Lets look...");
-                    ThinkerIterator MonsterFinder = ThinkerIterator.Create("Actor");
-                    Actor mo;
-                    while (mo = Actor(MonsterFinder.Next()))
-                    {
-                        if(mo != self && mo.health > 0 && mo.bIsMonster && CheckSight(mo))
-                        {
-                            if((target && isNotPlayer) && Distance3D(mo) < Distance3D(target))
-                            {
-                                target=mo;
-                            }
-                            else if(!target||!isNotPlayer)
-                            {
-                                target=mo;
-                            }
-                        }
-                    }
-                }
-                
-            }
-            Stop;
-	}
-}
-
 class PBX_Mist : Actor
 {
 	Default
@@ -121,6 +74,54 @@ class PBX_Mist : Actor
 		A_ScaleVelocity(0.95);
 		A_SetRoll(dir ? roll + 0.1 : roll - 0.1);
 		Actor.Tick();
+	}
+}
+
+// Infighter code from BDP
+Class ChaosInfighter : CustomInventory
+{
+	Default
+	{
+		Inventory.MaxAmount 0;
+		+INVENTORY.AUTOACTIVATE
+	}
+
+	States
+	{
+		Use:
+            TNT1 A 0;
+            TNT1 A 1
+            {
+                //Console.Printf("Chaos given to "..GetClassName());
+                bool isNotPlayer = !(target is "PBXCore_Player");
+                if(target && isNotPlayer)
+                {
+                    // Console.Printf(GetClassName().." already has a target, whomst is "..target.GetClassName());
+                    return;
+                }
+                else
+                {
+                    // Console.Printf("Lets look...");
+                    ThinkerIterator MonsterFinder = ThinkerIterator.Create("Actor");
+                    Actor mo;
+                    while (mo = Actor(MonsterFinder.Next()))
+                    {
+                        if(mo != self && mo.health > 0 && mo.bIsMonster && CheckSight(mo))
+                        {
+                            if((target && isNotPlayer) && Distance3D(mo) < Distance3D(target))
+                            {
+                                target=mo;
+                            }
+                            else if(!target||!isNotPlayer)
+                            {
+                                target=mo;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            Stop;
 	}
 }
 
