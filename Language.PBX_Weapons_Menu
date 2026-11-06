@@ -87,7 +87,7 @@ PBX_Weapons_CYBERRL = "Cyberdemon drop their Weapon";
 PBX_Weapons_SPIDERCG = "Spider Mastermind drop their Weapon";
 PBX_Weapons_GRABCACO = "You can grab unsuspecting Cacodemons";
 
-PBX_Weapons_SPECOPSPACK = "Z-Spec Ops Sometimes drop a special backpack";
+PBX_Weapons_SPECOPSPACK = "Z-Spec Ops Sometimes drop a backpack";
 
 PBX_Weapons_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
 
