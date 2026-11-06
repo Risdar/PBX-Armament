@@ -75,6 +75,10 @@ extend class PBX_DeagleEdited
                 invoker.mCoinSecondary = !invoker.mCoinSecondary;
 				if(invoker.mCoinSecondary)
 				{
+					Array<String> tips;
+					tips.Push("$PBX_DisableUpgrade");
+					PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_UPGRADE_HELPTEXT, PBX_TIP_COIN);
+					
 					A_StartSound("revolver/coin",CHAN_AUTO,CHANF_OVERLAP);
                 	A_Print("$PBX_Coin_Select");
 					if(A_CheckAkimbo()) return resolvestate("Ready3");

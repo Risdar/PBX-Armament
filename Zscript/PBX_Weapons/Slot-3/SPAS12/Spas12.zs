@@ -9,7 +9,7 @@
 // The SPAS-12 Decorate code is mostly a copy-paste of Brutal Doom's Shotgun
 // Sprites edits (hands, pump animation...) by Edewaa
 
-// // Includes
+// Includes
 #include "./Spas12_Wheel.zs"
 
 class SP12_Toggle_Secondary : inventory {default{inventory.maxamount 1;}}

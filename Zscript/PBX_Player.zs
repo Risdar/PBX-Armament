@@ -22,6 +22,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_Shotvolver"
 		,"PB_Pistol"
 		,"PB_SMG"
+		,"PBX_MP5"
 		// ,"PB_Revolver"
 		,"PBX_RevolverEdited"
 		// ,"PB_Deagle"
@@ -105,6 +106,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		Player.StartItem "HellPistolerAmmo", PBX_PlasmaBlaster.CELL_SIZE;
 		Player.StartItem "LeverActionAmmo", PBX_Prosurv_LeverAction.MAGAZINE_SIZE;
 		Player.StartItem "ShotvolverAmmo", PBX_Shotvolver.CHAMBER_AMOUNT;
+		Player.StartItem "MP5Ammo", PBX_MP5.MAGAZINE_SIZE;
 		// SLOT 3
 		Player.StartItem "PumpShotgunAmmo", PBX_ProSurvPSG.MAGAZINE_SIZE;
 		Player.StartItem "CSSGShellsIn", PBX_CSSG.BARREL_CAPACITY;

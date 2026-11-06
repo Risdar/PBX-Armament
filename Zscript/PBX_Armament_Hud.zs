@@ -119,6 +119,34 @@ class PBX_Armament_HUDHandler : EventHandler
         if(!pbWeap || !phud || !plr || !mo) return;
         switch(pbWeap.GetClassName())
         {
+            // Draw bar for Smoke Grenades
+            case 'PBX_MP5':
+            {
+                PBXCore_HUDHandler.PBX_DrawAmmoBar(
+                    phud,
+                    PBXCore_HUDHandler.DRAW_THIRD_BAR,
+                    "BARBACC3",
+                    "ABAR8",
+                    "MP5Smoke",
+                    Font.CR_CYAN
+                );
+            }
+            break;
+
+            // Draw rocket ammo
+            case 'PBX_ProSurvPSG':
+            {
+                PBXCore_HUDHandler.PBX_DrawAmmoBar(
+                    phud,
+                    PBXCore_HUDHandler.DRAW_THIRD_BAR,
+                    "BARBACR3",
+                    "ABAR4",
+                    "PB_RocketAmmo",
+                    Font.CR_RED
+                );
+            }
+            break;
+
             // Draw bars and effects for specific modes
             case 'PBX_MetalSniper':
             {
@@ -167,20 +195,6 @@ class PBX_Armament_HUDHandler : EventHandler
                     "ABAR9",
                     "HMGShield",
                     Font.CR_GREEN
-                );
-            }
-            break;
-
-            // Draw rocket ammo
-            case 'PBX_ProSurvPSG':
-            {
-                PBXCore_HUDHandler.PBX_DrawAmmoBar(
-                    phud,
-                    PBXCore_HUDHandler.DRAW_THIRD_BAR,
-                    "BARBACR3",
-                    "ABAR4",
-                    "PB_RocketAmmo",
-                    Font.CR_RED
                 );
             }
             break;
@@ -287,6 +301,33 @@ class PBXHUDService_PBX_AllWeapons : service
 
         switch (weapon.GetClassName())
         {
+//////////////////////////// SLOT 1 ////////////////////////////////////////////////////////////////////////////////////
+        case 'PBX_ChainsawEdited':
+        {
+            let saw = PBX_ChainsawEditedBase(weapon); if(!saw) return null;
+
+            vector2 ofs = (-20, 32);
+
+            if(saw.mChainsawAlt == PBX_ChainsawEditedBase.SELECT_QUICKSSG && saw.ptrSSG && !PBXCore_HUDHandler.PBX_PlayerHasInventory("PB_QuadSG"))
+            {
+                ofs.y += -20;
+            }
+
+            name img2;
+            switch(saw.mChainsawAlt)
+            {
+                case PBX_ChainsawEditedBase.SELECT_SLASH:    img2 = 'chnslsh'; break;
+                case PBX_ChainsawEditedBase.SELECT_THROW:    img2 = 'chnthrw'; break;
+                case PBX_ChainsawEditedBase.SELECT_QUICKSSG: img2 = 'chnssg';  break;
+            }
+
+            return MakeData(
+                img2:img2
+                ,imgOffset1:ofs
+                ,imgScale1:0.8
+            );
+        }
+
 //////////////////////////// SLOT 2 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_PlasmaBlaster':
         {
@@ -316,6 +357,76 @@ class PBXHUDService_PBX_AllWeapons : service
         case 'PBX_Shotvolver':
         {
             return MakeData(skipAutoDraw:true,img1:"REVPB0",imgOffset1:(-15, 15),imgScale1:1.5);
+        }
+
+        case 'PBX_MP5':
+        {
+            let mp5 = PBX_MP5(weapon); if (!mp5) return null;
+
+            return MakeLaserData(
+                laserOn: mp5.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."MP5/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."MP5/LaserOff.png"
+                ,onOffset: (0,-10)
+                ,offOffset: (-20,-10)
+                ,onScale: 0.7
+                ,offScale: 1.2
+            );
+        }
+
+        case 'PBX_RevolverEdited':
+        {
+            let rev = PBX_RevolverEdited(weapon); if(!rev) return null;
+
+            bool laserOn = rev.GetLaserActive();
+            string img = laserOn ? IMAGE_DIRECTORY.."RevolverEdit/laseron.png" : IMAGE_DIRECTORY.."RevolverEdit/laseroff.png";
+            vector2 ofs = laserOn ? (0,12) : (-20, 12);
+
+            if(rev.akimboMode)
+            {
+                ofs.y -= 6;
+            }
+
+            // Coin
+            bool coold = rev.mCoinCooldown > 0;
+            string img2 = coold ? "nocoinhd" : "coinhud";
+
+            return MakeData(
+                skipAutoDraw:true
+                ,img1:img
+                ,img2:rev.mCoinSecondary ? img2 : ""
+                ,imgOffset1:ofs
+                ,imgOffset2:(0,-10)
+                ,imgScale1:1.0
+            );
+
+        }
+
+        case 'PBX_DeagleEdited':
+        {
+            let deag = PBX_DeagleEdited(weapon); if(!deag) return null;
+
+            bool laserOn = deag.GetLaserActive();
+            string img = laserOn ? IMAGE_DIRECTORY.."DeagleEdit/laseron.png" : IMAGE_DIRECTORY.."DeagleEdit/laseroff.png";
+            vector2 ofs = laserOn ? (-15,13) : (-30, 13);
+
+            if(deag.akimboMode)
+            {
+                ofs.y -= 6;
+            }
+
+            // Coin
+            bool coold = deag.mCoinCooldown > 0;
+            string img2 = coold ? "nocoinhd" : "coinhud";
+
+            return MakeData(
+                skipAutoDraw:true
+                ,img1:img
+                ,img2:deag.mCoinSecondary ? img2 : ""
+                ,imgOffset1:ofs
+                ,imgOffset2:(0,-10)
+                ,imgScale1:1.0
+            );
         }
 
 //////////////////////////// SLOT 3 ////////////////////////////////////////////////////////////////////////////////////
@@ -438,6 +549,15 @@ class PBXHUDService_PBX_AllWeapons : service
             );
         }
 
+        case 'PBX_LMGEdited':
+        {
+            bool upgraded = PBXCore_HUDHandler.PBX_PlayerHasInventory("LMGUpgraded");
+
+            string img1 = upgraded ? "LMPUA0" : "LMPIA0";
+
+            return MakeData(skipAutoDraw:true,img1:img1,imgOffset1:(3, 23),imgScale1:0.8);
+        }
+
 //////////////////////////// SLOT 5 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_NeoHMG':
         {
@@ -501,6 +621,23 @@ class PBXHUDService_PBX_AllWeapons : service
             return MakeData(imgOffset1:(-10, 15), imgScale1:1.3);
         }
 
+        case 'PBX_SGLEdited':
+        {
+            let sgl = PB_SuperGL(weapon); if(!sgl) return null;
+            bool upgraded = PBXCore_HUDHandler.PBX_PlayerHasInventory("SGLUpgraded");
+
+            static const string sglIcons[] = {
+                "graphics/pywheel/grenade_impact.png", "graphics/pywheel/grenade_sticky.png", 
+                "graphics/pywheel/grenade_acid.png", "graphics/pywheel/grenade_incendiary.png", 
+                "graphics/pywheel/grenade_cryo.png"
+            };
+
+            int sglgren = clamp(sgl.GrenadeMode, 0, sglIcons.Size() - 1);
+            string img1 = upgraded ? "BSGLA0" : "SGL0Z0";
+
+            return MakeData(skipAutoDraw:true,img1:img1,img2:sglIcons[sglgren],imgOffset1:(-5, 13),imgOffset2:(3,-18),imgScale1:0.9,imgScale2:0.3);
+        }
+
 //////////////////////////// SLOT 7 ////////////////////////////////////////////////////////////////////////////////////
         case 'PBX_BDPRailgun':
         {
@@ -558,115 +695,7 @@ class PBXHUDService_PBX_AllWeapons : service
         {
             return MakeData(imgOffset1:(-30, 20), imgScale1:0.7);
         } 
-
-//////////////////////////// WEAPON EDITS ////////////////////////////////////////////////////////////////////////////////////
-        case 'PBX_SGLEdited':
-        {
-            let sgl = PB_SuperGL(weapon); if(!sgl) return null;
-            bool upgraded = PBXCore_HUDHandler.PBX_PlayerHasInventory("SGLUpgraded");
-
-            static const string sglIcons[] = {
-                "graphics/pywheel/grenade_impact.png", "graphics/pywheel/grenade_sticky.png", 
-                "graphics/pywheel/grenade_acid.png", "graphics/pywheel/grenade_incendiary.png", 
-                "graphics/pywheel/grenade_cryo.png"
-            };
-
-            int sglgren = clamp(sgl.GrenadeMode, 0, sglIcons.Size() - 1);
-            string img1 = upgraded ? "BSGLA0" : "SGL0Z0";
-
-            return MakeData(skipAutoDraw:true,img1:img1,img2:sglIcons[sglgren],imgOffset1:(-5, 13),imgOffset2:(3,-18),imgScale1:0.9,imgScale2:0.3);
-        }
-
-        case 'PBX_LMGEdited':
-        {
-            bool upgraded = PBXCore_HUDHandler.PBX_PlayerHasInventory("LMGUpgraded");
-
-            string img1 = upgraded ? "LMPUA0" : "LMPIA0";
-
-            return MakeData(skipAutoDraw:true,img1:img1,imgOffset1:(3, 23),imgScale1:0.8);
-        }
-
-        case 'PBX_ChainsawEdited':
-        {
-            let saw = PBX_ChainsawEditedBase(weapon); if(!saw) return null;
-
-            vector2 ofs = (-20, 32);
-
-            if(saw.mChainsawAlt == PBX_ChainsawEditedBase.SELECT_QUICKSSG && saw.ptrSSG && !PBXCore_HUDHandler.PBX_PlayerHasInventory("PB_QuadSG"))
-            {
-                ofs.y += -20;
-            }
-
-            name img2;
-            switch(saw.mChainsawAlt)
-            {
-                case PBX_ChainsawEditedBase.SELECT_SLASH:    img2 = 'chnslsh'; break;
-                case PBX_ChainsawEditedBase.SELECT_THROW:    img2 = 'chnthrw'; break;
-                case PBX_ChainsawEditedBase.SELECT_QUICKSSG: img2 = 'chnssg';  break;
-            }
-
-            return MakeData(
-                img2:img2
-                ,imgOffset1:ofs
-                ,imgScale1:0.8
-            );
-        }
-
-        case 'PBX_RevolverEdited':
-        {
-            let rev = PBX_RevolverEdited(weapon); if(!rev) return null;
-
-            bool laserOn = rev.GetLaserActive();
-            string img = laserOn ? IMAGE_DIRECTORY.."RevolverEdit/laseron.png" : IMAGE_DIRECTORY.."RevolverEdit/laseroff.png";
-            vector2 ofs = laserOn ? (0,12) : (-20, 12);
-
-            if(rev.akimboMode)
-            {
-                ofs.y -= 6;
-            }
-
-            // Coin
-            bool coold = rev.mCoinCooldown > 0;
-            string img2 = coold ? "nocoinhd" : "coinhud";
-
-            return MakeData(
-                skipAutoDraw:true
-                ,img1:img
-                ,img2:rev.mCoinSecondary ? img2 : ""
-                ,imgOffset1:ofs
-                ,imgOffset2:(0,-10)
-                ,imgScale1:1.0
-            );
-
-        }
-
-        case 'PBX_DeagleEdited':
-        {
-            let deag = PBX_DeagleEdited(weapon); if(!deag) return null;
-
-            bool laserOn = deag.GetLaserActive();
-            string img = laserOn ? IMAGE_DIRECTORY.."DeagleEdit/laseron.png" : IMAGE_DIRECTORY.."DeagleEdit/laseroff.png";
-            vector2 ofs = laserOn ? (-15,13) : (-30, 13);
-
-            if(deag.akimboMode)
-            {
-                ofs.y -= 6;
-            }
-
-            // Coin
-            bool coold = deag.mCoinCooldown > 0;
-            string img2 = coold ? "nocoinhd" : "coinhud";
-
-            return MakeData(
-                skipAutoDraw:true
-                ,img1:img
-                ,img2:deag.mCoinSecondary ? img2 : ""
-                ,imgOffset1:ofs
-                ,imgOffset2:(0,-10)
-                ,imgScale1:1.0
-            );
-        }
-
+        
         default:
             return null;
         }

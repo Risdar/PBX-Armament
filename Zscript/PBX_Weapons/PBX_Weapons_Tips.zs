@@ -1,25 +1,26 @@
 enum PBX_Weapons_eWeaponTipFlags
 {
     // SLOT 2
-    
+    PBX_TIP_MP5                  = 1 << 0
     // SLOT 3
-    PBX_TIP_CSSG                 = 1 << 0
-    ,PBX_TIP_PSG                 = 1 << 1
+    ,PBX_TIP_CSSG                = 1 << 1
+    ,PBX_TIP_PSG                 = 1 << 2
     // SLOT 4
-    ,PBX_TIP_METALSNIPER         = 1 << 2
+    ,PBX_TIP_METALSNIPER         = 1 << 3
     // SLOT 5 
-    ,PBX_TIP_NEOHMG              = 1 << 3
-    ,PBX_TIP_SUPERNAILGUN        = 1 << 4
+    ,PBX_TIP_NEOHMG              = 1 << 4
+    ,PBX_TIP_SUPERNAILGUN        = 1 << 5
     // SLOT 6
-    ,PBX_TIP_EXCAVATOR           = 1 << 5
-    ,PBX_TIP_PAINGIVER           = 1 << 6
+    ,PBX_TIP_EXCAVATOR           = 1 << 6
+    ,PBX_TIP_PAINGIVER           = 1 << 7
     // SLOT 7
-    ,PBX_TIP_BDPRAILGUN          = 1 << 7
+    ,PBX_TIP_BDPRAILGUN          = 1 << 8
     // SLOT 8
-    ,PBX_TIP_TESLAGUN            = 1 << 8
+    ,PBX_TIP_TESLAGUN            = 1 << 9
     // SLOT 9
-    ,PBX_TIP_DEMONEXT            = 1 << 9
+    ,PBX_TIP_DEMONEXT            = 1 << 10
     // OTHERS
+    ,PBX_TIP_COIN                = 1 << 27
     ,PBX_TIP_SCROLLZOOM          = 1 << 28
     ,PBX_TIP_COMMANDERWEAPON     = 1 << 29
     ,PBX_TIP_MONSTERWEAPON       = 1 << 30
@@ -28,6 +29,7 @@ enum PBX_Weapons_eWeaponTipFlags
 
 const WEAPON_HELPTEXT = "PBX_Armament_weaponTipFlags";
 const WEAPON_UPGRADE_HELPTEXT = "PBX_Armament_upgradeTipFlags";
+
 extend class PBX_WeaponBase
 {
     action void PBX_WeaponHelpText()
@@ -47,6 +49,14 @@ extend class PBX_WeaponBase
                 break;
 
             // SLOT 2
+            case 'PBX_MP5':
+            {
+                Array<String> tips;
+                tips.Push(string.format(StringTable.Localize("$PBX_MP5_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
+                tips.Push("$PBX_MP5_Tip2");
+                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_MP5);
+                TryGiveSpecialTip(DISABLE_UPGRADE);
+            }
             
             // SLOT 3
             case 'PBX_CSSG':
@@ -157,8 +167,8 @@ extend class PBX_WeaponBase
 
     enum PBX_Weapons_SpecialTip
     {
-        MONSTER_WEAPON,
-        DISABLE_UPGRADE
+        MONSTER_WEAPON
+        ,DISABLE_UPGRADE
     }
 
     action void TryGiveSpecialTip(PBX_Weapons_SpecialTip whatToSend)

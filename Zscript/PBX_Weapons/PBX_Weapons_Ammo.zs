@@ -97,6 +97,33 @@ Class ShotvolverAmmo : PB_Ammo
 	}
 }
 
+// MP5
+Class MP5Ammo : PB_Ammo
+{
+	Default
+	{
+		inventory.amount 0;
+		inventory.maxamount PBX_MP5.MAGAZINE_SIZE;
+		ammo.backpackamount 0;
+		ammo.backpackmaxamount PBX_MP5.MAGAZINE_SIZE;
+	    Inventory.Icon "MAPPA0";
+        +INVENTORY.IGNORESKILL;
+	}
+}
+
+class MP5Smoke : PB_Ammo 
+{
+    Default 
+	{
+		Inventory.Amount 0;
+        Inventory.MaxAmount PBX_MP5.SMOKE_GRENADE_AMOUNT;
+		ammo.backpackamount 0;
+		ammo.backpackmaxamount PBX_MP5.SMOKE_GRENADE_AMOUNT;
+	    Inventory.Icon "STNDA0";
+        +INVENTORY.IGNORESKILL;
+    }
+}
+
 //////////////////////////// SLOT 3 ////////////////////////////////////////////////////////////////////////////////////
 // CSSG
 Class CSSGShellsIn : Ammo

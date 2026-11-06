@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                = "\cgPBX - Armament Version: 1.4.2 - Edits Galore";
+PBX_Armament_Version                = "\cgPBX - Armament \c-Version: 1.5.0 - Tacticool";
 
 PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
@@ -49,9 +49,24 @@ PBX_LeverAction_UpgradeTag          = "Lever Action Rifle Upgrade";
 PBX_LeverActionUpgrade_Tip1         = "The \cd.444 Marlin\c- deals increased damage but takes %d low caliber ammo and halves your magazine.";
 
 // Shotvolver
-PBX_Shotvolver_Pickup              = "Shotvolver (Slot 2)";
-PBX_Shotvolver_Tag                 = "Shotgun Revolver";
-OB_WEAP_SHOTVOLVER                 = "\cr%o\c- lost a duel against \cr%k\c-.";
+PBX_Shotvolver_Pickup               = "Shotvolver (Slot 2)";
+PBX_Shotvolver_Tag                  = "Shotgun Revolver";
+OB_WEAP_SHOTVOLVER                  = "\cr%o\c- lost a duel against \cr%k\c-.";
+
+// MP5
+PBX_MP5_Pickup                      = "MP5 (Slot 2)";
+PBX_MP5_Tag                         = "Heckler & Koch Maschinenpistole 5";
+OB_WEAP_MP5                         = "%k shot %o with an MP5.";
+
+PBX_MP5_NoSmoke                     = "No \cuSmoke Grenades\c- Left";
+PBX_MP5_ThrowSmoke                  = "Throw \cuSmoke Grenade\c-";
+
+PBX_MP5_Tip1                        = "The \cuSmoke Grenade\c- triggers infighting and can be accessed with %s.";
+PBX_MP5_Tip2                        = "It can be replenished by picking up another Spec-Ops Backpack.";
+
+// PB Revolver
+PBX_RevEdit_Single                  = "Single Revolver";
+PBX_RevEdit_Akimbo                  = "Akimbo Revolvers";
 
 //////////////////////////// SLOT 3 ///////////////////////////////////////////////////////////////////////////////
 // PSG
@@ -211,6 +226,10 @@ PBX_XM21_CloakOff                   = "\czCloak\c- Disabled ";
 
 PBX_XM21_CloakNoEnergy              = "Insufficient Energy";
 
+PBX_Weapons_LMGUpgrade_NoUpgrade     = "Need the \crMicro Missile Conversion Kit";
+PBX_Weapons_LMGUpgrade_Pickup        = "Light Machine Gun Micro Missiles Conversion Kit (Slot 4, Upgrade)";
+PBX_Weapons_LMGUpgrade_Tag           = "LMG Upgrade";
+PBX_Weapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit";
 
 //////////////////////////// SLOT 5 ///////////////////////////////////////////////////////////////////////////////
 // HMG
@@ -289,6 +308,11 @@ PBX_Paingiver_Desc                  = "\ciForged From The Metal Smelting Pits Of
 PBX_Paingiver_Tip1                  = "The Primary shoots normal Rockets while its Secondary fires three bursts of seeking rockets.";
 PBX_Paingiver_Tip2                  = "Enraged State significantly reduces firing delay, removes ammo take when shooting, and gives 75 Percent damage reduction.";
 
+PBX_Weapons_SGLUpgrade_NoUpgrade     = "Need the \cdElemental Grenade Addon";
+PBX_Weapons_SGLUpgrade_Pickup        = "UAC-M7 Automatic Grenade Launcher Elemental Grenades Addon (Slot 6, Upgrade)";
+PBX_Weapons_SGLUpgrade_Tag           = "SGL Upgrade";
+PBX_Weapons_SGLUpgrade_Tag2          = "UAC-M7 Automatic Grenade Launcher w/ Elemental Grenades";
+
 //////////////////////////// SLOT 7 ///////////////////////////////////////////////////////////////////////////////
 // Railgun
 PBX_BDPRailgun_Pickup               = "Platinum Railgun (Slot 7)";
@@ -302,7 +326,7 @@ PBX_BDPRailgun_Tip1                 = "Press %s to spawn a \cnHologram\c-.";
 PBX_BDPRailgun_Tip2                 = "Pressing %s when \cdZoomed \c- will let you select the Scoped Modes.";
 
 // CryoSG
-PBX_CryoSG_Pickup                   = "Plasma Shotgun (Slot 3)";
+PBX_CryoSG_Pickup                   = "Plasma Shotgun (Slot 7)";
 PBX_CryoSG_Tag                      = "UAC M-19 GSC-21 Plasma Shotgun";
 OB_WEAP_CRYOSG                      = "%o got frozen to death by %k's Cryo Shotgun.";
 
@@ -311,7 +335,7 @@ PBX_CryoSG_PlasmaBreath             = "\cnPlasma Breath \c-Mode";
 PBX_CryoSG_Freeze                   = "\cyFreeze \c-Mode";
 
 // CryoASG
-PBX_CryoASG_Pickup                  = "Plasma Auto Shotgun (Slot 3)";
+PBX_CryoASG_Pickup                  = "Plasma Auto Shotgun (Slot 7)";
 PBX_CryoASG_Tag                     = "UAC M-20 GSC-22 Automatic Plasma Shotgun";
 OB_WEAP_CRYOASG                     = "%o was shot down by %k's CryoASG.";
 
@@ -410,28 +434,21 @@ OB_PROJ_DEMONEXT_REAPERSHOT         = "%o could not evade %k soul-seekers.";
 OB_GENERIC_REAPED_BY                = "%o was reaped by %k.";
 
 
-//////////////////////////// Weapon Edits ///////////////////////////////////////////////////////////////////////////////
-PBX_Weapons_SGLUpgrade_NoUpgrade     = "Need the \cdElemental Grenade Addon";
-PBX_Weapons_SGLUpgrade_Pickup        = "UAC-M7 Automatic Grenade Launcher Elemental Grenades Addon (Slot 6, Upgrade)";
-PBX_Weapons_SGLUpgrade_Tag           = "SGL Upgrade";
-PBX_Weapons_SGLUpgrade_Tag2          = "UAC-M7 Automatic Grenade Launcher w/ Elemental Grenades";
-
-PBX_Weapons_LMGUpgrade_NoUpgrade     = "Need the \crMicro Missile Conversion Kit";
-PBX_Weapons_LMGUpgrade_Pickup        = "Light Machine Gun Micro Missiles Conversion Kit (Slot 4, Upgrade)";
-PBX_Weapons_LMGUpgrade_Tag           = "LMG Upgrade";
-PBX_Weapons_LMGUpgrade_Tag2          = "Light Machine Gun w/ Micro Missiles Kit";
-
+//////////////////////////// OTHERS ///////////////////////////////////////////////////////////////////////////////
+// Coin
 PBX_Coin_NotReady                    = "\cfCoin\c- not Ready";
 PBX_Coin_Select                      = "\cjSecondary: \cfCoin";
 PBX_Coin_Toss                        = "\cfCoin\c- Toss";
 
-PBX_RevEdit_Single         = "Single Assault Rifle";
-PBX_RevEdit_Akimbo         = "Akimbo Assault Rifle";
+PBX_Coin_Tip1                        = "Shooting the coin redirects the projectile to an enemy and deals double damage.";
 
-//////////////////////////// OTHERS ///////////////////////////////////////////////////////////////////////////////
-// PBX Command Pack
+// Command Pack
 PBX_CommandPack_Pickup              = "You found the UAC Command Pack! You got the standard issue UAC Rifle and Pump Shotgun!";
 PBX_CommandPack_Tag                 = "UAC Command Pack";
+
+// Spec Ops Pack
+PBX_SpecOpsPack_Pickup              = "You found the UAC Spec Ops Pack! You got the MP5 and SPAS-12!";
+PBX_SpecOpsPack_Tag                 = "UAC Spec Ops Pack";
 
 // Funny Caco
 PBX_PBX_RideableCaco_Stealth               = "Grab Cacodemon";
@@ -467,7 +484,7 @@ PBX_ScrollZoom_Tip2                 = "You can also manually adjust the zoom usi
 
 PBX_MonsterWeapon1                  = "Every Monster Weapon has durability. You can restore some weapon's durability by picking up the same weapon type again.";
 
-PBX_SecretWeaponSpawned             = "Secret Weapon Spawned!";
+PBX_SecretWeaponSpawned             = "A Strong Weapon is Somewhere in this Level!";
 
 // These are already in PB
 /* PB_FIREMODE_SEMI = "Firemode: \cfSemi-Auto";

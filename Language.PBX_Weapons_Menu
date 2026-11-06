@@ -58,7 +58,6 @@ PBX_Weapons_PLASMA_BLASTER = "Enable Plasma Blaster";
 PBX_Weapons_LEVER_ACTION_RIFLE = "Enable Lever Action Rifle";
 PBX_Weapons_CROSSBOW_BALLISTA = "Enable Crossbow Ballista";
 
-PBX_Weapons_SPAS12 = "Enable SPAS-12";
 PBX_Weapons_CSSG = "Enable Commander SuperShotgun";
 PBX_Weapons_BATTLE_RIFLE = "Enable Battle Rifle";
 PBX_Weapons_METAL_SNIPER = "Enable Metal Sniper";
@@ -87,6 +86,8 @@ PBX_Weapons_RIPPER_CHAINGUN = "Enable Ripper Chaingun";
 PBX_Weapons_CYBERRL = "Cyberdemon drop their Weapon";
 PBX_Weapons_SPIDERCG = "Spider Mastermind drop their Weapon";
 PBX_Weapons_GRABCACO = "You can grab unsuspecting Cacodemons";
+
+PBX_Weapons_SPECOPSPACK = "Z-Spec Ops Sometimes drop a special backpack";
 
 PBX_Weapons_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
 

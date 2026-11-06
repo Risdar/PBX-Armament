@@ -71,7 +71,6 @@ AddOptionMenu "AddonWeaponSpawns" after "SHOT2"
 {
     // SLOT 3
     FlagOption    "$PBX_Weapons_PLASMA_BLASTER",         "PBX_Shotgun_filter",    "OffOn", 1
-    FlagOption    "$PBX_Weapons_SPAS12",                "PBX_Shotgun_filter",    "OffOn", 2
 }
 
 // SSG /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,6 +172,10 @@ AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
     FlagOption    "$PBX_Weapons_CYBERRL",        "PBX_MonsterWeapon_filter",    "OffOn", 0
     FlagOption    "$PBX_Weapons_SPIDERCG",       "PBX_MonsterWeapon_filter",    "OffOn", 1
     FlagOption    "$PBX_Weapons_GRABCACO",       "PBX_MonsterWeapon_filter",    "OffOn", 2
+    StaticText " "
+    StaticText	"--------- Others ---------", 1
+    FlagOption    "$PBX_Weapons_SPECOPSPACK",               "PBX_BackPack_filter",    "OffOn", 11
+    FlagOption    "$PBX_Weapons_UAC_COMMANDER_BACKPACK",    "PBX_BackPack_filter",    "OffOn", 4
 }
 
 // Backpacks/Upgrades/Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -180,6 +180,10 @@ extend class PBX_Prosurv_LeverAction
 
 			case SELECT_COIN:
 				clearLAModeTokens();
+				Array<String> tips;
+				tips.Push("$PBX_DisableUpgrade");
+				PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_UPGRADE_HELPTEXT, PBX_TIP_COIN);
+
 				if(invoker.mCoinCooldown > 0)
 				{
 					A_Print("$PBX_Coin_NotReady");

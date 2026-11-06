@@ -28,3 +28,12 @@ Revolver/Open revop
 Revolver/Close revlose
 Revolver/Unload revlose2
 Revolver/Reload Revbin
+
+// MP5
+MP5SINSPEC MP5SINSPEC
+MP5OUT MP5OUT
+MPOTUITT MPOTUITT
+MAGINP5 MAGINP5
+FIREMP5 FIREMP5
+pbx/mist CC_MIST
+pbx/smoke "sounds/Weapons/Slot-2/MP5/smoke_emit.mp4"

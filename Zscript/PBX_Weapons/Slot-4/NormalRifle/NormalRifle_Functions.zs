@@ -200,7 +200,7 @@ extend class PBX_NormalRifle
 		// Play sound when opening the wheel in ADS
 		if(PB_GetZoom())
 		{
-			A_StartSound("MS/Button", 26);
+			A_StartSound("MS/Button",CHAN_WEAPON,CHANF_OVERLAP);
 			return resolvestate("Ready2");
 		}
 

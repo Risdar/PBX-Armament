@@ -23,6 +23,7 @@
 #include "./Slot-2/Revolver_Edit/Revolver_Edit.zs" // Revolver Edit 
 #include "./Slot-2/Deagle_Edit/Deagle_Edit.zs" // Deagle Edit 
 #include "./Slot-2/ShotVolver/ShotVolver.zs" // Shotvolver 
+#include "./Slot-2/MP5/MP5.zs" // MP5 
 
 // Slot 3
 #include "./Slot-3/CSSG/CSSG.zs" // CSSG

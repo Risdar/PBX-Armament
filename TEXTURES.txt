@@ -40,6 +40,13 @@ Sprite "XPCKA0", 372, 371
 	Patch "COMMANDP", 0, 0
 }
 
+Sprite "XPCKB0", 372, 371
+{
+	XScale 10.000
+	YScale 10.000
+	Offset 195, 371
+	Patch "SPECOPPK", 0, 0
+}
 // End of texture definitions
 
 // Laser Sight

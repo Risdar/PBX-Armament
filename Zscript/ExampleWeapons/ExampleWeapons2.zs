@@ -120,7 +120,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 			return EXPLOSIVE_BOLT;
 		else if (FindInventory("CB_Select_NormalMode"))
 			return NORMAL_BOLT;
-		else if (FindInventory("CB_Select_NO"))
+		else if (FindInventory("PBX_Toggle_Laser"))
 			return NO_UPGRADE;
 		else if (FindInventory("PBX_CloseWheel"))
 			return CLOSE_WHEEL;
@@ -149,7 +149,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             AMGR ABCD 1 A_DoPBWeaponAction();
             AMGZ ABC 1 A_DoPBWeaponAction();
             AMGR QRSTUV 1 A_DoPBWeaponAction();
-            TNT1 A 0 A_PlaySound("CELLIN2", 6);
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             AMGR WXY 1 A_DoPBWeaponAction();
             goto Ready3;
 
@@ -186,7 +186,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
         Fire:
             TNT1 A 0 PB_JumpIfNoAmmo();
             AMGF A 1;
-            AMGF B 1 A_PlaySound("BEP",3);
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             AMGF CD 1;
         AutoFire:
             AMGF E 1    fireWeapon(1);
@@ -203,13 +203,11 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             }
             TNT1 A 0 A_JumpIf(getSecondary() == SEC_CHARGE, "ChargeFire");
             TNT1 A 0 PB_JumpIfNoAmmo(chamber:false);
-            AMGF A 1 A_PlaySound("BEP",7);
-            AMGF B 1 A_PlaySound("BEP",8);
-            AMGF CD 1 A_PlaySound("BEP",9);
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             TNT1 A 0 {invoker.burstcount = 0;}
         AltFireBurst:
             TNT1 A 0 PB_JumpIfNoAmmo(chamber:false);
-            AMGF E 0 A_PlaySound("HRFire");
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             AMGF E 1 {
 		        PB_FireBullets("HellPistolNormal", 1, 0, 0, 0, 0);
                 PB_TakeAmmo(invoker.ammo2.getClassName());
@@ -229,7 +227,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 //////////////////////////// RELOAD ////////////////////////////////////////////////////////////////////////////////////
         ReloadFromADS:
 			TNT1 A 0 PB_HandleCrosshair(42);
-			TNT1 A 0 A_startsound("IronSights",29);
+			TNT1 A 0 A_startsound("IronSights",CHAN_WEAPON,CHANF_OVERLAP);
             TNT1 A 0 A_ZoomFactor(1.5);
 			BR4Z CB 1;
 			TNT1 A 0 PB_SetZoom(false);
@@ -237,12 +235,12 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
 		Reload:
             TNT1 A 0 A_JumpIf(PB_GetZoom(),"ReloadFromADS");
             TNT1 A 0 PB_CheckReload("RaiseFromEmpty", null,null,"Ready3","Ready3",MAXCHARGE);
-            TNT1 A 0 A_PlaySound("weapons/smg_magfly1");
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             AMGR ABCDEF 1;
-            TNT1 A 0 A_PlaySound("weapons/smg_magfly2");
+            TNT1 A 0 A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
             AMGR GHIJK 1;
             TNT1 A 0 {
-                A_PlaySound("CELLOUT2", 5);
+                A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
                 PB_SetMagEmpty(true);
                 PB_SetMagUnloaded(true);
                 PB_SetChamberEmpty(true);
@@ -252,7 +250,7 @@ class PBX_PlasmaBlaster : PBX_WeaponBase
             AMGR QRS 1;
             AMGR TUV 1;
             TNT1 A 0 {
-                A_PlaySound("CELLIN2", 6);
+                A_StartSound("MPOTUITT",CHAN_WEAPON,CHANF_OVERLAP);
                 PB_AmmoIntoMag(
                     invoker.ammo2.getClassName(),
                     invoker.ammo1.getClassName(),

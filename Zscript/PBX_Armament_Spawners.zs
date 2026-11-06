@@ -5,12 +5,13 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_MetalSniperUpgrade			= 1 << 1
 	,DisablePBX_LeverActionUpgrade			= 1 << 2
 	,DisablePBX_CrossbowBallistaUpgrade		= 1 << 3
-	,DisablePBX_UACBackpack					= 1 << 4
+	,DisablePBX_UACBackpack					= 1 << 4 // Assault Rifle + Commander's PSG
 	,DisablePBX_ExcavatorUpgrade			= 1 << 5
 	,DisablePBX_DemonExtArtifacts			= 1 << 6
 	,DisablePBX_SGLEdit					    = 1 << 7
 	,DisablePBX_LMGEdit					    = 1 << 8  
 	,DisablePBX_Shotvolver					= 1 << 10 // Spawns alongside explosive shells upgrade  
+	,DisablePBX_SpecOpsPack					= 1 << 11 // MP5 + SPAS-12 
 
 ////// Monster Drops /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SLOT 6
@@ -28,12 +29,11 @@ enum PBX_Armament_OthersSpawnFlags
 
 enum PBX_Armament_WeapnSpawnFlags
 {
-//////////////////////////// CHAINSAW ////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////// PISTOL ////////////////////////////////////////////////////////////////////////////////////
+////// Chainsaw Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// Pistol Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Shotgun Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	DisablePBX_LeverActionRifle				= 1 << 0 // Slot 2
 	,DisablePBX_PlasmaBlaster				= 1 << 1 // Slot 2
-	,DisablePBX_SPAS12						= 1 << 2 // Slot 3
 	,DisablePBX_CrossbowBallista			= 1 << 3 // Slot 4
 
 ////// SSG Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,26 +66,31 @@ class PBX_Armament_SpawnInjector : PBInjector
 {
 	override void Init(PB_EventHandler handler)
 	{
+		name shotgunFlag = "PBX_Shotgun_filter";
+		name ssgFlag = "PBX_SSG_filter";
+		name chaingunFlag = "PBX_Chaingun_filter";
+		name rocketLauncherFlag = "PBX_RocketLauncher_filter";
+		name plasmaFlag = "PBX_Plasma_filter";
+		name bfgFlag = "PBX_BFG_filter";
+		name backpackFlag = "PBX_BackPack_filter";
+
+//////////////////////////// Chainsaw ////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// Pistol ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Shotgun ////////////////////////////////////////////////////////////////////////////////////
 		// Plasma Blaster
-		if(!(PBX_Shotgun_filter & DisablePBX_PlasmaBlaster))
+		if(!CheckFlag(shotgunFlag, DisablePBX_PlasmaBlaster))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_PlasmaBlaster', 255, 1);
 		}
 		// Lever Action
-		if(!(PBX_Shotgun_filter & DisablePBX_LeverActionRifle))
+		if(!CheckFlag(shotgunFlag, DisablePBX_LeverActionRifle))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT1', 'PBX_Prosurv_LeverAction', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_Prosurv_LeverAction', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT3', 'PBX_Prosurv_LeverAction', 255, 1);
 		}
-		// SPAS12
-		if(!(PBX_Shotgun_filter & DisablePBX_SPAS12))
-		{
-			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_SPAS12', 255, 1);
-		}
 		// Crossbow Ballista
-		if(!(PBX_Shotgun_filter & DisablePBX_CrossbowBallista))
+		if(!CheckFlag(shotgunFlag, DisablePBX_CrossbowBallista))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT1', 'PBX_Prosurv_Ballista', 255, 1);
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_Prosurv_Ballista', 255, 1);
@@ -93,7 +98,7 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// SSG ////////////////////////////////////////////////////////////////////////////////////
 		// CSSG
-		if(!(PBX_SSG_filter & DisablePBX_CSSG))
+		if(!CheckFlag(ssgFlag, DisablePBX_CSSG))
 		{
 			handler.InjectSpawn('PB_SSGSpawnerT3', 'PBX_CSSG', 255, 1);
 			handler.InjectSpawn('PB_SSGSpawnerT4', 'PBX_CSSG', 255, 1);
@@ -101,78 +106,78 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// CHAINGUN ////////////////////////////////////////////////////////////////////////////////////
 		// Battle Rifle
-		if(!(PBX_Chaingun_filter & DisablePBX_BattleRifle))
+		if(!CheckFlag(chaingunFlag, DisablePBX_BattleRifle))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT1', 'PBX_BDPBattleRifle', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT2', 'PBX_BDPBattleRifle', 255, 1);
 		}
 		// Metal Sniper
-		if(!(PBX_Chaingun_filter & DisablePBX_MetalSniper))
+		if(!CheckFlag(chaingunFlag, DisablePBX_MetalSniper))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT3', 'PBX_MetalSniper', 255, 1);
 		}
-		// XM21 
-		if(!(PBX_Chaingun_filter & DisablePBX_XM21))
+		// XM21
+		if(!CheckFlag(chaingunFlag, DisablePBX_XM21))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_XM21', 255, 1);
 		}
 		// Neo HMG
-		if(!(PBX_Chaingun_filter & DisablePBX_NeoHMG))
+		if(!CheckFlag(chaingunFlag, DisablePBX_NeoHMG))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT3', 'PBX_NeoHMG', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_NeoHMG', 255, 1);
 		}
 		// Super Nailgun
-		if(!(PBX_Chaingun_filter & DisablePBX_SuperNailgun))
+		if(!CheckFlag(chaingunFlag, DisablePBX_SuperNailgun))
 		{
 			handler.InjectSpawn('PB_MGSpawnerT4', 'PBX_SuperNailgun', 255, 1);
 		}
 
 //////////////////////////// ROCKETLAUNCHER ////////////////////////////////////////////////////////////////////////////////////
 		// Excavator
-		if(!(PBX_RocketLauncher_filter & DisablePBX_Excavator))
+		if(!CheckFlag(rocketLauncherFlag, DisablePBX_Excavator))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT3', 'PBX_Excavator', 255, 1);
 			handler.InjectSpawn('PB_RLSpawnerT4', 'PBX_Excavator', 255, 1);
 		}
 		// Paingiver
-		if(!(PBX_RocketLauncher_filter & DisablePBX_Paingiver))
+		if(!CheckFlag(rocketLauncherFlag, DisablePBX_Paingiver))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT4', 'PBX_Paingiver', 255, 1);
 		}
 
 //////////////////////////// PLASMARIFLE ////////////////////////////////////////////////////////////////////////////////////
 		// BDP Railgun
-		if(!(PBX_Plasma_filter & DisablePBX_BDPRailgun))
+		if(!CheckFlag(plasmaFlag, DisablePBX_BDPRailgun))
 		{
-		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_BDPRailgun",255,1);
+			handler.InjectSpawn("PB_PlasSpawnerT2","PBX_BDPRailgun",255,1);
 		}
 		// Tesla Gun
-		if(!(PBX_Plasma_filter & DisablePBX_TeslaGun))
+		if(!CheckFlag(plasmaFlag, DisablePBX_TeslaGun))
 		{
-		   handler.InjectSpawn("PB_PlasSpawnerT3","PBX_TeslaGun",255,1);
+			handler.InjectSpawn("PB_PlasSpawnerT3","PBX_TeslaGun",255,1);
 		}
 		// Cryo SG
-		if(!(PBX_Plasma_filter & DisablePBX_CryoSG))
+		if(!CheckFlag(plasmaFlag, DisablePBX_CryoSG))
 		{
-		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_CryoSG",255,1);
+			handler.InjectSpawn("PB_PlasSpawnerT2","PBX_CryoSG",255,1);
 		}
 		// Cryo ASG
-		if(!(PBX_Plasma_filter & DisablePBX_CryoASG))
+		if(!CheckFlag(plasmaFlag, DisablePBX_CryoASG))
 		{
-		   handler.InjectSpawn("PB_PlasSpawnerT4","PBX_CryoASG",255,1);
+			handler.InjectSpawn("PB_PlasSpawnerT4","PBX_CryoASG",255,1);
 		}
-		// Freze Rifle 
-		if(!(PBX_Plasma_filter & DisablePBX_FreezeRifle))
+		// Freeze Rifle
+		if(!CheckFlag(plasmaFlag, DisablePBX_FreezeRifle))
 		{
-		   handler.InjectSpawn("PB_PlasSpawnerT2","PBX_FreezeRifle",255,1);
+			handler.InjectSpawn("PB_PlasSpawnerT2","PBX_FreezeRifle",255,1);
 		}
 
 //////////////////////////// BFG ////////////////////////////////////////////////////////////////////////////////////
 		// Demon Ext
-		if(!(PBX_BFG_filter & DisablePBX_DemonExt))
+		if(!CheckFlag(bfgFlag, DisablePBX_DemonExt))
 		{
-		   handler.InjectSpawn("PB_BFGSpawnerT1","PBX_DemonExt",255,1);
+			handler.InjectSpawn("PB_BFGSpawnerT1","PBX_DemonExt",255,1);
 		}
 
 		// Secret Weapons
@@ -186,13 +191,13 @@ class PBX_Armament_SpawnInjector : PBInjector
 
 //////////////////////////// UPGRADES ////////////////////////////////////////////////////////////////////////////////////
 		// UAC Backpack
-		if(!(PBX_BackPack_filter & DisablePBX_UACBackpack))
+		if(!CheckFlag(backpackFlag, DisablePBX_UACBackpack))
 		{
 			handler.InjectSpawn('PB_PackSpawnerT1', 'PBX_CommandPack', 255, 1);
 		}
 
 		// CSSG Upgrades
-		if(!(PBX_BackPack_filter & DisablePBX_CSSGUpgrades))
+		if(!CheckFlag(backpackFlag, DisablePBX_CSSGUpgrades))
 		{
 			handler.InjectSpawn('PB_ShellboxSpawnerT3', 'WPShellsUpgrade', 255, 1);
 			handler.InjectSpawn('PB_ShellboxSpawnerT3', 'SubZeroShellsUpgrade', 255, 1);
@@ -202,49 +207,57 @@ class PBX_Armament_SpawnInjector : PBInjector
 			handler.InjectSpawn('PB_ShellboxSpawnerT4', 'DoomShellsUpgrade', 255, 1);
 			handler.InjectSpawn('PB_ShellboxSpawnerT4', 'HellFireShellsUpgrade', 255, 1);
 		}
-		
+
 		// Metal Sniper Upgrade
-		if(!(PBX_BackPack_filter & DisablePBX_MetalSniperUpgrade))
+		if(!CheckFlag(backpackFlag, DisablePBX_MetalSniperUpgrade))
 		{
 			handler.InjectSpawn('PB_UpgradeSpawnerT4', 'MetalSniper_Upgrade', 255, 1);
 			handler.InjectSpawn('PB_MGSpawnerT4', 'MetalSniper_Upgrade', 255, 1);
 		}
 
 		// Lever Action Upgrade
-		if(!(PBX_BackPack_filter & DisablePBX_LeverActionUpgrade))
+		if(!CheckFlag(backpackFlag, DisablePBX_LeverActionUpgrade))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT3', 'LeverAction_Upgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LeverAction_Upgrade', 255, 1);
 		}
 
 		// Crossbow Ballista Upgrades
-		if(!(PBX_BackPack_filter & DisablePBX_CrossbowBallistaUpgrade))
+		if(!CheckFlag(backpackFlag, DisablePBX_CrossbowBallistaUpgrade))
 		{
 			handler.InjectSpawn('PB_ShotSpawnerT2', 'PBX_DemonicBallistaUpgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT2', 'PBX_DemonicBallistaUpgrade', 255, 1);
 		}
 
-		// Crossbow Ballista Upgrades
-		if(!(PBX_BackPack_filter & DisablePBX_ExcavatorUpgrade))
+		// Excavator Upgrade
+		if(!CheckFlag(backpackFlag, DisablePBX_ExcavatorUpgrade))
 		{
 			handler.InjectSpawn('PB_RLSpawnerT3', 'PBX_ExcavatorUpgrade', 255, 1);
 			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'PBX_ExcavatorUpgrade', 255, 1);
 		}
 
 		// SGL Upgrade
-		if(!(PBX_BackPack_filter & DisablePBX_SGLEdit))
-        {
-            handler.InjectSpawn('PB_UpgradeSpawnerT3', 'SGL_Upgrade', 255, 1);
-            handler.InjectSpawn('PB_RLSpawnerT3', 'SGL_Upgrade', 255, 1);
-        }
+		if(!CheckFlag(backpackFlag, DisablePBX_SGLEdit))
+		{
+			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'SGL_Upgrade', 255, 1);
+			handler.InjectSpawn('PB_RLSpawnerT3', 'SGL_Upgrade', 255, 1);
+		}
 
 		// LMG Upgrade
-        if(!(PBX_BackPack_filter & DisablePBX_LMGEdit))
-        {
-            handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LMG_Upgrade', 255, 1);
-		    handler.InjectSpawn('PB_MGSpawnerT3', 'LMG_Upgrade', 255, 1);
-        }
+		if(!CheckFlag(backpackFlag, DisablePBX_LMGEdit))
+		{
+			handler.InjectSpawn('PB_UpgradeSpawnerT3', 'LMG_Upgrade', 255, 1);
+			handler.InjectSpawn('PB_MGSpawnerT3', 'LMG_Upgrade', 255, 1);
+		}
     }
+
+	// Helpers
+	private
+	bool CheckFlag(string name, int tipFlag)
+	{
+		let check = CVar.FindCVar(name);
+		return (check.GetInt() & tipflag) == tipflag;
+	}
 }
 
 //////////////////////////// OTHER TYPES ////////////////////////////////////////////////////////////////////////////////////
@@ -317,8 +330,15 @@ class PBX_WeaponSpawner_Handler : EventHandler
             	act.Destroy();
 				break;
 
-			case 'ExplosiveShellsUpgrade':
+			case 'PB_SMG':
+				if(!(PBX_BackPack_filter & DisablePBX_SpecOpsPack) && random(1,10) == 1) // 10% chance of spawning when a zspecops died
+				{
+					act.Spawn("PBX_SpecOpsPack",act.pos);
+            		act.Destroy();
+				}
+				break;
 
+			case 'ExplosiveShellsUpgrade':
 				if(!(PBX_BackPack_filter & DisablePBX_Shotvolver) && random(0,1) == 1) // 50% chance of spawning alongside the explosive upgrade
 				{
 					act.Spawn("PBX_Shotvolver",act.pos);
@@ -423,6 +443,37 @@ class PBX_CommandPack : CustomInventory
 				A_GiveInventory("PBX_NormalRifle",1);
 				A_GiveInventory("PBX_ProSurvPSG",1);
 				A_GiveInventory("PB_RocketAmmo",20);
+			}
+            Stop;
+    }
+}
+
+// Edited sprites from TSF
+class PBX_SpecOpsPack : CustomInventory
+{
+    Default
+    {
+        Inventory.Amount 1;
+        Inventory.PickupMessage "$PBX_SpecOpsPack_Pickup";
+		Inventory.PickupSound "CLIPIN";
+		Tag "$PBX_SpecOpsPack_Tag";
+        +Inventory.AlwaysPickUp;
+        +FLOORCLIP;
+        +DONTGIB;
+    }
+
+    States
+    {
+        Spawn:
+            XPCK B -1;
+            Stop; 
+
+        Pickup:
+            TNT1 A 0 {
+				A_GiveInventory("PB_Backpack",1);
+				A_GiveInventory("PBX_SPAS12",1);
+				A_GiveInventory("PBX_MP5",1);
+				A_GiveInventory("MP5Smoke",PBX_MP5.SMOKE_GRENADE_AMOUNT);
 			}
             Stop;
     }

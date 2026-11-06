@@ -685,9 +685,8 @@ class PBX_WeaponBase : PB_WeaponBase abstract
     {
 		int ammoToCheck = invoker.ammotype2 ? invoker.ammo2.amount : 0;
         int maxAmmoToCheck = invoker.ammotype2 ? invoker.ammo2.maxamount : 0;
-        bool pressingReload = PressingReload() || (player.oldbuttons & BT_RELOAD);
 
-        if (pressingReload && ammoToCheck >= maxAmmoToCheck) 
+        if (PressingReload() && ammoToCheck >= maxAmmoToCheck) 
         {
             return resolvestate("WeaponInspect");
         }
