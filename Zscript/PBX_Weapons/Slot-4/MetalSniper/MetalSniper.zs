@@ -181,8 +181,8 @@ Class PBX_MetalSniper : PBX_WeaponBase
             MSNF B 1 bright MetalSniperFire();
             MSNF C 1 bright;
             MSNF DDDEF 1;
-            MSNF GHAAAAAA 1;
-            MSNF AAAA 1 {
+            MSNF GH 1;
+            MSNF AAAAAAAAAAAA 1 {
                 if (PlayerPressedOnce(BT_ATTACK)) return resolvestate("Fire");
                 return A_DoPBWeaponAction(WRF_ALLOWRELOAD | WRF_NOFIRE);
             }
@@ -233,8 +233,8 @@ Class PBX_MetalSniper : PBX_WeaponBase
             MSNS C 1 bright;
             MSNS DDD 1;
             MSNS EFG 1;
-            MSNS HIAAAAAA 1;
-            MSNS AAAA 1 {
+            MSNS HI 1;
+            MSNS AAAAAAAAAA 1 {
                 // A_SetInventory("CantDoAction", 0);
                 if (PB_GetAimMode())
                 {
