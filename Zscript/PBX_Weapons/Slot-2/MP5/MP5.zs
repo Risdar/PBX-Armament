@@ -368,8 +368,8 @@ class PBX_MP5 : PBX_WeaponBase
 			TNT1 A 0 A_JumpIf(getBurst(), "FireLoop");
         FireEnd:
 			TNT1 A 0 setBurstCount(0);
-			XIMA C 1 bright;
-			CONT AAA 1 MP5_Refire();
+			XIMA C 1 bright MP5_Refire();
+			CONT AAA 1 A_DoPBWeaponAction();
 			TNT1 A 0 { invoker.mSemiClear = false; }
             goto Ready3;
 
@@ -388,8 +388,8 @@ class PBX_MP5 : PBX_WeaponBase
 			TNT1 A 0 A_JumpIf(getBurst(), "Fire2Loop");
         Fire2End:
 			TNT1 A 0 setBurstCount(0);
-			ISSA J 1 bright;
-			ISSA FFF 1 MP5_Refire();
+			ISSA J 1 bright MP5_Refire();
+			ISSA FFF 1 A_DoPBWeaponAction();
 			TNT1 A 0 { invoker.mSemiClear = false; }
             goto Ready2;
   
