@@ -1,7 +1,7 @@
 [enu default]
 //////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
 PBX_Armament_Settings               = "\cg⟁\c- PBX - Armament Settings";
-PBX_Armament_Version                = "\cgPBX - Armament \c-Version: 1.5.0 - Tacticool";
+PBX_Armament_Version                = "\cgPBX - Armament \c-Version: 1.6.0 - Equipment Update";
 
 PBX_Weapons_SmartScope_MaxHP        = "Max. HP: %u";
 PBX_Weapons_SmartScope_CurrHP       = "HP: %u";
@@ -43,6 +43,9 @@ OB_WEAP_LEVERACTION                 = "%k Drew a Bead On %o with a Lever Action.
 PBX_LeverAction_Marlin              = "\cd.444 Marlin \c-Loaded";
 PBX_LeverAction_Magnum              = "\cd.357 Magnum \c-Loaded";
 
+PBX_LeverAction_Marlin_WW           = "\cd.444 Marlin \c-Ammo Type";
+PBX_LeverAction_Magnum_WW           = "\cd.357 Magnum \c-Ammo Type";
+
 PBX_LeverAction_UpgradePickup       = "Lever Action Rifle Upgrade (Slot 2)";
 PBX_LeverAction_UpgradeTag          = "Lever Action Rifle Upgrade";
 
@@ -58,15 +61,31 @@ PBX_MP5_Pickup                      = "MP5 (Slot 2)";
 PBX_MP5_Tag                         = "Heckler & Koch Maschinenpistole 5";
 OB_WEAP_MP5                         = "%k shot %o with an MP5.";
 
-PBX_MP5_NoSmoke                     = "No \cuSmoke Grenades\c- Left";
-PBX_MP5_ThrowSmoke                  = "Throw \cuSmoke Grenade\c-";
-
 PBX_MP5_Tip1                        = "The \cuSmoke Grenade\c- triggers infighting and can be accessed with %s.";
 PBX_MP5_Tip2                        = "It can be replenished by picking up another Spec-Ops Backpack.";
 
 // PB Revolver
 PBX_RevEdit_Single                  = "Single Revolver";
 PBX_RevEdit_Akimbo                  = "Akimbo Revolvers";
+
+// PB Deagle
+PBX_DeagleEdit_Single               = "Single Deagle";
+PBX_DeagleEdit_Akimbo               = "Akimbo Deagles";
+
+// 44 PDW
+PBX_44PDW_Pickup                    = "You got the .44 Mag PDW, rimmed revolvers in fully automatic form ! (Slot 2)";
+PBX_44PDW_Tag                       = ".44 Personal Defense Weapon";
+OB_WEAP_44PDW                       = "%o was shot down by %k's .44 Mag PDW.";
+
+PBX_44PDW_Single                    = "Firemode: \cdSingle Action\c-";
+PBX_44PDW_Double                    = "Firemode: \cdDouble Action\c-";
+PBX_44PDW_Triple                    = "Firemode: \cdTriple Action\c-";
+PBX_44PDW_Quad                      = "Firemode: \cdQuad Action\c-";
+
+PBX_44PDW_Single_WW                 = "Select \cdSingle Action\c-";
+PBX_44PDW_Double_WW                 = "Select \cdDouble Action\c-";
+PBX_44PDW_Triple_WW                 = "Select \cdTriple Action\c-";
+PBX_44PDW_Quad_WW                   = "Select \cdQuad Action\c-";
 
 //////////////////////////// SLOT 3 ///////////////////////////////////////////////////////////////////////////////
 // PSG
@@ -153,8 +172,8 @@ PBX_SPAS12_DUALFIRE                 = "\cjSecondary: \cgDual Blast";
 PBX_SPAS12_MANUAL                   = "Switching to\n\n\cdSlug\c- shells\n(\cdManual\c- Pump)";
 PBX_SPAS12_SEMI                     = "Switching to\n\n\caBuckshot\c- shells\n(\caSemi-auto\c- Mode)";
 
-PBX_SPAS12_MANUAL_PICKUP            = "Current Mode:\n\n\cdSlug\c- shells\n(\cdManual\c- Pump)";
-PBX_SPAS12_SEMI_PICKUP              = "Current Mode:\n\n\caBuckshot\c- shells\n(\caSemi-auto\c- Mode)";
+PBX_SPAS12_MANUAL_PICKUP            = "Firemode:\n\n\cdSlug\c- shells\n(\cdManual\c- Pump)";
+PBX_SPAS12_SEMI_PICKUP              = "Firemode:\n\n\caBuckshot\c- shells\n(\caSemi-auto\c- Mode)";
 
 PBX_SPAS12_STOCK_FOLDED             = "Stock Folded\n\n\caHigher Recoil\c-, \cdFaster Reload\c-";
 PBX_SPAS12_STOCK_UNFOLDED           = "Stock Unfolded\n\n\caLower Recoil\c-, \cdSlower Reload\c-";
@@ -169,9 +188,6 @@ PBX_SPAS12_SEMI_WW                  = "Switch to \caBuckshot\c- (\caSemi-auto\c-
 PBX_BattleRifle_Pickup              = "Battle Rifle (Slot 4)";
 PBX_BattleRifle_Tag                 = "UAC M1 'BDP' Battle Rifle";
 OB_WEAP_BATTLERIFLE                 = "%o was pierced by %k's Battle Rifle.";
-
-PBX_BattleRifle_SemiAuto            = "\cdSemi-Auto \c-Mode";
-PBX_BattleRifle_Burst               = "\ciBurst Fire \c-Mode";
 
 // Normal RIfle
 PBX_NormalRifle_Pickup              = "Assault Rifle (Slot 4)";
@@ -243,12 +259,6 @@ PBX_NeoHMG_PlaceShield              = "\caPlace \c-Shield";
 PBX_NeoHMG_Tip1                     = "Press %s to activate the \cdshield\c-. It recharges only when there's \cgoverheat\c-.";
 PBX_NeoHMG_Tip2                     = "Press %s again to detonate the \cdshield\c- and \cnstun\c- nearby enemies.";
 PBX_NeoHMG_Tip3                     = "At \cg%d° C\c-, shots become \cxstronger\c- and the \cdshield\c- recharges faster.";
-
-
-// Eternal Chaingun
-PBX_EternalChaingun_Pickup          = "Eternal Chaingun (Slot 5)";
-PBX_EternalChaingun_Tag             = "UAC BD 'Eternal' Chaingun";
-OB_WEAP_ETERNALCHAINGUN             = "%o is unrecognizable because of %k's Chaingun.";
 
 // Super Nailgun
 PBX_SuperNailgun_Pickup             = "Super Nailgun (Slot 5)";
@@ -414,6 +424,11 @@ OB_WEAP_RIPPERCHAINGUN              = "%o was mowed down by %k's Ripper Chaingun
 PBX_RipperChaingun_DNF              = "\crDuke Nukem Forever \c-Mode";
 PBX_RipperChaingun_Classic          = "\cdDuke Nukem 3D \c-Mode";
 
+// Eternal Chaingun
+PBX_EternalChaingun_Pickup          = "Eternal Chaingun (Slot 9)";
+PBX_EternalChaingun_Tag             = "UAC BD 'Eternal' Chaingun";
+OB_WEAP_ETERNALCHAINGUN             = "%o is unrecognizable because of %k's Chaingun.";
+
 //////////////////////////// PROJECTILES ///////////////////////////////////////////////////////////////////////////////
 // Bullets
 OB_PROJ_357MAGNUM                   = "%o was shot at somewhere else by %k.";
@@ -447,11 +462,14 @@ PBX_CommandPack_Pickup              = "You found the UAC Command Pack! You got t
 PBX_CommandPack_Tag                 = "UAC Command Pack";
 
 // Spec Ops Pack
-PBX_SpecOpsPack_Pickup              = "You found the UAC Spec Ops Pack! You got the MP5 and SPAS-12!";
+PBX_SpecOpsPack_Pickup              = "You found the UAC Spec Ops Pack!";
+PBX_SpecOpsPack_Pickup1             = "SPAS-12 and MP5";
+PBX_SpecOpsPack_Pickup2             = ".44 PDW and SPAS-12";
+PBX_SpecOpsPack_Pickup3             = "MP5 and .44 PDW";
 PBX_SpecOpsPack_Tag                 = "UAC Spec Ops Pack";
 
 // Funny Caco
-PBX_PBX_RideableCaco_Stealth               = "Grab Cacodemon";
+PBX_RideableCaco_Stealth            = "Grab Cacodemon";
 
 // SHARED
 PBX_SECONDARY_ZOOM                  = "\cjSecondary: \chZoom";

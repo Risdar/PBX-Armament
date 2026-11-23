@@ -48,6 +48,22 @@ Sprite "XPCKB0", 400, 410
 	Patch "SPECOPPK", 0, 0
 }
 
+Sprite "XPCKC0", 400, 410
+{
+	XScale 10.000
+	YScale 10.000
+	Offset 195, 371
+	Patch "SPECOPP2", 0, 0
+}
+
+Sprite "XPCKD0", 400, 410
+{
+	XScale 10.000
+	YScale 10.000
+	Offset 195, 371
+	Patch "SPECOPP3", 0, 0
+}
+
 Sprite "WDO1A0", 32, 32
 {
 	XScale 2.000

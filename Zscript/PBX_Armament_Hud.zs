@@ -2,7 +2,7 @@
 const IMAGE_DIRECTORY = "graphics/WeaponWheel/";
 
 // Draw the ammo bar for some weapons
-class PBX_Armament_HUDHandler : EventHandler
+class PBX_Armament_HUDHandler : StaticEventHandler
 {
 //////////////////////////// VARIABLES ////////////////////////////////////////////////////////////////////////////////////
     ui int flagsManualVisor1, flagsManualVisor2;
@@ -119,20 +119,6 @@ class PBX_Armament_HUDHandler : EventHandler
         if(!pbWeap || !phud || !plr || !mo) return;
         switch(pbWeap.GetClassName())
         {
-            // Draw bar for Smoke Grenades
-            case 'PBX_MP5':
-            {
-                PBXCore_HUDHandler.PBX_DrawAmmoBar(
-                    phud,
-                    PBXCore_HUDHandler.DRAW_THIRD_BAR,
-                    "BARBACC3",
-                    "ABAR8",
-                    "MP5Smoke",
-                    Font.CR_CYAN
-                );
-            }
-            break;
-
             // Draw rocket ammo
             case 'PBX_ProSurvPSG':
             {
@@ -367,8 +353,8 @@ class PBXHUDService_PBX_AllWeapons : service
                 laserOn: mp5.GetLaserActive()
                 ,onImage: IMAGE_DIRECTORY.."MP5/LaserOn.png"
                 ,offImage: IMAGE_DIRECTORY.."MP5/LaserOff.png"
-                ,onOffset: (0,-10)
-                ,offOffset: (-20,-10)
+                ,onOffset: (0,10)
+                ,offOffset: (-20,10)
                 ,onScale: 0.7
                 ,offScale: 1.2
             );
@@ -426,6 +412,21 @@ class PBXHUDService_PBX_AllWeapons : service
                 ,imgOffset1:ofs
                 ,imgOffset2:(0,-10)
                 ,imgScale1:1.0
+            );
+        }
+
+        case 'PBX_44PDW':
+        {
+            let pdw = PBX_44PDW(weapon); if (!pdw) return null;
+
+            return MakeLaserData(
+                laserOn: pdw.GetLaserActive()
+                ,onImage: IMAGE_DIRECTORY.."44PDW/LaserOn.png"
+                ,offImage: IMAGE_DIRECTORY.."44PDW/LaserOff.png"
+                ,onOffset: (0,10)
+                ,offOffset: (-20,10)
+                ,onScale: 1.0
+                ,offScale: 2.0
             );
         }
 

@@ -16,11 +16,11 @@ Class LeverActionWheel : wheelinfocontainer
 		mDisabled = PBX_BackPack_filter & DisablePBX_LeverActionUpgrade;
 
 		// Magnum
-		PBX_AddWheel(spw,     img:"LeverAction/Magnum",	  alias:"$PBX_LeverAction_Magnum", token:"LA_Select_Magnum");
+		PBX_AddWheel(spw,     img:"LeverAction/Magnum",	  alias:"$PBX_LeverAction_Magnum_WW", token:"LA_Select_Magnum");
 		
 		// Marlin
 		if(PBX_CheckInv("LA_Upgraded")) 
-			PBX_AddWheel(spw, img:"LeverAction/Marlin",	  alias:"$PBX_LeverAction_Marlin", token:"LA_Select_Marlin");
+			PBX_AddWheel(spw, img:"LeverAction/Marlin",	  alias:"$PBX_LeverAction_Marlin_WW", token:"LA_Select_Marlin");
 		else
 			PBX_AddWheel(spw, img:"LeverAction/NoMarlin", alias:"$PBX_AmmoNotAvailable",   token:"LA_Select_No");
 

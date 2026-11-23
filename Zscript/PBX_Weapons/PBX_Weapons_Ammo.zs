@@ -111,17 +111,18 @@ Class MP5Ammo : PB_Ammo
 	}
 }
 
-class MP5Smoke : PB_Ammo 
+// 44PDW
+Class PDWAmmo : PB_Ammo
 {
-    Default 
+	Default
 	{
-		Inventory.Amount 0;
-        Inventory.MaxAmount PBX_MP5.SMOKE_GRENADE_AMOUNT;
+		inventory.amount 0;
+		inventory.maxamount PBX_44PDW.MAGAZINE_SIZE;
 		ammo.backpackamount 0;
-		ammo.backpackmaxamount PBX_MP5.SMOKE_GRENADE_AMOUNT;
-	    Inventory.Icon "STNDA0";
+		ammo.backpackmaxamount PBX_44PDW.MAGAZINE_SIZE;
+	    Inventory.Icon "MAPPA0";
         +INVENTORY.IGNORESKILL;
-    }
+	}
 }
 
 //////////////////////////// SLOT 3 ////////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-enum PBX_Armament_OthersSpawnFlags
+enum PBX_Weapons_OthersSpawnFlags
 {
 ////// Backpacks / Upgrades / Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	DisablePBX_CSSGUpgrades			        = 1 << 0 // Actually spawns on the ShellBox spawner
@@ -11,7 +11,7 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_SGLEdit					    = 1 << 7
 	,DisablePBX_LMGEdit					    = 1 << 8  
 	,DisablePBX_Shotvolver					= 1 << 10 // Spawns alongside explosive shells upgrade  
-	,DisablePBX_SpecOpsPack					= 1 << 11 // MP5 + SPAS-12 
+	,DisablePBX_SpecOpsPack					= 1 << 11
 
 ////// Monster Drops /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SLOT 6
@@ -27,7 +27,7 @@ enum PBX_Armament_OthersSpawnFlags
 	,DisablePBX_RipperChaingun				= 1 << 4  
 }
 
-enum PBX_Armament_WeapnSpawnFlags
+enum PBX_Weapons_SpawnFLags
 {
 ////// Chainsaw Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Pistol Spawns /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +61,14 @@ enum PBX_Armament_WeapnSpawnFlags
 	,DisablePBX_DemonExt			        = 1 << 0 // Slot 9
 }
 
+enum PBX_Equipment_SpawnFlags
+{
+////// Backpacks / Upgrades / Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	DisableEQ_IncendiaryGrenade		= 1 << 0
+	,DisableEQ_SmokeGrenade			= 1 << 1
+	,DisableEQ_MedPack				= 1 << 2
+}
+
 //////////////////////////// Spawners ////////////////////////////////////////////////////////////////////////////////////
 class PBX_Armament_SpawnInjector : PBInjector
 {
@@ -73,7 +81,29 @@ class PBX_Armament_SpawnInjector : PBInjector
 		name plasmaFlag = "PBX_Plasma_filter";
 		name bfgFlag = "PBX_BFG_filter";
 		name backpackFlag = "PBX_BackPack_filter";
+		name equipmentFlag = "PBX_Equipments_filter";
 
+//////////////////////////// Equipments ////////////////////////////////////////////////////////////////////////////////////
+		// Incendiary Grenade
+		if(!CheckFlag(equipmentFlag, DisableEQ_IncendiaryGrenade))
+		{
+			handler.InjectSpawn('PB_RocketSpawnerT1', 'PB_IncendiaryGrenadeAmmo', 255, 1);
+			handler.InjectSpawn('PB_RocketSpawnerT2', 'PB_IncendiaryGrenadeAmmo', 255, 1);
+		}
+
+		// Smoke Grenade
+		if(!CheckFlag(equipmentFlag, DisableEQ_SmokeGrenade))
+		{
+			handler.InjectSpawn('PB_RocketBoxSpawnerT3', 'PBX_SmokeGrenadePack', 255, 1);
+		}
+
+		// Med Pack
+		if(!CheckFlag(equipmentFlag, DisableEQ_MedPack))
+		{
+			handler.InjectSpawn('PB_PackSpawnerT2', 'PBX_MedPackAmmo', 255, 1);
+			handler.InjectSpawn('PB_PackSpawnerT3', 'PBX_MedPackAmmo', 255, 1);
+		}
+		
 //////////////////////////// Chainsaw ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Pistol ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Shotgun ////////////////////////////////////////////////////////////////////////////////////
@@ -462,18 +492,67 @@ class PBX_SpecOpsPack : CustomInventory
         +DONTGIB;
     }
 
+	enum SpecType
+	{
+		SPAS12_MP5 = 1
+		,PDW_SPAS12
+		,PDW_MP5
+	}
+
+	int mType;
+
+	override void PostBeginPlay()
+	{
+		super.PostBeginPlay();
+		mType = random(SPAS12_MP5,PDW_MP5);
+	}
+
+	override string PickupMessage()
+	{
+		return String.Format("%s (%s)", StringTable.Localize(pickupMsg), StringTable.Localize(pickupMsg..mType));
+	}
+
+	private
+	action state doPickup()
+	{
+		switch(invoker.mType)
+		{
+			case SPAS12_MP5: 	return resolvestate("Pickup1");
+			case PDW_SPAS12: 	return resolvestate("Pickup2");
+			case PDW_MP5: 		return resolvestate("Pickup3");
+		}
+		return resolvestate(null);
+	}
+
     States
     {
         Spawn:
-            XPCK B -1;
+            XPCK "#" -1 NoDelay { frame = invoker.mType; }
             Stop; 
 
         Pickup:
+			TNT1 A 0 A_GiveInventory("PB_Backpack",1);
+			TNT1 A 0 doPickup();
+            Stop;
+
+		Pickup1:
             TNT1 A 0 {
-				A_GiveInventory("PB_Backpack",1);
 				A_GiveInventory("PBX_SPAS12",1);
 				A_GiveInventory("PBX_MP5",1);
-				A_GiveInventory("MP5Smoke",PBX_MP5.SMOKE_GRENADE_AMOUNT);
+			}
+			Stop;
+
+		Pickup2:
+            TNT1 A 0 {
+				A_GiveInventory("PBX_SPAS12",1);
+				A_GiveInventory("PBX_44PDW",1);
+			}
+            Stop;
+
+		Pickup3:
+            TNT1 A 0 {
+				A_GiveInventory("PBX_44PDW",1);
+				A_GiveInventory("PBX_MP5",1);
 			}
             Stop;
     }

@@ -723,7 +723,7 @@ class PBX_WeaponBase : PB_WeaponBase abstract
 	}
 
     // Return to a ready state based on zoom
-    action state PBX_ReturnReady(StateLabel zoomed = "Ready2", StateLabel normal = null)
+    action state PBX_ReturnReady(StateLabel zoomed = "Ready2", StateLabel normal = "Ready3")
     {
         if(A_CheckAkimbo() && normal) return resolvestate(normal);
         if(PB_GetZoom()) return resolvestate(zoomed);

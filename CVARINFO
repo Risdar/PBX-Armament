@@ -12,6 +12,7 @@ server int PBX_SecretWeapon_Chance = 5;
 // Tip Flags
 server int PBX_Armament_weaponTipFlags = 0;
 server int PBX_Armament_upgradeTipFlags = 0;
+server int PBX_Armament_equipmentTipFlags = 0;
 
 // Spawners
 server int PBX_Chainsaw_filter = 0;
@@ -22,6 +23,9 @@ server int PBX_Chaingun_filter = 0;
 server int PBX_RocketLauncher_filter = 0;
 server int PBX_Plasma_filter = 0;
 server int PBX_BFG_filter = 0;
+
+server int PBX_Equipments_filter = 0;
+
 
 server int PBX_BackPack_filter = 0;
 

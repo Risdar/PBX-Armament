@@ -6,13 +6,11 @@
 // Edited Sprites for BD Plus by yaelvolador
 
 // Includes
-#include "./MP5_helpers.zs"
 #include "./MP5_Wheel.zs"
 
 class MP5_Select_Semi : inventory {default{inventory.maxamount 1;}}
 class MP5_Select_Burst : inventory {default{inventory.maxamount 1;}}
 class MP5_Select_FullAuto : inventory {default{inventory.maxamount 1;}}
-class MP5_Throw_Smoke : inventory {default{inventory.maxamount 1;}}
 
 // Actual Weapon
 class PBX_MP5 : PBX_WeaponBase
@@ -51,8 +49,6 @@ class PBX_MP5 : PBX_WeaponBase
 	bool mSemiClear;
 
     const MAGAZINE_SIZE = 50;
-    const SMOKE_GRENADE_AMOUNT = 3;
-    const SMOKE_INFIGHT_RADIUS = 356;
 
     enum MP5_WW
 	{
@@ -62,7 +58,6 @@ class PBX_MP5 : PBX_WeaponBase
 		,SELECT_BURST
 		,SELECT_FULLAUTO
 		,TOGGLE_LASER
-		,THROW_SMOKE
 	}
     
 //////////////////////////// OVERRIDES ////////////////////////////////////////////////////////////////////////////////////
@@ -89,7 +84,7 @@ class PBX_MP5 : PBX_WeaponBase
 
         "Unload",
 
-        "WeaponRespect", "SwitchAnimation", "ThrowSmoke",
+        "WeaponRespect", "SwitchAnimation",
         "FlashPunching", "FlashKicking", "FlashAirKicking", "FlashSlideKicking", "FlashSlideKickingStop"
     };
 
@@ -98,6 +93,7 @@ class PBX_MP5 : PBX_WeaponBase
 		PBX_SpawnLaserSight(RED_DOT);
     }
 
+    // This looks absolutely horrid
     private
     action state MP5_Refire()
     {
@@ -188,21 +184,12 @@ class PBX_MP5 : PBX_WeaponBase
         {
             case CLOSE_WHEEL:
                 cleanTokens();
-                return PBX_ReturnReady(normal:"Ready3"); 
+                return PBX_ReturnReady(); 
 
             case SELECT_SEMI: case SELECT_BURST: case SELECT_FULLAUTO:
                 setFireMode(tokens); 
                 printMode();
                 break;
-
-            case THROW_SMOKE:
-                cleanTokens();
-                if(CountInv("MP5Smoke") < 1)
-                {
-                    A_Print("$PBX_MP5_NoSmoke");
-                    return resolvestate("Ready3");
-                }
-                return resolvestate("ThrowSmoke");
 
             case TOGGLE_LASER:
                 PBX_ToggleLaserSight(skipPlaySound:true);
@@ -246,8 +233,6 @@ class PBX_MP5 : PBX_WeaponBase
 			return SELECT_FULLAUTO;
 		else if (FindInventory("PBX_Toggle_Laser"))
 			return TOGGLE_LASER;
-        else if (FindInventory("MP5_Throw_Smoke"))
-			return THROW_SMOKE;
 		else if (FindInventory("PBX_CloseWheel"))
 			return CLOSE_WHEEL;
 		else
@@ -257,7 +242,6 @@ class PBX_MP5 : PBX_WeaponBase
     private
     action void cleanTokens()
     {
-        A_SetInventory("MP5_Throw_Smoke",0);
         A_SetInventory("MP5_Select_Semi",0);
         A_SetInventory("MP5_Select_Burst",0);
         A_SetInventory("MP5_Select_FullAuto",0);
@@ -368,8 +352,8 @@ class PBX_MP5 : PBX_WeaponBase
 			TNT1 A 0 A_JumpIf(getBurst(), "FireLoop");
         FireEnd:
 			TNT1 A 0 setBurstCount(0);
-			XIMA C 1 bright;
-			CONT AAA 1 MP5_Refire();
+			XIMA C 1 bright MP5_Refire();
+			CONT AAA 1 A_DoPBWeaponAction();
 			TNT1 A 0 { invoker.mSemiClear = false; }
             goto Ready3;
 
@@ -388,8 +372,8 @@ class PBX_MP5 : PBX_WeaponBase
 			TNT1 A 0 A_JumpIf(getBurst(), "Fire2Loop");
         Fire2End:
 			TNT1 A 0 setBurstCount(0);
-			ISSA J 1 bright;
-			ISSA FFF 1 MP5_Refire();
+			ISSA J 1 bright MP5_Refire();
+			ISSA FFF 1 A_DoPBWeaponAction();
 			TNT1 A 0 { invoker.mSemiClear = false; }
             goto Ready2;
   
@@ -546,23 +530,6 @@ class PBX_MP5 : PBX_WeaponBase
 			TNT1 A 0 A_StartSound("MS/Button",CHAN_WEAPON,CHANF_OVERLAP);
 			MAPP F 6;
 			MAPP EDCB 1;
-            goto Ready3;            
-
-        ThrowSmoke:
-            TNT1 A 0 A_SetInventory("PlayerIsThrowingAGrenade",1);
-		    STGR MLKJIH 1 PB_SetRoll(roll+0.5);
-            TNT1 A 0 A_StartSound("OPNGRN",CHAN_AUTO,CHANF_OVERLAP);
-            STGR GFE 1 PB_SetRoll(roll+0.5);
-            STGR DCB 1;
-            TNT1 A 1 PB_SetRoll(roll-18.0);
-			HND1 I 1 A_StartSound("THRGRN",CHAN_AUTO,CHANF_OVERLAP);
-			HND1 J 1;
-            TNT1 A 0 {
-				A_FireProjectile("PBX_ThrownSmokeGrenade",0,0,0,0,0,0);
-				A_TakeInventory("MP5Smoke", 1, TIF_NOTAKEINFINITE);
-				A_FireProjectile("Alerter",0,0,0,0,0,0);
-			}
-			HND1 KLMNOPQ 1 PB_SetRoll(roll-5.0);
             goto Ready3;            
 
 //////////////////////////// FLASH STATES ////////////////////////////////////////////////////////////////////////////////////

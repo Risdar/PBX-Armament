@@ -3,18 +3,6 @@ AddOptionMenu "PB_AddonOptions"
     Submenu "$PBX_Armament_Settings", "PBX_Armament_Menu"
 }
 
-AddOptionMenu "PBXCore_Menu"
-{
-    StaticText	"--------- PBX Weapons Settings ---------", 1
-    Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Armament_SendTip", "OnOff","PBXCore_SendTip"
-    Option "$PBX_Weapons_MENU_ENABLE_KEEPWEAPONS", "PBX_Weapons_keepweapons", "OnOff"
-    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Chainsaw_filter 0; set PBX_Pistol_filter 0; set PBX_Shotgun_filter 0; set PBX_SSG_filter 0; set PBX_Chaingun_filter 0; set PBX_RocketLauncher_filter 0; set PBX_Plasma_filter 0; set PBX_BFG_filter 0;set PBX_BackPack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretWeapon_filter 0;"
-    SafeCommand "$PBX_Weapons_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Armament_weaponTipFlags 0; set PBX_Armament_upgradeTipFlags 0"
-    StaticText "$PBX_Armament_Version",red
-    StaticText " "
-}
-
 OptionMenu "PBX_Armament_Menu"
 {
     Title "$PBX_Armament_Settings"
@@ -25,7 +13,7 @@ OptionMenu "PBX_Armament_Menu"
     Option "$PBX_Weapons_MENU_ENABLE_TOOLTIPS", "PBX_Armament_SendTip", "OnOff","PBXCore_SendTip"
     Option "$PBX_Weapons_MENU_ENABLE_KEEPWEAPONS", "PBX_Weapons_keepweapons", "OnOff"
     StaticText " "
-    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Chainsaw_filter 0; set PBX_Pistol_filter 0; set PBX_Shotgun_filter 0; set PBX_SSG_filter 0; set PBX_Chaingun_filter 0; set PBX_RocketLauncher_filter 0; set PBX_Plasma_filter 0; set PBX_BFG_filter 0;set PBX_BackPack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretWeapon_filter 0;"
+    SafeCommand "$PBX_Weapons_MENU_RESET_SPAWNERS", "set PBX_Chainsaw_filter 0; set PBX_Pistol_filter 0; set PBX_Shotgun_filter 0; set PBX_SSG_filter 0; set PBX_Chaingun_filter 0; set PBX_RocketLauncher_filter 0; set PBX_Plasma_filter 0; set PBX_BFG_filter 0;set PBX_BackPack_filter 0;set PBX_MonsterWeapon_filter 0;set PBX_SecretWeapon_filter 0;set PBX_Equipments_filter 0;"
     SafeCommand "$PBX_Weapons_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
     SafeCommand "$PBX_Weapons_MENU_RESET_PBX_Weapons_TOOLTIPS", "set PBX_Armament_weaponTipFlags 0; set PBX_Armament_upgradeTipFlags 0"
     StaticText " "
@@ -179,6 +167,8 @@ AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
 }
 
 // Backpacks/Upgrades/Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Backpack
 // TIER 1
 AddOptionMenu "AddonAmmoSpawns" after "PACKT1"
 {
@@ -188,7 +178,8 @@ AddOptionMenu "AddonAmmoSpawns" after "PACKT1"
 // TIER 2
 AddOptionMenu "AddonAmmoSpawns" after "PACKT2"
 {
-    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE",      "PBX_BackPack_filter",    "OffOn", 3
+    FlagOption    "$PBX_Weapons_CROSSBOW_BALLISTA_UPGRADE",     "PBX_BackPack_filter",      "OffOn", 3
+    FlagOption    "$PBX_Equipments_MedPack",                    "PBX_Equipments_filter",    "OffOn", 2
 }
 
 // TIER 3
@@ -201,11 +192,26 @@ AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
 	FlagOption    "$PBX_Weapons_LMG_EDIT",                       "PBX_BackPack_filter",    "OffOn", 8
 }
 
-// OTHERS
+// Shellbox
+// TIER 3
 AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 {
     FlagOption    "$PBX_Weapons_CSSG_UPGRADES",                  "PBX_BackPack_filter",    "OffOn", 0
     FlagOption    "$PBX_Weapons_Shotvolver",                     "PBX_BackPack_filter",    "OffOn", 10
+}
+
+// Single Rockets
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
+{
+    FlagOption    "$PBX_Equipments_IncenGrenade",           "PBX_Equipments_filter",    "OffOn", 0
+}
+
+// Rocket Box
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "BROKT3"
+{
+    FlagOption    "$PBX_Equipments_SmokeGrenade",           "PBX_Equipments_filter",    "OffOn", 1
 }
 
 /* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"

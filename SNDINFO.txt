@@ -1,3 +1,4 @@
+$include "sndinfo/SNDINFO.Equipments"
 $include "sndinfo/SNDINFO.slot2"
 $include "sndinfo/SNDINFO.slot3"
 $include "sndinfo/SNDINFO.slot4"

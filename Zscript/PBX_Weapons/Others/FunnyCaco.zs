@@ -320,7 +320,7 @@ class CacoHandler : EventHandler
 
         Vector2 centerPos = makeDrawPos(event, target, target.height / 2.0);
 
-        string ky  = "$PBX_PBX_RideableCaco_Stealth";   // add this to your LANGUAGE lump
+        string ky  = "$PBX_RideableCaco_Stealth";   // add this to your LANGUAGE lump
         string ky2 = string.format("[%s]", PB_HelpNotificationsHandler.PB_FormatKeybinds("+USE"));
 
         int wd  = mNameFont.StringWidth(ky);

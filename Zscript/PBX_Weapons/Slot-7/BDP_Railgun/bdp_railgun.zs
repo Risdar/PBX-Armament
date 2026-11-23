@@ -235,14 +235,12 @@ Class PBX_BDPRailgun : PBX_WeaponBase
 				PB_SetRoll(0);
 				A_SetCrosshair(-1);
 			}
-        Fire2Actual:
             TNT1 A 0 PB_JumpIfNoAmmo(emptysound:"RAILDRY");
             SNIP B 30 Bright {
                 A_firenurailgun();
                 A_GunLight();
             }
             // TNT1 A 0 PB_JumpIfNoAmmo();
-        FireAimCont:
             TNT1 A 0 A_StartSound("RAILMAG2", 5);
             SNIP BB 1 BRIGHT;
             TNT1 A 0 {

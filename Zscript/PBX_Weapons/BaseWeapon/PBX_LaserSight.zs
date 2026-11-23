@@ -233,10 +233,11 @@ mixin class PBX_LaserSight
 		let psp = owner.player.FindPSprite(PSP_WEAPON); if(!psp) return;
 
         bool inReady = InStateSequence(psp.curstate, ResolveState(defaultReadyState)) || InStateSequence(psp.curstate, ResolveState(defaultDualState));
+        bool grabbingLedge = owner.CountInv("Grabbing_A_Ledge") > 0;
 
         for (int i = 0; i < blockedLaserStates.Size(); i++)
         {
-            if(InStateSequence(psp.curstate, ResolveState(blockedLaserStates[i])) && !inReady)
+            if(InStateSequence(psp.curstate, ResolveState(blockedLaserStates[i])) && !inReady && !grabbingLedge)
             {
                 // console.printf("blocked state is at index %d",i);
                 ClearPuff();

@@ -21,6 +21,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_PlasmaBlaster"
 		,"PBX_Shotvolver"
 		,"PB_Pistol"
+		,"PBX_44PDW"
 		,"PB_SMG"
 		,"PBX_MP5"
 		// ,"PB_Revolver"
@@ -55,7 +56,6 @@ class PBXCore_Player : PB_PlayerPrawn
 		
 		Player.WeaponSlot 5
 		,"PB_MG42"
-		,"PBX_EternalMinigun"
 		,"PB_Minigun"
 		,"PB_Nailgun"
 		,"PBX_NeoHMG"
@@ -97,6 +97,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		,"PBX_DemonExt"
 		,"PBX_HexaShotgun"
 		,"PBX_RipperChaingun"
+		,"PBX_EternalMinigun"
 		;
 
 		Player.StartItem "PB_DMR"; // This is so the DMR is the first weapon selected
@@ -107,6 +108,7 @@ class PBXCore_Player : PB_PlayerPrawn
 		Player.StartItem "LeverActionAmmo", PBX_Prosurv_LeverAction.MAGAZINE_SIZE;
 		Player.StartItem "ShotvolverAmmo", PBX_Shotvolver.CHAMBER_AMOUNT;
 		Player.StartItem "MP5Ammo", PBX_MP5.MAGAZINE_SIZE;
+		Player.StartItem "PDWAmmo", PBX_44PDW.MAGAZINE_SIZE;
 		// SLOT 3
 		Player.StartItem "PumpShotgunAmmo", PBX_ProSurvPSG.MAGAZINE_SIZE;
 		Player.StartItem "CSSGShellsIn", PBX_CSSG.BARREL_CAPACITY;

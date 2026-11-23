@@ -1,0 +1,27 @@
+[enu default]
+
+//////////////////////////// INCENDIARY GRENADE ///////////////////////////////////////////////////////////////////////////////
+PB_INCENDIARYGRENADE_TAG = "Incendiary Grenade";
+PB_INCENDIARYGRENADE_WHEEL = "Equipment Selected: \cgIncendiary Grenade";
+PB_INCENDIARYGRENADE_OUT = "No Incendiary Grenades Remaining";
+
+//////////////////////////// SMOKE GRENADE ///////////////////////////////////////////////////////////////////////////////
+PBX_SMOKEGRENADE_TAG = "Smoke Grenade";
+PBX_SMOKEGRENADE_WHEEL = "Equipment Selected: \cuSmoke Grenade";
+PBX_SMOKEGRENADE_OUT = "No \cuSmoke Grenades\c- Remaining";
+
+PBX_SMOKEGRENADE_PICKUP = "You got a Box of Experimental Smoke Grenades";
+PBX_SMOKEGRENADE_TAG2 = "Box of Smoke Grenades";
+
+PBX_SMOKEGRENADE_TIP = "Smoke Grenades will trigger infights";
+
+//////////////////////////// MED PACK ///////////////////////////////////////////////////////////////////////////////
+PB_MEDPACK_TAG = "First Aid Kit";
+PB_MEDPACK_WHEEL = "Equipment Selected: \cgFirst Aid Kit";
+PB_MEDPACK_OUT = "First Aid Kit is Empty";
+
+PB_MEDPACK_FULL = "You're already at Max HP";
+PB_MEDPACK_PICKUP = "You found a First Aid Kit";
+
+
+

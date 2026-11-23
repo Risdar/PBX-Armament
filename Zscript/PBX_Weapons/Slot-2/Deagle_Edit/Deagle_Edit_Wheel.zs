@@ -28,11 +28,11 @@ Class DeagleEditWheel : wheelinfocontainer
         // Dual Wield
 		if(deag.akimboMode)
 		{
-			PBX_AddWheel(spw, img:"DeagleEdit/LaserOff",	alias:"$PBX_RevEdit_Single",	token:"Deagle_Toggle_DualWield");
+			PBX_AddWheel(spw, img:"DeagleEdit/LaserOff",	alias:"$PBX_DeagleEdit_Single",	token:"Deagle_Toggle_DualWield");
 		}
 		else
 		{
-			PBX_AddWheel(spw, img:"DeagleEdit/dualwield",	alias:"$PBX_RevEdit_Akimbo",	token:"Deagle_Toggle_DualWield");
+			PBX_AddWheel(spw, img:"DeagleEdit/dualwield",	alias:"$PBX_DeagleEdit_Akimbo",	token:"Deagle_Toggle_DualWield");
 		}
 		
 		// Laser

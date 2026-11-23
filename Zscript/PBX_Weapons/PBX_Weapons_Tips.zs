@@ -1,4 +1,4 @@
-enum PBX_Weapons_eWeaponTipFlags
+enum PBX_WeaponTipFlags
 {
     // SLOT 2
     PBX_TIP_MP5                  = 1 << 0
@@ -27,8 +27,14 @@ enum PBX_Weapons_eWeaponTipFlags
     ,PBX_TIP_DEMONICWEAPON       = 1 << 31
 }
 
+enum PBX_EquipmentTipFlags
+{
+    PBX_TIP_SMOKEGREN         = 1 << 0
+}
+
 const WEAPON_HELPTEXT = "PBX_Armament_weaponTipFlags";
 const WEAPON_UPGRADE_HELPTEXT = "PBX_Armament_upgradeTipFlags";
+const EQUIPMENTS_HELPTEXT = "PBX_Armament_equipmentTipFlags";
 
 extend class PBX_WeaponBase
 {

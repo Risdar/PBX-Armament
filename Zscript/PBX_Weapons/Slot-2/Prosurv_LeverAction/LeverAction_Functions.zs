@@ -156,7 +156,7 @@ extend class PBX_Prosurv_LeverAction
 			return PBX_ReturnReady();
 		}
 
-		switch(getTokens())
+		switch(tokens)
 		{
 			case NO_UPGRADE:
 				clearLAModeTokens();
@@ -167,11 +167,11 @@ extend class PBX_Prosurv_LeverAction
 				clearLAModeTokens();
 				PBX_ToggleLaserSight();
 				// Plays the switch animation only when its not in ADS
-				return PBX_ReturnReady(null,"WeaponSwitch");
+				return PBX_ReturnReady(zoomed:null,normal:"WeaponSwitch");
 
 			// token cleanup is handled in the actual mode change
 			case SELECT_MARLIN: case SELECT_MAGNUM:
-				A_Print(mode == SELECT_MARLIN ? "$PBX_LeverAction_Marlin" : "$PBX_LeverAction_Magnum", 2);
+				A_Print(tokens == SELECT_MARLIN ? "$PBX_LeverAction_Marlin" : "$PBX_LeverAction_Magnum", 2);
 				if(invoker.ammo2.amount == 0)
 				{
 					return resolvestate("finishunload");

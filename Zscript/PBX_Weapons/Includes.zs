@@ -24,6 +24,7 @@
 #include "./Slot-2/Deagle_Edit/Deagle_Edit.zs" // Deagle Edit 
 #include "./Slot-2/ShotVolver/ShotVolver.zs" // Shotvolver 
 #include "./Slot-2/MP5/MP5.zs" // MP5 
+#include "./Slot-2/44PDW/44PDW.zs" // .44 PDW 
 
 // Slot 3
 #include "./Slot-3/CSSG/CSSG.zs" // CSSG
