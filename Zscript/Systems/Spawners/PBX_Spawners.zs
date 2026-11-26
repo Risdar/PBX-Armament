@@ -6,9 +6,16 @@ class PBX_Injector : PBInjector
 {
 	override void Init(PB_EventHandler handler)
 	{
-		injectWeapons(handler);
-		injectUpgrades(handler);
-		injectEquipments(handler);
+		if(PBX_MODULE_WEAPONS)
+		{
+			injectWeapons(handler);
+			injectUpgrades(handler);
+		}
+
+		if(PBX_MODULE_EQUIPMENTS)
+		{
+			injectEquipments(handler);
+		}
 	}
 
 //////////////////////////// HELPERS ////////////////////////////////////////////////////////////////////////////////////
@@ -26,26 +33,38 @@ extend class PBX_Handler
 	// When player spawns/world is loaded
 	override void WorldLoaded(WorldEvent e)
 	{
-		PBX_SpawnSecretWeapons();
+		if(PBX_MODULE_EQUIPMENTS && PBX_CVAR_SECRET_WEAPONS)
+		{
+			PBX_SpawnSecretWeapons();
+		}
 	}
 
 	// Replace actors
 	override void CheckReplacement(ReplaceEvent e) 
 	{
-		PBX_ReplaceWeapons(e);
+		if(PBX_MODULE_WEAPONS) 
+		{
+			PBX_ReplaceWeapons(e);
+		}
     }
 
 	// When something is spawned, for example
 	// when a zombie drop an smg and you want to replace that
     override void WorldThingSpawned(WorldEvent e)
     {
-        PBX_ReplaceSpawnedWeapons(e);
+		if(PBX_MODULE_WEAPONS) 
+		{
+			PBX_ReplaceSpawnedWeapons(e);
+		}
     }
 
 	// Same as above but when something dies
 	override void WorldThingDied(WorldEvent e)
     {
-        PBX_MonsterDropWeapons(e);
+		if(PBX_MODULE_WEAPONS) 
+		{
+			PBX_MonsterDropWeapons(e);
+		}
     }
 	
 }

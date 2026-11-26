@@ -258,7 +258,7 @@ extend class PBX_Handler
 	void PBX_SpawnSecretWeapons()
 	{
 		// Only do it once
-		if(mSecretWeaponSpawned || !PBX_CVAR_SECRET_WEAPONS) return;
+		if(mSecretWeaponSpawned) return;
 
 		int mSpawnChance = random(1,100);
 		if(mSpawnChance > PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE) //5% chance of spawning by default

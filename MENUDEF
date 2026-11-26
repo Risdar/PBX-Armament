@@ -35,7 +35,15 @@ ListMenu "MainMenu"
 //////////////// ADDONS MENU /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 AddOptionMenu "PB_AddonOptions"
 {
-    StaticText " "
+    Submenu "$PBX_MENU_GENERAL", "PBX_General_Menu"
+}
+
+//////////////// GENERAL MENU /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+OptionMenu "PBX_General_Menu"
+{
+    Title "$PBX_MENU_WEAPONS"
+	Class "PB_OptionMenu"
+    Position	-48
     StaticText	"--------- Project Brutality Extended Settings ---------", 1
     Option  "$PBXCORE_DEBUG_MODE", "PBX_DEBUG", "OnOff"
 	Option  "$PBXCORE_PRINT_VERSION", "PBX_SHOW_VERSION", "OnOff"
@@ -44,44 +52,74 @@ AddOptionMenu "PB_AddonOptions"
     SafeCommand "$PBX_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
     SafeCommand "$PBX_MENU_RESET_PBXTOOLTIPS", "set PBX_TIP_FLAGS_WEAPONS 0; set PBX_TIP_FLAGS_UPGRADES 0; ; set PBX_TIP_FLAGS_EQUIPMENTS 0"
     StaticText " "
-
-    Submenu "$PBX_MENU_WEAPONS", "PBX_Weapons_Menu"
-    Submenu "$PBX_MENU_GAMEPLAY", "PBX_Gameplay_Menu"
-    Submenu "$PBX_MENU_HUD", "PBX_Hud_Menu"
+    StaticText	"--------- Modules Master Control ---------", 1
+    Option  "$PBX_MODULE_WEAPONS", "PBX_MODULE_WEAPONS", "OnOff"
+    Option  "$PBX_MODULE_EQUIPMENTS", "PBX_MODULE_EQUIPMENTS", "OnOff"
     StaticText " "
+    StaticText	"--------- Configure Modules ---------", 1
+    Submenu "$PBX_MENU_HUD", "PBX_Hud_Menu"
+    Submenu "$PBX_MENU_GAMEPLAY", "PBX_Gameplay_Menu"
+    Submenu "$PBX_MENU_WEAPONS", "PBX_Weapons_Menu"
+    StaticText " "
+    StaticText	"--------- Configure Spawns ---------", 1
+	Submenu		"Weapons",	"AddonWeaponSpawns"
+	Submenu		"Monsters",	"AddonMonsterSpawns"
+	Submenu		"Health/Armor",	"AddonHealthArmorSpawns"
+	Submenu		"Ammunition",	"AddonAmmoSpawns"
+	Submenu		"Powerups",	"AddonPowerupSpawns"
+}
+
+//////////////// HUD MENU /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+OptionMenu "PBX_Hud_Menu"
+{
+    Title "$PBX_MENU_HUD"
+	Class "PB_OptionMenu"
+    Position	-48
+    StaticText	"--------- Weapon HUD Settings ---------", 1
+    FlagOption "$PBX_MENU_HUD_WEAPONHUD",            "PBXCore_HudFlags",    "OffOn", 0
+    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_WEAPON_X",          -700, 700, 1
+    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_WEAPON_Y",          -700, 700, 1
+    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_WEAPON_SCALE",      0.1, 10, 0.1
+    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_WEAPON_ALPHA",      0, 1, 0.02, 2
+    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_WEAPON_BOX_W",       1, 250, 1
+    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_WEAPON_BOX_H",       1, 250, 1 */
+    StaticText " "
+    FlagOption "$PBX_MENU_HUD_WEAPONMODEHUD",       "PBXCore_HudFlags",    "OffOn", 1
+    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_WEAPON_MODE_HUD_X",      -700, 700, 1
+    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_WEAPON_MODE_HUD_Y",      -700, 700, 1
+    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_WEAPON_MODE_HUD_SCALE",  0.1, 10, 0.1
+    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_WEAPON_MODE_HUD_ALPHA",  0, 1, 0.02, 2
+    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_W",   1, 250, 1
+    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_H",   1, 250, 1 */
+    StaticText " "
+    StaticText	"--------- Armor HUD Settings ---------", 1
+    FlagOption "$PBX_MENU_HUD_ARMORHUD",             "PBXCore_HudFlags",    "OffOn", 2
+    FlagOption "$PBX_MENU_HUD_ARMORHUD_BACKGROUND",  "PBXCore_HudFlags",    "OffOn", 3
+    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_ARMOR_X",      -700, 700, 1
+    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_ARMOR_Y",      -700, 700, 1
+    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_ARMOR_SCALE",  0.1, 10, 0.1
+    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_ARMOR_ALPHA",  0, 1, 0.02, 2
+    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_ARMOR_BOX_W",   1, 250, 1
+    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_ARMOR_BOX_H",   1, 250, 1 */
+    StaticText " "
+    // Reset
+    StaticText	"--------- Reset to Defaults ---------", 1
+    SafeCommand  "$PBXCORE_HUD_RESET", "set PBXCore_HudFlags 0"
+    SafeCommand  "$PBXCORE_WEAPONHUD_RESET", "resetcvar PBX_CVAR_HUD_WEAPON_X; resetcvar PBX_CVAR_HUD_WEAPON_Y; resetcvar PBX_CVAR_HUD_WEAPON_SCALE; resetcvar PBX_CVAR_HUD_WEAPON_ALPHA; resetcvar PBX_CVAR_HUD_WEAPON_BOX_W; resetcvar PBX_CVAR_HUD_WEAPON_BOX_H"
+    SafeCommand  "$PBXCORE_WEAPONMODEHUD_RESET", "resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_X; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_Y; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_SCALE; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_ALPHA; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_W; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_H"
+    SafeCommand  "$PBXCORE_ARMORHUD_RESET", "resetcvar PBX_CVAR_HUD_ARMOR_X; resetcvar PBX_CVAR_HUD_ARMOR_Y; resetcvar PBX_CVAR_HUD_ARMOR_SCALE; resetcvar PBX_CVAR_HUD_ARMOR_ALPHA; resetcvar PBX_CVAR_HUD_ARMOR_BOX_W; resetcvar PBX_CVAR_HUD_ARMOR_BOX_H"
+    StaticText " "
+    StaticText "$PBX_VERSION",cyan
 }
 
 //////////////// GAMEPLAY MENU /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-OptionMenu "PBX_Weapons_Menu"
-{
-    Title "$PBX_MENU_WEAPONS"
-	Class "PB_OptionMenu"
-    Position	-48
-    StaticText	"--------- Weapon Settings ---------", 1
-    Option "$PBX_MENU_ENABLE_KEEPWEAPONS", "PBX_CVAR_KEEP_WEAPONS", "OnOff"
-    StaticText " "
-    SafeCommand "$PBX_MENU_RESET_SPAWNERS", "set PBX_SPAWN_FLAGS_CHAINSAW 0; set PBX_SPAWN_FLAGS_PISTOL 0; set PBX_SPAWN_FLAGS_SHOTGUN 0; set PBX_SPAWN_FLAGS_SSG 0; set PBX_SPAWN_FLAGS_CHAINGUN 0; set PBX_SPAWN_FLAGS_ROCKET_LAUNCHER 0; set PBX_SPAWN_FLAGS_PLASMA 0; set PBX_SPAWN_FLAGS_BFG 0;set PBX_SPAWN_FLAGS_BACKPACK 0;set PBX_SPAWN_FLAGS_MONSTER_WEAPONS 0;set PBX_SPAWN_FLAGS_SECRET_WEAPONS 0;set PBX_SPAWN_FLAGS_EQUIPMENTS 0;"
-    StaticText " "
-    Option "$PBX_MENU_ASSAULT_RIFLE_START", "PBX_CVAR_ASSAULT_RIFLE_START", "OnOff"
-    Option "$PBX_MENU_CROSSBOW_START", "PBX_CVAR_CROSSBOW_START", "OnOff"
-    Option "$PBX_MENU_LASER_SIGHT_BEAM", "PBX_CVAR_LASER_SIGHT_BEAM", "OnOff"
-    StaticText " "
-    Option "$PBX_MENU_SECRET_WEAPONS", "PBX_CVAR_SECRET_WEAPONS", "OnOff"
-    Slider "$PBX_MENU_SECRET_WEAPONS_SPAWN_CHANCE",  "PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE",     1, 100, 1,0,"PBX_CVAR_SECRET_WEAPONS"
-    StaticText " "
-    Slider "$PBX_MENU_COOLDOWN_MEATHOOK",        "PBX_COOLDOWN_MEATHOOK",        1, 500, 1
-    Slider "$PBX_MENU_COOLDOWN_COIN",           "PBX_COOLDOWN_COIN",           1, 500, 1
-    SafeCommand "$PBX_MENU_COOLDOWN_RESET", "resetcvar PBX_COOLDOWN_COIN; resetcvar PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE; resetcvar PBX_COOLDOWN_MEATHOOK;"
-    StaticText " "
-}
-
 OptionMenu "PBX_Gameplay_Menu"
 {
     Title "$PBX_MENU_GAMEPLAY"
 	Class "PB_OptionMenu"
     Position	-48
     StaticText	"--------- Hit Feedback Settings ---------", 1
-    Option "$PBX_MENU_HF",                        "PBX_CVAR_HF", "OnOff","PBX_COMPAT_ULTIMATEVISOR",0,1
+    Option "$PBX_MENU_HF",                        "PBX_CVAR_HF", "OnOff", "PBX_COMPAT_ULTIMATEVISOR", 0, 1
     StaticText " "
 
     StaticText " "
@@ -162,44 +200,26 @@ optionvalue "D4DAnimTypes"
 	6,"Float & grow"
 }
 
-OptionMenu "PBX_Hud_Menu"
+//////////////// WEAPONS MENU /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+OptionMenu "PBX_Weapons_Menu"
 {
-    Title "$PBX_MENU_HUD"
+    Title "$PBX_MENU_WEAPONS"
 	Class "PB_OptionMenu"
     Position	-48
-    StaticText	"--------- Weapon HUD Settings ---------", 1
-    FlagOption "$PBX_MENU_HUD_WEAPONHUD",            "PBXCore_HudFlags",    "OffOn", 0
-    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_WEAPON_X",          -700, 700, 1
-    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_WEAPON_Y",          -700, 700, 1
-    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_WEAPON_SCALE",      0.1, 10, 0.1
-    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_WEAPON_ALPHA",      0, 1, 0.02, 2
-    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_WEAPON_BOX_W",       1, 250, 1
-    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_WEAPON_BOX_H",       1, 250, 1 */
+    StaticText	"--------- Weapon Settings ---------", 1
+    Option "$PBX_MENU_ENABLE_KEEPWEAPONS", "PBX_CVAR_KEEP_WEAPONS", "OnOff"
     StaticText " "
-    FlagOption "$PBX_MENU_HUD_WEAPONMODEHUD",       "PBXCore_HudFlags",    "OffOn", 1
-    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_WEAPON_MODE_HUD_X",      -700, 700, 1
-    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_WEAPON_MODE_HUD_Y",      -700, 700, 1
-    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_WEAPON_MODE_HUD_SCALE",  0.1, 10, 0.1
-    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_WEAPON_MODE_HUD_ALPHA",  0, 1, 0.02, 2
-    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_W",   1, 250, 1
-    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_H",   1, 250, 1 */
+    SafeCommand "$PBX_MENU_RESET_SPAWNERS", "set PBX_SPAWN_FLAGS_CHAINSAW 0; set PBX_SPAWN_FLAGS_PISTOL 0; set PBX_SPAWN_FLAGS_SHOTGUN 0; set PBX_SPAWN_FLAGS_SSG 0; set PBX_SPAWN_FLAGS_CHAINGUN 0; set PBX_SPAWN_FLAGS_ROCKET_LAUNCHER 0; set PBX_SPAWN_FLAGS_PLASMA 0; set PBX_SPAWN_FLAGS_BFG 0;set PBX_SPAWN_FLAGS_BACKPACK 0;set PBX_SPAWN_FLAGS_MONSTER_WEAPONS 0;set PBX_SPAWN_FLAGS_SECRET_WEAPONS 0;set PBX_SPAWN_FLAGS_EQUIPMENTS 0;"
     StaticText " "
-    StaticText	"--------- Armor HUD Settings ---------", 1
-    FlagOption "$PBX_MENU_HUD_ARMORHUD",             "PBXCore_HudFlags",    "OffOn", 2
-    FlagOption "$PBX_MENU_HUD_ARMORHUD_BACKGROUND",  "PBXCore_HudFlags",    "OffOn", 3
-    Slider     "$PBX_MENU_HUD_HORIZONTAL",        "PBX_CVAR_HUD_ARMOR_X",      -700, 700, 1
-    Slider     "$PBX_MENU_HUD_VERTICAL",          "PBX_CVAR_HUD_ARMOR_Y",      -700, 700, 1
-    Slider     "$PBX_MENU_HUD_SCALE",                 "PBX_CVAR_HUD_ARMOR_SCALE",  0.1, 10, 0.1
-    Slider     "$PBX_MENU_HUD_TRANSPARENCY",	        "PBX_CVAR_HUD_ARMOR_ALPHA",  0, 1, 0.02, 2
-    /* Slider     "Scale Cut-Off (X)",     "PBX_CVAR_HUD_ARMOR_BOX_W",   1, 250, 1
-    Slider     "Scale Cut-Off (Y)",     "PBX_CVAR_HUD_ARMOR_BOX_H",   1, 250, 1 */
+    Option "$PBX_MENU_ASSAULT_RIFLE_START", "PBX_CVAR_ASSAULT_RIFLE_START", "OnOff"
+    Option "$PBX_MENU_CROSSBOW_START", "PBX_CVAR_CROSSBOW_START", "OnOff"
+    Option "$PBX_MENU_LASER_SIGHT_BEAM", "PBX_CVAR_LASER_SIGHT_BEAM", "OnOff"
     StaticText " "
-    // Reset
-    StaticText	"--------- Reset to Defaults ---------", 1
-    SafeCommand  "$PBXCORE_HUD_RESET", "set PBXCore_HudFlags 0"
-    SafeCommand  "$PBXCORE_WEAPONHUD_RESET", "resetcvar PBX_CVAR_HUD_WEAPON_X; resetcvar PBX_CVAR_HUD_WEAPON_Y; resetcvar PBX_CVAR_HUD_WEAPON_SCALE; resetcvar PBX_CVAR_HUD_WEAPON_ALPHA; resetcvar PBX_CVAR_HUD_WEAPON_BOX_W; resetcvar PBX_CVAR_HUD_WEAPON_BOX_H"
-    SafeCommand  "$PBXCORE_WEAPONMODEHUD_RESET", "resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_X; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_Y; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_SCALE; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_ALPHA; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_W; resetcvar PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_H"
-    SafeCommand  "$PBXCORE_ARMORHUD_RESET", "resetcvar PBX_CVAR_HUD_ARMOR_X; resetcvar PBX_CVAR_HUD_ARMOR_Y; resetcvar PBX_CVAR_HUD_ARMOR_SCALE; resetcvar PBX_CVAR_HUD_ARMOR_ALPHA; resetcvar PBX_CVAR_HUD_ARMOR_BOX_W; resetcvar PBX_CVAR_HUD_ARMOR_BOX_H"
+    Option "$PBX_MENU_SECRET_WEAPONS", "PBX_CVAR_SECRET_WEAPONS", "OnOff"
+    Slider "$PBX_MENU_SECRET_WEAPONS_SPAWN_CHANCE",  "PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE",     1, 100, 1,0,"PBX_CVAR_SECRET_WEAPONS"
     StaticText " "
-    StaticText "$PBX_VERSION",cyan
+    Slider "$PBX_MENU_COOLDOWN_MEATHOOK",        "PBX_COOLDOWN_MEATHOOK",        1, 500, 1
+    Slider "$PBX_MENU_COOLDOWN_COIN",           "PBX_COOLDOWN_COIN",           1, 500, 1
+    SafeCommand "$PBX_MENU_COOLDOWN_RESET", "resetcvar PBX_COOLDOWN_COIN; resetcvar PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE; resetcvar PBX_COOLDOWN_MEATHOOK;"
+    StaticText " "
 }

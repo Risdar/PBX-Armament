@@ -5,6 +5,7 @@ enum PBX_Equipment_SpawnFlags
 	,DisableEQ_SmokeGrenade			= 1 << 1
 	,DisableEQ_MedPack				= 1 << 2
 	,DisableEQ_Charges				= 1 << 3
+	,DisableEQ_Tripmine				= 1 << 4
 }
 
 extend class PBX_Injector
@@ -43,5 +44,13 @@ extend class PBX_Injector
 			handler.InjectSpawn('PB_RocketSpawnerT3', 'PBX_SwarmChargeAmmo', 255, 1);
 			handler.InjectSpawn('PB_RocketBoxSpawnerT3', 'PBX_ChargesPack', 255, 1);
 		}
+
+		// Tripmine
+		if(!CheckFlag(equipmentFlag, DisableEQ_Tripmine))
+		{
+			handler.InjectSpawn('PB_RocketSpawnerT1', 'PBX_TripmineAmmo', 255, 1);
+		}
+		
+		
 	}
 }

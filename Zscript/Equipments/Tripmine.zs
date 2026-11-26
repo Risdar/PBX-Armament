@@ -16,7 +16,7 @@ class PBX_TripmineToken : PBX_Equipment
 {
 	Default 
     {
-		Inventory.Icon "ALISTINC";
+		Inventory.Icon "TRPMNICO";
 		PB_Equipment.AmmoType "PBX_TripmineAmmo";
 		PB_Equipment.SelectString "$PBX_TRIPMINE_WHEEL";
 		PB_Equipment.FailString "$PBX_TRIPMINE_OUT";
@@ -62,7 +62,7 @@ class PBX_TripmineAmmo : PB_Ammo
         Inventory.PickupSound "Ammocase/Open";
 		Ammo.BackpackAmount 1;
 		Ammo.BackpackMaxAmount 8;
-		Scale 0.08;
+		Scale 0.2;
 	}
 	
 	override void PB_SetAmmoSprite()

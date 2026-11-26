@@ -9,7 +9,13 @@ server bool PBX_COMPAT_GLORYKILL = false;
 server bool PBX_COMPAT_MONSTERPACK = false;
 server bool PBX_COMPAT_ULTIMATEVISOR = false;
 
-// HUD
+// Master Switch
+server bool PBX_MODULE_WEAPONS = true;
+server bool PBX_MODULE_EQUIPMENTS = true;
+server bool PBX_MODULE_ARMORS = true;
+server bool PBX_MODULE_POWERUPS = true;
+
+//////////////// HUD /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 server int PBXCore_HudFlags = 0;
 
 user int PBX_CVAR_HUD_WEAPON_X = -100;
@@ -54,18 +60,6 @@ server int PBX_SPAWN_FLAGS_BACKPACK = 0;
 
 server int PBX_SPAWN_FLAGS_SECRET_WEAPONS = 0;
 server int PBX_SPAWN_FLAGS_MONSTER_WEAPONS = 0;
-
-//////////////// WEAPONS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-server bool PBX_CVAR_ASSAULT_RIFLE_START = false;
-server bool PBX_CVAR_CROSSBOW_START = false;
-server bool PBX_CVAR_SECRET_WEAPONS = true;
-server bool PBX_CVAR_KEEP_WEAPONS = false;
-server bool PBX_CVAR_LASER_SIGHT_BEAM = true;
-server int PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE = 5;
-
-// Cooldowns
-server int PBX_COOLDOWN_MEATHOOK = 3;
-server int PBX_COOLDOWN_COIN = 5;
 
 //////////////// GAMEPLAY /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hit Feedback
@@ -115,3 +109,15 @@ server color OuchFlash_Poison 		= "00FF00";
 server color OuchFlash_Plasma 		= "3856ff";
 server color OuchFlash_Freeze 		= "6bf0ff";
 server color OuchFlash_Bleed 		= "ff0000";
+
+//////////////// WEAPONS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+server bool PBX_CVAR_ASSAULT_RIFLE_START = false;
+server bool PBX_CVAR_CROSSBOW_START = false;
+server bool PBX_CVAR_SECRET_WEAPONS = true;
+server bool PBX_CVAR_KEEP_WEAPONS = false;
+server bool PBX_CVAR_LASER_SIGHT_BEAM = true;
+server int PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE = 5;
+
+// Cooldowns
+server int PBX_COOLDOWN_MEATHOOK = 3;
+server int PBX_COOLDOWN_COIN = 5;

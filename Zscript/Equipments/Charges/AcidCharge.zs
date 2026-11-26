@@ -47,10 +47,10 @@ class PBX_AcidChargeAmmo : PB_Ammo
 {
 	Default
 	{
-		Tag "$PB_ACIDCHR_TAG";
+		Tag "$PBX_ACIDCHR_TAG";
         Inventory.Amount 1;
 		Inventory.MaxAmount 5;
-		Inventory.Icon "REMTS0";
+		Inventory.Icon "REMTR0";
 		Ammo.BackpackAmount 1;
 		Ammo.BackpackMaxAmount 10;
 		Inventory.PickupSound "Ammocase/Open";

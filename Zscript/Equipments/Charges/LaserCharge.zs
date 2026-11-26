@@ -47,7 +47,7 @@ class PBX_LaserChargeAmmo : PB_Ammo
 {
 	Default
 	{
-		Tag "$PB_LASERCHR_TAG";
+		Tag "$PBX_LASERCHR_TAG";
         Inventory.Amount 1;
 		Inventory.MaxAmount 5;
 		Inventory.Icon "LSRCS0";
@@ -60,7 +60,7 @@ class PBX_LaserChargeAmmo : PB_Ammo
 	override void PB_SetAmmoSprite()
 	{
 		sprite = GetSpriteIndex("LSRC");
-        frame = 18;
+        frame = 17;
 	}
 	
 	override void AttachToOwner(actor other) //we have to do this here so that cheats will give the tokens

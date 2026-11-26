@@ -13,6 +13,10 @@ TIP_PBX_SEND_TIP = "Enable tooltips, this the Master Override for all tooltips i
 PBX_MENU_RESET_PBTOOLTIPS = "Reset PB Tool Tips";
 PBX_MENU_RESET_PBXTOOLTIPS = "Reset PBX Tool Tips";
 
+PBX_MODULE_WEAPONS = "Weapon Spawner Override";
+PBX_MODULE_EQUIPMENTS = "Equipment Spawner Override";
+
+PBX_MENU_GENERAL = "\cg⟁\c- PBX Settings";
 PBX_MENU_WEAPONS = "\cg⟁\c- Weapons Settings";
 PBX_MENU_HUD = "\cv⍟\c- HUD Settings";
 PBX_MENU_GAMEPLAY = "\cv⍟\c- Gameplay Settings";
@@ -43,62 +47,6 @@ TIP_PBX_COOLDOWN_MEATHOOK    = "CSSG's Meathook cooldown (In Seconds)";
 PBX_MENU_COOLDOWN_COIN = "Thrown Coin's Cooldown";
 
 PBX_MENU_COOLDOWN_RESET = "Reset Cooldowns";
-
-//////////////////////////// SPAWN MENU ///////////////////////////////////////////////////////////////////////////////
-//////////////////////////// WEAPONS ///////////////////////////////////////////////////////////////////////////////
-PBX_WEAPONS_PLASMA_BLASTER = "Enable Plasma Blaster";
-PBX_WEAPONS_LEVER_ACTION_RIFLE = "Enable Lever Action Rifle";
-PBX_WEAPONS_CROSSBOW_BALLISTA = "Enable Crossbow Ballista";
-
-PBX_WEAPONS_CSSG = "Enable Commander SuperShotgun";
-PBX_WEAPONS_BATTLE_RIFLE = "Enable Battle Rifle";
-PBX_WEAPONS_METAL_SNIPER = "Enable Metal Sniper";
-PBX_WEAPONS_XM21 = "Enable Sniper Spec-Ops Pack";
-PBX_WEAPONS_NEOHMG = "Enable Neo HMG";
-PBX_WEAPONS_SUPERNAILGUN = "Enable Super Nailgun";
-
-PBX_WEAPONS_EXCAVATOR = "Enable Excavator";
-PBX_WEAPONS_PAINGIVER = "Enable Paingiver";
-
-PBX_WEAPONS_CRYOSG = "Enable Plasma Shotgun"; 
-PBX_WEAPONS_PLATINUM_RAILGUN = "Enable Platinum Railgun"; 
-PBX_WEAPONS_TESLAGUN = "Enable Tesla Gun"; 
-PBX_WEAPONS_CRYOASG = "Enable Plasma Auto Shotgun"; 
-PBX_WEAPONS_FREEZE_RIFLE = "Enable Freeze Rifle"; 
-
-PBX_WEAPONS_DEMONIC_EXTERMINATOR = "Enable Demonic Exterminator";
-PBX_WEAPONS_DEMONEXT_ARTIFACT = "Enable Demonic Exterminator Artifacts";
-
-PBX_WEAPONS_ETERNAL_CHAINGUN = "Enable Eternal Chaingun";
-PBX_WEAPONS_NUKE_LAUNCHER = "Enable Nuke Launcher";
-PBX_WEAPONS_HEXA_SHOTGUN = "Enable Hexa Shotgun";
-PBX_WEAPONS_MINI_SHOTGUN = "Enable Mini Shotgun";
-PBX_WEAPONS_RIPPER_CHAINGUN = "Enable Ripper Chaingun";
-
-PBX_WEAPONS_CYBERRL = "Cyberdemon drop their Weapon";
-PBX_WEAPONS_SPIDERCG = "Spider Mastermind drop their Weapon";
-PBX_WEAPONS_GRABCACO = "You can grab unsuspecting Cacodemons";
-
-PBX_WEAPONS_SPECOPSPACK = "Z-Spec Ops Sometimes drop a backpack";
-
-PBX_WEAPONS_UAC_COMMANDER_BACKPACK = "Enable UAC Commander's Backpack";
-
-PBX_WEAPONS_LEVER_ACTION_UPGRADE = "Enable Lever Action Rifle Upgrade"; 
-PBX_WEAPONS_CROSSBOW_BALLISTA_UPGRADE = "Enable Crossbow Ballista Upgrade";
-PBX_WEAPONS_METAL_SNIPER_UPGRADE = "Enable Metal Sniper Upgrade";
-PBX_WEAPONS_SGL_EDIT        = "Enable SGL Upgrade";
-PBX_WEAPONS_LMG_EDIT        = "Enable LMG Upgrade";
-
-PBX_WEAPONS_EXCAVATOR_UPGRADE = "Enable Excavator Upgrade";
-
-PBX_WEAPONS_CSSG_UPGRADES = "Enable CSSG Upgrades";
-PBX_WEAPONS_Shotvolver = "Enable Shotgun Revolver";
-
-//////////////////////////// EQUIPMENTS ///////////////////////////////////////////////////////////////////////////////
-PBX_EQUIPMENTS_IncenGrenade = "Enable Incendiary Grenades";
-PBX_EQUIPMENTS_SmokeGrenade = "Enable Smoke Grenades";
-PBX_EQUIPMENTS_MedPack = "Enable First Aid Kit";
-PBX_EQUIPMENTS_Charges = "Enable Experimental Charges";
 
 //////////////////////////// HUD ///////////////////////////////////////////////////////////////////////////////
 // HUD

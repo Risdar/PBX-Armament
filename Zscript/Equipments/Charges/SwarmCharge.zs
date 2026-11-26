@@ -51,7 +51,7 @@ class PBX_SwarmChargeAmmo : PB_Ammo
 		Tag "$PBX_SWARMCHR_TAG";
 		Inventory.Amount 1;
 		Inventory.MaxAmount 3;
-		Inventory.Icon "SWRMS0";
+		Inventory.Icon "SWRMR0";
 		Ammo.BackpackAmount 1;
 		Ammo.BackpackMaxAmount 5;
 		Inventory.PickupSound "Ammocase/Open";
@@ -61,7 +61,7 @@ class PBX_SwarmChargeAmmo : PB_Ammo
 	override void PB_SetAmmoSprite()
 	{
 		sprite = GetSpriteIndex("SWRM");
-        frame = 18;
+        frame = 17;
 	}
 	
 	override void AttachToOwner(actor other) //we have to do this here so that cheats will give the tokens
