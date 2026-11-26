@@ -44,6 +44,7 @@ PBX_MENU_COOLDOWN_COIN = "Thrown Coin's Cooldown";
 
 PBX_MENU_COOLDOWN_RESET = "Reset Cooldowns";
 
+//////////////////////////// SPAWN MENU ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////// WEAPONS ///////////////////////////////////////////////////////////////////////////////
 PBX_WEAPONS_PLASMA_BLASTER = "Enable Plasma Blaster";
 PBX_WEAPONS_LEVER_ACTION_RIFLE = "Enable Lever Action Rifle";
@@ -97,6 +98,7 @@ PBX_WEAPONS_Shotvolver = "Enable Shotgun Revolver";
 PBX_EQUIPMENTS_IncenGrenade = "Enable Incendiary Grenades";
 PBX_EQUIPMENTS_SmokeGrenade = "Enable Smoke Grenades";
 PBX_EQUIPMENTS_MedPack = "Enable First Aid Kit";
+PBX_EQUIPMENTS_Charges = "Enable Experimental Charges";
 
 //////////////////////////// HUD ///////////////////////////////////////////////////////////////////////////////
 // HUD

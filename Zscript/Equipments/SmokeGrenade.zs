@@ -12,7 +12,7 @@ class SmokeGrenCard : equipmentCard
 		tags.push("$PBX_SMOKEGRENADE_TAG");
 		tokens.push("PBX_SmokeGrenadeToken");
 		ammotypes.push("PBX_SmokeGrenadeAmmo");
-		img.push("graphics/Equipments/Smoke_Grenade/Equip_Smoke.png");
+		img.push("graphics/Equipments/SmokeGrenade/Equip_Smoke.png");
 		sx.push(1.0);
 		sy.push(1.0);
 	}
@@ -151,8 +151,8 @@ class PBX_SmokeGrenadePack : CustomInventory
         Pickup:
 			TNT1 A 0 {
 				Array<String> tips;
-				tips.Push("$PBX_Repairkit_Tip1");
-				PBXCore_TipsManager.SendTipArrayIfNeeded(tips,EQUIPMENTS_HELPTEXT,PBX_TIP_SMOKEGREN);
+				tips.Push("$PBX_SMOKEGRENADE_TIP");
+				PBX_Handler.SendTipArrayIfNeeded(tips,EQUIPMENTS_HELPTEXT,PBX_TIP_SMOKEGREN);
 			}
             TNT1 A 0 A_GiveInventory("PBX_SmokeGrenadeAmmo",5);
             Stop;

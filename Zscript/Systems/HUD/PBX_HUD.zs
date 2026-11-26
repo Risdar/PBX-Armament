@@ -217,9 +217,10 @@ class PBX_HUD_Handler : StaticEventHandler
         let ext = GetExternalHUD(pbWeap);
         if (ext)
         {
-            if(ext.Image1 != "") pbx_image = ext.Image1; // This way it will only draw if theres actually something there
-            pbx_image2 = ext.Image2;
-            pbx_image3 = ext.Image3;
+             // This way it will only draw if theres actually something there
+            if(ext.Image1 != "") pbx_image = ext.Image1;
+            if(ext.Image2 != "") pbx_image = ext.Image2;
+            if(ext.Image3 != "") pbx_image = ext.Image3;
 
             pbx_weapon_pos += ext.Offset1;
             pbx_weapon_pos2 += ext.Offset2;

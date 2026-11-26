@@ -6,7 +6,7 @@ class IncenGrenCard : equipmentCard
 		tags.push("$PB_INCENDIARYGRENADE_TAG");
 		tokens.push("PB_IncendiaryGrenadeToken");
 		ammotypes.push("PB_IncendiaryGrenadeAmmo");
-		img.push("graphics/Equipments/Incendiary_Grenade/Equip_Incen.png");
+		img.push("graphics/Equipments/IncendiaryGrenade/Equip_Incen.png");
 		sx.push(0.5);
 		sy.push(0.5);
 	}

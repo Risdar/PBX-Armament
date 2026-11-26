@@ -29,7 +29,7 @@ class PBX_LaserChargeToken : PBX_ChargesBase
             LSRC ABCD 1;
 		    TNT1 A 0 A_DoubleTapFlag();
 			LSRC EFG 1;
-		    "####" A 0 A_JumpIf(HasDoubleTapped(), "Detonate");
+		    "####" A 0 checkDetonate();
 			LSRC HIJKLMNOPQ 1;
 			THRO ABCD 1;
 			TNT1 A 0 {

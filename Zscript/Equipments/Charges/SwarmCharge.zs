@@ -29,7 +29,7 @@ class PBX_SwarmChargeToken : PBX_ChargesBase
             SWRM ABCD 1;
 		    TNT1 A 0 A_DoubleTapFlag();
 			SWRM EFG 1;
-		    "####" A 0 A_JumpIf(HasDoubleTapped(), "Detonate");
+		    "####" A 0 checkDetonate();
 			SWRM HIJKLMNOPQ 1;
 			THRO ABCD 1;
 			TNT1 A 0 {

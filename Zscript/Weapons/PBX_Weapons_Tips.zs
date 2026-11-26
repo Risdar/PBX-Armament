@@ -30,11 +30,31 @@ enum PBX_WeaponTipFlags
 enum PBX_EquipmentTipFlags
 {
     PBX_TIP_SMOKEGREN         = 1 << 0
+    ,PBX_TIP_CHARGES         = 1 << 1
 }
 
 const WEAPON_HELPTEXT = "PBX_TIP_FLAGS_WEAPONS";
 const WEAPON_UPGRADE_HELPTEXT = "PBX_TIP_FLAGS_UPGRADES";
 const EQUIPMENTS_HELPTEXT = "PBX_TIP_FLAGS_EQUIPMENTS";
+
+extend class PBX_Handler
+{
+    static clearscope void SendTipArrayIfNeeded(Array<String> tipStrings, string cvarName, int tipFlag)
+	{
+        CVAR shouldSend = CVar.GetCVar("PBX_SEND_TIP");
+        if(!shouldSend) return;
+        bool send = shouldSend.GetBool();
+        if(!send) return;
+
+        CVar name = CVar.GetCvar(cvarName);
+        if(!name) return;
+
+		if(!PB_HelpNotificationsHandler.CheckTipEvent(tipFlag, name))
+		{
+			PB_HelpNotificationsHandler.PB_SendTipArray(tipStrings, cvarName, tipFlag);
+		}
+	}
+}
 
 extend class PBX_WeaponBase
 {
@@ -46,7 +66,7 @@ extend class PBX_WeaponBase
             Array<String> tips;
             tips.Push("$PBX_ScrollZoom_Tip1");
             tips.Push(string.format(StringTable.Localize("$PBX_ScrollZoom_Tip2"),PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomin"),PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_zoomout")));
-            PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_SCROLLZOOM);
+            PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_SCROLLZOOM);
         }
 
         switch(invoker.getClassName())
@@ -61,7 +81,7 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push(string.format(StringTable.Localize("$PBX_CSSG_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_CSSG);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_CSSG);
                 TryGiveSpecialTip(DISABLE_UPGRADE);
             }
             break;
@@ -70,7 +90,7 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push("$PBX_PSG_Tip1");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_PSG);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_PSG);
             }
             break;
 
@@ -81,7 +101,7 @@ extend class PBX_WeaponBase
                 tips.Push(string.format(StringTable.Localize("$PBX_MetalSniper_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
                 tips.Push(string.format(StringTable.Localize("$PBX_MetalSniper_Tip2"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+ALTATTACK"), PB_HelpNotificationsHandler.PB_FormatKeybinds("+ATTACK")));
                 tips.Push("$PBX_MetalSniper_Tip3");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_METALSNIPER);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_METALSNIPER);
                 TryGiveSpecialTip(DISABLE_UPGRADE);
             }
             break;
@@ -93,7 +113,7 @@ extend class PBX_WeaponBase
                 tips.Push(string.format(StringTable.Localize("$PBX_NeoHMG_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+ALTATTACK")));
                 tips.Push(string.format(StringTable.Localize("$PBX_NeoHMG_Tip2"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
                 tips.Push(string.format(StringTable.Localize("$PBX_NeoHMG_Tip3"),PBX_NeoHMG.OVERHEAT_THRESHOLD));
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_NEOHMG);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_NEOHMG);
             }
             break;
             case 'PBX_SuperNailgun':
@@ -101,7 +121,7 @@ extend class PBX_WeaponBase
                 Array<String> tips;
                 tips.Push(string.format(StringTable.Localize("$PBX_SuperNailgun_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+ALTATTACK"),PBX_SuperNailgun.OVERHEAT_THRESHOLD));
                 tips.Push("$PBX_SuperNailgun_Tip2");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_SUPERNAILGUN);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_SUPERNAILGUN);
             }
             break;
 
@@ -110,7 +130,7 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push(string.format(StringTable.Localize("$PBX_Excavator_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+ALTATTACK")));
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_EXCAVATOR);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_EXCAVATOR);
             }
             break;
             case 'PBX_CyberdemonRL':  case 'PBX_MastermindChaingun': case 'PBX_RideableCaco':
@@ -123,7 +143,7 @@ extend class PBX_WeaponBase
                 Array<String> tips;
                 tips.Push("$PBX_Paingiver_Tip1");
                 tips.Push("$PBX_Paingiver_Tip2");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_PAINGIVER);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_PAINGIVER);
             }
             break;
 
@@ -133,7 +153,7 @@ extend class PBX_WeaponBase
                 Array<String> tips;
                 tips.Push(string.format(StringTable.Localize("$PBX_BDPRailgun_Tip1"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
                 tips.Push(string.format(StringTable.Localize("$PBX_BDPRailgun_Tip2"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+pb_specialwheel")));
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_BDPRAILGUN);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_BDPRAILGUN);
             }
             break;
 
@@ -144,7 +164,7 @@ extend class PBX_WeaponBase
                 tips.Push("$PBX_Teslagun_Tip1");
                 tips.Push("$PBX_Teslagun_Tip2");
                 tips.Push(string.format(StringTable.Localize("$PBX_Teslagun_Tip3"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+reload")));
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_TESLAGUN);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_TESLAGUN);
             }
             break;
             
@@ -155,7 +175,7 @@ extend class PBX_WeaponBase
                 Array<String> tips;
                 tips.Push("$PBX_DemonExt_Tip1");
                 tips.Push("$PBX_DemonExt_Tip2");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_DEMONEXT);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_DEMONEXT);
             }
             break;
         }
@@ -175,7 +195,7 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push("$PBX_MonsterWeapon1");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_MONSTERWEAPON);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_HELPTEXT, PBX_TIP_MONSTERWEAPON);
             }
             break;
 
@@ -183,7 +203,7 @@ extend class PBX_WeaponBase
             {
                 Array<String> tips;
                 tips.Push("$PBX_DisableUpgrade");
-                PBXCore_TipsManager.SendTipArrayIfNeeded(tips, WEAPON_UPGRADE_HELPTEXT, PBX_TIP_DISABLE_UPGRADE);
+                PBX_Handler.SendTipArrayIfNeeded(tips, WEAPON_UPGRADE_HELPTEXT, PBX_TIP_DISABLE_UPGRADE);
             }
             break;
         }

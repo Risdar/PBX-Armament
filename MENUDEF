@@ -42,7 +42,7 @@ AddOptionMenu "PB_AddonOptions"
     Option  "$PBXCORE_ENABLE_TOOLTIP", "PBX_SEND_TIP", "OnOff"
     StaticText " "
     SafeCommand "$PBX_MENU_RESET_PBTOOLTIPS", "set pb_helpflags 0"
-    SafeCommand "$PBX_MENU_RESET_PBXTOOLTIPS", "set PBX_TIP_FLAGS_WEAPONS 0; set PBX_TIP_FLAGS_UPGRADES 0"
+    SafeCommand "$PBX_MENU_RESET_PBXTOOLTIPS", "set PBX_TIP_FLAGS_WEAPONS 0; set PBX_TIP_FLAGS_UPGRADES 0; ; set PBX_TIP_FLAGS_EQUIPMENTS 0"
     StaticText " "
 
     Submenu "$PBX_MENU_WEAPONS", "PBX_Weapons_Menu"

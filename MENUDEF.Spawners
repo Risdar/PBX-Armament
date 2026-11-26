@@ -158,6 +158,7 @@ AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
 {
     FlagOption    "$PBX_EQUIPMENTS_IncenGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 0
+    FlagOption    "$PBX_EQUIPMENTS_Charges",                "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 3
 }
 
 // Rocket Box
@@ -165,6 +166,7 @@ AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
 AddOptionMenu "AddonAmmoSpawns" after "BROKT3"
 {
     FlagOption    "$PBX_EQUIPMENTS_SmokeGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 1
+    FlagOption    "$PBX_EQUIPMENTS_Charges",                "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 3
 }
 
 /* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"

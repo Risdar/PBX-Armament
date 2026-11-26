@@ -34,5 +34,14 @@ extend class PBX_Injector
 			handler.InjectSpawn('PB_PackSpawnerT2', 'PBX_MedPackAmmo', 255, 1);
 			handler.InjectSpawn('PB_PackSpawnerT3', 'PBX_MedPackAmmo', 255, 1);
 		}
+
+        // Charges
+		if(!CheckFlag(equipmentFlag, DisableEQ_Charges))
+		{
+			handler.InjectSpawn('PB_RocketSpawnerT1', 'PBX_AcidChargeAmmo', 255, 1);
+			handler.InjectSpawn('PB_RocketSpawnerT2', 'PBX_LaserChargeAmmo', 255, 1);
+			handler.InjectSpawn('PB_RocketSpawnerT3', 'PBX_SwarmChargeAmmo', 255, 1);
+			handler.InjectSpawn('PB_RocketBoxSpawnerT3', 'PBX_ChargesPack', 255, 1);
+		}
 	}
 }

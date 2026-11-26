@@ -29,7 +29,7 @@ class PBX_AcidChargeToken : PBX_ChargesBase
             REMT ABCD 1;
 		    TNT1 A 0 A_DoubleTapFlag();
 			REMT EFG 1;
-		    "####" A 0 A_JumpIf(HasDoubleTapped(), "Detonate");
+		    "####" A 0 checkDetonate();
 			REMT HIJKLMNOPQ 1;
 			THRO ABCD 1;
 			TNT1 A 0 {

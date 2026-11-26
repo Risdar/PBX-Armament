@@ -224,11 +224,12 @@ extend class PBX_HUD_Handler
         // Set Defaults & Variables
         TextureID iconID = pbWeap.AltHudIcon.IsValid() ? pbWeap.AltHudIcon : pbWeap.Icon;
         string icon = TexMan.GetName(iconID);
-        vector2 adjustPos,adjustPos2, adjustPos3 = (0,0);
-        double adjustScale  = 1.0;
-        double adjustScale2 = 1.0;
-        double adjustScale3 = 1.0;
-        isAkimbo            = pbWeap.akimboMode;
+        
+        name img1, img2, img3;
+        vector2 adjustPos, adjustPos2, adjustPos3;
+        double adjustScale, adjustScale2, adjustScale3 = 1.0;
+        
+        isAkimbo = pbWeap.akimboMode;
 
         switch(pbWeap.GetClassName())
         {
@@ -276,9 +277,9 @@ extend class PBX_HUD_Handler
 
                 switch(saw.mChainsawAlt)
                 {
-                    case PBX_ChainsawEditedBase.SELECT_SLASH:    pbx_image2 = "chnslsh"; break;
-                    case PBX_ChainsawEditedBase.SELECT_THROW:    pbx_image2 = "chnthrw"; break;
-                    case PBX_ChainsawEditedBase.SELECT_QUICKSSG: pbx_image2 = "chnssg";  break;
+                    case PBX_ChainsawEditedBase.SELECT_SLASH:    img2 = "chnslsh"; break;
+                    case PBX_ChainsawEditedBase.SELECT_THROW:    img2 = "chnthrw"; break;
+                    case PBX_ChainsawEditedBase.SELECT_QUICKSSG: img2 = "chnssg";  break;
                 }
                 break;
             }
@@ -293,14 +294,14 @@ extend class PBX_HUD_Handler
                 let smg = PB_SMG(pbWeap);
                 if(!smg) return;
 
-                pbx_image = "ATFLB0";
+                img1 = "ATFLB0";
 
                 adjustPos = (10,14); // Single ? Silenced : Not Silenced
                 adjustScale = 0.9;
 
                 if(smg.hasSilencer)
                 {
-                    pbx_image = "ATFLA0";
+                    img1 = "ATFLA0";
                     adjustPos.x -= 23;
                 }
                 break;
@@ -309,14 +310,14 @@ extend class PBX_HUD_Handler
                 let pistol = PB_Pistol(pbWeap);
                 if(!pistol) return;
 
-                pbx_image = "graphics/pywheel/PISTOL_0.png";
+                img1 = "graphics/pywheel/PISTOL_0.png";
 
                 adjustPos = (18,18);
                 adjustScale = 1.1;
 
                 if(pistol.hasSilencer)
                 {
-                    pbx_image = "graphics/pywheel/PISTOL_1.png";
+                    img1 = "graphics/pywheel/PISTOL_1.png";
                     adjustPos.x -= 20;
                 }
                 break;
@@ -347,14 +348,14 @@ extend class PBX_HUD_Handler
                 if(!lar) return;
 
                 bool laserOn = lar.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."LeverAction/LaserOn.png" : IMAGE_DIRECTORY.."LeverAction/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."LeverAction/LaserOn.png" : IMAGE_DIRECTORY.."LeverAction/LaserOff.png";
                 adjustPos   = laserOn ? (0, 18) : (-10, 18);
                 adjustScale = laserOn ? 0.6 : 0.7;
                 break;
             }
 
             case 'PBX_Shotvolver':
-                pbx_image   = "REVPB0";
+                img1   = "REVPB0";
                 adjustPos   = (-15, 15);
                 adjustScale = 1.5;
                 break;
@@ -365,7 +366,7 @@ extend class PBX_HUD_Handler
                 if(!mp5) return;
 
                 bool laserOn = mp5.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."MP5/LaserOn.png" : IMAGE_DIRECTORY.."MP5/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."MP5/LaserOn.png" : IMAGE_DIRECTORY.."MP5/LaserOff.png";
                 adjustPos   = laserOn ? (0, 10) : (-20, 10);
                 adjustScale = laserOn ? 0.7 : 1.2;
                 break;
@@ -377,7 +378,7 @@ extend class PBX_HUD_Handler
                 if(!rev) return;
 
                 bool laserOn = rev.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."RevolverEdit/laseron.png" : IMAGE_DIRECTORY.."RevolverEdit/laseroff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."RevolverEdit/laseron.png" : IMAGE_DIRECTORY.."RevolverEdit/laseroff.png";
                 adjustPos   = laserOn ? (0, 12) : (-20, 12);
 
                 if(rev.akimboMode)
@@ -385,7 +386,7 @@ extend class PBX_HUD_Handler
 
                 // Coin
                 if(rev.mCoinSecondary)
-                    pbx_image2 = rev.mCoinCooldown > 0 ? "nocoinhd" : "coinhud";
+                    img2 = rev.mCoinCooldown > 0 ? "nocoinhd" : "coinhud";
                 adjustPos2 = (0, -10);
                 break;
             }
@@ -396,7 +397,7 @@ extend class PBX_HUD_Handler
                 if(!deag) return;
 
                 bool laserOn = deag.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."DeagleEdit/laseron.png" : IMAGE_DIRECTORY.."DeagleEdit/laseroff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."DeagleEdit/laseron.png" : IMAGE_DIRECTORY.."DeagleEdit/laseroff.png";
                 adjustPos   = laserOn ? (-15, 13) : (-30, 13);
 
                 if(deag.akimboMode)
@@ -404,7 +405,7 @@ extend class PBX_HUD_Handler
 
                 // Coin
                 if(deag.mCoinSecondary)
-                    pbx_image2 = deag.mCoinCooldown > 0 ? "nocoinhd" : "coinhud";
+                    img2 = deag.mCoinCooldown > 0 ? "nocoinhd" : "coinhud";
                 adjustPos2 = (0, -10);
                 break;
             }
@@ -415,7 +416,7 @@ extend class PBX_HUD_Handler
                 if(!pdw) return;
 
                 bool laserOn = pdw.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."44PDW/LaserOn.png" : IMAGE_DIRECTORY.."44PDW/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."44PDW/LaserOn.png" : IMAGE_DIRECTORY.."44PDW/LaserOff.png";
                 adjustPos   = laserOn ? (0, 10) : (-20, 10);
                 adjustScale = laserOn ? 1.0 : 2.0;
                 break;
@@ -431,17 +432,17 @@ extend class PBX_HUD_Handler
                 switch(shotgun.shellsmode)
                 {
                     case PB_Shotgun.Shell_Buck:
-                        pbx_image2 = "buckhud";
+                        img2 = "buckhud";
                         break;
                     case PB_Shotgun.Shell_Slug:
-                        pbx_image2 = "slughud";
+                        img2 = "slughud";
                         break;
                     case PB_Shotgun.Shell_Drag:
-                        pbx_image2 = "drgnhud";
+                        img2 = "drgnhud";
                         break;
                 }
 
-                pbx_image = shotgunUpgraded ? "9SMUA0" : icon;
+                img1 = shotgunUpgraded ? "9SMUA0" : icon;
 
                 adjustPos = (-5, 10);
                 break;
@@ -449,7 +450,7 @@ extend class PBX_HUD_Handler
             case 'PB_Autoshotgun':
                 bool asgUpgraded = PBX_PlayerHasInventory("AutoshotgunDrumMag");
 
-                pbx_image = icon;
+                img1 = icon;
 
                 adjustPos = (-9,15);
 
@@ -457,7 +458,7 @@ extend class PBX_HUD_Handler
                 // and move up a bit
                 if(asgUpgraded)
                 {
-                    pbx_image = "A9SCA0";
+                    img1 = "A9SCA0";
                     adjustPos.y -= isAkimbo ? 6 : 1;
                 }
                 break;
@@ -470,8 +471,8 @@ extend class PBX_HUD_Handler
                 bool quadFullBlast = PBX_PlayerHasInventory("FullBlastMode");
                 bool demonBreath = PBX_PlayerHasInventory("BreathMode");
 
-                pbx_image = "QSPGA0";
-                pbx_image2 = quadFullBlast ? "graphics/WeaponIcons/QUAD_FULL.png" : "graphics/WeaponIcons/QUAD_HALF.png";
+                img1 = "QSPGA0";
+                img2 = quadFullBlast ? "graphics/WeaponIcons/QUAD_FULL.png" : "graphics/WeaponIcons/QUAD_HALF.png";
 
                 adjustPos = (0,10);
                 // MODE
@@ -480,7 +481,7 @@ extend class PBX_HUD_Handler
 
                 if(demonBreath)
                 {
-                    pbx_image = "graphics/pywheel/Quad_Demonic.png";
+                    img1 = "graphics/pywheel/Quad_Demonic.png";
                     adjustPos = (1,12);
                 }
                 break;
@@ -497,7 +498,7 @@ extend class PBX_HUD_Handler
                     "subzhud", "helfhud", "acshhud"
                 };
 
-                pbx_image2  = cssgIcons[clamp(cssg.shellsmode, 0, cssgIcons.Size() - 1)];
+                img2  = cssgIcons[clamp(cssg.shellsmode, 0, cssgIcons.Size() - 1)];
                 adjustPos   = (-5, 12);
                 adjustScale = 0.9;
                 break;
@@ -518,7 +519,7 @@ extend class PBX_HUD_Handler
                 );
 
                 bool laserOn = psg.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."ProsurvPSG/LaserOn.png" : IMAGE_DIRECTORY.."ProsurvPSG/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."ProsurvPSG/LaserOn.png" : IMAGE_DIRECTORY.."ProsurvPSG/LaserOff.png";
                 adjustPos   = laserOn ? (13, -9) : (-5, -7);
                 adjustScale = laserOn ? 0.8 : 1.1;
                 break;
@@ -529,7 +530,7 @@ extend class PBX_HUD_Handler
                 let spas12 = PBX_SPAS12(pbWeap);
                 if(!spas12) return;
 
-                pbx_image2  = spas12.mSemiAuto ? "buckhud" : "slughud";
+                img2  = spas12.mSemiAuto ? "buckhud" : "slughud";
                 adjustPos   = (-10, 10);
                 adjustScale = 0.65;
                 break;
@@ -551,14 +552,14 @@ extend class PBX_HUD_Handler
                 bool hdmrSniperMode = PBX_PlayerHasInventory("HDMRSniperMode");
                 bool hdmrGrenMode   = PBX_PlayerHasInventory("HDMRGrenadeMode");
 
-                pbx_image  = icon; // Because its in the exception list we need to set the default icon
+                img1  = icon; // Because its in the exception list we need to set the default icon
 
                 adjustPos   = (-5,12);
                 adjustScale = dmrUpgraded ? 0.8 : 0.9;
 
                 if(dmrUpgraded)
                 {
-                    pbx_image = hdmrSniperMode  ? "Graphics/WeaponIcons/HDMR_SNIPER.png" : "HIFLA0";
+                    img1 = hdmrSniperMode  ? "Graphics/WeaponIcons/HDMR_SNIPER.png" : "HIFLA0";
                     adjustPos = hdmrSniperMode  ? (-6,10) : (-4,10);
                 }
                 break;
@@ -569,13 +570,13 @@ extend class PBX_HUD_Handler
                 break;
 
             case 'PB_LMG':
-                pbx_image = "LMPIA0";
+                img1 = "LMPIA0";
                 adjustPos = (3, 23);
                 adjustScale = 0.8;
                 break;
 
             case 'PB_ChexRifle':
-                pbx_image = "CRRSA0";
+                img1 = "CRRSA0";
                 adjustPos = (-10, 13);
                 adjustScale = 0.9;
                 break;
@@ -586,7 +587,7 @@ extend class PBX_HUD_Handler
                 if(!br) return;
 
                 bool laserOn = br.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."BattleRifle/LaserOn.png" : IMAGE_DIRECTORY.."BattleRifle/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."BattleRifle/LaserOn.png" : IMAGE_DIRECTORY.."BattleRifle/LaserOff.png";
                 adjustPos   = laserOn ? (0, 12) : (-7, 12);
                 adjustScale = laserOn ? 0.7 : 1.3;
                 break;
@@ -610,8 +611,8 @@ extend class PBX_HUD_Handler
                 }
 
                 bool sniperLaser = sniper.GetLaserActive();
-                pbx_image  = sniperLaser ? IMAGE_DIRECTORY.."MetalSniper/LaserOn.png" : IMAGE_DIRECTORY.."MetalSniper/LaserOff.png";
-                pbx_image2 = sniper.resonanceAmmoLoaded ? IMAGE_DIRECTORY.."metalsniper/ResonanceAlt.png" : IMAGE_DIRECTORY.."metalsniper/StandardAlt.png";
+                img1  = sniperLaser ? IMAGE_DIRECTORY.."MetalSniper/LaserOn.png" : IMAGE_DIRECTORY.."MetalSniper/LaserOff.png";
+                img2 = sniper.resonanceAmmoLoaded ? IMAGE_DIRECTORY.."metalsniper/ResonanceAlt.png" : IMAGE_DIRECTORY.."metalsniper/StandardAlt.png";
 
                 adjustPos    = sniperLaser ? (0, 10) : (0, 14);
                 adjustScale2 = 0.7;
@@ -630,7 +631,7 @@ extend class PBX_HUD_Handler
                 if(!nr) return;
 
                 bool laserOn = nr.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."NormalRifle/laseron.png" : IMAGE_DIRECTORY.."NormalRifle/laseroff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."NormalRifle/laseron.png" : IMAGE_DIRECTORY.."NormalRifle/laseroff.png";
                 adjustPos   = laserOn ? (0, 8) : (-5, 8);
                 adjustScale = laserOn ? 0.8 : 0.9;
                 break;
@@ -651,14 +652,14 @@ extend class PBX_HUD_Handler
                 );
 
                 bool laserOn = xm21.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."XM21/LaserOn.png" : IMAGE_DIRECTORY.."XM21/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."XM21/LaserOn.png" : IMAGE_DIRECTORY.."XM21/LaserOff.png";
                 adjustPos   = laserOn ? (0, -12) : (-7, -12);
                 adjustScale = laserOn ? 0.7 : 1.3;
                 break;
             }
 
             case 'PBX_LMGEdited':
-                pbx_image   = PBX_PlayerHasInventory("LMGUpgraded") ? "LMPUA0" : "LMPIA0";
+                img1   = PBX_PlayerHasInventory("LMGUpgraded") ? "LMPUA0" : "LMPIA0";
                 adjustPos   = (3, 23);
                 adjustScale = 0.8;
                 break;
@@ -677,15 +678,15 @@ extend class PBX_HUD_Handler
                 {
                     case PB_Minigun.CHAINGUN_MODE:
                     case PB_Minigun.GATLING_MODE:
-                        pbx_image       = icon;
-                        pbx_image2      = minigun.mode == PB_Minigun.CHAINGUN_MODE ? "graphics/WeaponIcons/NORMALSPEED.png" : "graphics/WeaponIcons/HIGHSPEED.png";
+                        img1       = icon;
+                        img2      = minigun.mode == PB_Minigun.CHAINGUN_MODE ? "graphics/WeaponIcons/NORMALSPEED.png" : "graphics/WeaponIcons/HIGHSPEED.png";
                         adjustPos       = (-15,32);
                         adjustPos2      = (0, 0);
                         adjustScale2    = 0.9;
                         break;
                     case PB_Minigun.TRIPLE_MODE:
-                        pbx_image       = "8GUNA0";
-                        pbx_image2      = "graphics/WeaponIcons/EXTREMELYHIHGSPID.png";
+                        img1       = "8GUNA0";
+                        img2      = "graphics/WeaponIcons/EXTREMELYHIHGSPID.png";
                         adjustPos       = (-20,32);
                         adjustPos2      = (-3, 0);
                         adjustScale2    = 0.5;
@@ -714,8 +715,8 @@ extend class PBX_HUD_Handler
                 bool shld        = hmg.mShieldIsReady && mo && mo.CountInv("HMGShield") > 0;
                 bool hmgOverheat = hmg.overheat >= PBX_NeoHMG.OVERHEAT_THRESHOLD;
 
-                pbx_image2  = shld ? "shldhud" : "shldhudn";
-                pbx_image3  = hmgOverheat ? "ovrheatd" : "noovrhtd";
+                img2  = shld ? "shldhud" : "shldhudn";
+                img3  = hmgOverheat ? "ovrheatd" : "noovrhtd";
                 adjustPos   = (-3, -3);
                 adjustPos3  = (0, -50);
                 adjustScale = 1.6;
@@ -734,8 +735,8 @@ extend class PBX_HUD_Handler
 
                 bool sngOverheat = sng.overheat >= PBX_SuperNailgun.OVERHEAT_THRESHOLD;
 
-                pbx_image2  = sng.mChargedNailsMode ? "sngchrg" : "sngheat";
-                pbx_image3  = sngOverheat ? "ovrheatd" : "noovrhtd";
+                img2  = sng.mChargedNailsMode ? "sngchrg" : "sngheat";
+                img3  = sngOverheat ? "ovrheatd" : "noovrhtd";
                 adjustPos   = (-2, 16);
                 adjustPos3  = (0, -50);
                 adjustScale = 0.7;
@@ -757,7 +758,7 @@ extend class PBX_HUD_Handler
                         rocketmode = "graphics/pywheel/rocket_laser.png";
                 }
 
-                pbx_image2 = rocketmode;
+                img2 = rocketmode;
 
                 adjustPos = (-8 , 15);
                 adjustScale = 0.9;
@@ -777,7 +778,7 @@ extend class PBX_HUD_Handler
                     "graphics/pywheel/grenade_cryo.png"
                 };
 
-                pbx_image2 = sglIcons[clamp(sgl.GrenadeMode, 0, sglIcons.Size() - 1)];
+                img2 = sglIcons[clamp(sgl.GrenadeMode, 0, sglIcons.Size() - 1)];
 
                 adjustPos = (-5, 13);
                 adjustScale = 0.9;
@@ -785,7 +786,7 @@ extend class PBX_HUD_Handler
                 adjustPos2 = (3,-18);
                 adjustScale2 = 0.3;
 
-                pbx_image = PBX_PlayerHasInventory("SGLUpgraded") ? "BSGLA0" : "SGL0Z0";
+                img1 = PBX_PlayerHasInventory("SGLUpgraded") ? "BSGLA0" : "SGL0Z0";
                 break;
             }
 
@@ -803,7 +804,7 @@ extend class PBX_HUD_Handler
                     Font.CR_DARKGRAY
                 );
 
-                pbx_image2  = crl.mLaserMode ? "cybrllas" : "trplhud";
+                img2  = crl.mLaserMode ? "cybrllas" : "trplhud";
                 adjustPos   = (-12, 12);
                 adjustScale = 1.6;
                 break;
@@ -819,7 +820,7 @@ extend class PBX_HUD_Handler
                     Font.CR_DARKGRAY
                 );
 
-                pbx_image   = "RMN1H0";
+                img1   = "RMN1H0";
                 adjustPos   = (-10, 40);
                 adjustScale = 1.6;
                 break;
@@ -856,7 +857,7 @@ extend class PBX_HUD_Handler
             case 'PB_M2Plasma':
                 bool m2Upgraded = PBX_PlayerHasInventory("HasLightningGunUpgrade");
 
-                pbx_image = m2Upgraded ? "M2PRB0" : icon;
+                img1 = m2Upgraded ? "M2PRB0" : icon;
 
                 adjustPos = (-10,15);
                 adjustScale = 0.9;
@@ -873,7 +874,7 @@ extend class PBX_HUD_Handler
                 if(!railgun) return;
 
                 bool laserOn = railgun.GetLaserActive();
-                pbx_image   = laserOn ? IMAGE_DIRECTORY.."PlatRailgun/LaserOn.png" : IMAGE_DIRECTORY.."PlatRailgun/LaserOff.png";
+                img1   = laserOn ? IMAGE_DIRECTORY.."PlatRailgun/LaserOn.png" : IMAGE_DIRECTORY.."PlatRailgun/LaserOff.png";
                 adjustPos   = laserOn ? (0, 12) : (-5, 12);
                 adjustScale = laserOn ? 0.7 : 1.4;
                 break;
@@ -883,13 +884,13 @@ extend class PBX_HUD_Handler
             case 'PB_Flamethrower':
                 bool flamerUpgraded = PBX_PlayerHasInventory("FlamerUpgraded");
 
-                pbx_image = "FSPWA0";
+                img1 = "FSPWA0";
 
                 adjustPos = (-10,15);
 
                 if(flamerUpgraded)
                 {
-                    pbx_image = "FSPWB0";
+                    img1 = "FSPWB0";
                     adjustPos = (-15, 40);
                 }
                 break;
@@ -901,9 +902,9 @@ extend class PBX_HUD_Handler
                 bool cryoMissile = cryorifle.cryoPrimary   == cryorifle.PRIM_MISSILE;
                 bool cryoSpear   = cryorifle.cryoSecondary == cryorifle.SEC_SPEAR;
 
-                pbx_image  = "FRPKA0";
-                pbx_image2 = cryoSpear   ? "graphics/pywheel/CryoRifle_Spear.png"   : "graphics/pywheel/CryoRifle_Flak.png";
-                pbx_image3 = cryoMissile ? "graphics/pywheel/CryoRifle_Missile.png" : "graphics/pywheel/CryoRifle_Beam.png";
+                img1  = "FRPKA0";
+                img2 = cryoSpear   ? "graphics/pywheel/CryoRifle_Spear.png"   : "graphics/pywheel/CryoRifle_Flak.png";
+                img3 = cryoMissile ? "graphics/pywheel/CryoRifle_Missile.png" : "graphics/pywheel/CryoRifle_Beam.png";
 
                 adjustPos = (-5, 15);
 
@@ -926,7 +927,7 @@ extend class PBX_HUD_Handler
 
 //////////////// SLOT 9 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 'PB_BFG9000':
-                pbx_image = "097GA0";
+                img1 = "097GA0";
 
                 adjustPos = (-10,32);
                 adjustScale = 0.8;
@@ -938,7 +939,7 @@ extend class PBX_HUD_Handler
                 break;
 
             case 'PB_Unmaker':
-                pbx_image = "UNHDA0";
+                img1 = "UNHDA0";
 
                 adjustPos = (-5,15);
                 adjustScale = 0.9;
@@ -984,18 +985,12 @@ extend class PBX_HUD_Handler
                 break;
 
             default:
-                pbx_image       = "";
-                pbx_image2      = "";
-                pbx_image3      = "";
-                adjustPos       = (0,0);
-                adjustPos2      = (0,0);
-                adjustPos3      = (0,0);
-                adjustScale     = 1.0;
-                adjustScale2    = 1.0;
-                adjustScale3    = 1.0;
                 break;
         }
         // Send the Values
+        pbx_image                = img1;
+        pbx_image2               = img2;
+        pbx_image3               = img3;
         pbx_weapon_pos          += adjustPos;
         pbx_weapon_pos2         += adjustPos2;
         pbx_weapon_pos3         += adjustPos3;
