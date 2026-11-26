@@ -1,0 +1,6 @@
+#include "./GlobalMaths.zsc"
+#include "./Matrix.zsc"
+#include "./Matrix4.zsc"
+#include "./Quaternion.zsc"
+#include "./VectorUtil.zsc"
+#include "./math.zsc"

@@ -1,1 +1,36 @@
-pb/incendiary_grenade_beep = "sounds/Equipments/Incendiary_Grenade/beep.wav"
+// Incendiary Grenade
+pb/incendiary_grenade_beep "sounds/Equipments/IncendiaryGrenade/beep.wav"
+
+// Smoke Grenade
+pbx/mist CC_MIST
+pbx/smoke "sounds/Weapons/Equipments/SmokeGrenade/smoke_emit.mp4"
+
+// Charges
+charge/place/remote	"Sounds/Equipments/Charges/charge_place_remote.ogg"
+charge/beep/remote	"Sounds/Equipments/Charges/charge_beep_remote.ogg"
+charge/activate/remote	"Sounds/Equipments/Charges/charge_activate_remote.ogg"
+
+charge/place/laser	"Sounds/Equipments/Charges/charge_place_laser.ogg"
+charge/beep/laser	"Sounds/Equipments/Charges/charge_beep_laser.ogg"
+charge/activate/laser	"Sounds/Equipments/Charges/charge_activate_laser.ogg"
+
+charge/detonate/laser  "Sounds/Equipments/Charges/charge_detonate_laser.ogg"
+$volume charge/detonate/laser 1.3
+charge/loop/laser  "Sounds/Equipments/Charges/charge_loop_laser.ogg"
+$volume charge/loop/laser 0.7
+charge/finish/laser  "Sounds/Equipments/Charges/charge_finish_laser.ogg"
+$volume charge/finish/laser 1.3
+
+charge/place/swarm	"Sounds/Equipments/Charges/charge_place_swarm.ogg"
+charge/beep/swarm	"Sounds/Equipments/Charges/charge_beep_swarm.ogg"
+charge/activate/swarm	"Sounds/Equipments/Charges/charge_activate_swarm.ogg"
+charge/detonate/swarm	"Sounds/Equipments/Charges/charge__swarm_detonate.ogg"
+
+charge/detonator  "Sounds/Equipments/Charges/charge_detonator.ogg"
+
+swarmdrone/windup "Sounds/Equipments/Charges/swarmdrone_windup.ogg"
+swarmdrone/burnout "Sounds/Equipments/Charges/swarmdrone_burnout.ogg"
+
+$random swarmdrone/idle  { swarmdrone/idle1 swarmdrone/idle2 }
+swarmdrone/idle1 "Sounds/Equipments/Charges/swarmdrone_idle1.ogg"
+swarmdrone/idle2 "Sounds/Equipments/Charges/swarmdrone_idle2.ogg"

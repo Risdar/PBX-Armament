@@ -2,19 +2,21 @@ Gameinfo
 {
 	PlayerClasses = "PBXCore_Player"
 	
-	addeventhandlers = "PBX_Armament_Handler"
-	addeventhandlers = "PBX_Armament_HUDHandler"
-	addeventhandlers = "PBX_WeaponSpawner_Handler"
+	// Core
+	addeventhandlers = "PBX_Handler"
+	addeventhandlers = "PBX_PrintVersion"
+	addeventhandlers = "PBX_HUD_Handler"
+	addeventhandlers = "PBX_Cheats_Handler"
 
-	// Others
-	addeventhandlers = "PBX_Weapons_CheatsHandler"
+	// Gameplay
+	addeventhandlers = "PBX_HitFeedback_Handler"
+	AddEventHandlers = "PBX_DamageFlash_Handler"
+	addeventhandlers = "D4DHandler"
 	addeventhandlers = "PBX_PreviousWeapon_Handler"
 
-	// BaseWeapon Handlers
-	addeventhandlers = "PBX_SmartScopeHandler"
-	addeventhandlers = "PBX_ScrollZoomHandler"
-	
-	// Weapon Specific Handlers
+
+	// Weapons
+	addeventhandlers = "PBX_ScopeHandler"
 	addeventhandlers = "ExterminatorHandler"
 	addeventhandlers = "CacoHandler"
 }

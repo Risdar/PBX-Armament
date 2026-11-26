@@ -16,12 +16,34 @@ PBX_SMOKEGRENADE_TAG2 = "Box of Smoke Grenades";
 PBX_SMOKEGRENADE_TIP = "Smoke Grenades will trigger infights";
 
 //////////////////////////// MED PACK ///////////////////////////////////////////////////////////////////////////////
-PB_MEDPACK_TAG = "First Aid Kit";
-PB_MEDPACK_WHEEL = "Equipment Selected: \cgFirst Aid Kit";
-PB_MEDPACK_OUT = "First Aid Kit is Empty";
+PBX_MEDPACK_TAG = "First Aid Kit";
+PBX_MEDPACK_WHEEL = "Equipment Selected: \cgFirst Aid Kit";
+PBX_MEDPACK_OUT = "First Aid Kit is Empty";
 
-PB_MEDPACK_FULL = "You're already at Max HP";
-PB_MEDPACK_PICKUP = "You found a First Aid Kit";
+PBX_MEDPACK_FULL = "You're already at Max HP";
+PBX_MEDPACK_PICKUP = "You found a First Aid Kit";
 
+//////////////////////////// DETONATOR ///////////////////////////////////////////////////////////////////////////////
+PBX_DETONATOR_TAG = "Detonator";
+PBX_DETONATOR_WHEEL = "Equipment Selected: \cdDetonator";
+PBX_DETONATOR_OUT = "How Did You Lose Your Detonator???";
 
+//////////////////////////// SWARM CHARGE ///////////////////////////////////////////////////////////////////////////////
+PBX_SWARMCHR_TAG = "Swarm Charge";
+PBX_SWARMCHR_WHEEL = "Equipment Selected: \ciSwarm Charge";
+PBX_SWARMCHR_OUT = "No \ciSwarm Charges\c- Reamining";
 
+//////////////////////////// ACID CHARGE ///////////////////////////////////////////////////////////////////////////////
+PBX_ACIDCHR_TAG = "Acid Charge";
+PBX_ACIDCHR_WHEEL = "Equipment Selected: \cdAcid Charge";
+PBX_ACIDCHR_OUT = "No \cdAcid Charges\c- Reamining";
+
+//////////////////////////// LASER CHARGE ///////////////////////////////////////////////////////////////////////////////
+PBX_LASERCHR_TAG = "Laser Charge";
+PBX_LASERCHR_WHEEL = "Equipment Selected: \cgLaser Charge";
+PBX_LASERCHR_OUT = "No \cgLaser Charges\c- Reamining";
+
+//////////////////////////// TRIPMINE ///////////////////////////////////////////////////////////////////////////////
+PBX_TRIPMINE_TAG = "Trip Mine";
+PBX_TRIPMINE_WHEEL = "Equipment Selected: \cgTrip Mine";
+PBX_TRIPMINE_OUT = "No \cgTrip Mines\c- Reamining";

@@ -1,0 +1,66 @@
+— PB Staging (Nemesis Vampy) - Revamped Armor Mutator's - v.1.0.3 - The Zscript Update (10/02/2026) —
+
+Credits:
+
+Project Brutallity Developer Team. (Original Armor's Sprites)
+
+Oxygen mask in the Acuatic Armor made from a Doomguy helmet sprite that DotWocht11K made for me.
+
+Id Software (Doom Eternal - Big Armor Sounds)
+
+Edit made with Ibis Paint app in attack of boredoom.
+
+Code Base in Zdoom DECORATE and Zscript.
+
+PB Revamped Mutators made by Kineret.G
+
+
+// Everything below this are outdated
+-----
+
+The New Armors in this Addon:
+
+Yellow: Haste + RadSuit, 130% Durability, 50 Damage Reduction
+
+Purple: Quad Damage, 140% Durability, 90 Damage Reduction
+
+Red: Berserk Pack, 100% Durability, 50 Damage Reduction
+
+White: Regeneration for 1 minute stackable up to 200% HP, 200% Durability, 100 Damage Reduction
+
+Orange: Night Vision, 160% Durability, 70 Damage Reduction
+
+Black: Gives you 20 ammo of each existing type, 160% Durability, 70 Damage Reduction
+
+Cyan: Stop/Freeze the time for 12 seconds and buff you speed fire rate for 12 seconds, 40% Durability, 200% Damage Reduction
+
+Demonic: Gives you Berserk, Quad Damage, and the monsters fears you, 300% Durability, 100% Damage Reduction. Only have 10% chance of Spawn in the Tier 4.
+
+---
+
+The New Armors in this version:
+
+
+Gold: Acts like a magnet, attracting ammo (including backpacks), health bonus, armor bonus and weapons.
+
+Light Blue: Allows you to breathe underwater indefinitely and move faster while submerged.
+
+Dark Purple: Your ammo is unlimited while wearing the armor.
+
+Pink: Enemies who attack you in melee are repelled and stunned (pain state) for 4 seconds.
+
+Green: It's a lifesaver. When your HP is below 10, it restores your health and armor to maximum (armor protection level is 100%) and grants you an invulnerability sphere.
+
+Dark red/orange: If you touch an enemy, it explodes and reduces durability by 10. This ability ends when the armor breaks. The armor does not degrade from any type of damage other than using the ability.
+
+Gray: This armor always provides random durability and protection values; it will never give you the same amount each time you use it.
+
+---
+
+Bugs Fixed:
+
+Rebalanced/Adapted the Spawners to work with the PB Injection System.
+
+---
+
+If you find any bug, please report it, I will be grateful and fix it as fast as I can. (But now, everything must work fine, i think lmao).

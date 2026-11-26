@@ -1,9 +1,9 @@
 addkeysection "$PBX_ARMAMENT_KEYMENU" PBX_KEY
-Alias          pbx_zoomin	            "netevent PBXWeapons_ZoomIn"
+Alias          pbx_zoomin	            "netevent PBX_Weapons_ZoomIn"
 AddMenuKey     "$PBX_WHEELZOOM_IN" 	    pbx_zoomin
 defaultbind    J                        pbx_zoomin
 
-Alias          pbx_zoomout	            "netevent PBXWeapons_ZoomOut"
+Alias          pbx_zoomout	            "netevent PBX_Weapons_ZoomOut"
 AddMenuKey     "$PBX_WHEELZOOM_OUT" 	pbx_zoomout
 defaultbind    K                        pbx_zoomout
 

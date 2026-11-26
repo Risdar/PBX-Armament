@@ -6,3 +6,330 @@ flickerlight2 TPortZap
     interval 0.01
     offset 0 32 0
 }
+
+// Special PowerUps
+pulselight InvisTaintedLight 
+{
+	color 0.282 0.239 0.545
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight DeflectLight 
+{
+	color 0.565 0.933 0.565
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight ElectAuraLight 
+{
+	color 0.282 0.463 1.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight InvulTaintedLight 
+{
+	color 0.933 0.910 0.667
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+
+// Vanilla PowerUps
+pulselight BuddhaLight 
+{
+	color 1.0 0.549 0.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+ 
+pulselight DrainLight 
+{
+	color 0.698 0.133 0.133
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+ 
+pulselight FlightLight 
+{
+	color 0.388 0.722 1.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight FrightenerLight
+{
+	color 0.5 0.0 0.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight HighJumpLight
+{
+	color 0.0 0.749 1.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight InfAmmoLight
+{
+	color 0.9 0.8 0.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight ProtectLight
+{
+	color 0.733 1.0 1.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+ 
+pulselight ReflectLight
+{
+	color 0.749 0.243 1.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight RegenLight
+{
+	color 0.0 0.1 0.1
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight TimeFreezeLight
+{
+	color 1.0 0.5 0.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pulselight RegenTnLight
+{
+	color 0.5765 0.4392 0.8588
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+// Frost Aura
+pulselight FrostAuraLight
+{
+	color 0.216 0.216 0.792
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+pointlight FrostAuraSphereLight0
+{
+    color 0.4 0.4 1.0
+    size 60
+    offset 0 16 0
+	attenuate 1
+}
+pointlight FrostAuraSphereLight1
+{
+    color 0.3 0.6 1.0
+    size 8
+    offset 0 16 0
+	attenuate 1
+}
+pointlight FrostAuraSphereLight2
+{
+    color 0.3 0.6 1.0
+    size 16
+    offset 0 16 0
+	attenuate 1
+}
+pointlight FrostAuraSphereLight3
+{
+    color 0.3 0.6 1.0
+    size 24
+    offset 0 16 0
+	attenuate 1
+}
+pointlight FrostAuraSphereLight4
+{
+    color 0.3 0.6 1.0
+    size 32
+    offset 0 16 0
+	attenuate 1
+}
+pointlight FrostAuraSphereLight5
+{
+    color 0.3 0.6 1.0
+    size 40
+    offset 0 16 0
+	attenuate 1
+}
+
+pointlight FrostAuraFreezeLight
+{
+    color 0.2 0.2 0.4
+    size 64
+    offset 0 32 0
+	attenuate 1
+}
+object FrostAuraFreeze
+{
+    frame TNT1 { light FrostAuraFreezeLight }
+}
+
+pointlight FrostAuraFrozenLight
+{
+    color 0.15 0.15 0.3
+    size 96
+    offset 0 32 0
+	attenuate 1
+}
+object FrostAuraFrozen
+{
+    frame TNT1 { light FrostAuraFrozenLight }
+}
+
+// Fire Aura
+pulselight FireAuraLight
+{
+	color 0.545 0.0 0.0
+	size 60
+	secondarySize 75
+	Interval 1.0
+	Offset 0 16 0
+}
+
+flickerlight2 FireAuraSphereLight
+{
+    color 1.0 0.6 0.3
+    size 75
+	secondarySize 100
+	interval 0.05
+    offset 0 16 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight1
+{
+    color 1.0 0.6 0.3
+    size 36
+    secondarySize 48
+    chance 0.3
+    offset 0 8 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight2
+{
+    color 1.0 0.6 0.3
+    size 60
+    secondarySize 72
+    chance 0.3
+    offset 0 24 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight3
+{
+    color 1.0 0.5 0.3
+    size 96
+    secondarySize 108
+    chance 0.3
+    offset 0 32 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight4
+{
+    color 0.8 0.5 0.2
+    size 96
+    secondarySize 108
+    chance 0.3
+    offset 0 40 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight5
+{
+    color 0.8 0.4 0.2
+    size 96
+    secondarySize 108
+    chance 0.3
+    offset 0 48 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight6
+{
+    color 0.6 0.3 0.1
+    size 72
+    secondarySize 84
+    chance 0.3
+    offset 0 64 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight7
+{
+    color 0.4 0.2 0.1
+    size 48
+    secondarySize 60
+    chance 0.3
+    offset 0 72 0
+	attenuate 1
+}
+
+flickerlight FireAuraFireLight8
+{
+    color 0.2 0.1 0.0
+    size 24
+    secondarySize 36
+    chance 0.3
+    offset 0 80 0
+	attenuate 1
+}
+
+/* object FireAuraFire
+{
+    frame VFIRA { light FireAuraFireLight1 }
+    frame VFIRB { light FireAuraFireLight2 }
+    frame VFIRC { light FireAuraFireLight3 }
+    frame VFIRD { light FireAuraFireLight4 }
+    frame VFIRE { light FireAuraFireLight5 }
+    frame VFIRF { light FireAuraFireLight6 }
+    frame VFIRG { light FireAuraFireLight7 }
+    frame VFIRH { light FireAuraFireLight8 }
+} */

@@ -1,0 +1,41 @@
+Big thanks to everyone that has helped me with making this mod
+either by answering my questions or simply giving feedback
+
+Credits:
+1. PB Team - For making the PB HUD the PBX HUD is based off
+2. IAmCarrotMaster - For giving me the base files to make the powerup timer icons
+3. vortex_planetzdoom - For showing me how to automatically get the icons for the armors
+4. Cat's Frozen Addon for Brutal Doom - The Coffee icon that is used for the power freeze timer is from this mod
+
+The Powerups is from Unless You Got Powah! by Ltnumbnutsthesecond 
+(https://forum.zdoom.org/viewtopic.php?t=80895)
+
+Here is the full credit list:
+//credits of this mod goes to Realm667, OutsiderAlien for teaching me stuff about decorate//
+//below will be a list of the modders resources that made this mod possible//
+
+//All resources are from realm667//
+
+//Adrenalinekit - Bravo//
+//Ammosphere - Dreadopp//
+//Armorsphere - Ghastly_dragon//
+//Berserksphere - Dreadopp//
+//Biosuit - Ghastly_dragon//
+//Crucifix - MagicWazard and Ghastly_dragon//
+//DamageSpheres - Captain Toenail//
+//Deflection Sphere - Jaeden//
+//Electric Aura Sphere - DeVloek//
+//GuardSphere - Ghastly_dragon and Skulltagteam//
+//HasteSphere - scalliano//
+//IconOfTheRaven - Ghastly_dragon//
+//InvisSphere - Ghastly_dragon and Skulltag//
+//LegendSphere - Salahmander and MagicWazard//
+//LifeSphere -  scalliano//
+//LifeShield - Blue Shadow//
+//RageSphere - Captain Toenail//
+//RegenSphere - scalliano//
+//ShrinkSphere - Captain Toenail//
+//TaintedSpheres - Rifleman//
+//TerrorSphere - Ghastly_dragon and Grah Zahl//
+//TimeFreezer - Ghastly_dragon and Skulltag//
+ 

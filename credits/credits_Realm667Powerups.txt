@@ -1,0 +1,10 @@
+A lot of the powerups here are also taken from PBWP and PB2022 made by RENEGADE_ANDROiD (https://github.com/RENEGADE-ANDROiD/) which in itself is from Realm667
+here are the credits for those
+
+// Frost Aura Sphere & Fire Aura Sphere
+Code: DeVloek
+GLDEFS: DeVloek
+Sounds: id Software, GSC Game World
+Sprites: id Software
+Sprite Edit: DeVloek
+Idea base: Elemental damage auras from Grim Dawn

@@ -1,0 +1,35 @@
+// Electric Aura
+ElectricAura/aura VELECAUR
+$random ElectricAura/electric { electric1 electric2 }
+electric1 VELECTR1
+electric2 VELECTR2
+electric3 VELECTR3
+electric4 VELECTR4
+$pitchset ElectricAura/electric 0.8 1.2
+$limit ElectricAura/electric 0
+$attenuation ElectricAura/electric 0.1
+
+
+// Frost Aura
+FrostAura/aura VFRSTAUR
+FrostAura/frostdeath VFRSTDTH
+$random FrostAura/frost { frostf1 frostf2 frostf3 frostf4 }
+frostf1 VFRSTF1
+frostf2 VFRSTF2
+frostf3 VFRSTF3
+frostf4 VFRSTF4
+$pitchset FrostAura/frost 1.0 1.2
+$limit FrostAura/frost 4
+$limit FrostAura/frostdeath 4
+
+// Fire Aura
+FireAura/aura VFIREAUR
+FireAura/firedeath VFIREDTH
+$random FireAura/fire { firef1 firef2 firef3 firef4 }
+firef1 VFIREF1
+firef2 VFIREF2
+firef3 VFIREF3
+firef4 VFIREF4
+$pitchset FireAura/fire 1.0 1.2
+$limit FireAura/fire 4
+$limit FireAura/firedeath 4

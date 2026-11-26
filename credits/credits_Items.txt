@@ -1,0 +1,1000 @@
+the Jetpack code is modified from Brutal Doom Platinum made by EmeraldCoasttt
+
+the Shoulder Cannon is from the GloryKill addon for PB, here are the full credits:
+GloryKillMechanics - BrutalDoom Black Edition's Team
+Pinata pickup sound - BrutalDoom Black Edition's Team
+Glory Kill Shader - D4D Teams
+Crucible sprite , Sound, FlameBelch sound - D4D Teams, EOA Teams
+Crucible trail - Embers Of Armageddon
+Pinata, Ammo Sprites - D4D Teams, LJG2023
+BloodPunch Effect - EOA Teams
+Low Health Sound - D4D Teams
+Item Collecting Mechanics - D4D Teams
+CYBERDEMON FATALITY - SgtMarkIV (BrutalDoom)
+MATSTERMIND FATALITY - SgtMarkIV (BrutalDoom)
+Flamethrower Crucible Mod - a90doomguy , Tunasz & Officer_D
+Hud Graphic Soucce - EOA Teams
+Old PB Addon Maintainer - Headshot_Ev
+New PB Addon Maintainer - thedoctorofdoom,RENEGADE_ANDROiD,beefrice
+
+some items from this mod is taken from PB Shoo Krew Edition made by KOLE (@kole2744 on discord)
+
+PB Shoo Krew Edition itself is fork of PB that includes Dusted's Pandemonia
+
+Below is the full credits for it (You can also find it here https://docs.google.com/document/d/1XGstl84qQO385xiLGv6AX4Tuj6qheQ1BdIz_3Sl4Gyo/edit?usp=sharing):
+Gifty
+Single-firing Revenant sprites
+Smooth Doom BFG projectile sprites
+Smooth Doom teleport effect sprites
+Smooth Doom plasma sprites
+Armor breastplate section (used for Bulletproof Vest)
+
+RSSWizard
+BFG 10k ball sprites
+
+DoomKrakken
+A_LobProjectile codei
+
+DRUMASTER
+Quake 2 Tank Boss model rip (used for Tankubus)
+    
+Perkristian
+Fist sprites
+Higher quality vanilla sounds
+    
+Chickenlegz
+Pinky XDeath sprites
+    
+osjclatchford
+Cacodemon XDeath sprites
+Shotgun sprites
+Super Shotgun sprites
+Armor Bonus sprites
+Health Bonus sprites
+Baby Cacodemon sprites (used for Cacophyte)
+Nethersyst sprites
+
+zrrion the insect
+Railgun sprites
+Laser Rifle sprites
+Lightning arc sprites
+“Health Armor” sprite (used for Medical Armor)
+Serpent Cult Staff sprites (used for Sacrosanct Aeonstave)
+Health Bonus sprites
+Armor sprites (used for Distorted Armor)
+
+XLightningStormL
+Bulletproof Vest sprite
+Blue Armor sprite (used for Plasmatic Detonation Pack)
+    
+mattbratt
+Original Cyber Hell Knight sprites
+
+Infirnex
+Armor Shard sprites
+    
+Gerolf
+BFG Mastermind sprites (used for Spider Masterspark, Conflagrator)
+    
+Mechadon
+Infernux Grand sounds (used for Plamexis)
+Infernux Grand mine sounds (used for Cydestructor)
+
+Revenant100
+Various sprite fixes
+    
+PillowBlaster
+Plamexis laser explosion effects sprites
+Particle velocity code
+Gurublaster smoke sprites (used for Chaos Monolith)
+
+Cybermonday
+Cyborg Zombie sprites (used for Pistol Borg, Shotgun Borg)
+Imp Borg sprites
+    
+Overlord
+Proto-Destroyer sprites (used for Cydestructor)
+Proto-Destroyer missile sprites (used for Cydestructor)
+Lord Asmodeus spear sprites and sounds (used for Hell Prince Asch)
+Demon Tech Trooper sprites (used for Scourge Zombie)
+
+Keeper
+Widowmaker death sprites (used for Sentry, Sentinel)
+
+Vice
+Widowmaker sprites (used for Sentry, Sentinel)
+    
+Scalliano
+Plasma Pistol Zombie sprites
+Life Sphere sprites
+Stalker Soul sprites (used for Chaos Umbra)
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+Flamethrower Zombie sprites (used for Pyro Zombie)
+    
+cybermeme
+Cyberfodder sprites (used for Chaos Warrior, Chaos Deathmark)
+    
+Tormentor667
+Plasma Zombie sprites
+Rapid Fire Trooper sprites (used for Assault Gunner)
+Zombie Railgunner sprites (used for Laser Rifle Zombie)
+Fusion Arachnotron sprites
+Railgun Arachnotron sprites (used for Widow, Arachnoscorcher)
+Dune Warrior sprites (used for Scourge Zombie)
+    
+Captain Toenail
+Plasma Zombie sprites
+Chaingun Arachnotron sprites (used for Nailgun Arachnotron)
+Forgotten One sprites (used for Forgotten)
+Maxibus sprites
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+
+Gothic
+Abaddon sprites
+    
+Ghastly Dragon
+Plasma Zombie sprites
+Field Kit sprites
+Crackodemon GLDefs
+Mafibus sprites
+Bruiser Demon GLDefs
+Diabolist GLDefs
+Soul Harvester sounds (used for Harvester)
+Soul Harvester GLDefs
+Tech Armor sprites (used for Cybernetic Armor)
+ZSpec Ops sprites (used for Spec Ops zombies)
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+    
+BlueFireZ88
+Pistol Zombie sprites
+
+Nanami
+Dark Imp sprites
+    
+Damien Daurio
+Imp Abomination sprites (used for Scoundrel, Abyssal Savage)
+
+
+Magmacow
+Various minigun sounds (used for Firestorm)
+Autocannon firing sound
+
+Magmacow (Dumpster Fire Volume 0)
+KSG pump sound (used for Shotgun)
+
+Magmacow (Dumpster Fire Volume 1)
+Combat Shotgun sound (used for Shotgun)
+Plasma sound (used for Dark Mastermind)
+
+Magmacow (Dumpster Fire Volume 2)
+C96 sounds (used for Pistol)
+M16 sounds (used for Assault Rifle)
+AutoPlas sounds (used for Plasma Rifle)
+Gauss Rifle sounds (used for Railgun)
+Gauss Shatter sounds (used for Dark Mastermind)
+Laser Overheat sound (used for Dark Mastermind)
+127 Sound (used for Cinder Zombie)
+
+Magmacow (Shotgun Trashbag)
+MTS255 sound (used for Super Shotgun)
+Ithaca sound (used for Super Shotgun)
+SPAS-12 sound (used for Auto Shotgun)
+
+Dark Fantasy Studio
+Lightgun sounds
+
+GameDev Market
+Combat blood sounds (used for Genodemon)
+
+Insanity Doom
+Cacophyte sprites and sounds
+    
+MagicWazard
+Phantasm sprites
+Familiar Summon Sphere sprites (used for Salvation Sphere)
+    
+Vader
+Terror Sphere sprites
+Dark Imp sprites (used for Phase Imp)
+Blood Demon sprites (used for Mech Demon)
+Bruiser Demon sprites (also used for Cydestructor, Hectic)
+Terminator sprites (used for Terminator, Dreamweaver, Eradicator)
+Terminator sounds
+Soul Harvester sprites (used for Harvester)
+Cacolich sprites (used for Cacolich)
+
+Torturephile
+Hectic sprites and sounds
+Fear sounds
+    
+AgentSpork
+Hectebus sprites
+Nightmare Demon sprites
+
+SpacemanStrife
+Balrog sprites (used for Infernal Afrit)
+Hellstorm Archon baron markings (used for Hell Prince Asch)
+Conqueror sprites (used for Conflagrator, Sacrosanct Overseer)
+    
+Xaser
+Arachnophyte sprites (also used for Sacrosanct Overseer)
+Faceless Pinky sprite (used for Faceless)
+    
+Quasar
+Arachnophyte sprites (also used for Sacrosanct Overseer)
+    
+Dreadopp
+Arachnophyte GLDefs
+Fusion Arachnotron GLDefs
+Thamuz GLDefs (used for Dark Cyberdemon)
+Railgun Arachnotron GLDefs (used for Widow)
+Agaures sprites (used for Chaos Imp)
+Power Orb sprites (used for Chaos Ecclesiarch)
+Pyro Imp sprites (used for Brimstone Imp)
+    
+Keksdose
+Afrit GLDefs
+Bruiser Demon GLDefs
+Soul Harvester GLDefs
+    
+Herculine
+Afrit brightmaps
+    
+Captain J
+Auto Shotgun Zombie sprites
+General Roasterock sprites
+Draugr sounds (Hellforged Sound Pack) (used for Apollyon)
+Missile Zombie sprites (used for Oppressor)
+
+Asbadagba/Neon
+Baby Sentient sprites (used for Demolitron)
+Baby Demolisher sprites (used for Demolitron)
+Old Heresiarch sprites
+
+Harbinger/Handbringer
+Hell Paladin sounds (used for Hell Prince Asch)
+Old Heresiarch sprites
+
+HellcattX
+Cell ammo sprite (used for Plasmatic Detonation Pack)
+    
+Icytux
+Crackodemon sprites
+    
+NeoWorm
+BFG Zombie sprites (used for BFG Commando)
+Blood Demon sprites (used for Mech Demon)
+Poison Soul sprites (used for Chaos Umbra)
+Ethereal Soul sprites (used for Wraith)
+D’Sparil Staff sprites (used for Sacrosanct Aeonstave)
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+Dune Warrior sprites (used for Scourge Zombie)
+Cyberspectre Demon sprites (used for Seraph)
+
+Maelstrom
+Psychic Soul sprites (used for Electrosoul)
+
+Virtue
+Cyber Imp sprites
+    
+Spectator
+Beam Revenant sprites (used for Missile Revenant)
+
+Enjay
+Plasma Pistol Zombie sprites
+Cacomental sprites (used for Genodemon)
+
+DavidN
+Plasma Pistol Zombie sprites
+    
+Espi
+Afrit sprites
+Dark Cardinal sprites
+    
+Ebola
+Afrit sprites
+Dark Cardinal sprites
+    
+IMX
+Fiend melee sounds (used for Hollow)
+Alien-like imp sprites (used for Abyssal Savage)
+    
+Xim
+Rocket Zombie sprites
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+SMG Zombie sprites (used for Cinder Zombie)
+
+Woolie Wool
+SMG Zombie sprites (used for Cinder Zombie)
+
+Toke
+SMG Zombie sprites (used for Cinder Zombie)
+    
+DavidRaven
+Rifle Zombie sprites
+Rifle Zombie sounds
+
+David G
+Hell Warrior gib sprites (used for Hell Warden)
+    
+Phobus
+Dark Sabreclaw sprites (used for Darkbeast)
+    
+Bouncy
+Dark Sabreclaw sprites (used for Darkbeast)
+    
+Jimmy (James Paddock)
+ZDoom 2012 big font
+Miniplicity font
+Agathodemon sprites
+Dark Cardinal sprites
+Augmented Arachnotron sprites
+Song “Cataclysmic Impact” from Plutonia 2 (Myrkura’s boss theme)
+
+zan-zan-zawa-veia
+Song “Sappers & Moles” from Revolution! MIDI Pack (Roasterock’s boss theme)
+
+A_D_M_E_R_A_L
+Key code
+EVP Spider Mastermind sprites (used for Dark Mastermind)
+EVP Revenant sprites (used for Ancient Gladiator)
+ZScript HUD conversion
+
+M. Vanston
+Void Dragon voice lines (used for Sacrosanct Overseer)
+    
+HorrorMovieGuy/Rei
+Cyberdemon melee sprites (used for Dark Cardinal)
+Uber Chaingunner sprites (used for Nailborg Commando)
+Blind Pinky sprites (used for Wretch)
+
+Particle Fire Enhancer
+Terrain splashes and definitions
+Bullet Puffs
+BFG9000 ball sprite
+
+Carbine Dioxide
+Various Chaingunner sprites (used for Blazegunner)
+    
+Nash Muhandes
+Old Nashgore, base for blood and gibs
+
+Mor’ladim
+Electric Pod sprites (used for Armor Reconstruction Kit)
+Elemental Gem sprites and sounds (used for Completionist Rewards)
+
+Orka
+Powerup pickup sound
+Shotgun firing sound (used for Shrapnel sidegrade)
+Health sound (used for Medical Armor)
+
+Zedek the Plague Doctor
+General Roasterock Zombie sprites
+
+Uboa
+Cacolich concept sprites (used for Abyssal Necrodemon)
+
+Finalizer
+ZSpec Ops XDeath sprites (used for Spec Ops zombies)
+Paladin sprites (used for Cyberwarden)
+Dark Void Imp melee sprites (used for Abyssal Savage)
+
+Remaker
+ZSpec Ops pistol sprites
+
+ObsidianHawkTheExecutor
+Conflagrator sounds
+
+Skelegant
+ZSpec Ops pistol firing sprites
+
+Lightsource
+HD Armor sprites (used for Brimstone Armor)
+    
+Hexereticdoom
+Base for HUD (BTSX HUD)
+    
+Ptoing
+HUD graphics
+
+Chronohunter45
+XDeath mugshot
+
+Toast-Lord
+Agathodemon brightmaps
+
+TypicalSonicFan/Sonik.O.Fan
+Grenade/Rocket Launcher base sprite (used for Meteorite)
+Pickup sprite collection (used for Shoulder Cannon)
+Doom Eternal Equipment Launcher sprites (used for Shoulder Cannon)
+
+VriskaSerket
+Crossbow sprites (used for Meteorite)
+
+tdawg
+Demented Terminator sprites (used for Eradicator)
+
+Player701
+Thinker-based global variable fix
+
+DevilBlackDeath
+Inventory Keeper mod
+
+Warhawk
+Super Shotgun Zombie sprites
+ZSpec Ops Assault Rifle sprites (used for Spec Ops Gunner)
+Mech Blood Demon sprites (used for Mech Demon)
+
+DrPyspy
+Hellified Soldier sprites (used for Pelter, Assailant)
+
+tsran
+Cyber Imp melee sprites
+Nailborg Commando sprites
+Scourge Zombie sprites
+Cybruiserdemon sprites (used for Abyssal Desecrator)
+Dark Cardinal pain sprite rotations
+Afrit Archon sprites (used for Abyssal Ifrit)
+Nailborg Colonel sprites (used for Nailborg Admiral)
+
+torridGristle
+Yellow “Star” muzzleflash sprites (used for Railgun)
+
+Turbo
+Firestorm pickup sprite
+
+ZZYZX
+Divine Shadow sprites (used for Illusionist)
+
+Mr. Satan
+hem-custom Illusionist recolor from Divine Shadow (used for Illusionist)
+
+ItsNatureToDie
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+Rapid Fire Trooper sprites (used for Assault Gunner)
+    
+Mike12
+Centered Shadow Warrior Riotgun sprites (used for Firestorm)
+Demon Tech Rifle sprites (used for Scourge Rifle)
+
+Dr_Cosmobyte
+Centered Riotgun sprite edit (used for Firestorm)
+
+Hellstorm Archon
+Dead Soul sprites (used for Soulless Drone)
+
+Cyb
+Dark Void Imp sprites (used for Abyssal Savage)
+    
+Jaxxoon R
+PSX-style Cacodemon sounds (used for Xenodemon, Agathodemon)
+PSX-style Hell Knight sounds (used for Hell Warden)
+Various pain and active sounds from Sound Caulking
+
+Phantombeta
+Super Chaingun sprites (used for Streetsweeper)
+ZForms
+
+Gutawer
+ZForms
+
+Bugsie
+BFG10k Zombie sprites (used for BFG10k Warrior)
+
+Arkore
+Super Chaingun sprite edit (used for Streetsweeper)
+
+Craneo
+Cacobot sprites
+Samael sprites (used for Chaos Observer)
+Whiplash sprites (used for Chaos Ophydian)
+Argent Elemental sprites (used for Automaton Elemental)
+Castlevania 4 Slogra’s spear sprite edit (used for Hell Prince Asch)
+
+nmn
+Blade Monkey sprites (used for Chaos Flayer)
+Bug/Zerg-Caco sprites (used for Chaos Stalker)
+
+Yonko
+Enlightener firing sound
+
+Jekyll Grim
+Lightning Gun code library
+
+DiR
+B.P.R.D sprites (used for Enlightener)
+
+ShallowB
+Doom 64 style imp sprites (used for Abyssal Savage)
+
+Cheello
+Voxel Doom Cacodemon (used for Nethersyst)
+
+UnholyShadows
+Nethersyst sprites
+
+FuzzBallFox
+New Text Colors mod
+
+Finder153 (300 Pounds Sound Pack)
+Cacodemon sounds (used for Abaddon)
+Revenant sounds (used for Apollyon)
+    
+Blood (Complex Doom Invasion)
+Inspiration for Dark Cardinal comet attack
+
+Tango (Supercharge/Paradise)
+Pyrodemon death sprites (used for Infernoble)
+Pyrodemon debris sprites (used for Infernoble)
+
+Fusehive (Holy & Black Magic)
+Black Magic sound (used for Abyssal enemies)
+    
+Skulltag
+Doomsphere sprites (used for Double Damage Sphere)
+Grenade sprites (used for Meteorite)
+Strength rune sprites
+Prosperity rune sprites (used for Persistance rune)
+Resistance rune sprites
+Drain rune sprites
+    
+Insanity's Brutality
+Weapon draw sounds
+Mini Rocket firing sound
+    
+Daedalus/Complex Doom
+Custom palette
+Casings
+Bullet tracers
+BFG10k tracers
+BFG10k explosion sound
+Cyberdemon sight sound
+Spider Mastermind sight sound
+Armor Boost sprites
+Idle fire sounds (afrit, arachnophyte, cardinal)
+Cyber Fiend sprites (used for Mauler)
+
+LCA (Legendary Complex Addon) imagine having proper credits
+Cydestroyer sounds (used for Cydestructor)
+    
+Sandypaper
+Archon of Hell brightmaps
+Annihilator brightmaps
+Demolisher brightmaps
+Cybruiser brightmaps (used for Cybruiser, Dark Cybruiser, Cyberwarden, Cydestructor)
+Dark Imp brightmaps (used for Phase Imp)
+Augmented Arachnotron brightmaps
+Terminator brightmaps (used for Terminator, Dreamweaver)
+Soul Harvester brightmaps
+Death Incarnate brightmaps (used for Hollow)
+Ethereal Soul brightmaps (used for Wraith)
+    
+FromSoftware (Dark Souls)
+Taurus Demon sounds (used for Dark Cardinal)
+Infested Ghoul sounds (used for Plagueling)
+Shield hit sounds (used for Hell Warden)
+Titanite Demon attack sounds (used for Hell Warden)
+Burning sound (used for Archvile)
+Pyromancy cast sound (used for Archvile, Infernal Ward)
+Manus sounds (used for Hell Prince Asch)
+Toxic sound effect (used for status effects)
+Humanity sound effect (used for status effects)
+Various miscellaneous sounds (used for Vessels)
+
+Westwood Studios (C&C Renegade)
+Laser Rifle firing sound
+Laser Chaingun firing sound
+Tiberium Bio Rifle sounds (used for Scourge Rifle)
+Mutant death sounds (used for Scourge Zombie)
+Ion Cannon sounds (used for Machina)
+Portable Ion Cannon sounds (used for Masterspark)
+
+Treyarch (Call of Duty: Black Ops 2/3)
+Panzersoldat sounds (used for Eradicator)
+
+Monolith Productions (Blood)
+Various fire SFX sprites
+Cultist sounds (used for Chaos Cultists)
+    
+Raven Software (Hexen)
+Archon comet sounds
+Slaughtaur sounds (used for Magma Demon)
+Spirit sounds (used for Wraith)
+Various pickup sounds (used for Demon Essence)
+Mage Player sprites (used for Chaos Acolyte)
+
+Raven Software (Hexen 2)
+Eidolon spell sound (used for Hollow)
+Explosion sounds (used for Revenants)
+Weretiger sounds (used for Mauler)
+Scorpion sounds (used for Spider Masterminds)
+Fallen Angel sounds (used for Seraph)
+Eidolon sounds (used for Abyssal Ifrit)
+    
+Raven Software (Heretic)
+Sabreclaw sounds (used for Darkbeast)
+Hell Staff projectile sprites (used for Hollow, Chaos Monolith)
+Iron Lich sounds (used for Cacobot)
+    
+Raven Software (Quake 4)
+Grenade Launcher firing sound
+Gladiator sounds (used for Sentry)
+Iron Maiden sounds (used for Chaos Umbra)
+Hover Tank sounds (used for Tankubus)
+Gunner sounds (used for Plasmatic Elemental)
+Light Tank sounds (used for Chaos Observer, Automaton Elemental)
+Soldier sounds (used for zombies)
+Hell Staff projectile sprites (used for Plasma Rifle, Chaos enemies)
+Enemy Blaster sounds (used for Arachnoscorcher)
+Tactical Strogg sounds (used for Spec Ops zombies)
+Dark Matter gun sounds (used for Abyssal Desecrator)
+Harvester sounds (used for Sacrosanct Overseer)
+    
+Raven Software (other)
+Witherdemon sounds
+
+id Software (Quake)
+Fiend sounds (used for Wretch)    
+Super Nailgun firing sound (used for Nailgun)
+Rocket explosion sound (used for Archon of Hell death)
+Shambler sounds (used for Corpulent)
+
+id Software (Quake 2)
+BFG10k firing sounds (used for BFG 9000)
+Grenade bounce sound
+Hornet sounds (used for Arachnophyte)
+Railgun charging sound
+Tank sounds (used for Terminator)
+Homing Dark Cyberdemon BFG sounds
+Parasite sounds (used for Arachknight)
+Medic sounds (used for Arachknight, Plasmatic Elemental)
+Secret sound
+Tank Boss sounds (used for Tankubus)
+Energy Shield sounds (used for Armor Reconstruction Kit)
+Technician sounds (used for Automaton Elemental)
+
+id Software (Quake 3 & Team Arena)
+Chaingun impact sound (used for Railgun Beam)
+Lightning Gun sounds (used for Railgun Beam)
+Plasma impact sound (used for Railgun Beam)
+Gib sounds
+Rocket Launcher sounds (used for Apollyon)
+Armor Bonus pickup sound
+Uriel sounds (used for Faceless)
+    
+id Software (Doom 3)
+Mancubus sounds (used for Mafibus)
+Archvile sounds (used for Distortionist)
+Lost Soul sounds (used for Crackodemon projectiles, Chaos Umbra)
+BFG sounds (used for BFG 9000, BFG10k)
+Soul Cube sounds (used for Heliacal Arkh)
+Chaingun sounds (used for Roasterock)
+Bruiser sounds (used for Cydestructor)
+Hunter sounds (used for Convergence)
+
+id Software (Doom 2016)
+BFG charge up sound (used for BFG10k)
+Alternate? BFG firing sound (used for BFG10k)
+Gauss Cannon loading sound (used for BFG10k)
+Chaingun firing sound (used for BFG10k)
+Plasma Rifle ready sound (used for Plasma Rifle)
+
+id Software (Doom Eternal)
+UI sounds (used for Armor Salvager)
+Various explosion sounds
+Breakable object sounds (used for Armor destroying/salvaging)
+Ballista sounds (used for Masterspark laser, Railgun, Dark Mastermind, Hakkero Magicannon)
+Super Shotgun firing sound
+Shotgun firing sound (used for Auto Shotgun)
+Heavy Cannon firing sounds (used for Nailgun)
+Pistol firing sounds (used for Nailgun)
+Rune sounds
+Chaingun sounds (used for Dark Mastermind)
+Armored Baron sounds (used for Ancient Gladiator)
+Revenant sounds (used for Ancient Gladiator)
+Equipment Launcher sounds (used for Shoulder Cannon)
+Health and Armor pickup sounds
+Cacodemon sounds (used for Abyssal Necrodemon)
+Gargoyle sounds (used for Hades Ravager)
+Hell Soldier sounds (used for Oppressor)
+    
+Team Evolve (Quake 2: Zaero)
+Boss sounds (used for Dreamweaver)
+    
+Midway (PSX Doom)
+BFG9000 explosion sound
+Lost Soul sounds (used for Phantasm)
+Imp sounds (used for Devil, Phase Imp)
+Demon sounds (used for Nightmare Demon)
+Mancubus sounds (used for Corpulent)
+Revenant sounds (used for Hollow)
+Zombie sounds (used for Nailborg Commando)
+Cacodemon sounds (used for Xenodemon, Agathodemon)
+Hell Knight sounds (used for Hell Warden)
+Zombie sounds
+Arachnotron sounds (used for Arachnoscorcher, Demolitron)
+Pain Elemental sounds (used for Automaton Elemental)
+
+
+Rogue Entertainment (Strife)
+Sentinel sprites (used for Cacobot)
+
+3D Realms (Duke Nukem 3D)
+Alien Queen sounds (used for Dark Mastermind)
+
+Obsidian Entertainment (Fallout New Vegas)
+Laser Rifle firing sounds (used for Dark Blaster)
+Alien Blaster firing sound (used for Epic 2 Alien)
+Incinerator firing sound (used for Pyro Zombie)
+
+New World Interactive (Insurgency)
+Empty click sound
+
+Beyond Games (Velocity X)
+Laser Cannon sound (used for Dark Mastermind)
+    
+Tripwire (Killing Floor)
+Gorefast sounds (used for Scoundrel)
+Husk sounds (used for Pyrobruiser)
+Patriarch chaingun sounds (used for Roasterock)
+Fleshpound sounds (used for Abyssal Desecrator)
+
+Epic Games (Unreal Tournament)
+Flak Cannon bounce sounds (used for Shrapnel sidegrade)
+Health Vial pickup sound
+
+Epic Games (Unreal Tournament 2003)
+Various weapon pickup sounds
+Shield Gun sounds (used for Cybernetic Armor)
+Bio Rifle sounds (used for Scourge Rifle)
+
+Epic Games (Unreal Tournament 3)
+Flak Cannon firing sounds (used for Shrapnel sidegrade)
+Bio Rifle souinds (used for Scourge Rifle)
+
+Legend Entertainment (Unreal 2)
+Explosion sounds (used for Firestorm)
+
+Tamsoft (Senran Kagura: Estival Versus)
+Kagura sound effects (used for Dreamweaver, Abyssal enemies, Myrkura, Illusionist)
+
+Blizzard (Diablo)
+Dark Cyberdemon sounds
+Bruiser Demon death sound
+Blood Scepter sounds
+
+Blizzard (Diablo 2)
+Diablo sounds (used for Hellfire Avatar)
+
+Relic Entertainment (Dawn of War)
+Necron sounds (used for Cryptek, Chaos Imp, Chaos Warrior, Chaos Deathmark, Chaos Monolith, Chaos Observer, Chaos Beholder, Chaos Ophydian, Chaos Flayer, Chaos Ecclesiarch, Chaos Pylon, Chaos Stalker, Sacrosanct Aeonstave)
+Chaos sounds (used for Myrkura)
+Avatar of Khaine sounds (used for Hellfire Avatar)
+
+Relic Entertainment (Dawn of War 2)
+Noise Marine sounds (used for Pulsedemon)
+
+Ultimate Apocalypse Team (Dawn of War: Ultimate Apocalypse)
+Siege Monolith sounds (used for Chaos Monolith)
+Annihilation Barge sounds (used for Chaos Monolith)
+Various Chaos Daemons sounds (used for Sentinel)
+
+Valve Software (Team Fortress 2)
+Flamethrower sounds
+Cow Mangler sounds (used for BFG 9000)
+Loose Cannon sounds (used for Napalm Grenades/Pyrobruiser)
+Rocket Launcher firing sounds (used for Meteorite)
+Black Box explosion sounds (used for Meteorite)
+Natascha sounds (used for Firestorm)
+Beggar’s Bazooka sounds (used for Apollyon)
+
+Valve Software (DOTA 2)
+Outworld Devourer voice lines (used for Heresiarch)
+    
+Croteam (Serious Sam)
+Arachnoid sounds (used for Nailgun Arachnotron)
+
+Trent Reznor (Doom 3 Alpha)
+Commando sounds (used for Roasterock)
+
+Sorath (Devil Daggers)
+Ultrapede sounds (used for Plamexis, Convergence)
+Leviathan sounds (used for Convergence)
+
+Electronic Arts (Command and Conquer Generals)
+Particle Cannon sounds (used for Masterspark laser)
+
+Electronic Arts (Command and Conquer Renegade)
+Laser Rifle sounds
+Personal Ion Cannon sounds (used for Masterspark laser)
+
+Arrowhead (Helldivers 2)
+Devastator sounds (used for Machina)
+Bile Spewer sounds (used for Defiler)
+Scavenger sounds (used for Plague Mite)
+Stalker sounds (used for Trite)
+
+miHoYo (Genshin Impact)
+Fatui Electrohammer sounds (used for Abyssal Cult Leader)
+    
+Amuscaria/Eriance
+Pistol sprites
+Shotgun sprites
+SSG sprites
+Auto Shotgun sprites
+Rocket Launcher sprites
+Grenade Launcher sprites
+Dark Blaster sprites
+Dark Blaster sounds
+Plasma Rifle sprites
+BFG 9000 sprites
+BFG 10k sprites
+Blood Fiend sprites
+Archon of Hell sprites (also used for Hell Prince Asch)
+Archon of Hell sounds
+Annihilator sprites
+Annihilator sounds
+Demolisher sprites
+Demolisher sounds
+Cybruiser sprites
+Cybruiser death sound
+Cyber Hell Knight sight sound
+Doomsphere sprites
+Devil sprites
+Diabolist sprites
+Diabolist sounds
+Corpulent sprites
+Terminator sprites
+Death Incarnate sprites (used for Hollow, Ancient Gladiator)
+Vulgar sprites (used for Plagueling)
+Blood Scepter sprites
+Witherdemon death sound
+Plasma Repeater sprites
+Arachknight sprites (used for Arachknight)
+Mini Rocket sprites
+Hierophant projectile sprites (used for Chaos Monolith)
+New Sentinel sprites (used for Chaos Monolith)
+Napalm Grenade sprites
+Old Inferno sprites (used for Plasmatic Elemental, Abaddon)
+Overlord sprites (used for Chaos Beholder, Conflagrator)
+Hades Elemental sprites
+Sentinel sounds (used for Cacobot)
+Irebolt sprites (used for Heliacal Arkh)
+Irebolt sounds (used for Heliacal Arkh)
+Rocket explosion sprites (used for Firestorm)
+Nightshade sounds (used for Wraith)
+Caster effects sprites (used for Railgun effects)
+Hell-forged Shield sprites (used for Bulwark Rune)
+Hell-forged Armor Icon graphic (used for Bulwark Rune)
+Hell Duke sprites (used for Plamexis, Hellfire Avatar)
+Avatar sprites (used for Chaos Ecclesiarch)
+Guardian sprites (used for Chaos Pylon)
+Cultist/Thrall sprites (used for Chaos Cultist)
+Watcher sounds (used for Abaddon)
+Draugr sprites (used for Apollyon, Ancient Gladiator)
+Mauler Projectile sprites (used for Apollyon)
+Pyro Cannon Zombie sprites (used for Infernal Commando)
+Hellstorm Archon sprites (used for Hell Prince Asch, Fear)
+Super Immolator sprites (used for Scourge Rifle)
+Hellstorm sprites (used for Convergence)
+Hellforged Armor sprites (used for Infernal Ward)
+Blood Ammo sprites (used for Vessels)
+Powerup sprites (used for Vessels)
+Summon Sphere sprites (used for Abyssal Vilesphere)
+Director sprites (used for Sacrosanct Overseer)
+Hierophant sprites (used for Heresiarch)
+Infernal sprites (used for Heresiarch)
+Hemodemon sprites (used for Hades Ravager)
+Defiler sprites
+Mite sprites
+Abyss Crawler sprites (used for Trite)
+    
+General Roasterock
+Dark Cybruiser firing sprites
+Uber Chaingunner recolor (used for Nailborg Commando)
+
+Master of Disasters
+BFG sprite and animation (used for Hakkero Magicannon)
+
+Tapor/Trusar
+Hell Duke stomp sprites (used for Hellfire Avatar)
+
+Devloek
+Frost Aura Sphere sprites (used for Abyssal Guardsphere)
+Fire Aura Sphere sprites (used for Reincarnation Sphere)
+
+Gez
+Flesh Wizard sprites (used for Pulsedemon)
+
+Titanium
+Enraged Legendary Redeemer sounds (used for Hades Ravager)
+
+High Councilor
+True Legendary Vessel sprites (used for Pulsedemon)
+
+Sgt. Shivers
+Ammo sprites (used for Shoulder Cannon)
+    
+killerkouhai
+Sayori sprites
+    
+Master Jo
+Sayori death sound (Sayo-nara 8-bit remix)
+
+MUGEN
+Moloch sounds (used for Pulsedemon)
+
+DeXiaZ
+PSX Archvile sounds (used for Pulsedemon)
+
+Merzbow
+Woodpecker No. 1 (used for Pulsedemon)
+    
+Beautiful Doom
+Barrel explosion sprites
+Barrel explosion GLDefs
+    
+BloodyAcid
+Cell/Cell pack pickup sprites
+Medikit/Stimpack sprites
+Berserk sprites
+    
+Project Brutality
+Powerup/item/health replacement sounds
+Shell, bullet, and rocket pickup sprites
+Pistol firing sound
+Shotgun pump sound
+Assault Rifle firing sound
+Rocket Launcher sounds
+Plasma Rifle sounds
+Spider Mastermind minigun sounds
+Barrel explosion sounds
+Grenade explosion sounds
+Doomsphere pickup sound
+Auto Shotgun firing sound
+Plasma Repeater recolor
+Plasma Repeater sounds
+Corpulent fire effect sprites
+Fire effect sprites
+
+UltraViolence
+Legendary BFG10k sprites (used for BFG10k)
+
+Blurryboy
+Song “Just Don’t Die Lmao” (used for Xanthous Evangelist)
+
+Team Shanghai Alice (ZUN)
+Spellcard sound (used for Spider Masterspark)
+Boss death sound (used for Spider Masterspark)
+Star firing/explosion sounds
+Laser sounds (used for Railgun Beam)
+Song “Pandemonic Planet” (MIDI by unknown) (used for Crimson Evangelist)
+Song “The Lost Emotion” (MIDI by hasaraito) (used for Azure Evangelist)
+
+Twilight Frontier (Touhou fighters)
+Star sprites
+Dreamweaver death shockwave
+
+S+compressionbox (Mugen Plamexi$)
+Various Plamexis attack sounds
+Various Plamexis projectile/effect sprites
+    
+Okihaito (M-Reimu)
+Distortion sprites
+Distortion sounds
+    
+Pandacia Lake
+Dreamweaver "Flower" attack sprite
+Various Dreamweaver attack sounds
+    
+OWATANKS
+Dreamweaver "Flower" projectile explosion sound
+
+Ben Hickling
+BlastFX program, used for various explosion sprites
+
+Sergeant Mark IV (Brutal Doom)
+Juggernaut sprites (can I get verification on this?) (used for Tankubus)
+
+Wereknight/CWolf
+Dark red Archvile sprites (used for Machina)

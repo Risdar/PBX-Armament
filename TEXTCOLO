@@ -1,0 +1,88 @@
+// Powerup Font Colors
+// Special Powerups
+PBX_PowerInvisTainted
+{
+	#201d32 #483D8B
+}
+
+PBX_PowerDeflect
+{
+	#589c58 #90EE90
+}
+
+PBX_PowerElectAura
+{
+	#4876FF #2ed0ec
+}
+
+PBX_PowerInvulTainted
+{
+	#696647 #d1c332
+}
+
+// Vanilla Powerups
+PBX_PowerBuddha
+{
+	#423a31 #FF8C00
+}
+ 
+PBX_PowerDrain
+{
+	#1a1919 #B22222
+}
+ 
+PBX_PowerFlight
+{
+	#698ca9 #63B8FF
+}
+
+PBX_PowerFrightener
+{
+	#8B0000 #ca1717
+}
+
+PBX_PowerHighJump
+{
+	#26596b #00BFFF
+}
+
+PBX_PowerInfiniteAmmo
+{
+	#8a7655 #F0C060
+}
+
+PBX_PowerProtection
+{
+	#387070 #BBFFFF
+}
+ 
+PBX_PowerReflection
+{
+	#54206d #BF3EFF
+}
+
+PBX_PowerRegeneration
+{
+	#1C6ED0 #0ed3ed
+}
+
+PBX_PowerTimeFreezer
+{
+	#9e5a1b #f09533
+}
+
+PBX_TaintedRegen
+{
+	#3a3348 #9370db
+}
+
+PBX_PowerFrostAura
+{
+	#3737CA #a4a4d9
+}
+
+PBX_PowerFireAura
+{
+	#8b0000 #bb2d2d
+}
+

@@ -1,45 +1,117 @@
-// General
-server bool PBX_Armament_SendTip = true;
-server bool PBX_Weapons_startwithnormalrifle = false;
-server bool PBX_Weapons_startwithcrossbow = false;
-server bool PBX_SecretWeapon_Enable = true;
-server bool PBX_Weapons_cssghooklockswitch = true;
-server bool PBX_Weapons_keepweapons = false;
-server bool PBX_Weapons_LaserShowBeam = true;
-server bool PBX_SecretWeapon_BFGSpawn = false;
-server int PBX_SecretWeapon_Chance = 5;
+//////////////// GENERAL /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+server int PBX_EMPTY_FLAG = 0;
+server bool PBX_SEND_TIP = true;
+server bool PBX_DEBUG = false;
+user bool PBX_SHOW_VERSION = true;
+
+// Compatiblity
+server bool PBX_COMPAT_GLORYKILL = false;
+server bool PBX_COMPAT_MONSTERPACK = false;
+server bool PBX_COMPAT_ULTIMATEVISOR = false;
+
+// HUD
+server int PBXCore_HudFlags = 0;
+
+user int PBX_CVAR_HUD_WEAPON_X = -100;
+user int PBX_CVAR_HUD_WEAPON_Y = -90;
+user float PBX_CVAR_HUD_WEAPON_SCALE = 1.0;
+user float PBX_CVAR_HUD_WEAPON_ALPHA = 1.0;
+user int PBX_CVAR_HUD_WEAPON_BOX_W = 96;
+user int PBX_CVAR_HUD_WEAPON_BOX_H = 36;
+
+user int PBX_CVAR_HUD_WEAPON_MODE_HUD_X = -260;
+user int PBX_CVAR_HUD_WEAPON_MODE_HUD_Y = -14;
+user float PBX_CVAR_HUD_WEAPON_MODE_HUD_SCALE = 2.5;
+user float PBX_CVAR_HUD_WEAPON_MODE_HUD_ALPHA = 1.0;
+user int PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_W = 56;
+user int PBX_CVAR_HUD_WEAPON_MODE_HUD_BOX_H = 56;
+
+user int PBX_CVAR_HUD_ARMOR_X = 300;
+user int PBX_CVAR_HUD_ARMOR_Y = -48;
+user float PBX_CVAR_HUD_ARMOR_SCALE = 0.25 ;
+user float PBX_CVAR_HUD_ARMOR_ALPHA = 1.0;
+user int PBX_CVAR_HUD_ARMOR_BOX_W = 50;
+user int PBX_CVAR_HUD_ARMOR_BOX_H = 50;
 
 // Tip Flags
-server int PBX_Armament_weaponTipFlags = 0;
-server int PBX_Armament_upgradeTipFlags = 0;
-server int PBX_Armament_equipmentTipFlags = 0;
+server int PBX_TIP_FLAGS_WEAPONS = 0;
+server int PBX_TIP_FLAGS_UPGRADES = 0;
+server int PBX_TIP_FLAGS_EQUIPMENTS = 0;
 
 // Spawners
-server int PBX_Chainsaw_filter = 0;
-server int PBX_Pistol_filter = 0;
-server int PBX_Shotgun_filter = 0;
-server int PBX_SSG_filter = 0;
-server int PBX_Chaingun_filter = 0;
-server int PBX_RocketLauncher_filter = 0;
-server int PBX_Plasma_filter = 0;
-server int PBX_BFG_filter = 0;
+server int PBX_SPAWN_FLAGS_CHAINSAW = 0;
+server int PBX_SPAWN_FLAGS_PISTOL = 0;
+server int PBX_SPAWN_FLAGS_SHOTGUN = 0;
+server int PBX_SPAWN_FLAGS_SSG = 0;
+server int PBX_SPAWN_FLAGS_CHAINGUN = 0;
+server int PBX_SPAWN_FLAGS_ROCKET_LAUNCHER = 0;
+server int PBX_SPAWN_FLAGS_PLASMA = 0;
+server int PBX_SPAWN_FLAGS_BFG = 0;
 
-server int PBX_Equipments_filter = 0;
+server int PBX_SPAWN_FLAGS_EQUIPMENTS = 0;
 
+server int PBX_SPAWN_FLAGS_BACKPACK = 0;
 
-server int PBX_BackPack_filter = 0;
+server int PBX_SPAWN_FLAGS_SECRET_WEAPONS = 0;
+server int PBX_SPAWN_FLAGS_MONSTER_WEAPONS = 0;
 
-server int PBX_SecretWeapon_filter = 0;
-server int PBX_MonsterWeapon_filter = 0;
+//////////////// WEAPONS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+server bool PBX_CVAR_ASSAULT_RIFLE_START = false;
+server bool PBX_CVAR_CROSSBOW_START = false;
+server bool PBX_CVAR_SECRET_WEAPONS = true;
+server bool PBX_CVAR_KEEP_WEAPONS = false;
+server bool PBX_CVAR_LASER_SIGHT_BEAM = true;
+server int PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE = 5;
 
 // Cooldowns
-server int PBX_CSSGMeathook_Cooldown = 3;
-server int PBX_RailgunHologram_Cooldown = 3;
-server int PBX_RailgunHologram_Lifetime = 30;
-server int PBX_Coin_Cooldown = 5;
+server int PBX_COOLDOWN_MEATHOOK = 3;
+server int PBX_COOLDOWN_COIN = 5;
+
+//////////////// GAMEPLAY /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hit Feedback
+user bool PBX_CVAR_HF = true;
 
 // Backpack Reload
-server bool PBX_BackpackReload_Enable = false;
+server bool PBX_CVAR_BCKPR = false;
 server int 	PBBCKPR_Time		= 	70;
 server int 	PBBCKPR_Ref			=	5;
 server bool PBBCKPR_Tell		=	false;
+
+// Damage Indicators
+user    bool    PBX_CVAR_DD             = true;
+user 	int 	D4D_IndicatorType 		= 0;
+user 	float 	D4D_DIScale 			= 0.5;
+user 	float 	D4D_DIAlpha 			= 1.0;
+user 	int 	D4D_DITimer 			= 35;
+user	int		D4D_DIAnim				= 0;
+user	bool	D4D_NoColorType			= false;
+user	color	D4D_DefColor			= "FF0000";	//ig nosave could work too
+
+// Damage Flashes
+server bool OuchFlashEnabled = false; // Somehow this is unused
+server bool OuchFlashOnlyMonsters = true;
+server bool OuchFlashSolidColor = true;
+server int OuchFlashMinDamage = 5;
+
+server int OuchFlashDuration = 0;
+server int OuchFlashBrightness = 64;
+server HandlerClass(OuchFlashAdjuster) int OuchFlashCooldown = 6;
+
+server color OuchFlash_ 			= "ff0000";
+//zdoom damagetypes
+server color OuchFlash_Hitscan 		= "ff0000";
+server color OuchFlash_BFGSplash 	= "a2ff00";
+server color OuchFlash_Drowning 	= "0030cc";
+server color OuchFlash_Slime 		= "8f0000";
+server color OuchFlash_Fire 		= "ff9900";
+server color OuchFlash_Crush 		= "a32727";
+server color OuchFlash_Telefrag 	= "73ff00";
+server color OuchFlash_Melee 		= "ffb8b8"; //"ff 00 00";
+server color OuchFlash_Railgun 		= "a6acff";
+server color OuchFlash_Ice 			= "6bf0ff";
+server color OuchFlash_Electric 	= "fff457";
+server color OuchFlash_Poison 		= "00FF00";
+//Generic modded names just in case
+server color OuchFlash_Plasma 		= "3856ff";
+server color OuchFlash_Freeze 		= "6bf0ff";
+server color OuchFlash_Bleed 		= "ff0000";

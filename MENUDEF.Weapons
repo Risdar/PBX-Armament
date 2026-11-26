@@ -1,0 +1,172 @@
+// SHOTGUN /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonWeaponSpawns" after "SHOT1"
+{
+    // SLOT 2
+    FlagOption    "$PBX_WEAPONS_LEVER_ACTION_RIFLE",     "PBX_SPAWN_FLAGS_SHOTGUN",    "OffOn", 0
+    // SLOT 4
+    FlagOption    "$PBX_WEAPONS_CROSSBOW_BALLISTA",      "PBX_SPAWN_FLAGS_SHOTGUN",    "OffOn", 3
+}
+// TIER 2
+AddOptionMenu "AddonWeaponSpawns" after "SHOT2"
+{
+    // SLOT 3
+    FlagOption    "$PBX_WEAPONS_PLASMA_BLASTER",         "PBX_SPAWN_FLAGS_SHOTGUN",    "OffOn", 1
+}
+
+// SSG /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 2
+AddOptionMenu "AddonWeaponSpawns" after "SSGT3"
+{
+    // SLOT 3
+    FlagOption    "$PBX_WEAPONS_CSSG",    "PBX_SPAWN_FLAGS_SSG",    "OffOn", 0
+}
+
+// CHAINGUN /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonWeaponSpawns" after "CHNT1"
+{
+    // SLOT 4
+    FlagOption    "$PBX_WEAPONS_BATTLE_RIFLE",           "PBX_SPAWN_FLAGS_CHAINGUN",    "OffOn", 0
+}
+// TIER 2
+/* AddOptionMenu "AddonWeaponSpawns" after "CHNT2"
+{
+    // SLOT 4
+} */
+
+// TIER 3
+AddOptionMenu "AddonWeaponSpawns" after "CHNT3"
+{
+    // SLOT 5
+    FlagOption    "$PBX_WEAPONS_NEOHMG",                "PBX_SPAWN_FLAGS_CHAINGUN",    "OffOn", 2
+}
+
+// TIER 4
+AddOptionMenu "AddonWeaponSpawns" after "CHNT4"
+{
+    // SLOT 4
+    FlagOption    "$PBX_WEAPONS_METAL_SNIPER",           "PBX_SPAWN_FLAGS_CHAINGUN",    "OffOn", 1
+    FlagOption    "$PBX_WEAPONS_XM21",                   "PBX_SPAWN_FLAGS_CHAINGUN",    "OffOn", 4
+    // SLOT 5
+    FlagOption    "$PBX_WEAPONS_SUPERNAILGUN",          "PBX_SPAWN_FLAGS_CHAINGUN",    "OffOn", 3
+}
+
+// ROCKET LAUNCHER /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 3
+AddOptionMenu "AddonWeaponSpawns" after "LAUT3"
+{
+    // SLOT 6
+    FlagOption    "$PBX_WEAPONS_EXCAVATOR",      "PBX_SPAWN_FLAGS_ROCKET_LAUNCHER",    "OffOn", 0
+    FlagOption    "$PBX_WEAPONS_PAINGIVER",      "PBX_SPAWN_FLAGS_ROCKET_LAUNCHER",    "OffOn", 1
+}
+// PLASMA /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 2
+AddOptionMenu "AddonWeaponSpawns" after "PLST2"
+{
+    // SLOT 3
+    FlagOption    "$PBX_WEAPONS_CRYOSG",               "PBX_SPAWN_FLAGS_PLASMA",    "OffOn", 2
+
+    // SLOT 7
+    FlagOption    "$PBX_WEAPONS_PLATINUM_RAILGUN",               "PBX_SPAWN_FLAGS_PLASMA",    "OffOn", 0
+
+    // Slot 8
+    FlagOption    "$PBX_WEAPONS_FREEZE_RIFLE",                   "PBX_SPAWN_FLAGS_PLASMA",    "OffOn", 4
+}
+
+// TIER 3
+AddOptionMenu "AddonWeaponSpawns" after "PLST3"
+{
+    // SLOT 8
+    FlagOption    "$PBX_WEAPONS_TESLAGUN",                       "PBX_SPAWN_FLAGS_PLASMA",    "OffOn", 1
+}
+
+// TIER 4
+AddOptionMenu "AddonWeaponSpawns" after "PLST4"
+{
+    // SLOT 3
+    FlagOption    "$PBX_WEAPONS_CRYOASG",                       "PBX_SPAWN_FLAGS_PLASMA",    "OffOn", 3
+}
+
+// BFG /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonWeaponSpawns" after "BFGT1"
+{
+    // SLOT 9
+    FlagOption    "$PBX_WEAPONS_DEMONIC_EXTERMINATOR",    "PBX_SPAWN_FLAGS_BFG",    "OffOn", 0
+    FlagOption    "$PBX_WEAPONS_DEMONEXT_ARTIFACT",           "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 6
+}
+
+// This is a pretty hacky way to do this lol
+AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
+{
+    // SLOT 9
+    StaticText " "
+    StaticText	"--------- Secret Weapons ---------", 1
+    FlagOption    "$PBX_WEAPONS_ETERNAL_CHAINGUN",   "PBX_SPAWN_FLAGS_SECRET_WEAPONS",    "OffOn", 0
+    FlagOption    "$PBX_WEAPONS_NUKE_LAUNCHER",      "PBX_SPAWN_FLAGS_SECRET_WEAPONS",    "OffOn", 1 
+    FlagOption    "$PBX_WEAPONS_HEXA_SHOTGUN",       "PBX_SPAWN_FLAGS_SECRET_WEAPONS",    "OffOn", 2 
+    FlagOption    "$PBX_WEAPONS_MINI_SHOTGUN",       "PBX_SPAWN_FLAGS_SECRET_WEAPONS",    "OffOn", 3 
+    FlagOption    "$PBX_WEAPONS_RIPPER_CHAINGUN",    "PBX_SPAWN_FLAGS_SECRET_WEAPONS",    "OffOn", 4 
+    StaticText " "
+    StaticText	"--------- Monster Weapons ---------", 1
+    FlagOption    "$PBX_WEAPONS_CYBERRL",        "PBX_SPAWN_FLAGS_MONSTER_WEAPONS",    "OffOn", 0
+    FlagOption    "$PBX_WEAPONS_SPIDERCG",       "PBX_SPAWN_FLAGS_MONSTER_WEAPONS",    "OffOn", 1
+    FlagOption    "$PBX_WEAPONS_GRABCACO",       "PBX_SPAWN_FLAGS_MONSTER_WEAPONS",    "OffOn", 2
+    StaticText " "
+    StaticText	"--------- Others ---------", 1
+    FlagOption    "$PBX_WEAPONS_SPECOPSPACK",               "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 11
+    FlagOption    "$PBX_WEAPONS_UAC_COMMANDER_BACKPACK",    "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 4
+}
+
+// Backpacks/Upgrades/Others /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Backpack
+// TIER 1
+AddOptionMenu "AddonAmmoSpawns" after "PACKT1"
+{
+    FlagOption    "$PBX_WEAPONS_UAC_COMMANDER_BACKPACK",       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 4
+}
+
+// TIER 2
+AddOptionMenu "AddonAmmoSpawns" after "PACKT2"
+{
+    FlagOption    "$PBX_WEAPONS_CROSSBOW_BALLISTA_UPGRADE",     "PBX_SPAWN_FLAGS_BACKPACK",      "OffOn", 3
+    FlagOption    "$PBX_EQUIPMENTS_MedPack",                    "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 2
+}
+
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
+{
+    FlagOption    "$PBX_WEAPONS_LEVER_ACTION_UPGRADE",           "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 2
+    FlagOption    "$PBX_WEAPONS_METAL_SNIPER_UPGRADE",           "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 1
+    FlagOption    "$PBX_WEAPONS_EXCAVATOR_UPGRADE",              "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 5
+	FlagOption    "$PBX_WEAPONS_SGL_EDIT",                       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 7
+	FlagOption    "$PBX_WEAPONS_LMG_EDIT",                       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 8
+}
+
+// Shellbox
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
+{
+    FlagOption    "$PBX_WEAPONS_CSSG_UPGRADES",                  "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 0
+    FlagOption    "$PBX_WEAPONS_Shotvolver",                     "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 10
+}
+
+// Single Rockets
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
+{
+    FlagOption    "$PBX_EQUIPMENTS_IncenGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 0
+}
+
+// Rocket Box
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "BROKT3"
+{
+    FlagOption    "$PBX_EQUIPMENTS_SmokeGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 1
+}
+
+/* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"
+{
+} */

@@ -29,7 +29,7 @@
     {
         Super.AttachToOwner(other);
         if (level.MapName ~== "TITLEMAP") return;       // If its the titlemap, return
-        if(!PBX_Weapons_startwithnormalrifle) return;      // If the CVAR is disabled, return
+        if(!PBX_CVAR_ASSAULT_RIFLE_START) return;      // If the CVAR is disabled, return
         if(owner.findinventory("DMRUpgraded")) return;  // If the player has the HDMR, return (though this is probably not needed since this function is only called once)
 
         // Force switch
@@ -53,7 +53,7 @@
 
     	if (item.GetClassName() == "PB_DMR" 
             && !isTitlemap                              // If its the titlemap, return
-            && PBX_Weapons_startwithnormalrifle            // If the CVAR is disabled, return
+            && PBX_CVAR_ASSAULT_RIFLE_START            // If the CVAR is disabled, return
             && !hasUpgrade)                             // If the player has the HDMR, return
     	{
     		item.bPickupgood = true;
