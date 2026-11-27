@@ -1,6 +1,5 @@
-// Modified Stun greande from Project Survival
+// Modified Stun grenade from Project Survival
 // The sprites are probably from Litdoom
-// Infighting code is from Brutal Doom Platinum (drpyspy also mentioned)
 // Mist code and sprite are from Corruption Cards
 // Box of Smoke grenades is an edited sprite of Dr_Cosmobyte's by me
 
@@ -51,56 +50,6 @@ class PBX_SmokeGrenadeToken : PBX_Equipment
 	}
 }
 
-// Infighter code from BDP
-Class ChaosInfighter : CustomInventory
-{
-	Default
-	{
-		Inventory.MaxAmount 0;
-		+INVENTORY.AUTOACTIVATE
-	}
-
-    const INFIGHT_RANGE = 512;
-
-	States
-	{
-		Use:
-            TNT1 A 0;
-            TNT1 A 1
-            {
-                //Console.Printf("Chaos given to "..GetClassName());
-                bool isNotPlayer = !(target is "PBXCore_Player");
-                if(target && isNotPlayer)
-                {
-                    // Console.Printf(GetClassName().." already has a target, whomst is "..target.GetClassName());
-                    return;
-                }
-                else
-                {
-                    // Console.Printf("Lets look...");
-                    ThinkerIterator MonsterFinder = ThinkerIterator.Create("Actor");
-                    Actor mo;
-                    while (mo = Actor(MonsterFinder.Next()))
-                    {
-                        if(mo != self && mo.health > 0 && mo.bIsMonster && CheckSight(mo))
-                        {
-                            if((target && isNotPlayer) && Distance3D(mo) < Distance3D(target))
-                            {
-                                target=mo;
-                            }
-                            else if(!target||!isNotPlayer)
-                            {
-                                target=mo;
-                            }
-                        }
-                    }
-                }
-                
-            }
-            Stop;
-	}
-}
-
 ////// PICKUP /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class PBX_SmokeGrenadeAmmo : PB_Ammo
 {
@@ -109,11 +58,11 @@ class PBX_SmokeGrenadeAmmo : PB_Ammo
 		Scale 0.4;
 		Tag "$PBX_SMOKEGRENADE_TAG";
 		Inventory.Amount 1;
-		Inventory.MaxAmount 5;
+		Inventory.MaxAmount 10;
 		Inventory.PickupSound "GRNPIN";
 		Inventory.Icon "STNDA0";
 		Ammo.BackpackAmount 1;
-		Ammo.BackpackMaxAmount 10;
+		Ammo.BackpackMaxAmount 15;
 	}
 	
 	override void PB_SetAmmoSprite()
@@ -149,11 +98,6 @@ class PBX_SmokeGrenadePack : CustomInventory
             Stop; 
 
         Pickup:
-			TNT1 A 0 {
-				Array<String> tips;
-				tips.Push("$PBX_SMOKEGRENADE_TIP");
-				PBX_Handler.SendTipArrayIfNeeded(tips,EQUIPMENTS_HELPTEXT,PBX_TIP_SMOKEGREN);
-			}
             TNT1 A 0 A_GiveInventory("PBX_SmokeGrenadeAmmo",5);
             Stop;
     }
@@ -202,7 +146,6 @@ class PBX_ThrownSmokeGrenade : PB_ThrownGrenade
                 }
 				A_StopSound(4);
 				A_SpawnItemEx(explosionActor,0,0,1,0,0,0,0,SXF_NOCHECKPOSITION,0);
-                A_RadiusGive("ChaosInfighter",ChaosInfighter.INFIGHT_RANGE,RGF_MONSTERS,1);
 			}
 			Stop;
 	}
@@ -245,9 +188,12 @@ class PBX_Mist : Actor
 		scale 2.0;
 		+BRIGHT;
 		Translation "PBX_Mist";
+		
+		+SHADOWBLOCK;
+		ShadowPenaltyFactor 2.0;
 
-        +NOINTERACTION
-        +NOTIMEFREEZE
+        +NOINTERACTION;
+        +NOTIMEFREEZE;
         +NOTELEPORT;
         -FLOORCLIP;
         -SOLID

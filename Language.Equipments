@@ -10,10 +10,8 @@ PBX_SMOKEGRENADE_TAG = "Smoke Grenade";
 PBX_SMOKEGRENADE_WHEEL = "Equipment Selected: \cuSmoke Grenade";
 PBX_SMOKEGRENADE_OUT = "No \cuSmoke Grenades\c- Remaining";
 
-PBX_SMOKEGRENADE_PICKUP = "You got a Box of Experimental Smoke Grenades";
+PBX_SMOKEGRENADE_PICKUP = "You got a Box of Smoke Grenades";
 PBX_SMOKEGRENADE_TAG2 = "Box of Smoke Grenades";
-
-PBX_SMOKEGRENADE_TIP = "Smoke Grenades will trigger infights";
 
 //////////////////////////// MED PACK ///////////////////////////////////////////////////////////////////////////////
 PBX_MEDPACK_TAG = "First Aid Kit";
@@ -22,11 +20,6 @@ PBX_MEDPACK_OUT = "First Aid Kit is Empty";
 
 PBX_MEDPACK_FULL = "You're already at Max HP";
 PBX_MEDPACK_PICKUP = "You found a First Aid Kit";
-
-//////////////////////////// DETONATOR ///////////////////////////////////////////////////////////////////////////////
-PBX_DETONATOR_TAG = "Detonator";
-PBX_DETONATOR_WHEEL = "Equipment Selected: \cdDetonator";
-PBX_DETONATOR_OUT = "How Did You Lose Your Detonator???";
 
 //////////////////////////// CHARGES ///////////////////////////////////////////////////////////////////////////////
 PBX_EXPRCHRG_TIP = "Double Tap %s to Remote Detonate";
@@ -52,3 +45,10 @@ PBX_LASERCHR_OUT = "No \cgLaser Charges\c- Reamining";
 PBX_TRIPMINE_TAG = "Trip Mine";
 PBX_TRIPMINE_WHEEL = "Equipment Selected: \cgTrip Mine";
 PBX_TRIPMINE_OUT = "No \cgTrip Mines\c- Reamining";
+
+//////////////////////////// CHAOS GRENADE ///////////////////////////////////////////////////////////////////////////////
+PBX_CHAOSGREN_TAG = "Chaos Grenade";
+PBX_CHAOSGREN_WHEEL = "Equipment Selected: \cpChaos Grenade";
+PBX_CHAOSGREN_OUT = "No \cpChaos Grenades\c- Reamining";
+
+PBX_CHAOSGREN_TIP = "Chaos Grenades will trigger infights";

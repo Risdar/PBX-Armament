@@ -152,12 +152,18 @@ AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 }
 
 // Single Rockets /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// TIER 3
+// TIER 1
 AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
 {
     FlagOption    "$PBX_EQUIPMENTS_IncenGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 0, "PBX_MODULE_EQUIPMENTS"
     FlagOption    "$PBX_EQUIPMENTS_Charges",                "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 3, "PBX_MODULE_EQUIPMENTS"
     FlagOption    "$PBX_EQUIPMENTS_Tripmine",               "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 4, "PBX_MODULE_EQUIPMENTS"
+}
+
+// TIER 3
+AddOptionMenu "AddonAmmoSpawns" after "ROCKT4"
+{
+    FlagOption    "$PBX_EQUIPMENTS_ChaosGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 5, "PBX_MODULE_EQUIPMENTS"
 }
 
 // Rocket Box /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

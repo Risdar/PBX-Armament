@@ -6,7 +6,7 @@ class MedPackCard : equipmentCard
 		tags.push("$PBX_MEDPACK_TAG");
 		tokens.push("PBX_MedPackToken");
 		ammotypes.push("PBX_MedPackAmmo");
-		img.push("graphics/Equipments/MedPack/MedPack.png");
+		img.push("graphics/Equipments/MedPack/MedPackIcon.png");
 		sx.push(1.0);
 		sy.push(1.0);
 	}

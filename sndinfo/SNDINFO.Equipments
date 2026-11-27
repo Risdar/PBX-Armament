@@ -34,3 +34,8 @@ swarmdrone/burnout "Sounds/Equipments/Charges/swarmdrone_burnout.ogg"
 $random swarmdrone/idle  { swarmdrone/idle1 swarmdrone/idle2 }
 swarmdrone/idle1 "Sounds/Equipments/Charges/swarmdrone_idle1.ogg"
 swarmdrone/idle2 "Sounds/Equipments/Charges/swarmdrone_idle2.ogg"
+
+// Chaos Grenade
+CS16uwu CS16uwu
+STUPGREN STUPGREN
+$rolloff  STUPGREN 900 2400

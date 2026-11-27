@@ -1,8 +1,8 @@
 Version 5.0
 
 #include "Zscript/Systems/PBX_Systems.zs"
-#include "Zscript/Weapons/Includes_Weapons.zs"
-#include "Zscript/Equipments/Includes_Equipments.zs"
+#include "Zscript/Weapons/PBX_Weapons.zs"
+#include "Zscript/Equipments/PBX_Equipments.zs"
 
 
 

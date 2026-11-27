@@ -66,6 +66,9 @@ class PBX_SwarmChargeAmmo : PB_Ammo
 	
 	override void AttachToOwner(actor other) //we have to do this here so that cheats will give the tokens
 	{
+        Array<String> tips;
+        tips.Push(string.format(StringTable.Localize("$PBX_EXPRCHRG_TIP"),PB_HelpNotificationsHandler.PB_FormatKeybinds("+USER1")));
+        PBX_Handler.SendTipArrayIfNeeded(tips,EQUIPMENTS_HELPTEXT,PBX_TIP_CHARGES);
 		other.GiveInventory("PBX_SwarmChargeToken",1);
 		Super.AttachToOwner(other);
 	}

@@ -29,7 +29,7 @@ enum PBX_WeaponTipFlags
 
 enum PBX_EquipmentTipFlags
 {
-    PBX_TIP_SMOKEGREN         = 1 << 0
+    PBX_TIP_CHAOSGREN         = 1 << 0
     ,PBX_TIP_CHARGES         = 1 << 1
 }
 

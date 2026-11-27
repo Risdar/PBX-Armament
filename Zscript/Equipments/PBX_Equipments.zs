@@ -1,4 +1,5 @@
 #include "./IncendiaryGrenade.zs"
+#include "./ChaosGrenade.zs"
 #include "./SmokeGrenade.zs"
 #include "./MedPack.zs"
 #include "./Charges/ChargesBase.zs"
@@ -6,6 +7,11 @@
 
 class PBX_Equipment : PB_Equipment
 {
+    action void EQ_FinishAnimation()
+    {
+        player.SetPSprite(1, player.readyweapon.ResolveState("GoingToReady2"));
+    }
+
     action void EQ_SetWeaponState(StateLabel st = "GoingToReady2")
     {
         let weap = PB_WeaponBase(player.readyweapon); if(!weap) return;

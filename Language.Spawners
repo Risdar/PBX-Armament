@@ -54,3 +54,4 @@ PBX_EQUIPMENTS_SmokeGrenade = "Enable Smoke Grenades";
 PBX_EQUIPMENTS_MedPack = "Enable First Aid Kit";
 PBX_EQUIPMENTS_Charges = "Enable Experimental Charges";
 PBX_EQUIPMENTS_Tripmine = "Enable Tripmines";
+PBX_EQUIPMENTS_ChaosGrenade = "Enable Chaos Grenades";
