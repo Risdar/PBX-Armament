@@ -2,17 +2,21 @@
 #include "./PBX_Lightning.zs" //Lightning Library by jekyllgrim
 #include "./PBX_BeamZ.zs" // BEAMZ by Lewis3k
 
-#include "./Spawners/PBX_Spawners.zs"
+#include "./PBX_Spawners.zs"
+#include "./PBX_Tips.zs"
 #include "./HUD/PBX_HUD.zs"
 
 // Big thanks to EmeraldCoastt and the BDP team for this
 #include "./MathsNMixins/Includes.zsc"
 
+// Gameplay
 #include "./Gameplay/PBX_BackpackReload.zs"
 #include "./Gameplay/PBX_PrevWeapon.zs"
 #include "./Gameplay/PBX_DamageIndicators.zs"
 #include "./Gameplay/PBX_DamageFlashes.zs"
 #include "./Gameplay/PBX_HitFeedback.zs"
+#include "./Gameplay/PBX_HelmetDrops.zs"
+#include "./Gameplay/PBX_SmartScav.zs"
 
 class PBX_Handler : EventHandler
 {
@@ -44,12 +48,57 @@ class PBX_Handler : EventHandler
             pm.giveinventory("PBX_Prosurv_Ballista",1);
         }
 
+        if(!pm.FindInventory("PBX_Armors_TipsManager"))
+        {
+            pm.giveinventory("PBX_Armors_TipsManager",1);
+        }
+
         // Always give the backpack reload behavior
         // since the toggle code is in the behavior itself
         if (!pm.FindBehavior("PBX_BackpackReloadBehavior"))
         {
             pm.AddBehavior("PBX_BackpackReloadBehavior");
         }
+	}
+
+    // Handles the Shoulder Cannon and JetPack input
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Player < 0 || !playeringame[e.Player]) 
+		{
+			return;
+		}
+
+		let pmo = players[e.Player].mo; if (!pmo) return;
+
+		checkShoulderCannon(e,pmo);
+		checkJetpack(e,pmo);
+		
+	}
+
+	void checkShoulderCannon(ConsoleEvent e, PlayerPawn pmo)
+	{
+		let cannon = PBX_ShoulderCannon(pmo.FindInventory("PBX_ShoulderCannon"));
+		if (!cannon) return;
+
+		if (e.Name ~== "PBX_UseFlameBelch")
+		{
+			cannon.RequestFire(PBX_ShoulderCannon.EQUIP_FLAMEBELCH);
+		}
+		else if (e.Name ~== "PBX_UseIceBomb")
+		{
+			cannon.RequestFire(PBX_ShoulderCannon.EQUIP_ICEBOMB);
+		}
+	}
+
+	void checkJetpack(ConsoleEvent e, PlayerPawn pmo)
+	{
+		let jetpack = PBX_Jetpack(pmo.FindInventory("PBX_Jetpack")); if (!jetpack) return;
+
+		if (e.Name ~== "PBX_ToggleJetpack")
+		{
+			jetpack.toggleJetpack();
+		}
 	}
 
 }
@@ -108,7 +157,10 @@ class PBX_PrintVersion : StaticEventHandler
         if (!plr) return;
 
         // Dont print the versions if the option is disabled
-        if (!CVar.GetCVar('PBX_SHOW_VERSION', plr).GetBool()) return;
+		bool disabled;
+		let vr = CVar.GetCVar('PBX_SHOW_VERSION', plr);
+		if(vr) disabled = vr.GetBool(); 
+        if (disabled) return;
 
         // Print the Core version
         PB_HelpNotificationsHandler.PB_SendTip("$PBX_VERSION", "PBX_EMPTY_FLAG", 0);
@@ -186,35 +238,35 @@ Class PBX_Cheats_Handler : Eventhandler
 			console.printf("[PBX] Gave all weapon upgrades");
 		}
 		
-        // if (e.Name ~== "PBX_AllPowerups")
-		// {
-		// 	pm.giveinventory("PB_PowerInvul",1);
-		// 	pm.giveinventory("PB_PowerIronFeet",1);
-		// 	pm.giveinventory("PB_PowerInvis",1);
-		// 	pm.giveinventory("PB_PowerLightAmp",1);
-		// 	pm.giveinventory("PB_PowerDoomDamage",1);
-		// 	pm.giveinventory("PB_PowerSpeed",1);
+        if (e.Name ~== "PBX_AllPowerups")
+		{
+			pm.giveinventory("PB_PowerInvul",1);
+			pm.giveinventory("PB_PowerIronFeet",1);
+			pm.giveinventory("PB_PowerInvis",1);
+			pm.giveinventory("PB_PowerLightAmp",1);
+			pm.giveinventory("PB_PowerDoomDamage",1);
+			pm.giveinventory("PB_PowerSpeed",1);
 
-		// 	pm.giveinventory("PBX_PowerInvisTainted",1);
-		// 	pm.giveinventory("PBX_PowerInvulTainted",1);
-		// 	pm.giveinventory("PBX_PowerTaintedRegen",1);
+			pm.giveinventory("PBX_PowerInvisTainted",1);
+			pm.giveinventory("PBX_PowerInvulTainted",1);
+			pm.giveinventory("PBX_PowerTaintedRegen",1);
 
-		// 	pm.giveinventory("PBX_PowerDeflect",1);
-		// 	pm.giveinventory("PBX_PowerBuddha",1);
-		// 	pm.giveinventory("PBX_PowerDrain",1);
-		// 	pm.giveinventory("PBX_PowerFlight",1);
-		// 	pm.giveinventory("PBX_PowerFrightener",1);
-		// 	pm.giveinventory("PBX_PowerHighJump",1);
-		// 	pm.giveinventory("PBX_PowerInfiniteAmmo",1);
-		// 	pm.giveinventory("PBX_PowerProtection",1);
-		// 	pm.giveinventory("PBX_PowerReflection",1);
-		// 	pm.giveinventory("PBX_PowerRegeneration",1);
-		// 	pm.giveinventory("PBX_PowerTimeFreezer",1);
+			pm.giveinventory("PBX_PowerDeflect",1);
+			pm.giveinventory("PBX_PowerBuddha",1);
+			pm.giveinventory("PBX_PowerDrain",1);
+			pm.giveinventory("PBX_PowerFlight",1);
+			pm.giveinventory("PBX_PowerFrightener",1);
+			pm.giveinventory("PBX_PowerHighJump",1);
+			pm.giveinventory("PBX_PowerInfiniteAmmo",1);
+			pm.giveinventory("PBX_PowerProtection",1);
+			pm.giveinventory("PBX_PowerReflection",1);
+			pm.giveinventory("PBX_PowerRegeneration",1);
+			pm.giveinventory("PBX_PowerTimeFreezer",1);
 
-		// 	pm.giveinventory("PBX_PowerElectAura",1);
-		// 	pm.giveinventory("PBX_PowerFrostAura",1);
-		// 	pm.giveinventory("PBX_PowerFireAura",1);
-		// }
+			pm.giveinventory("PBX_PowerElectAura",1);
+			pm.giveinventory("PBX_PowerFrostAura",1);
+			pm.giveinventory("PBX_PowerFireAura",1);
+		}
 	}
 }
 

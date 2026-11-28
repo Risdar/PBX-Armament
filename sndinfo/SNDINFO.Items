@@ -1,0 +1,26 @@
+// Repair Kit
+RepairKit/Pickup	REPRPKUP
+RepairKit/Use		REPRUSE
+
+// Shoulder Cannon
+Equip_Activate	 "Sounds/FlameBelch/cannonlaunch.ogg"
+Equip_Iceready	 "Sounds/FlameBelch/icebombready.ogg"
+Equip_flameready "Sounds/FlameBelch/flamebelchready.ogg"
+Equip_notready	 "Sounds/FlameBelch/equipnotready.ogg"
+Flame_belch1	 "Sounds/FlameBelch/flamebelch1.ogg"
+Flame_belch2	 "Sounds/FlameBelch/flamebelch2.ogg"
+Flame_belch3	 "Sounds/FlameBelch/flamebelch3.ogg"
+Flame_belch4	 "Sounds/FlameBelch/flamebelch4.ogg"
+
+FlameBelch/FlameCrackle "Sounds/FlameBelchFlameCrackle/FlameBelchFlameCrackle.ogg"
+
+$Volume FlameBelch/FlameCrackle 0.2
+$Limit  FlameBelch/FlameCrackle 2
+
+$Random Flamebelch
+{
+  Flame_belch1
+  Flame_belch2
+  Flame_belch3
+  Flame_belch4
+}

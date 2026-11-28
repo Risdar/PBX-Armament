@@ -14,9 +14,11 @@ Gameinfo
 	addeventhandlers = "D4DHandler"
 	addeventhandlers = "PBX_PreviousWeapon_Handler"
 
-
-	// Weapons
+	// Modules
 	addeventhandlers = "PBX_ScopeHandler"
 	addeventhandlers = "ExterminatorHandler"
 	addeventhandlers = "CacoHandler"
+	addeventhandlers = "PBX_HelmetDropHandler"
+	addeventhandlers = "PBX_UpgradeBotHandler"
+	addeventhandlers = "PBX_UpgradeBotDisplay"	
 }

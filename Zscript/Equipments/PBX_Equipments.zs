@@ -1,3 +1,6 @@
+#include "./PBX_Equipments_Spawners.zs"
+#include "./PBX_Equipments_Tips.zs"
+
 #include "./IncendiaryGrenade.zs"
 #include "./ChaosGrenade.zs"
 #include "./SmokeGrenade.zs"

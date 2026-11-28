@@ -39,3 +39,7 @@ swarmdrone/idle2 "Sounds/Equipments/Charges/swarmdrone_idle2.ogg"
 CS16uwu CS16uwu
 STUPGREN STUPGREN
 $rolloff  STUPGREN 900 2400
+
+// Jet Pack
+JETLOOP JETLOOP
+JETEND JETEND

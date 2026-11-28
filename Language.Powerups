@@ -1,0 +1,100 @@
+
+[enu default]
+//////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
+PBX_POWERUPS_GOLDINV_DURATION = "Gold Invulnerability Sphere Duration";
+PBX_POWERUPS_TAINTED_REGENERATION = "Tainted Regeneration Duration";
+PBX_POWERUPS_DEFLECT = "Deflect Duration";
+PBX_POWERUPS_BUDDHA = "Buddha Duration";
+PBX_POWERUPS_DRAIN = "Drain Duration";
+PBX_POWERUPS_FLIGHT = "Flight Duration";
+PBX_POWERUPS_TERROR_DURATION = "Terror Sphere Duration";
+PBX_POWERUPS_HIGH_JUMP = "High Jump Duration";
+PBX_POWERUPS_INFINITE_AMMO = "Infinite Ammo Duration";
+PBX_POWERUPS_PROTECTION = "Protection Duration";
+PBX_POWERUPS_REFLECTION = "Reflection Duration";
+PBX_POWERUPS_REGENERATION = "Regeneration Duration";
+PBX_POWERUPS_TIME_FREEZE = "Time Freeze Duration";
+PBX_POWERUPS_ELECTRIC_AURA = "Electric Aura Duration";
+PBX_POWERUPS_FROST_AURA = "Frost Aura Duration";
+PBX_POWERUPS_FIRE_AURA = "Fire Aura Duration";
+PBX_POWERUPS_ADRENALINE_DURATION = "Adrenaline Duration";
+
+PBX_POWERUPS_MENU_RESET_DURATIONS = "Reset PBX Powerups Durations";
+
+//////////////////////////// POWERUPS ///////////////////////////////////////////////////////////////////////////////
+MEGABERSERK_PICKUP_LOW  = "Mega Berserk Pack (+%u much needed HP)";
+MEGABERSERK_PICKUP      = "Mega Berserk Pack (+%u HP)";
+MEGABERSERK_TAG         = "Mega Berserk";
+
+ULTRASPHERE_PICKUP      = "UltraSphere (+%d HP/+%d AP)";
+ULTRASPHERE_TAG         = "UltraSphere";
+ULTRAARMOR_PICKUP       = "Picked up the Ultra Armor";
+ULTRAARMOR_TAG          = "Ultra Armor";
+
+HYPERSPHERE_PICKUP      = "HyperSphere (+%d HP/+%d AP)";
+HYPERSPHERE_TAG         = "HyperSphere";
+HYPERARMOR_PICKUP       = "Picked up the Hyper Armor";
+HYPERARMOR_TAG          = "Hyper Armor";
+
+MINISPHERE_PICKUP       = "MiniSphere (+%d HP/+%d AP)";
+MINISPHERE_TAG          = "MiniSphere";
+MINIARMOR_PICKUP        = "Picked up the Compact Armor";
+MINIARMOR_TAG           = "Compact Armor";
+
+SUPERSPHERE_PICKUP      = "SuperSphere (+%d HP)";
+SUPERSPHERE_PICKUP_LOW  = "SuperSphere (+%d much needed HP)";
+SUPERSPHERE_TAG         = "SuperSphere";
+
+BLACKBLUR_PICKUP        = "Black Blur";
+BLACKBLUR_TAG           = "Tainted BlurSphere";
+PBX_BlackBlur_Tip1      = "The Black Blur has a longer duration but gives \custealth\c- to every monster nearby.";
+
+DEFLECTSPHERE_PICKUP    = "Deflection Sphere";
+PBX_Deflect_Tip1        = "The Deflect Sphere changes the direction of every projectile that comes near.";
+
+ELECTAURA_PICKUP        = "Electric Aura";
+PBX_ElectAura_Tip1      = "The Electric Aura Sphere summons a field that \cnstuns\c- enemies.";
+
+GOLDINV_PICKUP          = "Gold Invulnerability (Tainted Invulnerability)";
+GOLDINV_TAG             = "Gold Invulnerability";
+PBX_GoldInvul_Tip1      = "The Gold Invulnerability has a longer duration but gives \cfinvulnerability\c- to nearby monsters.";
+
+LEGENDSPHERE_PICKUP     = "Legend Sphere";
+PBX_Legend_Tip1         = "The Legend Sphere prevents you from going below 1 HP.";
+
+LFSTEALORB_PICKUP       = "Lifesteal Orb";
+
+TERRORSPHERE_PICKUP     = "Terror Sphere";
+PBX_Terror_Tip1         = "The Terror Sphere makes every monster run away from you.";
+
+AMMOSPHERE_PICKUP       = "Ammo Sphere";
+PBX_Ammo_Tip1           = "The Ammo Sphere gives infinite ammo.";
+
+GUARDSPHERE_PICKUP      = "Guard Sphere";
+PBX_Guard_Tip1          = "The Guard Sphere gives 75 Percent damage reduction.";
+
+REGENSPHERE_PICKUP      = "Regen Sphere";
+
+TIMEFREEZE_PICKUP       = "ZA WARUDO";
+TIMEFREEZE_TAG          = "Time Freeze";
+
+REDSOUL_PICKUP          = "Red SoulSphere (+%d HP)";
+REDSOUL_TAG             = "Tainted SoulSphere";
+PBX_RedSoul_Tip1        = "The Red SoulSphere gives more HP but \cgdamages the player\c- if they're close.";
+PBX_RedSoul_Tip2        = "It also spawns \cglost souls\c- for every corpse nearby.";
+
+DARKMEGA_PICKUP         = "Dark MegaSphere (+%d HP/+%d AP)";
+DARKMEGA_TAG            = "Tainted MegaSphere";
+PBX_DarkMega_Tip1       = "The Dark MegaSphere gives regen but \cgheals\c- every monster nearby.";
+
+FROSTAURA_PICKUP        = "Frost Aura";
+PBX_FrostAura_Tip1      = "The Frost Aura Sphere summons a field that \cvfreeze\c- enemies.";
+
+FIREAURA_PICKUP         = "Fire Aura";
+PBX_FireAura_Tip1       = "The Fire Aura Sphere summons a field that \cxburn\c- enemies.";
+
+FLIGHTSPHERE_PICKUP     = "Flight Sphere";
+
+ADRENAL_PICKUP          = "You Found an Adrenaline";
+ADRENAL_TAG             = "Adrenaline";
+PBX_Adrenaline_Tip1     = "The Adrenaline gives \ctQuad Damage\c- and \ckHaste\c-.";

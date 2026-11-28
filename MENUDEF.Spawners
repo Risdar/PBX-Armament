@@ -119,18 +119,21 @@ AddOptionMenu "AddonWeaponSpawns" after "BFGT4"
     FlagOption    "$PBX_WEAPONS_UAC_COMMANDER_BACKPACK",    "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 4, "PBX_MODULE_WEAPONS"
 }
 
-// Backpacks /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BACKPACK /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 1
 AddOptionMenu "AddonAmmoSpawns" after "PACKT1"
 {
-    FlagOption    "$PBX_WEAPONS_UAC_COMMANDER_BACKPACK",       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 4, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_WEAPONS_UAC_COMMANDER_BACKPACK",        "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 4, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_ITEMS_REPAIR_KIT",                      "PBX_SPAWN_FLAGS_ITEMS",       "OffOn", 0, "PBX_MODULE_ITEMS"
 }
 
 // TIER 2
 AddOptionMenu "AddonAmmoSpawns" after "PACKT2"
 {
-    FlagOption    "$PBX_WEAPONS_CROSSBOW_BALLISTA_UPGRADE",     "PBX_SPAWN_FLAGS_BACKPACK",      "OffOn", 3, "PBX_MODULE_WEAPONS"
-    FlagOption    "$PBX_EQUIPMENTS_MedPack",                    "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 2, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_WEAPONS_CROSSBOW_BALLISTA_UPGRADE",     "PBX_SPAWN_FLAGS_BACKPACK",     "OffOn", 3, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_EQUIPMENTS_MedPack",                    "PBX_SPAWN_FLAGS_EQUIPMENTS",   "OffOn", 2, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_ITEMS_SHOULDERCANNON",                  "PBX_SPAWN_FLAGS_ITEMS",        "OffOn", 1, "PBX_MODULE_ITEMS"
+    FlagOption    "$PBX_ITEMS_UPGRADEBOT",                      "PBX_SPAWN_FLAGS_ITEMS",        "OffOn", 3, "PBX_MODULE_ITEMS"
 }
 
 // TIER 3
@@ -143,7 +146,7 @@ AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
 	FlagOption    "$PBX_WEAPONS_LMG_EDIT",                       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 8, "PBX_MODULE_WEAPONS"
 }
 
-// Shellbox /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SHELLBOX /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 3
 AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
 {
@@ -151,7 +154,7 @@ AddOptionMenu "AddonAmmoSpawns" after "SBOXT3"
     FlagOption    "$PBX_WEAPONS_Shotvolver",                     "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 10, "PBX_MODULE_WEAPONS"
 }
 
-// Single Rockets /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SINGLE ROCKETS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 1
 AddOptionMenu "AddonAmmoSpawns" after "ROCKT1"
 {
@@ -166,7 +169,13 @@ AddOptionMenu "AddonAmmoSpawns" after "ROCKT4"
     FlagOption    "$PBX_EQUIPMENTS_ChaosGrenade",           "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 5, "PBX_MODULE_EQUIPMENTS"
 }
 
-// Rocket Box /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ROCKET BOX /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TIER 2
+AddOptionMenu "AddonAmmoSpawns" after "BROKT2"
+{
+    FlagOption  "$PBX_ITEMS_JET_PACK","PBX_SPAWN_FLAGS_ITEMS",    "OffOn", 2, "PBX_MODULE_ITEMS"
+}
+
 // TIER 3
 AddOptionMenu "AddonAmmoSpawns" after "BROKT3"
 {
@@ -174,6 +183,170 @@ AddOptionMenu "AddonAmmoSpawns" after "BROKT3"
     FlagOption    "$PBX_EQUIPMENTS_Charges",                "PBX_SPAWN_FLAGS_EQUIPMENTS",    "OffOn", 3, "PBX_MODULE_EQUIPMENTS"
 }
 
-/* AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT3"
+//////////////////////////// GREEN ARMOR SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonHealthArmorSpawns" after "GRENT1"
 {
-} */
+    FlagOption    "$PBX_ARMORS_GRAY",                              "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 11, "PBX_MODULE_ARMORS"
+}
+
+// TIER 2
+AddOptionMenu "AddonHealthArmorSpawns" after "GRENT2"
+{
+    FlagOption    "$PBX_ARMORS_YELLOW",             "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 4, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_LIGHT_BLUE",         "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 12, "PBX_MODULE_ARMORS"
+}
+
+// TIER 3
+AddOptionMenu "AddonHealthArmorSpawns" after "GRENT3"
+{
+    FlagOption   "$PBX_ARMORS_PURPLE",          "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 1, "PBX_MODULE_ARMORS"
+    FlagOption   "$PBX_POWERUPS_MINISPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 4, "PBX_MODULE_ARMORS"
+}
+
+// TIER 4
+AddOptionMenu "AddonHealthArmorSpawns" after "GRENT4"
+{
+    FlagOption    "$PBX_ARMORS_DPURPLE",    "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 8, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_GOLD",       "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 10, "PBX_MODULE_ARMORS"
+}
+//////////////////////////// BLUE ARMOR SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonHealthArmorSpawns" after "BLUET1"
+{
+    FlagOption    "$PBX_ARMORS_WHITE",      "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 2, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_ORANGE",     "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 3, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_BLACK",      "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 5, "PBX_MODULE_ARMORS"
+}
+
+// TIER 2
+AddOptionMenu "AddonHealthArmorSpawns" after "BLUET2"
+{
+    FlagOption    "$PBX_ARMORS_RED",        "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 0, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_PINK",       "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 14, "PBX_MODULE_ARMORS"
+}
+
+// TIER 3
+AddOptionMenu "AddonHealthArmorSpawns" after "BLUET3"
+{
+    FlagOption    "$PBX_ARMORS_DEMON",      "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 6, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_CYAN",       "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 7, "PBX_MODULE_ARMORS"
+}
+
+// TIER 4
+AddOptionMenu "AddonHealthArmorSpawns" after "BLUET4"
+{
+    FlagOption    "$PBX_ARMORS_DRED",       "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 9, "PBX_MODULE_ARMORS"
+    FlagOption    "$PBX_ARMORS_LGREEN",     "PBX_SPAWN_FLAGS_ARMORS",    "OffOn", 13, "PBX_MODULE_ARMORS"
+}
+
+//////////////////////////// BERSERK SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonPowerupSpawns" after "ZERKT1"
+{
+    FlagOption    "$PBX_POWERUPS_LIFESTEAL_ORB",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 10, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_ADRENALINE",       "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 23, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 2
+AddOptionMenu "AddonPowerupSpawns" after "ZERKT2"
+{
+    FlagOption    "$PBX_POWERUPS_MEGABERSERK",      "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 0, "PBX_MODULE_POWERUPS"
+}
+
+//////////////////////////// SOUL SPHERE SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonHealthArmorSpawns" after "SOULT1"
+{
+    FlagOption    "$PBX_POWERUPS_DEFLECT_SPHERE",   "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 6, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_TERROR_SPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 11, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_AMMO_SPHERE",      "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 12, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_GUARD_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 13, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_REGEN_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 14, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_RED_SOULSPHERE",   "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 16, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 2
+AddOptionMenu "AddonHealthArmorSpawns" after "SOULT2"
+{
+    FlagOption    "$PBX_POWERUPS_SUPERSPHERE",          "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 1, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_ELECTRIC_AURA_SPHERE", "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 7, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_FROST_AURA_SPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 20, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_FIRE_AURA_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 21, "PBX_MODULE_POWERUPS"
+
+}
+
+// TIER 3
+AddOptionMenu "AddonHealthArmorSpawns" after "SOULT3"
+{
+    FlagOption    "$PBX_POWERUPS_ULTRA_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 2, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_FLIGHT_SPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 22, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 4
+AddOptionMenu "AddonHealthArmorSpawns" after "SOULT4"
+{
+    FlagOption    "$PBX_POWERUPS_TIME_SPHERE",      "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 15, "PBX_MODULE_POWERUPS"
+}
+
+//////////////////////////// MEGA SPHERE SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT1"
+{
+    FlagOption    "$PBX_POWERUPS_DARK_MEGASPHERE",  "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 17, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 2
+AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT2"
+{
+    FlagOption    "$PBX_POWERUPS_HYPER_SPHERE",         "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 3, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_ELECTRIC_AURA_SPHERE", "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 7, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_FROST_AURA_SPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 20, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_FIRE_AURA_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 21, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 4
+AddOptionMenu "AddonHealthArmorSpawns" after "MEGAT4"
+{
+    FlagOption    "$PBX_POWERUPS_TIME_SPHERE",          "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 15, "PBX_MODULE_POWERUPS"
+}
+
+
+//////////////////////////// INVUL SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonPowerupSpawns" after "INVLT1"
+{
+    FlagOption    "$PBX_POWERUPS_GOLDINV_SPHERE",   "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 8, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 2
+AddOptionMenu "AddonPowerupSpawns" after "INVLT2"
+{
+    FlagOption    "$PBX_POWERUPS_LEGEND_SPHERE",    "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 9, "PBX_MODULE_POWERUPS"
+}
+
+// TIER 4
+AddOptionMenu "AddonPowerupSpawns" after "INVLT3"
+{
+    FlagOption    "$PBX_POWERUPS_TIME_SPHERE",      "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 15, "PBX_MODULE_POWERUPS"
+}
+
+//////////////////////////// INVIS SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+// TIER 1
+AddOptionMenu "AddonPowerupSpawns" after "INVST1"
+{
+    FlagOption    "$PBX_POWERUPS_BLACK_BLUR",       "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 5, "PBX_MODULE_POWERUPS"
+    FlagOption    "$PBX_POWERUPS_HASTE",            "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 19, "PBX_MODULE_POWERUPS"
+}
+
+AddOptionMenu "AddonPowerupSpawns" after "INVST3"
+{
+    FlagOption    "$PBX_POWERUPS_QUAD_DAMAGE",      "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 20, "PBX_MODULE_POWERUPS"
+}
+
+
+//////////////////////////// MEDIKIT SPAWNER ////////////////////////////////////////////////////////////////////////////////////
+AddOptionMenu "AddonHealthArmorSpawns" after "MEDIT4"
+{
+    FlagOption    "$PBX_POWERUPS_REGEN_SPHERE",     "PBX_SPAWN_FLAGS_POWERUPS",    "OffOn", 14, "PBX_MODULE_POWERUPS"
+}

@@ -1,4 +1,7 @@
 
+// Others
+#include Brightmaps/Definitions/Others.txt
+
 // Slot 1
 
 
@@ -6,27 +9,27 @@
 
 
 // Slot 3
-#include Brightmaps/CSSG.txt
-#include Brightmaps/SPAS-12.txt
+#include Brightmaps/Definitions/CSSG.txt
+#include Brightmaps/Definitions/SPAS-12.txt
 
 // Slot 4
-#include Brightmaps/MetalSniper.txt
-#include Brightmaps/NormalRifle.txt
+#include Brightmaps/Definitions/MetalSniper.txt
+#include Brightmaps/Definitions/NormalRifle.txt
 
 // Slot 5
-#include Brightmaps/NeoHMG.txt
+#include Brightmaps/Definitions/NeoHMG.txt
 
 // Slot 6
-#include Brightmaps/CyberdemonRL.txt
-#include Brightmaps/MastermindChaingun.txt
-#include Brightmaps/Excavator.txt
+#include Brightmaps/Definitions/CyberdemonRL.txt
+#include Brightmaps/Definitions/MastermindChaingun.txt
+#include Brightmaps/Definitions/Excavator.txt
 
 // Slot 7
 
 // Slot 8
-#include Brightmaps/FreezeRifle.txt
+#include Brightmaps/Definitions/FreezeRifle.txt
 
 // Slot 9
-#include Brightmaps/DemonExt.txt
-#include Brightmaps/HexaShotgun.txt
-#include Brightmaps/RipperChaingun.txt
+#include Brightmaps/Definitions/DemonExt.txt
+#include Brightmaps/Definitions/HexaShotgun.txt
+#include Brightmaps/Definitions/RipperChaingun.txt

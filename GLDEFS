@@ -1,3 +1,4 @@
+// I really should clean this file up
 flickerlight2 TPortZap
 {
     color 0.45 0.45 0.9
@@ -333,3 +334,54 @@ flickerlight FireAuraFireLight8
     frame VFIRG { light FireAuraFireLight7 }
     frame VFIRH { light FireAuraFireLight8 }
 } */
+
+object PBX_FrostAuraSphere
+{
+    frame VFRA { light FrostAuraSphereLight0 }
+    frame VFRAA { light FrostAuraSphereLight1 }
+    frame VFRAB { light FrostAuraSphereLight1 }
+    frame VFRAC { light FrostAuraSphereLight1 }
+    frame VFRAD { light FrostAuraSphereLight1 }
+	frame VFRAE { light FrostAuraSphereLight2 }
+	frame VFRAF { light FrostAuraSphereLight3 }
+	frame VFRAG { light FrostAuraSphereLight4 }
+	frame VFRAH { light FrostAuraSphereLight5 }
+}
+
+object PBX_FireAuraSphere
+{
+    frame VFIA { light FireAuraSphereLight }
+}
+
+// Helmet Drops
+pointlight DroppedHelm1
+{
+    color 255 0 0
+    size 5
+}
+
+pointlight DroppedHelm2
+{
+    color 255 0 0
+    size 10
+}
+
+pointlight DroppedHelm3
+{
+    color 255 0 0
+    size 15
+}
+
+pointlight DroppedHelm4
+{
+    color 255 0 0
+    size 30
+}
+
+object PBX_DroppedHelmetItem
+{
+    frame 3BONB { light DroppedHelm1 }
+    frame 3BONC { light DroppedHelm2 }
+    frame 3BOND { light DroppedHelm3 }
+    frame 3BONE { light DroppedHelm4 }
+}

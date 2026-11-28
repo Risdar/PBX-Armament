@@ -1,0 +1,38 @@
+[enu default]
+
+//////////////////////////// GENERAL MENU ///////////////////////////////////////////////////////////////////////////////
+PBX_ITEMS_SHOULDCANNON_USEAMMO = "Shoulder Cannon Use Ammo";
+PBX_SC_FlameBelchAmmoUse = "Flame Belch Ammo Use";
+PBX_SC_IceBombAmmoUse = "Ice Bomb Ammo Use";
+PBX_JetPack_FuelUse = "Jet Pack Fuel Use";
+PBX_ITEMS_START_WITH_SHOULDERCANNON = "Start with the Equipment Launcher";
+
+PBX_ITEMS_MENU_RESET_SETTINGS = "Reset PBX Items Settings";
+TIP_PBX_Items_ShouldCanStart = "If enabled, the player will start with the Shoulder Cannon equipped. (Automatically disabled if GloryKill is loaded)";
+
+//////////////////////////// ITEMS ///////////////////////////////////////////////////////////////////////////////
+REPAIRKIT_PICKUP        = "Weapon Supply Kit";
+REPAIRKIT_NOEFFECT      = "The Supply Kit has no effect on this weapon!";
+PBX_Repairkit_Tip1      = "The Weapon Repair Kit spawns ammo for the currently selected weapon.";
+PBX_Repairkit_Tip2      = "It will also repair all of the \crMonster Weapons.";
+
+SHOULDCANNON_PICKUP     = "Shoulder Cannon installed";
+SHOULDCAN_FLAMNOTREADY  = "Flame Belch Not Ready";
+SHOULDCAN_ICENOTREADY   = "Ice Bomb Not Ready";
+SHOULDCANNON_NOFUEL     = "You Dont have Enough Fuel";
+SHOULDCANNON_NOROCKET   = "You Dont have Enough Rockets";
+SHOULDCANNON_TAG        = "Shoulder Cannon";
+PBX_ShouldCan_Tip1      = "Press %s for \cgflame belch\c- and %s for \cyice bomb\c-.";
+
+JETPACK_PICKUP          = "You Found a Jetpack";
+JETPACK_TAG             = "JetPack";
+JETPACK_NOFUEL          = "Fuel Depleted";
+JETPACK_ACTIVE          = "JetPack Activated";
+JETPACK_DEACTIVE        = "JetPack Deactivated";
+PBX_JetPack_Tip1        = "Press %s to activate JetPack, it then uses %d fuel every second.";
+
+UPGRADEBOT_TAG          = "Upgrade Bot";
+UPGRADEBOT_GIVE         = "You Got the \cf%s";
+UPGRADEBOT_GIVEBACKPACK = "You Got a \cfBackpack";
+UPGRADEBOT_DISPLAY      = "Activate \cdUpgrade Bot\c-";
+PBX_UpgradeBot_Tip1     = "The Upgrade Bot gives you a random Weapon Upgrade.";

@@ -1,0 +1,64 @@
+[enu default]
+
+//////////////////////////// GENERAL ///////////////////////////////////////////////////////////////////////////////
+PBX_ArmorPickup         = "%s \n(+%d%% Protection/%d Amount)";
+
+PBX_WhiteArmor_duration = "White Armor Regeneration Duration";
+PBX_DemonArmor_duration = "Demon Armor Fear Duration";
+PBX_CyanArmor_duration = "Cyan Armor Time Freeze and Speed Duration";
+PBX_DPurpleArmor_duration = "Dark Purple Armor Infinite Ammo Duration";
+PBX_LGreenArmor_duration = "Light Green Armor Second Chance Duration";
+PBX_ARMORS_PINK_DURATION = "Pink Armor Stun Debuff Duration";
+
+PBX_ARMORS_MENU_RESET_DURATIONS = "Reset PBX Armors Durations";
+
+//////////////////////////// ARMORS ///////////////////////////////////////////////////////////////////////////////
+PBX_Armors_Red           = "UAC Spec-Ops Armor";
+
+PBX_Armors_Purple        = "QUAD Energy Armor (Quad Damage)";
+PBX_Armors_Purple_Tag    = "QUAD Energy Armor";
+
+PBX_Armors_White         = "UAC Advanced Medicine Suit (Regeneration)";
+PBX_Armors_White_Tag     = "UAC Advanced Medicine Suit";
+
+PBX_Armors_Orange        = "UAC Special Recon Armor (Night Vision)";
+PBX_Armors_Orange_Tag    = "UAC Special Recon Armor";
+
+PBX_Armors_Yellow        = "Hazardous Environment Armor (Hazmat & Speed)";
+PBX_Armors_Yellow_Tag    = "Hazardous Environment Armor";
+
+PBX_Armors_Black         = "UAC Commander Armor (Backpack)";
+PBX_Armors_Black_Tag     = "UAC Commander Armor";
+
+PBX_Armors_Demon         = "Picked up- UHG!, this thing stinks like rotten meat...";
+PBX_Armors_Demon_Tag     = "Demonic Armor";
+PBX_Armors_Demon_Tip1    = "The Demonic Armor gives Berserk, Quad Damage, and Fear Effect.";
+
+PBX_Armors_Cyan          = "Code in Execution - %d Seconds Time Stop (Time Freeze)";
+PBX_Armors_Cyan_Tag      = "UAC Experimental Time Dilation Armor";
+
+PBX_Armors_DarkPurple    = "AGV Resource Duplicator Armor (Infinite Ammo)";
+PBX_Armors_DrkPurple_Tag = "AGV Resource Duplicator Armor";
+
+PBX_Armors_DarkRed       = "Reactive Armor Plating Equipped";
+PBX_Armors_DarkRed_Tag   = "Reactive Armor Plating";
+PBX_Armors_DarkRed_Tip1  = "The Dark Red Armor knockbacks any enemy that comes into contact with you.";
+
+PBX_Armors_Gold          = "Advanced Magnetic Armor (Item Magnet)";
+PBX_Armors_Gold_Tag      = "Advanced Magnetic Armor";
+
+PBX_Armors_Gray          = "UAC Prototype Testing Armor: \n%d Durability, %d Percent Protection";
+PBX_Armors_Gray_Tag      = "UAC Prototype Testing Armor";
+PBX_Armors_Gray_Tip1     = "The Gray Armor will randomly set your Armor Amount and Save Percent.";
+
+PBX_Armors_LightBlue     = "UAC Hydro Armor";
+PBX_Armors_LBlue_Tip1    = "The Light Blue Armor will give you unlimited oxygen and increase your speed in water.";
+
+PBX_Armors_LightGreen    = "Guardian Angel System Installed";
+PBX_Armors_LGreen_Tag    = "UAC Guardian Angel System";
+PBX_Armors_LGreenActive  = "Guardian Angel System Active";
+PBX_Armors_LGreen_Tip1   = "The Light Green Armor will give you a Second Chance when dying.";
+PBX_Armors_LGreen_Tip2   = "When you take fatal damage the Armor will give you Invulnerability that lasts for %d seconds, %d HP, and %d Armor with %d Percent Protection.";
+
+PBX_Armors_Pink          = "UAC Hostile Repulsor Armor";
+PBX_Armors_Pink_Tip1     = "The Pink Armor gives a stun debuff to any enemy that hits you.";

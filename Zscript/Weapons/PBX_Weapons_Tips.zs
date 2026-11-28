@@ -20,41 +20,14 @@ enum PBX_WeaponTipFlags
     // SLOT 9
     ,PBX_TIP_DEMONEXT            = 1 << 9
     // OTHERS
-    ,PBX_TIP_COIN                = 1 << 27
-    ,PBX_TIP_SCROLLZOOM          = 1 << 28
-    ,PBX_TIP_COMMANDERWEAPON     = 1 << 29
+    ,PBX_TIP_COIN                = 1 << 28
+    ,PBX_TIP_SCROLLZOOM          = 1 << 29
     ,PBX_TIP_MONSTERWEAPON       = 1 << 30
     ,PBX_TIP_DEMONICWEAPON       = 1 << 31
 }
 
-enum PBX_EquipmentTipFlags
-{
-    PBX_TIP_CHAOSGREN         = 1 << 0
-    ,PBX_TIP_CHARGES         = 1 << 1
-}
-
 const WEAPON_HELPTEXT = "PBX_TIP_FLAGS_WEAPONS";
 const WEAPON_UPGRADE_HELPTEXT = "PBX_TIP_FLAGS_UPGRADES";
-const EQUIPMENTS_HELPTEXT = "PBX_TIP_FLAGS_EQUIPMENTS";
-
-extend class PBX_Handler
-{
-    static clearscope void SendTipArrayIfNeeded(Array<String> tipStrings, string cvarName, int tipFlag)
-	{
-        CVAR shouldSend = CVar.GetCVar("PBX_SEND_TIP");
-        if(!shouldSend) return;
-        bool send = shouldSend.GetBool();
-        if(!send) return;
-
-        CVar name = CVar.GetCvar(cvarName);
-        if(!name) return;
-
-		if(!PB_HelpNotificationsHandler.CheckTipEvent(tipFlag, name))
-		{
-			PB_HelpNotificationsHandler.PB_SendTipArray(tipStrings, cvarName, tipFlag);
-		}
-	}
-}
 
 extend class PBX_WeaponBase
 {

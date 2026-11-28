@@ -55,3 +55,70 @@ PBX_EQUIPMENTS_MedPack = "Enable First Aid Kit";
 PBX_EQUIPMENTS_Charges = "Enable Experimental Charges";
 PBX_EQUIPMENTS_Tripmine = "Enable Tripmines";
 PBX_EQUIPMENTS_ChaosGrenade = "Enable Chaos Grenades";
+
+PBX_ARMORS_GRAY = "Enable Gray Armor";
+
+PBX_ARMORS_YELLOW = "Enable Yellow Armor";
+PBX_ARMORS_LIGHT_BLUE = "Enable Light Blue Armor";
+
+PBX_ARMORS_PURPLE = "Enable Purple Armor";
+PBX_POWERUPS_MINISPHERE = "Enable Mini Sphere";
+
+PBX_ARMORS_DPURPLE = "Enable Dark Purple Armor";
+PBX_ARMORS_GOLD = "Enable Gold Armor";
+
+PBX_ARMORS_WHITE = "Enable White Armor";
+PBX_ARMORS_ORANGE = "Enable Orange Armor";
+PBX_ARMORS_BLACK = "Enable Black Armor";
+
+PBX_ARMORS_RED = "Enable Red Armor";
+PBX_ARMORS_PINK = "Enable Pink Armor";
+
+PBX_ARMORS_DEMON = "Enable Demon Armor";
+PBX_ARMORS_CYAN = "Enable Cyan Armor";
+
+PBX_ARMORS_DRED = "Enable Dark Red Armor";
+PBX_ARMORS_LGREEN = "Enable Light Green Armor";
+
+PBX_POWERUPS_LIFESTEAL_ORB = "Enable Lifesteal Orb";
+PBX_POWERUPS_ADRENALINE = "Enable Adrenaline";
+
+PBX_POWERUPS_MEGABERSERK = "Enable Mega Berserk";
+
+PBX_POWERUPS_DEFLECT_SPHERE = "Enable Deflect Sphere";
+PBX_POWERUPS_TERROR_SPHERE = "Enable Terror Sphere";
+PBX_POWERUPS_AMMO_SPHERE = "Enable Ammo Sphere";
+PBX_POWERUPS_GUARD_SPHERE = "Enable Guard Sphere";
+PBX_POWERUPS_REGEN_SPHERE = "Enable Regen Sphere";
+PBX_POWERUPS_RED_SOULSPHERE = "Enable Red SoulSphere";
+
+PBX_POWERUPS_SUPERSPHERE = "Enable Super Sphere";
+PBX_POWERUPS_ELECTRIC_AURA_SPHERE = "Enable Electric Aura Sphere";
+PBX_POWERUPS_FROST_AURA_SPHERE = "Enable Frost Aura Sphere";
+PBX_POWERUPS_FIRE_AURA_SPHERE = "Enable Fire Aura Sphere";
+
+PBX_POWERUPS_ULTRA_SPHERE = "Enable Ultra Sphere";
+PBX_POWERUPS_FLIGHT_SPHERE = "Enable Flight Sphere";
+
+PBX_POWERUPS_TIME_SPHERE = "Enable Time Sphere";
+
+PBX_POWERUPS_DARK_MEGASPHERE = "Enable Dark Mega Sphere";
+
+PBX_POWERUPS_HYPER_SPHERE = "Enable Hyper Sphere";
+
+PBX_POWERUPS_GOLDINV_SPHERE = "Enable Gold Invulnerability Sphere";
+
+PBX_POWERUPS_LEGEND_SPHERE = "Enable Legend Sphere";
+
+PBX_POWERUPS_BLACK_BLUR = "Enable Black Blur";
+PBX_POWERUPS_HASTE = "Enable Haste";
+
+PBX_POWERUPS_QUAD_DAMAGE = "Enable Quad Damage";
+
+PBX_ITEMS_REPAIR_KIT = "Enable Repair Kit";
+
+PBX_ITEMS_SHOULDERCANNON = "Enable Shoulder Cannon";
+
+PBX_ITEMS_JET_PACK = "Enable Jet Pack";
+
+PBX_ITEMS_UPGRADEBOT = "Enable Upgrade Bot";

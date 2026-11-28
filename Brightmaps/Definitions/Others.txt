@@ -1,0 +1,6 @@
+brightmap sprite PSTRC0{map "Brightmaps/Powerups/PSTRC0" disablefullbright}
+
+brightmap sprite 3BONB0 { map "BRIGHTMAPS/3BONB0.png" }
+brightmap sprite 3BONC0 { map "BRIGHTMAPS/3BONC0.png" }
+brightmap sprite 3BOND0 { map "BRIGHTMAPS/3BOND0.png" }
+brightmap sprite 3BONE0 { map "BRIGHTMAPS/3BONE0.png" }

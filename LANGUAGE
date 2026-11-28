@@ -15,11 +15,17 @@ PBX_MENU_RESET_PBXTOOLTIPS = "Reset PBX Tool Tips";
 
 PBX_MODULE_WEAPONS = "Weapon Spawner Override";
 PBX_MODULE_EQUIPMENTS = "Equipment Spawner Override";
+PBX_MODULE_ARMORS = "Armor Spawner Override";
+PBX_MODULE_POWERUPS = "Powerup Spawner Override";
+PBX_MODULE_ITEMS = "Item Spawner Override";
 
-PBX_MENU_GENERAL = "\cg⟁\c- PBX Settings";
-PBX_MENU_WEAPONS = "\cg⟁\c- Weapons Settings";
-PBX_MENU_HUD = "\cv⍟\c- HUD Settings";
-PBX_MENU_GAMEPLAY = "\cv⍟\c- Gameplay Settings";
+PBX_MENU_GENERAL = "\cg⍟\c- PBX Settings";
+PBX_MENU_GAMEPLAY = "\cv✜\c- Gameplay Settings";
+PBX_MENU_HUD = "\cv₪\c- HUD Settings";
+PBX_MENU_WEAPONS = "\cg☠\c- Weapons Settings";
+PBX_MENU_ARMORS = "\cg⛨\c- Armors Settings";
+PBX_MENU_POWERUPS = "\cg⚙\c- Powerups Settings";
+PBX_MENU_ITEMS = "\cg⟁\c- Items Settings";
 
 //////////////////////////// WEAPONS MENU ///////////////////////////////////////////////////////////////////////////////
 PBX_MENU_ENABLE_KEEPWEAPONS = "Keep Unupgraded Weapons";
@@ -49,7 +55,6 @@ PBX_MENU_COOLDOWN_COIN = "Thrown Coin's Cooldown";
 PBX_MENU_COOLDOWN_RESET = "Reset Cooldowns";
 
 //////////////////////////// HUD ///////////////////////////////////////////////////////////////////////////////
-// HUD
 PBX_MENU_HUD_WEAPONHUD = "Enable Weapon HUD";
 PBX_MENU_HUD_WEAPONMODEHUD = "Enable Weapon Mode HUD";
 PBX_MENU_HUD_ARMORHUD = "Enable Armor HUD";
@@ -66,11 +71,35 @@ PBXCORE_WEAPONMODEHUD_RESET = "Reset Weapon Mode HUD to Default";
 PBXCORE_ARMORHUD_RESET = "Reset Armor HUD to Default";
 
 //////////////////////////// GAMEPLAY ///////////////////////////////////////////////////////////////////////////////
+// Smart Scavenger
+PBX_MENU_SMARTSCAV = "Enable Smart Scavenger";
+TIP_PBX_CVAR_SMARTSCAV = "Smart Scavenger splits pickups into smaller chunks if you dont have enough space for it.";
+
+// Helmet Drops
+PBX_MENU_HELMETDROPS = "Enable Helmet Drops";
+TIP_PBX_CVAR_HELMETDROPS = "Enemies drop their helmets when killed";
+
 // Hit Feedback
 PBX_MENU_HF = "Enable Hit Feedback";
+TIP_PBX_CVAR_HF = "Armor break animation";
+
+// Backpack Reload
+PBX_MENU_BACKPACK_RELOAD_ENABLE = "Enable Backpack Reload";
+TIP_PBX_CVAR_BCKPR = "Auto-reload unselected weapons";
+
+PBX_MENU_BACKPACK_RELOAD_FREQ  = "Reload Frequency";
+TIP_PBBCKPR_Time    = "How frequently it will check weapons (in Tics, 35 tics = 1 second).";
+
+PBX_MENU_BACKPACK_RELOAD_AMOUNT     = "Reload Amount";
+TIP_PBBCKPR_Ref     = "How many units will it try to reload each time.";
+
+PBX_MENU_BACKPACK_RELOAD_ANNOUNCE   = "Announce Reloads";
+TIP_PBBCKPR_Tell    = "Whether to announce when a weapon has been reloaded.";
 
 // Damage Indicators
 PBX_MENU_DD              = "Enable Damage Indicators";
+TIP_PBX_CVAR_DD = "Shows Damage Direction";
+
 PBX_MENU_DD_TYPE         = "Type ";
 PBX_MENU_DD_COLORED      = "Enable damage type colored indicator ";
 PBX_MENU_DD_SCALE        = "Scale ";
@@ -82,6 +111,8 @@ PBX_MENU_DD_COLORPICKER  = "Color picker";
 PBX_MENU_DD_HEX          = "Hex";
 
 // Damage Flash
+TIP_OuchFlashEnabled = "Enemies flash when damaged";
+
 PBX_MENU_DF_DURATION       = "Flash duration";
 PBX_MENU_DF_COOLDOWN       = "Flash cooldown";
 PBX_MENU_DF_ACTOR_TYPES    = "Actor types to trigger a flash";
@@ -107,7 +138,10 @@ PBX_MENU_DF_FREEZE = "Freeze";
 PBX_MENU_DF_BLEED = "Bleed";
 
 //////////////////////////// KEYS MENU ///////////////////////////////////////////////////////////////////////////////
-PBX_ARMAMENT_KEYMENU    = "PBX - Armament Keys";
+PBX_ARMAMENT_KEYMENU    = "Project Brutality Expanded Keys";
 PBX_WHEELZOOM_IN        = "Manual Zoom In Key";
 PBX_WHEELZOOM_OUT       = "Manual Zoom Out Key";
 PBX_PREV_WEAPON         = "Previous Weapon Key";
+PBX_SC_KEYS_FLAMEBELCH  = "Shoulder Cannon: Flame Belch";
+PBX_SC_KEYS_ICEBOMB     = "Shoulder Cannon: Ice Bomb";
+PBX_JETPACK_KEYS        = "Jet Pack: Toggle";

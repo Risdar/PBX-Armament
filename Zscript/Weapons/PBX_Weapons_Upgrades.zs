@@ -95,7 +95,7 @@ class LeverAction_Upgrade : PB_UpgradeItem
 			return false;
 		}
         bool pickup = Super.TryPickup(toucher);
-		if(pickup && PBX_Armament_SendTip)
+		if(pickup && PBX_SEND_TIP)
 		{
 			Array<String> tips;
 			tips.Push(string.format(StringTable.Localize("$PBX_LeverActionUpgrade_Tip1"),PBX_Prosurv_LeverAction.AMMO_TAKE_MARLIN));
@@ -163,7 +163,7 @@ class CSSGUpgradeBase : PBX_UpgradeBase abstract
 			TNT1 A 0 {
 				A_GiveInventory("PB_Shell",12);
 				
-				if (PBX_Armament_SendTip)
+				if (PBX_SEND_TIP)
 				{
 					Array<String> tips;
 					tips.Push("$PBX_CSSGUpgrade_Tip1");
@@ -290,7 +290,7 @@ class MetalSniper_Upgrade : PB_UpgradeItem
 			return false;
 		}
         bool pickup = Super.TryPickup(toucher);
-		if(pickup && PBX_Armament_SendTip)
+		if(pickup && PBX_SEND_TIP)
 		{
 			Array<String> tips;
 			tips.Push("$PBX_MetalSniperUpgrade_Tip1");
@@ -389,7 +389,7 @@ class PBX_ExcavatorUpgrade : PB_UpgradeItem
 			return false;
 		}
 		bool pickup = Super.TryPickup(toucher);
-		if(pickup && PBX_Armament_SendTip)
+		if(pickup && PBX_SEND_TIP)
 		{
 			Array<String> tips;
 			tips.Push("$PBX_ExcavatorUpgrade_Tip1");

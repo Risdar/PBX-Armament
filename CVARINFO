@@ -14,6 +14,32 @@ server bool PBX_MODULE_WEAPONS = true;
 server bool PBX_MODULE_EQUIPMENTS = true;
 server bool PBX_MODULE_ARMORS = true;
 server bool PBX_MODULE_POWERUPS = true;
+server bool PBX_MODULE_ITEMS = true;
+
+// Tip Flags
+server int PBX_TIP_FLAGS_WEAPONS = 0;
+server int PBX_TIP_FLAGS_UPGRADES = 0;
+server int PBX_TIP_FLAGS_EQUIPMENTS = 0;
+server int PBX_TIP_FLAGS_ARMORS = 0;
+server int PBX_TIP_FLAGS_POWERUPS = 0;
+server int PBX_TIP_FLAGS_ITEMS = 0;
+
+// Spawners
+server int PBX_SPAWN_FLAGS_CHAINSAW = 0;
+server int PBX_SPAWN_FLAGS_PISTOL = 0;
+server int PBX_SPAWN_FLAGS_SHOTGUN = 0;
+server int PBX_SPAWN_FLAGS_SSG = 0;
+server int PBX_SPAWN_FLAGS_CHAINGUN = 0;
+server int PBX_SPAWN_FLAGS_ROCKET_LAUNCHER = 0;
+server int PBX_SPAWN_FLAGS_PLASMA = 0;
+server int PBX_SPAWN_FLAGS_BFG = 0;
+server int PBX_SPAWN_FLAGS_SECRET_WEAPONS = 0;
+server int PBX_SPAWN_FLAGS_MONSTER_WEAPONS = 0;
+server int PBX_SPAWN_FLAGS_BACKPACK = 0;
+server int PBX_SPAWN_FLAGS_EQUIPMENTS = 0;
+server int PBX_SPAWN_FLAGS_ARMORS = 0;
+server int PBX_SPAWN_FLAGS_POWERUPS = 0;
+server int PBX_SPAWN_FLAGS_ITEMS = 0;
 
 //////////////// HUD /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 server int PBXCore_HudFlags = 0;
@@ -39,29 +65,13 @@ user float PBX_CVAR_HUD_ARMOR_ALPHA = 1.0;
 user int PBX_CVAR_HUD_ARMOR_BOX_W = 50;
 user int PBX_CVAR_HUD_ARMOR_BOX_H = 50;
 
-// Tip Flags
-server int PBX_TIP_FLAGS_WEAPONS = 0;
-server int PBX_TIP_FLAGS_UPGRADES = 0;
-server int PBX_TIP_FLAGS_EQUIPMENTS = 0;
-
-// Spawners
-server int PBX_SPAWN_FLAGS_CHAINSAW = 0;
-server int PBX_SPAWN_FLAGS_PISTOL = 0;
-server int PBX_SPAWN_FLAGS_SHOTGUN = 0;
-server int PBX_SPAWN_FLAGS_SSG = 0;
-server int PBX_SPAWN_FLAGS_CHAINGUN = 0;
-server int PBX_SPAWN_FLAGS_ROCKET_LAUNCHER = 0;
-server int PBX_SPAWN_FLAGS_PLASMA = 0;
-server int PBX_SPAWN_FLAGS_BFG = 0;
-
-server int PBX_SPAWN_FLAGS_EQUIPMENTS = 0;
-
-server int PBX_SPAWN_FLAGS_BACKPACK = 0;
-
-server int PBX_SPAWN_FLAGS_SECRET_WEAPONS = 0;
-server int PBX_SPAWN_FLAGS_MONSTER_WEAPONS = 0;
-
 //////////////// GAMEPLAY /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Smart Scavenger
+server bool PBX_CVAR_SMARTSCAV = true;
+
+// Helmet Drops
+server bool PBX_CVAR_HELMETDROPS = true;
+
 // Hit Feedback
 user bool PBX_CVAR_HF = true;
 
@@ -121,3 +131,42 @@ server int PBX_CVAR_SECRET_WEAPONS_SPAWN_CHANCE = 5;
 // Cooldowns
 server int PBX_COOLDOWN_MEATHOOK = 3;
 server int PBX_COOLDOWN_COIN = 5;
+
+//////////////// ARMORS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+server int PBX_WhiteArmor_duration    = 60;
+server int PBX_DemonArmor_duration    = 60;
+server int PBX_CyanArmor_duration     = 12;
+server int PBX_DPurpleArmor_duration  = 12;
+server int PBX_LGreenArmor_duration   = 12;
+server int PBX_PinkDebuff_duration    = 4;
+
+//////////////// ITEMS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+server bool PBX_Items_ShouldCanStart = false;
+server bool PBX_SC_UseAmmo = true;
+server int PBX_SC_FlameBelchAmmoUse = 20;
+server int PBX_SC_IceBombAmmoUse = 1;
+server int PBX_JetPack_FuelUse = 5;
+server int pbx_adrenaline_duration = 15;
+
+//////////////// POWERUPS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Tainted Powerups
+server int pbx_invistaint_duration = 75;
+server int pbx_deflect_duration    = 60;
+server int pbx_goldinv_duration    = 90;
+server int pbx_taintregen_duration = 30;
+// Vanilla Powerups
+server int pbx_buddha_duration     = 60;
+server int pbx_drain_duration      = 60;
+server int pbx_flight_duration     = 60;
+server int pbx_terror_duration     = 45;
+server int pbx_highjump_duration   = 60;
+server int pbx_infammo_duration    = 30;
+server int pbx_protect_duration    = 25;
+server int pbx_reflect_duration    = 60;
+server int pbx_regen_duration      = 30;
+server int pbx_timefreeze_duration = 45;
+// Aura Spheres
+server int pbx_electaura_duration  = 45;
+server int pbx_frostaura_duration  = 45;
+server int pbx_fireaura_duration   = 30;
+

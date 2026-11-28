@@ -1,6 +1,3 @@
-#include "./PBX_Spawners_Weapons.zs"
-#include "./PBX_Spawners_Equipments.zs"
-
 //////////////////////////// INJECTOR ////////////////////////////////////////////////////////////////////////////////////
 class PBX_Injector : PBInjector
 {
@@ -15,6 +12,21 @@ class PBX_Injector : PBInjector
 		if(PBX_MODULE_EQUIPMENTS)
 		{
 			injectEquipments(handler);
+		}
+
+		if(PBX_MODULE_ARMORS)
+		{
+			injectArmors(handler);
+		}
+
+		if(PBX_MODULE_POWERUPS)
+		{
+			injectPowerups(handler);
+		}
+
+		if(PBX_MODULE_ITEMS)
+		{
+			injectItems(handler);
 		}
 	}
 
@@ -45,6 +57,11 @@ extend class PBX_Handler
 		if(PBX_MODULE_WEAPONS) 
 		{
 			PBX_ReplaceWeapons(e);
+		}
+
+		if(PBX_CVAR_SMARTSCAV)
+		{
+			spawnSmartScav(e);
 		}
     }
 

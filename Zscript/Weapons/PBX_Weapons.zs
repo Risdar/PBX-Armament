@@ -4,6 +4,7 @@
 #include "./BaseWeapon/PBX_Scopes.zs"
 #include "./BaseWeapon/PBX_WeaponWheel.zs"
 
+#include "./PBX_Weapons_Spawners.zs"
 #include "./PBX_Weapons_Upgrades.zs"
 #include "./PBX_Weapons_Ammo.zs"
 #include "./PBX_Weapons_Tips.zs"
