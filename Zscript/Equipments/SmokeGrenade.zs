@@ -32,7 +32,12 @@ class PBX_SmokeGrenadeToken : PBX_Equipment
 	States 
     {
         UseEquipment:
-            STGR MLKJIH 1 A_SetRoll(roll+0.5);
+            STGR MLKJ 1 A_SetRoll(roll+0.5);
+		HoldEquipment:
+			STGR I 1;
+            TNT1 A 0 EQ_JumpIfHold();
+        Release:
+			STGR H 1 A_SetRoll(roll+0.5);
             TNT1 A 0 A_StartSound("OPNGRN",CHAN_AUTO,CHANF_OVERLAP);
             STGR GFE 1 A_SetRoll(roll+0.5);
             STGR DCB 1;
@@ -117,8 +122,6 @@ class PBX_ThrownSmokeGrenade : PB_ThrownGrenade
 		PB_ThrownGrenade.GrenadeExplosionParams 0, 0;
 		PB_ThrownGrenade.FlareActorName 'PB_GrenadeWarningFlare_Blue';
 		PB_ThrownGrenade.GrenadeBeepSound "";
-		PB_ThrownGrenade.FuseLength 35;
-		PB_ThrownGrenade.BeepDelay 8;
 		PBX_ThrownSmokeGrenade.ExplosionActor "PBX_MistBurst";
 	}
 

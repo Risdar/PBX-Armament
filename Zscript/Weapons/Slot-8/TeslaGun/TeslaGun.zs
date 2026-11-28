@@ -203,7 +203,7 @@ class PBX_TeslaGun : PBX_WeaponBase
         AltFireAnimation:
 			ETRF A 1 BRIGHT Tesla_AltFireAnim();
         AltHold:
-			ETRF A 0 A_StartSound("PLSFULL",CHAN_WEAPON,CHANF_LOOPING,volume:0.5);
+			ETRF A 0 A_StartSound("PLSFULL",CHAN_WEAPON,CHANF_LOOPING,volume:0.3);
 			ETRF F 1 BRIGHT offset (0, 32) Tesla_CheckDecharge();
 			ETRF G 1 BRIGHT offset (0, 33) Tesla_CheckDecharge();
 			ETRF H 1 BRIGHT offset (1, 32) Tesla_CheckDecharge();

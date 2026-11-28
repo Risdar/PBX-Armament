@@ -32,20 +32,22 @@ class PBX_ChaosGrenadeToken : PBX_Equipment
 	States 
     {
         UseEquipment:
-            4RTH EFGH 1;
-            SYRI A 0 A_StartSound("GRNPIN",CHAN_AUTO);
-            4RTH IJKLMN 1;
-            TNT1 A 2;
-            // TNT1 A 0 A_StartSound("CS16uwu");
-            TNT1 A 0 A_Jump(2,2);
-            TNT1 A 0 A_StartSound("GRNTOSS");
-            GRTH OP 1;
-            GRTH Q 1 {
+            4RTH ABCDEFGH 1;
+            TNT1 A 0 A_StartSound("OPNGRN",CHAN_AUTO,CHANF_OVERLAP);
+            4RTH IJKLM 1;
+        HoldEquipment:
+            4RTH N 1; 
+            TNT1 A 0 EQ_JumpIfHold();
+        Release:
+            4RTH OP 1;
+            2RTH C 1 A_StartSound("THRGRN",CHAN_AUTO,CHANF_OVERLAP);
+            2RTH D 1 {
                 A_FireProjectile("StupidGrenade");
                 EQ_TakeAmmo();
+                A_FireProjectile("Alerter");
             }
-            GRTH RSTU 1;
-		    TNT1 A 0 PB_ReThrow();
+            2RTH EFG 1;
+            TNT1 A 0 PB_ReThrow();
             Stop;
 
 	}

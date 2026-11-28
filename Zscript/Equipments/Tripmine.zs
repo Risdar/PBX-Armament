@@ -29,6 +29,7 @@ class PBX_TripmineToken : PBX_Equipment
             TNT1 A 0;
             TNT1 A 0 EQ_SetWeaponState("FlashPunching");
             TRPM FEDCBBBB 1;
+        HoldEquipment:
 			TRPM B 1 {
 				FLineTraceData wallinmyway;
 				invoker.owner.LineTrace(invoker.owner.angle, 64, invoker.owner.pitch, 0, offsetz: 12, data: wallinmyway);
@@ -38,8 +39,10 @@ class PBX_TripmineToken : PBX_Equipment
                     EQ_TakeAmmo();
 					return ResolveState("Placedsuccesfully");
 				}
-				Return resolvestate(null);
+				return resolvestate(null);
 			}
+            TNT1 A 0 EQ_JumpIfHold();
+        Release:
 			TRPM BBBMNOPQ 1;
             TNT1 A 0 PB_ReThrow();
             Stop;

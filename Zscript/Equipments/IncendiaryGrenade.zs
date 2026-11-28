@@ -28,9 +28,14 @@ class PB_IncendiaryGrenadeToken : PBX_Equipment
     {
         UseEquipment:
             ICND ABCDEFGH 1;
-            TNT1 A 0 A_StartSound("OPNGRN",0);
-            ICND IJKLMNOP 1;
-            2RTH C 1 A_StartSound("THRGRN",0);
+            TNT1 A 0 A_StartSound("OPNGRN",CHAN_AUTO,CHANF_OVERLAP);
+            ICND IJKLM 1;
+        HoldEquipment:
+            ICND N 1; 
+            TNT1 A 0 EQ_JumpIfHold();
+        Release:
+            ICND OP 1;
+            2RTH C 1 A_StartSound("THRGRN",CHAN_AUTO,CHANF_OVERLAP);
             2RTH D 1 {
                 A_FireProjectile("PB_ThrownIncendiaryGrenade");
                 EQ_TakeAmmo();

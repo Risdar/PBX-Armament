@@ -49,7 +49,6 @@ class PBX_EternalMinigun : PBX_WeaponBase
             A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
             PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
             PB_SpawnCasing("PB_EmptyBrass", 19,-13,24,0,-frandom(3,6),frandom(-1,1), false);
-            A_StartSound("weapon/EternalChaingun/Shoot", CHAN_AUTO, CHANF_OVERLAP);
             A_FlashOverlay(MUZZLE_FLASH_LAYER2);A_OverlayOffset(MUZZLE_FLASH_LAYER2,-40,-5);
             A_FlashOverlay(MUZZLE_FLASH_LAYER3);A_OverlayOffset(MUZZLE_FLASH_LAYER3,40,-5);
         }
@@ -58,7 +57,7 @@ class PBX_EternalMinigun : PBX_WeaponBase
         A_TakeInventory(invoker.ammo1.getClassName(), 1, TIF_NOTAKEINFINITE);
         PB_IncrementHeat();
         PB_GunSmoke_Basic(0,0,2);
-        A_StartSound("weapon/EternalChaingun/Shoot", CHAN_AUTO);
+        A_StartSound("weapon/EternalChaingun/Shoot",CHAN_AUTO);
         PB_FireOffset();
         PB_DynamicTail("lmg", "lmg");
         A_AlertMonsters();

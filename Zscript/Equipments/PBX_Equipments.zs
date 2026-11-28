@@ -23,6 +23,15 @@ class PBX_Equipment : PB_Equipment
         player.SetPSprite(PSP_WEAPON, player.readyweapon.ResolveState(st));
     }
 
+    action state EQ_JumpIfHold(StateLabel st = "HoldEquipment")
+    {
+        if(PressingUser1())
+        {
+            return resolvestate(st);
+        }
+        return resolvestate(null);
+    }
+
     action int EQ_GetAmount()
     {
         return CountInv(invoker.AmmoType);
