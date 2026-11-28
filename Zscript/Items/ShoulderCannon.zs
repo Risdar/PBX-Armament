@@ -107,7 +107,7 @@ class PBX_ShoulderCannon : CustomInventory
 						PB_HelpNotificationsHandler.PB_FormatKeybinds("pbx_doice")
 					)
 				);
-				PBX_Handler.SendTipArrayIfNeeded(tips,PBX_ITEM_HELP_FLAG,PBX_Armory_Tip_ShoulderCannon);
+				PBX_Handler.SendTipArrayIfNeeded(tips,ITEMS_HELPTEXT,PBX_Armory_Tip_ShoulderCannon);
 			}
         }
         return pickup;

@@ -35,7 +35,7 @@ Class PBX_BlackBlur : PB_Inventory
 				{
 					Array<String> tips;
 					tips.Push("$PBX_BlackBlur_Tip1");
-					PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_BlackBlur);
+					PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_BlackBlur);
 				}
 			}
 			else if(obj && obj.bISMONSTER && obj.health > 0 && Distance3D(obj) > 256 && obj.bSTEALTH)
@@ -161,7 +161,7 @@ class PBX_GoldInvul : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_GoldInvul_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_GoldInvul);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_GoldInvul);
 		}
 		owner.A_SetBlend("PaleGoldenrod",0.75,16);
 		owner.A_GiveInventory("PBX_InvulTaintedGiver");
@@ -412,7 +412,7 @@ class PBX_RedSoulSphere : PB_Inventory
 					Array<String> tips;
 					tips.Push("$PBX_RedSoul_Tip1");
 					tips.Push("$PBX_RedSoul_Tip2");
-					PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_RedSoul);
+					PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_RedSoul);
 				}
                 obj.DamageMobj(self, self, 1, "");
 			}
@@ -544,7 +544,7 @@ class PBX_DarkMegaSphere : PB_Inventory
 				{
 					Array<String> tips;
 					tips.Push("$PBX_DarkMega_Tip1");
-					PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_DarkMega);
+					PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_DarkMega);
 				}
 			}
 		}

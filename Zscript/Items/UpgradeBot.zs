@@ -369,7 +369,7 @@ class PBX_UpgradeBotDisplay : EventHandler
         {
             Array<String> tips;
 			tips.Push("$PBX_UpgradeBot_Tip1");
-            PBX_Handler.SendTipArrayIfNeeded(tips,PBX_ITEM_HELP_FLAG,PBX_Armory_Tip_UpgradeBot);
+            PBX_Handler.SendTipArrayIfNeeded(tips,ITEMS_HELPTEXT,PBX_Armory_Tip_UpgradeBot);
         }
             
     }

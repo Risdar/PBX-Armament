@@ -55,11 +55,11 @@ PBX_CHAOSGREN_TIP = "Chaos Grenades will trigger infights";
 
 //////////////////////////// JETPACK ///////////////////////////////////////////////////////////////////////////////
 PBX_JETPACK_TAG = "Jet Pack";
-PBX_JETPACK_WHEEL = "Equipment Selected: \crJet Pack";
-PBX_JETPACK_OUT = "No \crFuel Ammo\c- Reamining";
+PBX_JETPACK_WHEEL = "Equipment Selected: \ciJet Pack";
+PBX_JETPACK_OUT = "No \ciFuel Ammo\c- Reamining";
 
 PBX_JETPACK_PICKUP          = "You Found a Jetpack";
 PBX_JETPACK_NOFUEL          = "Fuel Depleted";
-PBX_JETPACK_ACTIVE          = "JetPack Activated";
-PBX_JETPACK_DEACTIVE        = "JetPack Deactivated";
+PBX_JETPACK_ACTIVE          = "\ciJet Pack\c- Activated";
+PBX_JETPACK_DEACTIVE        = "\ciJet Pack\c- Deactivated";
 PBX_JetPack_Tip1            = "While active the jetpack uses %d fuel every second.";

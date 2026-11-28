@@ -61,7 +61,7 @@ class PBX_Jetpack : Inventory
 						PBX_JetPack_FuelUse
 					)
 				);
-				PBX_Handler.SendTipArrayIfNeeded(tips,PBX_ITEM_HELP_FLAG,PBX_Armory_Tip_JetPack);
+				PBX_Handler.SendTipArrayIfNeeded(tips,ITEMS_HELPTEXT,PBX_Armory_Tip_JetPack);
 			}
 			toucher.A_GiveInventory("PB_Fuel",mJetpackFuelTake*15); // So you atleast have 15 seconds of flight
         }

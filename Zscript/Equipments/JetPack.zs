@@ -8,7 +8,7 @@ class JetPackCard : equipmentCard
 		tags.push("$PBX_JETPACK_TAG");
 		tokens.push("PBX_JetPackToken");
 		ammotypes.push("PB_Fuel");
-		img.push("graphics/Equipments/SmokeGrenade/Equip_Smoke.png");
+		img.push("graphics/Equipments/JetPack/JetpackIcon.png");
 		sx.push(1.0);
 		sy.push(1.0);
 	}
@@ -18,12 +18,12 @@ class PBX_JetPackToken : PBX_Equipment
 {
 	Default 
     {
-		Inventory.Icon "SMKGRICO";
+		Inventory.Icon "JTFLICON";
 		PB_Equipment.AmmoType "PB_Fuel";
 		PB_Equipment.SelectString "$PBX_JETPACK_WHEEL";
 		PB_Equipment.SelectSound "7LSPICK";
 		PB_Equipment.FailString "$PBX_JETPACK_OUT";
-		PB_Equipment.FontColor "DarkRed";
+		PB_Equipment.FontColor "Orange";
 	}
 
 	bool mActive;
@@ -145,6 +145,7 @@ class PBX_Jetpack : PB_Ammo
 	override void PB_SetAmmoSprite()
     {
         sprite = GetSpriteIndex("JETP");
+		frame = 0;
     }
 	
 	override void AttachToOwner(actor other)
@@ -167,11 +168,19 @@ class PBX_Jetpack : PB_Ammo
 	{
 		Array<String> tips;
 		tips.Push(string.format(StringTable.Localize("$PBX_JetPack_Tip1"), PBX_JetPack_FuelUse));
-		PBX_Handler.SendTipArrayIfNeeded(tips,PBX_ITEM_HELP_FLAG,PBX_Armory_Tip_JetPack);
+		PBX_Handler.SendTipArrayIfNeeded(tips,EQUIPMENTS_HELPTEXT,PBX_TIP_JETPACK);
+	}
+
+	States
+	{
+		CacheSprites:
+			JETP A 0;
+			Stop;
 	}
 
 }
 
+////// ACTORS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Class PB_JetpackFlameTrails : Actor 
 {
 	Default 
@@ -196,8 +205,8 @@ Class PB_JetpackFlameTrails : Actor
 	{
 		Spawn:
 		//flamethrower particle sprite, if it's too short for your tastes add "B" to the frame
-		TNT1 A 0;
-		NF4R A 1 BRIGHT;
-		stop;
+			TNT1 A 0;
+			NF4R A 1 BRIGHT;
+			stop;
 	}
 }

@@ -238,7 +238,7 @@ class PBX_DeflectSphere : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Deflect_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_DeflectSphere);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_DeflectSphere);
 		}
 		owner.A_SetBlend("LightGreen",0.75,16);
 		owner.A_GiveInventory("PBX_DeflectGiver");
@@ -352,7 +352,7 @@ class PBX_LegendSphere : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Legend_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_LegendSphere);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_LegendSphere);
 		}
 		owner.A_SetBlend("DarkOrange",0.75,16);
 		owner.A_GiveInventory("PBX_BuddhaGiver");
@@ -488,7 +488,7 @@ class PBX_TerrorSphere : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Terror_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_TerrorSphere);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_TerrorSphere);
 		}
 		owner.A_SetBlend("DarkRed",0.75,16);
 		owner.A_GiveInventory("PBX_FrightenerGiver");
@@ -556,7 +556,7 @@ class PBX_AmmoSphere : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Ammo_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_AmmoSphere);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_AmmoSphere);
 		}
 		owner.A_SetBlend("yellow",0.75,16);
 		owner.A_GiveInventory("PBX_InfiniteAmmoGiver");
@@ -624,7 +624,7 @@ class PBX_GuardSphere : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Guard_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_GuardSphere);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_GuardSphere);
 		}
 		owner.A_SetBlend("PaleTurquoise1",0.75,16);
 		owner.A_GiveInventory("PBX_ProtectionGiver");
@@ -920,7 +920,7 @@ class PBX_Adrenaline : PB_Inventory
 		{
 			Array<String> tips;
 			tips.Push("$PBX_Adrenaline_Tip1");
-			PBX_Handler.SendTipArrayIfNeeded(tips,PBX_POWERUP_HELP_FLAG,PBX_Powerups_Tip_Adrenaline);
+			PBX_Handler.SendTipArrayIfNeeded(tips,POWERUPS_HELPTEXT,PBX_Powerups_Tip_Adrenaline);
 		}
 		owner.A_SetBlend("Red",0.75,16);
 		owner.A_GiveInventory("PBX_Adrenaline_Speed");

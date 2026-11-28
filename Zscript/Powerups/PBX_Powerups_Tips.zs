@@ -20,5 +20,4 @@ enum PBX_Powerups_TipFlags
 
 }
 
-const PBX_POWERUP_HELP_FLAG = "PBX_TIP_FLAGS_POWERUPS";
 

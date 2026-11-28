@@ -21,7 +21,7 @@ class PBX_RepairKit : PB_Inventory
             Array<String> tips;
             tips.Push("$PBX_Repairkit_Tip1");
             tips.Push("$PBX_Repairkit_Tip2");
-            PBX_Handler.SendTipArrayIfNeeded(tips,PBX_ITEM_HELP_FLAG,PBX_Armory_Tip_RepairKit);
+            PBX_Handler.SendTipArrayIfNeeded(tips,ITEMS_HELPTEXT,PBX_Armory_Tip_RepairKit);
         }
         CheckWeapon(toucher);
 	}

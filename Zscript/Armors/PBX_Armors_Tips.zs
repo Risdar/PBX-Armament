@@ -8,8 +8,6 @@ enum PBX_Armors_TipFlags
     ,PBX_Armors_PinkArmorTip      = 1 < 5
 }
 
-const PBX_ARMOR_HELP_FLAG = "PBX_TIP_FLAGS_ARMORS";
-
 class PBX_Armors_TipsManager : Inventory
 {
 	override bool HandlePickup(Inventory item)
@@ -26,7 +24,7 @@ class PBX_Armors_TipsManager : Inventory
             {
                 Array<String> tips;
                 tips.Push("$PBX_Armors_Demon_Tip1");
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_DemonArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_DemonArmorTip);
             }
             break;
 
@@ -34,7 +32,7 @@ class PBX_Armors_TipsManager : Inventory
             {
                 Array<String> tips;
                 tips.Push("$PBX_Armors_DarkRed_Tip1");
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_DarkRedArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_DarkRedArmorTip);
             }
             break;
 
@@ -42,7 +40,7 @@ class PBX_Armors_TipsManager : Inventory
             {
                 Array<String> tips;
                 tips.Push("$PBX_Armors_Gray_Tip1");
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_GrayArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_GrayArmorTip);
             }
             break;
 
@@ -50,7 +48,7 @@ class PBX_Armors_TipsManager : Inventory
             {
                 Array<String> tips;
                 tips.Push("$PBX_Armors_LBlue_Tip1");
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_LBlueArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_LBlueArmorTip);
             }
             break;
 
@@ -59,7 +57,7 @@ class PBX_Armors_TipsManager : Inventory
                 Array<String> tips;
                 tips.Push("$PBX_Armors_LGreen_Tip1");
                 tips.Push(String.Format(StringTable.Localize("$PBX_Armors_LGreen_Tip2"),PBX_LGreenArmor_duration, GUARDIAN_HP, GUARDIAN_AMOUNT, GUARDIAN_PERCENT));
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_LGreenArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_LGreenArmorTip);
             }
             break;
 
@@ -67,7 +65,7 @@ class PBX_Armors_TipsManager : Inventory
             {
                 Array<String> tips;
                 tips.Push("$PBX_Armors_Pink_Tip1");
-                PBX_Handler.SendTipArrayIfNeeded(tips, PBX_ARMOR_HELP_FLAG, PBX_Armors_PinkArmorTip);
+                PBX_Handler.SendTipArrayIfNeeded(tips, ARMORS_HELPTEXT, PBX_Armors_PinkArmorTip);
             }
             break;
 
