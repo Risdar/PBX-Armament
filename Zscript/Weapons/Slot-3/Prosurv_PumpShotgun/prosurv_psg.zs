@@ -20,8 +20,6 @@ class PBX_ProSurvPSG : PBX_WeaponBase
         Inventory.PickupMessage "$PBX_PSG_PICKUP";
         Inventory.PickupSound "weapons/sgpump";
 	    Inventory.AltHUDIcon "AUSXA0";
-		PB_WeaponBase.UsesWheel true;
-		PB_WeaponBase.WheelInfo "PSGWheel";
         Damagetype "Shotgun";
         Obituary "$OB_WEAP_PSG";
         AttackSound "None";

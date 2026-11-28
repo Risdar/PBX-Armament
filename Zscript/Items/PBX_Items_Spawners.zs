@@ -2,7 +2,6 @@ enum PBX_Armory_ItemSpawns
 {
 	DisableRepairKit			= 1 << 0
 	,DisableShoulderCannon      = 1 << 1
-	,DisableJetPack             = 1 << 2
 	,DisableUpgradeBot          = 1 << 3
 	,DisableSmartScav           = 1 << 4
 
@@ -28,12 +27,6 @@ extend class PBX_Injector
             handler.InjectSpawn('PB_PackSpawnerT2', 'PBX_ShoulderCannon', 255, 1);
             handler.InjectSpawn('PB_PackSpawnerT3', 'PBX_ShoulderCannon', 255, 1);
             handler.InjectSpawn('PB_PackSpawnerT4', 'PBX_ShoulderCannon', 255, 1);
-        }
-
-        if(!CheckFlag(itemsFlag,DisableJetPack))
-        {
-            handler.InjectSpawn('PB_RocketBoxSpawnerT2', 'PBX_Jetpack', 255, 1);
-            handler.InjectSpawn('PB_RocketBoxSpawnerT3', 'PBX_Jetpack', 255, 1);
         }
 
         if(!CheckFlag(itemsFlag,DisableUpgradeBot))

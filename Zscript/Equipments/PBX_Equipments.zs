@@ -7,6 +7,7 @@
 #include "./MedPack.zs"
 #include "./Charges/ChargesBase.zs"
 #include "./Tripmine.zs"
+#include "./JetPack.zs"
 
 class PBX_Equipment : PB_Equipment
 {

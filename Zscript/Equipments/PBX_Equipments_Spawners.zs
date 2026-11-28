@@ -7,6 +7,7 @@ enum PBX_Equipment_SpawnFlags
 	,DisableEQ_Charges				= 1 << 3
 	,DisableEQ_Tripmine				= 1 << 4
 	,DisableEQ_ChaosGrenade			= 1 << 5
+	,DisableEQ_JetPack				= 1 << 6
 }
 
 extend class PBX_Injector
@@ -57,5 +58,11 @@ extend class PBX_Injector
 		{
 			handler.InjectSpawn('PB_RocketSpawnerT4', 'PBX_ChaosGrenadeAmmo', 255, 1);
 		}
+
+		// Jet Pack
+		if(!CheckFlag(equipmentFlag,DisableEQ_JetPack))
+        {
+            handler.InjectSpawn('PB_PackSpawnerT3', 'PBX_Jetpack', 255, 1);
+        }
 	}
 }

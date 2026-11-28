@@ -71,9 +71,7 @@ class PBX_Handler : EventHandler
 
 		let pmo = players[e.Player].mo; if (!pmo) return;
 
-		checkShoulderCannon(e,pmo);
-		checkJetpack(e,pmo);
-		
+		checkShoulderCannon(e,pmo);		
 	}
 
 	void checkShoulderCannon(ConsoleEvent e, PlayerPawn pmo)
@@ -88,16 +86,6 @@ class PBX_Handler : EventHandler
 		else if (e.Name ~== "PBX_UseIceBomb")
 		{
 			cannon.RequestFire(PBX_ShoulderCannon.EQUIP_ICEBOMB);
-		}
-	}
-
-	void checkJetpack(ConsoleEvent e, PlayerPawn pmo)
-	{
-		let jetpack = PBX_Jetpack(pmo.FindInventory("PBX_Jetpack")); if (!jetpack) return;
-
-		if (e.Name ~== "PBX_ToggleJetpack")
-		{
-			jetpack.toggleJetpack();
 		}
 	}
 

@@ -93,8 +93,8 @@ AddOptionMenu "AddonWeaponSpawns" after "PLST4"
 AddOptionMenu "AddonWeaponSpawns" after "BFGT1"
 {
     // SLOT 9
-    FlagOption    "$PBX_WEAPONS_DEMONIC_EXTERMINATOR",    "PBX_SPAWN_FLAGS_BFG",    "OffOn", 0, "PBX_MODULE_WEAPONS"
-    FlagOption    "$PBX_WEAPONS_DEMONEXT_ARTIFACT",           "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 6, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_WEAPONS_DEMONIC_EXTERMINATOR",          "PBX_SPAWN_FLAGS_BFG",    "OffOn", 0, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_WEAPONS_DEMONEXT_ARTIFACT",             "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 6, "PBX_MODULE_WEAPONS"
 }
 
 // This is a pretty hacky way to do this lol
@@ -144,6 +144,7 @@ AddOptionMenu "AddonAmmoSpawns" after "PACKT3"
     FlagOption    "$PBX_WEAPONS_EXCAVATOR_UPGRADE",              "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 5, "PBX_MODULE_WEAPONS"
 	FlagOption    "$PBX_WEAPONS_SGL_EDIT",                       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 7, "PBX_MODULE_WEAPONS"
 	FlagOption    "$PBX_WEAPONS_LMG_EDIT",                       "PBX_SPAWN_FLAGS_BACKPACK",    "OffOn", 8, "PBX_MODULE_WEAPONS"
+    FlagOption    "$PBX_ITEMS_JET_PACK",                         "PBX_SPAWN_FLAGS_EQUIPMENTS",  "OffOn", 6, "PBX_MODULE_EQUIPMENTS"
 }
 
 // SHELLBOX /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,10 +172,9 @@ AddOptionMenu "AddonAmmoSpawns" after "ROCKT4"
 
 // ROCKET BOX /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TIER 2
-AddOptionMenu "AddonAmmoSpawns" after "BROKT2"
+/* AddOptionMenu "AddonAmmoSpawns" after "BROKT2"
 {
-    FlagOption  "$PBX_ITEMS_JET_PACK","PBX_SPAWN_FLAGS_ITEMS",    "OffOn", 2, "PBX_MODULE_ITEMS"
-}
+} */
 
 // TIER 3
 AddOptionMenu "AddonAmmoSpawns" after "BROKT3"

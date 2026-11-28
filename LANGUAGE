@@ -19,13 +19,13 @@ PBX_MODULE_ARMORS = "Armor Spawner Override";
 PBX_MODULE_POWERUPS = "Powerup Spawner Override";
 PBX_MODULE_ITEMS = "Item Spawner Override";
 
-PBX_MENU_GENERAL = "\cg⍟\c- PBX Settings";
-PBX_MENU_GAMEPLAY = "\cv✜\c- Gameplay Settings";
+PBX_MENU_GENERAL = "\cf⍟\c- PBX Settings";
+PBX_MENU_GAMEPLAY = "\ck✜\c- Gameplay Settings";
 PBX_MENU_HUD = "\cv₪\c- HUD Settings";
 PBX_MENU_WEAPONS = "\cg☠\c- Weapons Settings";
-PBX_MENU_ARMORS = "\cg⛨\c- Armors Settings";
-PBX_MENU_POWERUPS = "\cg⚙\c- Powerups Settings";
-PBX_MENU_ITEMS = "\cg⟁\c- Items Settings";
+PBX_MENU_ARMORS = "\cd⛨\c- Armors Settings";
+PBX_MENU_POWERUPS = "\cx⚙\c- Powerups Settings";
+PBX_MENU_ITEMS = "\ci⟁\c- Items Settings";
 
 //////////////////////////// WEAPONS MENU ///////////////////////////////////////////////////////////////////////////////
 PBX_MENU_ENABLE_KEEPWEAPONS = "Keep Unupgraded Weapons";
