@@ -350,7 +350,8 @@ class PBX_SuperNailgun : PBX_WeaponBase
 
         FlashSlideKickingStop:
 			TNT1 A 0 cooldownOverheat();
-            MSNK BCDEFGG 1;             // 7 frames
+            SNSE A 1 superNailgun_setSprite("SNSU");
+            "####" BCDEFG 1;             // 7 frames
             goto CheckSpin;
     }
 }
