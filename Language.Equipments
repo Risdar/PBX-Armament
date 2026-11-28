@@ -48,7 +48,7 @@ PBX_TRIPMINE_OUT = "No \cgTrip Mines\c- Reamining";
 
 //////////////////////////// CHAOS GRENADE ///////////////////////////////////////////////////////////////////////////////
 PBX_CHAOSGREN_TAG = "Chaos Grenade";
-PBX_CHAOSGREN_WHEEL = "Equipment Selected: \cpChaos Grenade";
-PBX_CHAOSGREN_OUT = "No \cpChaos Grenades\c- Reamining";
+PBX_CHAOSGREN_WHEEL = "Equipment Selected: \ctChaos Grenade";
+PBX_CHAOSGREN_OUT = "No \ctChaos Grenades\c- Reamining";
 
 PBX_CHAOSGREN_TIP = "Chaos Grenades will trigger infights";

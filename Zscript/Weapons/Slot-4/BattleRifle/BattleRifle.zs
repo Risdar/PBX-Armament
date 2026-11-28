@@ -235,9 +235,7 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
 				A_SetWeaponFrame(random[sfx](0,2));
 				FireWeapon();
 			}
-			BR45 D 1 {
-				if (invoker.ammo2.amount < 1) PB_SpawnCasing("RifleClipSpawn");
-			}
+			BR45 D 1;
 			// Semi-auto: always go to BurstDone after 1 shot
 			// Burst: loop until mBurstCount hits 3
 			TNT1 A 0 A_JumpIf(getSemiAuto(), "BurstDone");
@@ -255,15 +253,14 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
 				return A_DoPBWeaponAction(WRF_ALLOWRELOAD | WRF_NOFIRE | WRF_NOPRIMARY);
 			}
 			TNT1 A 0 { invoker.mSemiClear = false; }
+			TNT1 A 0 PB_JumpIfNoAmmo();
 			goto Ready3;
 
 		Fire2:
 			TNT1 A 0 A_ZoomFactor(PBX_GetZoomLevel());
 			TNT1 A 0 PB_JumpIfNoAmmo(chamber:false);
 			BR4Z D 1 Bright FireWeapon();
-			BR4Z D 1 Bright {
-				if (invoker.ammo2.amount < 1) PB_SpawnCasing("RifleClipSpawn");
-			}
+			BR4Z D 1 Bright;
 			// Same logic as hipfire
 			TNT1 A 0 A_JumpIf(getSemiAuto(), "BurstDoneADS");
 			TNT1 A 0 A_JumpIf(invoker.mBurstCount < 3, "BurstFireRecoilADS");
@@ -284,6 +281,7 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
 				return A_DoPBWeaponAction(WRF_ALLOWRELOAD | WRF_NOFIRE | WRF_NOPRIMARY);
 			}
 			TNT1 A 0 { invoker.mSemiClear = false; }
+			TNT1 A 0 PB_JumpIfNoAmmo();
 			goto Ready2;
 
 		BurstFireRecoilADS:
@@ -322,6 +320,14 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
 			BR4Z CB 1;
 			BR4Z A 1;
 		Reload:
+            TNT1 A 0 {
+				if(invoker.ammo2.amount != 0)
+				{
+					A_Print("$PBX_BattleRifle_Reload");
+					return PBX_ReturnReady();
+				}
+				return resolvestate(null);
+			}
             TNT1 A 0 A_JumpIf(PB_GetZoom(),"ReloadFromADS");
 			TNT1 A 0 PB_CheckReload("RaiseFromEmpty", null, null, "Ready3", "Ready3", MAGAZINE_SIZE);
 			TNT1 A 0 A_startsound("BR45OPEN",CHAN_WEAPON,CHANF_OVERLAP);
@@ -330,11 +336,7 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
                 PB_SetMagUnloaded(true);
                 PB_SetMagEmpty(true);
                 PB_SetChamberEmpty(true);
-                If(invoker.ammo2.amount > 0)
-				{
-					PB_SpawnCasing("RifleClipSpawn");
-					A_fireprojectile("RifleClipSpawn",5,false,0,-14,0);
-				}
+            	A_FireCustomMissile("PBX_GarandCasing",-30,0,-4,-4);
 			}
             BR4R FGGGGG 1;
         ContinueReload:
@@ -360,11 +362,8 @@ class PBX_BDPBattleRifle : PBX_WeaponBase
 			TNT1 A 0 A_startsound("BR45OPEN",CHAN_WEAPON,CHANF_OVERLAP);
             BR4R ABCDE 1;
             TNT1 A 0 {
-				If(invoker.ammo2.amount > 0)
-				{
-					PB_SpawnCasing("RifleClipSpawn");
-					A_fireprojectile("RifleClipSpawn",5,false,0,-14,0);
-				}
+				// PB_SpawnCasing("PBX_GarandCasing");
+            	A_FireCustomMissile("PBX_GarandCasing",-30,0,-4,-4);
 				PB_UnloadMag(invoker.ammotype2, invoker.ammotype1);
 				PB_SetMagUnloaded(true);
 				PB_SetMagEmpty(true);

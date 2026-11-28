@@ -36,7 +36,7 @@ class PBX_ChaosGrenadeToken : PBX_Equipment
             SYRI A 0 A_StartSound("GRNPIN",CHAN_AUTO);
             4RTH IJKLMN 1;
             TNT1 A 2;
-            TNT1 A 0 A_StartSound("CS16uwu");
+            // TNT1 A 0 A_StartSound("CS16uwu");
             TNT1 A 0 A_Jump(2,2);
             TNT1 A 0 A_StartSound("GRNTOSS");
             GRTH OP 1;
@@ -98,16 +98,16 @@ Class ChaosInfighter : CustomInventory
 		Use:
             TNT1 A 0;
             TNT1 A 1 {
-                Console.Printf("Chaos given to "..GetClassName());
+                // Console.Printf("Chaos given to "..GetClassName());
                 bool isNotPlayer = !(target is "PBXCore_Player");
                 if(target && isNotPlayer)
                 {
-                    Console.Printf(GetClassName().." already has a target, whomst is "..target.GetClassName());
+                    // Console.Printf(GetClassName().." already has a target, whomst is "..target.GetClassName());
                     return;
                 }
                 else
                 {
-                    Console.Printf("Lets look...");
+                    // Console.Printf("Lets look...");
                     ThinkerIterator MonsterFinder = ThinkerIterator.Create("Actor");
                     Actor mo;
                     while (mo = Actor(MonsterFinder.Next()))
@@ -161,7 +161,7 @@ class StupidGrenade : PB_ThrownGrenade
                 A_Stop();
                 A_StartSound("weapons/sgl/incendiary", 0);
                 A_Explode(100, 100);
-                A_SpawnItem("GreenShockWave",0,0,0);
+                A_SpawnItem("WhiteShockWave",0,0,0);
                 A_CustomMissile ("BFGDeathParticleSuperFast", 0, 0, random (0, 360), 2, random (0, 360));
                 A_CustomMissile ("BFGDeathParticleFast", 0, 0, random (0, 360), 2, random (0, 360));
                 A_CustomMissile ("BFGBIGFOG", 0, 0, random (0, 360), 2, random (0, 360));

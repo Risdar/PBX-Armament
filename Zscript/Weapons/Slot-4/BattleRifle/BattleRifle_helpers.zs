@@ -60,7 +60,7 @@ class BR45BulletPuff: PB_BulletPuff
 	}
 }
 
-class RifleClipSpawn : actor
+class PBX_GarandCasing : actor
 {
 	Default
 	{
